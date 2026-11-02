@@ -19,6 +19,7 @@ export interface LanguageMeta {
   name: string;
   nativeName: string;
   flag: string;
+  countryCode: string;
   speechCode: string;
   description: string;
   accentColor: string;
@@ -32,6 +33,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'French',
     nativeName: 'Français',
     flag: '🇫🇷',
+    countryCode: 'fr',
     speechCode: 'fr-FR',
     description: 'The global language of romance, culture, diplomacy, and cuisine.',
     accentColor: '#1E3A8A',
@@ -43,6 +45,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'German',
     nativeName: 'Deutsch',
     flag: '🇩🇪',
+    countryCode: 'de',
     speechCode: 'de-DE',
     description: 'The powerhouse European language of engineering, philosophy, and innovation.',
     accentColor: '#3B82F6',
@@ -54,6 +57,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Japanese',
     nativeName: '日本語',
     flag: '🇯🇵',
+    countryCode: 'jp',
     speechCode: 'ja-JP',
     description: 'Master Japanese characters, etiquette, anime, and high-tech culture.',
     accentColor: '#10B981',
@@ -65,6 +69,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Korean',
     nativeName: '한국어',
     flag: '🇰🇷',
+    countryCode: 'kr',
     speechCode: 'ko-KR',
     description: 'Learn Hangul, K-Culture, entertainment, and modern Seoul lifestyle.',
     accentColor: '#8B5CF6',
@@ -76,6 +81,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Spanish',
     nativeName: 'Español',
     flag: '🇪🇸',
+    countryCode: 'es',
     speechCode: 'es-ES',
     description: 'Spoken across 20+ countries from Madrid to Latin America.',
     accentColor: '#F59E0B',
@@ -87,6 +93,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Mandarin Chinese',
     nativeName: '中文 (普通话)',
     flag: '🇨🇳',
+    countryCode: 'cn',
     speechCode: 'zh-CN',
     description: 'Standard Chinese tones, Pinyin, characters, and global business.',
     accentColor: '#EF4444',
@@ -98,6 +105,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Russian',
     nativeName: 'Русский',
     flag: '🇷🇺',
+    countryCode: 'ru',
     speechCode: 'ru-RU',
     description: 'Learn the Cyrillic alphabet, rich classical literature, and Eurasia.',
     accentColor: '#0284C7',
@@ -109,6 +117,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Portuguese',
     nativeName: 'Português',
     flag: '🇧🇷',
+    countryCode: 'br',
     speechCode: 'pt-BR',
     description: 'Warm, musical language spoken across Brazil, Portugal, and Africa.',
     accentColor: '#10B981',
@@ -120,6 +129,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Italian',
     nativeName: 'Italiano',
     flag: '🇮🇹',
+    countryCode: 'it',
     speechCode: 'it-IT',
     description: 'The expressive language of art, music, architecture, and gastronomy.',
     accentColor: '#059669',
@@ -131,6 +141,7 @@ export const SUPPORTED_LANGUAGES: LanguageMeta[] = [
     name: 'Arabic',
     nativeName: 'العربية',
     flag: '🇸🇦',
+    countryCode: 'sa',
     speechCode: 'ar-SA',
     description: 'Modern Standard Arabic script, calligraphy, and Middle Eastern culture.',
     accentColor: '#D97706',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { CURRICULUM, SUPPORTED_LANGUAGES, Lesson } from '../data/curriculum.ts';
+import { FlagIcon } from './FlagIcon.tsx';
 import { LingoraMascot } from './LingoraMascot.tsx';
 import {
   Flame,
@@ -65,7 +66,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               {profile.interfaceLanguage === 'hindi' ? 'नमस्ते' : 'Hello'}, {profile.displayName} !
             </h1>
             <p className="mt-2 text-white/90 text-xs sm:text-sm leading-relaxed">
-              Mastering <span className="font-extrabold text-[#FDBA74] underline decoration-2">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType}). Stay consistent today!
+              Mastering <FlagIcon code={currentLang.id} size="xs" className="inline-block mx-1" /> <span className="font-extrabold text-[#FDBA74] underline decoration-2">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType}). Stay consistent today!
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">

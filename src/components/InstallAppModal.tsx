@@ -84,7 +84,7 @@ export const InstallAppModal: React.FC<InstallAppModalProps> = ({ isOpen, onClos
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 sm:p-7 border border-slate-100 overflow-hidden">
+      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 sm:p-7 border border-slate-100 max-h-[92vh] overflow-y-auto">
         {/* Background Accent */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[#6546D7]/15 to-[#45B8E8]/10 rounded-full blur-2xl -z-10" />
 

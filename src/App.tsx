@@ -70,7 +70,7 @@ function AppContent() {
         <DesktopSidebarNav activeTab={activeTab} onSelectTab={(tab) => setActiveTab(tab)} />
 
         {/* Content View Area */}
-        <main className="flex-1 py-6 min-w-0">
+        <main className="flex-1 py-6 pb-24 lg:pb-8 min-w-0">
           {activeTab === 'home' && (
             <HomeDashboard
               onStartLesson={(lesson) => setActiveLesson(lesson)}

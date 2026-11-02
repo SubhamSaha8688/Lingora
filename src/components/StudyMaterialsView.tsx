@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { STUDY_MATERIALS, SUPPORTED_LANGUAGES, StudyMaterialItem } from '../data/curriculum.ts';
+import { FlagIcon } from './FlagIcon.tsx';
 import {
   BookOpen,
   FileText,
@@ -143,7 +144,7 @@ export const StudyMaterialsView: React.FC = () => {
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              <span>{l.flag}</span>
+              <FlagIcon code={l.id} size="xs" />
               <span>{l.name}</span>
             </button>
           ))}
@@ -170,7 +171,7 @@ export const StudyMaterialsView: React.FC = () => {
                 {/* Header Tag */}
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xl">{langMeta.flag}</span>
+                    <FlagIcon code={langMeta.id} size="sm" />
                     <span className="text-[11px] font-black uppercase tracking-wider text-[#1E3A8A]">
                       {langMeta.name} • {mat.level}
                     </span>

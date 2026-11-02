@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LingoraLogo } from './LingoraLogo.tsx';
+import { FlagIcon } from './FlagIcon.tsx';
 import { useAuth } from '../context/AuthContext.tsx';
 import { SUPPORTED_LANGUAGES, SupportedLanguage } from '../data/curriculum.ts';
 import {
@@ -56,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setLangMenuOpen(!langMenuOpen)}
               className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/80 text-xs sm:text-sm font-bold text-[#20243A] transition border border-slate-200/60"
             >
-              <span className="text-lg leading-none">{currentLang.flag}</span>
+              <FlagIcon code={currentLang.id} size="sm" />
               <span className="hidden sm:inline">{currentLang.name}</span>
               <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-md bg-[#1E3A8A]/10 text-[#1E3A8A] font-extrabold truncate max-w-[90px]">
                 {profile.currentLevel}
@@ -66,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             {langMenuOpen && (
               <div
-                className="absolute left-0 top-full mt-2 w-72 rounded-3xl bg-white shadow-2xl border border-slate-100 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                className="absolute left-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-3xl bg-white shadow-2xl border border-slate-100 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                 onMouseLeave={() => setLangMenuOpen(false)}
               >
                 <div className="px-2 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">
@@ -89,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <span className="text-xl">{lang.flag}</span>
+                        <FlagIcon code={lang.id} size="sm" />
                         <span>{lang.name}</span>
                       </div>
                       <span className="text-[10px] text-slate-400">{lang.pathwayType}</span>
@@ -130,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Daily Streak */}
           <div
             title="Daily Learning Streak"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-extrabold text-xs sm:text-sm cursor-default"
+            className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-extrabold text-xs sm:text-sm cursor-default"
           >
             <Flame className="w-4 h-4 fill-amber-500 text-amber-500 animate-pulse" />
             <span>{profile.streak}</span>
@@ -139,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Gems */}
           <div
             title="Lingora Gems"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 font-extrabold text-xs sm:text-sm cursor-default"
+            className="hidden min-[420px]:flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 font-extrabold text-xs sm:text-sm cursor-default"
           >
             <Gem className="w-4 h-4 fill-[#3B82F6] text-[#3B82F6]" />
             <span>{profile.gems}</span>
@@ -148,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Hearts */}
           <div
             title={profile.plan === 'premium' ? 'Unlimited Hearts (Lingora Plus)' : `${profile.hearts} Hearts remaining`}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-600 font-extrabold text-xs sm:text-sm cursor-default"
+            className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-600 font-extrabold text-xs sm:text-sm cursor-default"
           >
             <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
             <span>{profile.plan === 'premium' ? '∞' : profile.hearts}</span>

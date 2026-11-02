@@ -19,6 +19,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import { LingoraMascot } from './LingoraMascot.tsx';
+import { FlagIcon } from './FlagIcon.tsx';
 
 interface QuizSessionProps {
   lesson: Lesson;
@@ -279,7 +280,7 @@ export const QuizSession: React.FC<QuizSessionProps> = ({
           </span>
           <h2 className="text-3xl font-black text-[#20243A] mt-1">Excellent Job!</h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            You mastered <span className="font-bold">{lesson.title}</span> in {currentLang.name}.
+            You mastered <span className="font-bold">{lesson.title}</span> in <FlagIcon code={currentLang.id} size="xs" className="inline-block mx-1" /> {currentLang.name}.
           </p>
 
           {/* Stats Badges */}

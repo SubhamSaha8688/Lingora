@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext.tsx';
 import { SUPPORTED_LANGUAGES, SupportedLanguage } from '../data/curriculum.ts';
 import { speakText, startSpeechRecognition } from '../utils/speech.ts';
 import { LingoraMascot } from './LingoraMascot.tsx';
+import { FlagIcon } from './FlagIcon.tsx';
 import {
   Send,
   Volume2,
@@ -212,7 +213,7 @@ export const AiTutor: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Target: <span className="font-bold text-[#1E3A8A]">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType})
+                Target: <FlagIcon code={currentLang.id} size="xs" className="inline-block mx-1" /><span className="font-bold text-[#1E3A8A]">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType})
               </p>
             </div>
           </div>

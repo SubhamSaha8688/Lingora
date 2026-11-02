@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { ACHIEVEMENTS, SUPPORTED_LANGUAGES, CURRICULUM } from '../data/curriculum.ts';
 import { LingoraMascot } from './LingoraMascot.tsx';
+import { FlagIcon } from './FlagIcon.tsx';
 import {
   User,
   Mail,
@@ -69,8 +70,8 @@ export const UserProfileView: React.FC<UserProfileViewProps> = ({
                 alt={profile.displayName}
                 className="w-24 h-24 rounded-3xl object-cover ring-4 ring-[#1E3A8A]/20 shadow-md"
               />
-              <span className="absolute -bottom-2 -right-2 text-2xl shadow-sm rounded-full bg-white p-0.5">
-                {currentLang.flag}
+              <span className="absolute -bottom-2 -right-2 shadow-sm rounded-full bg-white p-1 flex items-center justify-center">
+                <FlagIcon code={currentLang.id} size="sm" rounded="full" />
               </span>
             </div>
 

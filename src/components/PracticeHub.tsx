@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { CURRICULUM, SUPPORTED_LANGUAGES, VocabularyItem } from '../data/curriculum.ts';
+import { FlagIcon } from './FlagIcon.tsx';
 import { speakText, startSpeechRecognition, calculateAccuracy } from '../utils/speech.ts';
 import { AiTutor } from './AiTutor.tsx';
 import {
@@ -121,6 +122,7 @@ export const PracticeHub: React.FC = () => {
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm text-center max-w-xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-[#6546D7] text-xs font-bold">
             <Mic className="w-3.5 h-3.5" />
+            <FlagIcon code={currentLang.id} size="xs" />
             <span>Voice Coach • {currentLang.name}</span>
           </div>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { SUPPORTED_LANGUAGES, SupportedLanguage } from '../data/curriculum.ts';
 import { LingoraMascot } from './LingoraMascot.tsx';
+import { FlagIcon } from './FlagIcon.tsx';
 import {
   Globe,
   Compass,
@@ -101,7 +102,10 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
                   }`}
                 >
                   <div>
-                    <div className="text-sm font-black">English 🇬🇧</div>
+                    <div className="text-sm font-black flex items-center gap-1.5">
+                      <span>English</span>
+                      <FlagIcon code="gb" size="xs" />
+                    </div>
                     <div className="text-[11px] text-slate-400 font-medium">Standard Interface</div>
                   </div>
                   {interfaceLang === 'english' && <CheckCircle2 className="w-5 h-5 text-[#3B82F6]" />}
@@ -116,7 +120,10 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
                   }`}
                 >
                   <div>
-                    <div className="text-sm font-black">हिन्दी 🇮🇳</div>
+                    <div className="text-sm font-black flex items-center gap-1.5">
+                      <span>हिन्दी</span>
+                      <FlagIcon code="in" size="xs" />
+                    </div>
                     <div className="text-[11px] text-slate-400 font-medium">Hindi Explanations</div>
                   </div>
                   {interfaceLang === 'hindi' && <CheckCircle2 className="w-5 h-5 text-[#3B82F6]" />}
@@ -149,7 +156,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
+            <div className="grid grid-cols-1 min-[370px]:grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
               {SUPPORTED_LANGUAGES.map((lang) => {
                 const isSelected = selectedLang === lang.id;
                 return (
@@ -163,7 +170,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className="text-2xl">{lang.flag}</span>
+                      <FlagIcon code={lang.id} size="md" />
                       <div>
                         <div className="text-xs font-black text-[#20243A] leading-tight">{lang.name}</div>
                         <div className="text-[10px] text-slate-400 font-medium">{lang.pathwayType} Standard</div>

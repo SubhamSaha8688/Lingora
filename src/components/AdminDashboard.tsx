@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { CURRICULUM, SUPPORTED_LANGUAGES, Lesson, SupportedLanguage, CEFRLevel } from '../data/curriculum.ts';
+import { FlagIcon } from './FlagIcon.tsx';
 import {
   Shield,
   Plus,
@@ -194,7 +195,7 @@ export const AdminDashboard: React.FC = () => {
                   >
                     {SUPPORTED_LANGUAGES.map((l) => (
                       <option key={l.id} value={l.id}>
-                        {l.flag} {l.name}
+                        {l.name} ({l.nativeName})
                       </option>
                     ))}
                   </select>
@@ -303,7 +304,7 @@ export const AdminDashboard: React.FC = () => {
                 <div key={lang.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-black text-sm text-[#20243A] flex items-center gap-1.5">
-                      <span>{lang.flag}</span>
+                      <FlagIcon code={lang.id} size="xs" />
                       <span>{lang.name} Curriculum</span>
                     </span>
                     <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white text-slate-600">

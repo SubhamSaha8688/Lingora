@@ -13,4 +13,24 @@
   .animate-bounce-short {
     animation: bounceShort 2s ease-in-out infinite;
   }
+
+  .safe-area-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0rem);
+  }
+}
+
+/* Ensure flawless responsive behavior across all mobile devices, foldables, and desktop */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling for touch and wheel devices */
+* {
+  box-sizing: border-box;
 }

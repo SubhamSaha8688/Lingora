@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { Trophy, Flame, Crown, ArrowUp, ArrowDown, Sparkles, Shield, Medal } from 'lucide-react';
+import { FlagIcon } from './FlagIcon.tsx';
 
 interface LeaderboardUser {
   id: string;
@@ -274,7 +275,7 @@ export const Leaderboard: React.FC = () => {
                     <span className="font-extrabold text-sm text-[#20243A]">
                       {user.name} {user.isCurrentUser && '(You)'}
                     </span>
-                    <span>{user.flag}</span>
+                    <FlagIcon flag={user.flag} code={user.language} size="xs" />
                   </div>
                   <span className="text-[11px] text-slate-400 font-medium">
                     Learning {user.language}

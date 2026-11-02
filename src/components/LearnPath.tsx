@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.tsx';
 import { CURRICULUM, SUPPORTED_LANGUAGES, Lesson, CEFRLevel } from '../data/curriculum.ts';
+import { FlagIcon } from './FlagIcon.tsx';
 import { speakText } from '../utils/speech.ts';
 import {
   Check,
@@ -35,7 +36,7 @@ export const LearnPath: React.FC<LearnPathProps> = ({ onStartLesson }) => {
       <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-3xl">{currentLang.flag}</span>
+            <FlagIcon code={currentLang.id} size="lg" />
             <div>
               <h1 className="text-xl font-extrabold text-[#20243A]">
                 {currentLang.name} Course Path
@@ -210,7 +211,7 @@ export const LearnPath: React.FC<LearnPathProps> = ({ onStartLesson }) => {
             )}
 
             {/* Start Button */}
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
               <span className="text-xs font-bold text-slate-400">
                 {selectedLesson.exercises.length} Exercises • ~{selectedLesson.estimatedMinutes} mins
               </span>
