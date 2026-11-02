@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LingoraLogo } from './LingoraLogo.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
-import { SUPPORTED_LANGUAGES } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
 import {
   Flame,
   Heart,
@@ -25,11 +25,12 @@ export const Header = ({
   onOpenInstallApp,
 }) => {
   const { profile, firebaseUser, logout, updateUserLanguage, updateUserLevel, isAdmin } = useAuth();
+  const { languages } = useCurriculum();
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const currentLang =
-    SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
 
   return (
     <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
@@ -63,10 +64,10 @@ export const Header = ({
                 onMouseLeave={() => setLangMenuOpen(false)}
               >
                 <div className="px-2 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">
-                  Select Language (10 Supported)
+                  Select Language ({languages.length} Supported)
                 </div>
                 <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
-                  {SUPPORTED_LANGUAGES.map((lang) => (
+                  {languages.map((lang) => (
                     <button
                       key={lang.id}
                       onClick={() => {

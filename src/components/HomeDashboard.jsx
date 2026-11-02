@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { CURRICULUM, SUPPORTED_LANGUAGES } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import { LingoraMascot } from './LingoraMascot.jsx';
 import {
@@ -23,11 +23,12 @@ export const HomeDashboard = ({
   onOpenSubscription,
 }) => {
   const { profile } = useAuth();
+  const { curriculum, languages } = useCurriculum();
 
   const currentLang =
-    SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
 
-  const availableLessons = CURRICULUM[profile.targetLanguage] || [];
+  const availableLessons = curriculum[profile.targetLanguage] || [];
 
   const nextLesson =
     availableLessons.find((l) => !profile.completedLessons?.includes(l.id)) ||

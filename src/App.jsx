@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
+import { CurriculumProvider } from './context/CurriculumContext.jsx';
 import { Header } from './components/Header.jsx';
 import { BottomNavigation, DesktopSidebarNav } from './components/Navigation.jsx';
 import { HomeDashboard } from './components/HomeDashboard.jsx';
@@ -135,7 +136,9 @@ function AppContent() {
 export default function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <CurriculumProvider>
+        <AppContent />
+      </CurriculumProvider>
     </AuthProvider>
   );
 }

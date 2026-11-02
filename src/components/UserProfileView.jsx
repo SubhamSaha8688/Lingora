@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { ACHIEVEMENTS, SUPPORTED_LANGUAGES, CURRICULUM } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
+import { ACHIEVEMENTS } from '../data/curriculum.js';
 import { LingoraMascot } from './LingoraMascot.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
+import { CertificateModal } from './CertificateModal.jsx';
 import {
   Mail,
   Flame,
@@ -16,6 +18,7 @@ import {
   Edit2,
   Save,
   BookOpen,
+  Printer,
 } from 'lucide-react';
 
 export const UserProfileView = ({
@@ -24,11 +27,13 @@ export const UserProfileView = ({
   onNavigateToTab,
 }) => {
   const { profile, firebaseUser, logout, saveCustomProfile } = useAuth();
+  const { languages } = useCurriculum();
 
   const [isEditing, setIsEditing] = useState(false);
   const [displayName, setDisplayName] = useState(profile.displayName);
   const [dailyGoalXp, setDailyGoalXp] = useState(profile.dailyGoalXp);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [certModalOpen, setCertModalOpen] = useState(false);
 
   const handleSaveProfile = async () => {
     await saveCustomProfile({
@@ -41,7 +46,7 @@ export const UserProfileView = ({
   };
 
   const currentLang =
-    SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
 
   const completedCount = profile.completedLessons?.length || 0;
   const purchasedMaterialsCount = profile.purchasedMaterials?.length || 0;
@@ -252,6 +257,31 @@ export const UserProfileView = ({
         </div>
       </div>
 
+      {/* Official Course Certificate Showcase */}
+      <div className="bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-amber-500/10 border-2 border-amber-300 rounded-3xl p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4 text-center sm:text-left">
+          <div className="w-14 h-14 rounded-2xl bg-amber-200 text-amber-900 flex items-center justify-center shrink-0">
+            <Award className="w-7 h-7" />
+          </div>
+          <div>
+            <h3 className="font-black text-base text-[#20243A]">
+              Official Lingora Course Certification
+            </h3>
+            <p className="text-xs text-slate-600 mt-0.5">
+              Verified certificate for {currentLang.name} • {profile.currentLevel} ({currentLang.pathwayType} Standard)
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setCertModalOpen(true)}
+          className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition cursor-pointer shrink-0"
+        >
+          <Award className="w-4 h-4 text-amber-400" />
+          <span>View & Download Certificate</span>
+        </button>
+      </div>
+
       {/* Learning Preferences & Account Settings */}
       <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-xs space-y-4">
         <div className="flex items-center gap-2">
@@ -306,6 +336,16 @@ export const UserProfileView = ({
           </div>
         </div>
       </div>
+
+      {/* Official Certificate Modal */}
+      <CertificateModal
+        isOpen={certModalOpen}
+        onClose={() => setCertModalOpen(false)}
+        userName={profile.displayName}
+        language={currentLang}
+        level={profile.currentLevel}
+        pathwayType={currentLang.pathwayType}
+      />
     </div>
   );
 };

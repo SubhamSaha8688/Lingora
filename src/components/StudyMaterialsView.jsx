@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { STUDY_MATERIALS, SUPPORTED_LANGUAGES } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import {
   BookOpen,
@@ -17,6 +17,7 @@ import {
 
 export const StudyMaterialsView = () => {
   const { profile, purchaseStudyMaterial } = useAuth();
+  const { studyMaterials, languages } = useCurriculum();
 
   const [activeTab, setActiveTab] = useState('catalog');
   const [selectedLanguageFilter, setSelectedLanguageFilter] = useState('all');
@@ -28,7 +29,7 @@ export const StudyMaterialsView = () => {
 
   const purchasedList = profile.purchasedMaterials || [];
 
-  const filteredMaterials = (STUDY_MATERIALS || []).filter((mat) => {
+  const filteredMaterials = (studyMaterials || []).filter((mat) => {
     const matchesLang =
       selectedLanguageFilter === 'all' || mat.languageId === selectedLanguageFilter;
     const matchesQuery =
@@ -37,7 +38,7 @@ export const StudyMaterialsView = () => {
     return matchesLang && matchesQuery;
   });
 
-  const myMaterials = (STUDY_MATERIALS || []).filter((mat) => purchasedList.includes(mat.id));
+  const myMaterials = (studyMaterials || []).filter((mat) => purchasedList.includes(mat.id));
 
   // Razorpay / Payment Gateway simulated checkout with secure verification receipt
   const handleConfirmPurchase = async (mat) => {
@@ -88,7 +89,7 @@ export const StudyMaterialsView = () => {
                 : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
             }`}
           >
-            All Course Materials ({STUDY_MATERIALS.length})
+            All Course Materials ({studyMaterials.length})
           </button>
           <button
             onClick={() => setActiveTab('purchased')}
@@ -131,7 +132,7 @@ export const StudyMaterialsView = () => {
           >
             All Languages
           </button>
-          {SUPPORTED_LANGUAGES.map((l) => (
+          {languages.map((l) => (
             <button
               key={l.id}
               onClick={() => setSelectedLanguageFilter(l.id)}
@@ -153,7 +154,7 @@ export const StudyMaterialsView = () => {
         {(activeTab === 'catalog' ? filteredMaterials : myMaterials).map((mat) => {
           const isUnlocked = purchasedList.includes(mat.id);
           const langMeta =
-            SUPPORTED_LANGUAGES.find((l) => l.id === mat.languageId) || SUPPORTED_LANGUAGES[0];
+            languages.find((l) => l.id === mat.languageId) || languages[0];
 
           return (
             <div

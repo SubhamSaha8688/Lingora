@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { CURRICULUM, SUPPORTED_LANGUAGES } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import { speakText } from '../utils/speech.js';
+import { VideoPlayer } from './VideoPlayer.jsx';
+import { CertificateModal } from './CertificateModal.jsx';
 import {
   Check,
   Star,
@@ -21,18 +23,21 @@ import {
   Award,
   ChevronRight,
   ShieldCheck,
+  Video,
 } from 'lucide-react';
 
 export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
   const { profile, updateUserLevel } = useAuth();
+  const { curriculum, languages } = useCurriculum();
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [viewMode, setViewMode] = useState('path'); // 'path' | 'syllabus'
   const [selectedLevelFilter, setSelectedLevelFilter] = useState('ALL');
+  const [certificateOpen, setCertificateOpen] = useState(false);
 
   const currentLang =
-    SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
 
-  const allLanguageLessons = CURRICULUM[profile.targetLanguage] || [];
+  const allLanguageLessons = curriculum[profile.targetLanguage] || [];
 
   // Filter by level if specified, otherwise show all
   const filteredLessons =
@@ -358,6 +363,29 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
                 </div>
               </div>
             ))}
+
+            {/* Course Milestone Certificate Card */}
+            <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-amber-500/10 border-2 border-dashed border-amber-300 text-center space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-amber-200 text-amber-900 mx-auto flex items-center justify-center">
+                <Award className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-black text-base text-[#20243A]">
+                  Official {currentLang.name} {profile.currentLevel} Certification
+                </h3>
+                <p className="text-xs text-slate-500 max-w-md mx-auto mt-0.5">
+                  Complete this pathway to claim a verifiable Lingora Academy Certificate of Completion with your name and unique verification code.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCertificateOpen(true)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-black shadow-md transition cursor-pointer"
+              >
+                <Award className="w-4 h-4" />
+                <span>View & Print Certificate</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -395,6 +423,34 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
               <span className="font-extrabold block text-[#1E3A8A] mb-1">🎯 Live Class Learning Milestone:</span>
               {selectedLesson.objective}
             </div>
+
+            {/* Micro-Masterclass Video Player */}
+            {(selectedLesson.videoUrl || selectedLesson.category?.includes('Masterclass') || true) && (
+              <div className="mt-4">
+                <VideoPlayer
+                  videoUrl={
+                    selectedLesson.videoUrl ||
+                    (currentLang.id === 'french'
+                      ? 'https://www.youtube.com/watch?v=ujDtm0hZyII'
+                      : currentLang.id === 'spanish'
+                      ? 'https://www.youtube.com/watch?v=k8v2qQ4z6G0'
+                      : currentLang.id === 'german'
+                      ? 'https://www.youtube.com/watch?v=5VjB4fQW8Z0'
+                      : currentLang.id === 'japanese'
+                      ? 'https://www.youtube.com/watch?v=rGrBHiuPlT0'
+                      : 'https://www.youtube.com/watch?v=0ZhOeA0My9s')
+                  }
+                  title={selectedLesson.videoTitle || `${selectedLesson.title} • Video Masterclass`}
+                  instructor={`Native ${currentLang.name} Specialist`}
+                  duration={selectedLesson.videoDuration || '3:45'}
+                  bookmarks={selectedLesson.videoBookmarks || [
+                    { timestamp: '00:15', seconds: 15, label: 'Overview' },
+                    { timestamp: '01:10', seconds: 70, label: 'Grammar Formula' },
+                    { timestamp: '02:30', seconds: 150, label: 'Dialogue Practice' },
+                  ]}
+                />
+              </div>
+            )}
 
             {/* Roleplay Dialogue Section (Live Class Alternative) */}
             {selectedLesson.conversationDialogue && selectedLesson.conversationDialogue.length > 0 && (
@@ -528,6 +584,15 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
           </div>
         </div>
       )}
+      {/* Official Certificate Modal */}
+      <CertificateModal
+        isOpen={certificateOpen}
+        onClose={() => setCertificateOpen(false)}
+        userName={profile.displayName}
+        language={currentLang}
+        level={profile.currentLevel}
+        pathwayType={currentLang.pathwayType}
+      />
     </div>
   );
 };

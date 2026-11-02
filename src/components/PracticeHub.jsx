@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { CURRICULUM, SUPPORTED_LANGUAGES } from '../data/curriculum.js';
+import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import { speakText, startSpeechRecognition, calculateAccuracy } from '../utils/speech.js';
 import { AiTutor } from './AiTutor.jsx';
@@ -15,13 +15,14 @@ import {
 
 export const PracticeHub = () => {
   const { profile } = useAuth();
+  const { curriculum, languages } = useCurriculum();
   const [activeSubTab, setActiveSubTab] = useState('tutor');
 
   const currentLang =
-    SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
 
   // Extract all vocab items for current language
-  const allVocab = (CURRICULUM[profile.targetLanguage] || []).flatMap(
+  const allVocab = (curriculum[profile.targetLanguage] || []).flatMap(
     (l) => l.vocabulary || []
   );
 

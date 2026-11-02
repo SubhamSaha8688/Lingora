@@ -18,6 +18,14 @@
       "destination": "/api/health"
     },
     {
+      "source": "/api/curriculum/:match*",
+      "destination": "/api/curriculum"
+    },
+    {
+      "source": "/api/curriculum",
+      "destination": "/api/curriculum"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

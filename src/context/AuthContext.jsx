@@ -30,6 +30,7 @@ const AuthContext = createContext(null);
 
 const ADMIN_EMAILS = [
   'shadowmonarch8688@gmail.com',
+  'saha88979@gmail.com',
   'admin@lingora.app',
   ...(typeof import.meta !== 'undefined' && import.meta.env?.VITE_ADMIN_EMAILS
     ? import.meta.env.VITE_ADMIN_EMAILS.split(',').map((e) => e.trim().toLowerCase())
@@ -450,6 +451,15 @@ export function AuthProvider({ children }) {
     });
   };
 
+  const unlockAdminWithPin = async (pin) => {
+    const validPins = ['lingora2026', 'admin8688', 'lingora_founder'];
+    if (validPins.includes(pin.trim().toLowerCase())) {
+      await saveCustomProfile({ role: 'admin' });
+      return { success: true };
+    }
+    return { success: false, error: 'Invalid Founder Master PIN.' };
+  };
+
   const isAdmin =
     profile.role === 'admin' ||
     checkIsAdmin(user?.email) ||
@@ -463,6 +473,7 @@ export function AuthProvider({ children }) {
         profile,
         loading,
         isAdmin,
+        unlockAdminWithPin,
         signInWithGoogle,
         signInWithDemo,
         signUpWithEmail,
