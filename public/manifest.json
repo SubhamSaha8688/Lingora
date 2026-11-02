@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Lingora – Language Learning",
+  "short_name": "Lingora",
+  "description": "Learn Languages. Unlock Your World. Master French, German, Japanese, Korean, Spanish, and more with AI tutoring.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F8F9FC",
+  "theme_color": "#6546D7",
+  "categories": ["education", "language"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Lingora",
+  "description": "Lingora – AI-Powered Multilingual Learning Platform. Learn Languages. Unlock Your World. Master French, German, Japanese, Korean, Spanish, Mandarin, Russian, Portuguese, Italian, and Arabic with interactive courses, voice practice, Study Materials Hub, and real-time Gemini AI tutoring.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="lingoraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C5BF2" />
+      <stop offset="100%" stop-color="#4F35B5" />
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#45B8E8" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="goldBeak" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <filter id="drop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- App Background (Android Maskable Safe Zone) -->
+  <rect width="512" height="512" rx="115" fill="url(#lingoraBg)" />
+
+  <!-- Inner Soft Glow -->
+  <circle cx="256" cy="256" r="180" fill="#FFFFFF" opacity="0.08" />
+
+  <!-- Mascot Owl Head / Body -->
+  <g filter="url(#drop)">
+    <!-- Feather Tufts / Ears -->
+    <path d="M 170 160 L 140 105 Q 185 125 210 145 Z" fill="#4328A6" />
+    <path d="M 342 160 L 372 105 Q 327 125 302 145 Z" fill="#4328A6" />
+
+    <!-- Owl Body -->
+    <ellipse cx="256" cy="275" rx="145" ry="155" fill="#5E3CD8" stroke="#4328A6" stroke-width="6" />
+
+    <!-- Belly Patch -->
+    <ellipse cx="256" cy="330" rx="90" ry="85" fill="#F8F9FC" opacity="0.95" />
+
+    <!-- Belly Chevron Feathers -->
+    <path d="M 230 310 Q 256 325 282 310" stroke="#7C5BF2" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 220 340 Q 256 358 292 340" stroke="#7C5BF2" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 235 370 Q 256 385 277 370" stroke="#7C5BF2" stroke-width="4" stroke-linecap="round" fill="none" />
+
+    <!-- Left Eye -->
+    <circle cx="205" cy="235" r="46" fill="#FFFFFF" stroke="#4328A6" stroke-width="4" />
+    <circle cx="210" cy="235" r="28" fill="#1E293B" />
+    <circle cx="218" cy="225" r="10" fill="#FFFFFF" />
+    <circle cx="204" cy="245" r="4" fill="#FFFFFF" />
+
+    <!-- Right Eye -->
+    <circle cx="307" cy="235" r="46" fill="#FFFFFF" stroke="#4328A6" stroke-width="4" />
+    <circle cx="302" cy="235" r="28" fill="#1E293B" />
+    <circle cx="294" cy="225" r="10" fill="#FFFFFF" />
+    <circle cx="308" cy="245" r="4" fill="#FFFFFF" />
+
+    <!-- Cheeks (Blush) -->
+    <ellipse cx="160" cy="275" rx="18" ry="10" fill="#F472B6" opacity="0.6" />
+    <ellipse cx="352" cy="275" rx="18" ry="10" fill="#F472B6" opacity="0.6" />
+
+    <!-- Beak -->
+    <polygon points="256,252 238,276 274,276" fill="url(#goldBeak)" />
+    <polygon points="238,276 274,276 256,298" fill="#D97706" />
+
+    <!-- Little Graduation Cap / Academic Leaf Badge -->
+    <g transform="translate(330, 150) rotate(12)">
+      <circle cx="0" cy="0" r="24" fill="#10B981" />
+      <path d="M -12 2 L -4 10 L 12 -6" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+  </g>
+</svg>
