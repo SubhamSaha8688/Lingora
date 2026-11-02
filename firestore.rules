@@ -1,13 +1,146 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Global Safety Net
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // This security rules file assumes the following data structures:
+    //
+    // Collection: users
+    // Document ID: {userId} (matches Firebase Auth UID)
+    // Fields:
+    //   - userId: string (required, 1-128 chars, matches auth.uid) - User ID
+    //   - email: string (required, valid email, <= 256 chars) - User email address
+    //   - displayName: string (required, 1-100 chars) - User display name
+    //   - photoURL: string (optional, URL/string, <= 500 chars) - Profile picture URL
+    //   - targetLanguage: string (required, 2-30 chars) - Active language being learned
+    //   - currentLevel: string (required, 1-30 chars) - Proficiency level (e.g., A1, JLPT N5)
+    //   - totalXp: number (required, >= 0) - Total accumulated XP points
+    //   - streak: number (required, >= 0) - Daily streak count
+    //   - hearts: number (optional, >= 0) - Remaining lives/hearts
+    //   - gems: number (optional, >= 0) - Earned gems currency
+    //   - dailyGoalXp: number (optional, >= 0) - Daily target XP
+    //   - role: string (required, enum: 'user' | 'admin') - User authorization role
+    //   - plan: string (optional, enum: 'free' | 'premium') - Subscription tier
+    //   - interfaceLanguage: string (optional, enum: 'english' | 'hindi') - UI language
+    //   - hasCompletedOnboarding: bool (optional) - Onboarding completion flag
+    //   - studyGoal: string (optional, <= 100 chars) - Study objective/goal
+    //   - dailyStudyMinutes: number (optional, >= 0) - Target daily study minutes
+    //   - completedLessons: list of strings (optional, <= 1000 items) - Completed lesson IDs
+    //   - purchasedMaterials: list of strings (optional, <= 500 items) - Purchased material IDs
+    //   - unlockedLanguages: list of strings (optional, <= 50 items) - Unlocked language IDs
+    //   - createdAt: string (optional, <= 100 chars, immutable) - Account creation timestamp
+    //   - updatedAt: string (optional, <= 100 chars) - Last updated timestamp
+    //   - lastActiveDate: string (optional, <= 50 chars) - Last active calendar date
+    //
+    // Collection: users/{userId}/progress
+    // Document ID: {progressId}
+    // Fields:
+    //   - userId: string (required, matches parent userId) - User identifier
+    //   - lessonId: string (required, 1-128 chars) - Associated lesson ID
+    //   - languageId: string (required, 1-30 chars) - Target course language
+    //   - level: string (optional, <= 20 chars) - Course level
+    //   - completed: bool (required) - Completion status
+    //   - score: number (required, >= 0) - Quiz score percentage/points
+    //   - xpEarned: number (required, >= 0) - Lesson reward XP
+    //   - completedAt: string (optional, <= 100 chars) - Completion timestamp
+    //
+    // Collection: users/{userId}/purchases
+    // Document ID: {purchaseId}
+    // Fields:
+    //   - purchaseId: string (required, 1-128 chars) - Purchase record ID
+    //   - userId: string (required, matches parent userId) - Purchasing user ID
+    //   - materialId: string (required, 1-128 chars) - Purchased material ID
+    //   - amount: number (required, >= 0) - Price paid in currency units
+    //   - currency: string (optional, <= 10 chars) - Currency code (e.g. INR)
+    //   - status: string (required, enum: 'completed' | 'pending' | 'refunded') - Order status
+    //   - purchasedAt: string (optional, <= 100 chars) - Order timestamp
+    //
+    // Collection: languages
+    // Document ID: {langId}
+    // Fields:
+    //   - id: string (required, <= 32 chars) - Language identifier (e.g. 'french')
+    //   - name: string (required, <= 64 chars) - Language name
+    //   - code: string (optional, <= 10 chars) - Country/language code
+    //   - flag: string (optional, <= 10 chars) - Flag emoji
+    //   - description: string (optional, <= 500 chars) - Course overview
+    //   - nativeName: string (optional, <= 64 chars) - Native script name
+    //   - speechCode: string (optional, <= 20 chars) - TTS locale
+    //   - accentColor: string (optional, <= 20 chars) - Brand accent hex
+    //   - pathwayType: string (optional, <= 20 chars) - Framework (CEFR, JLPT, etc.)
+    //   - availableLevels: list (optional, <= 20 items) - Available level list
+    //
+    // Collection: lessons
+    // Document ID: {lessonId}
+    // Fields:
+    //   - id: string (required, <= 128 chars) - Lesson identifier
+    //   - languageId: string (required, <= 30 chars) - Language code
+    //   - level: string (required, <= 20 chars) - Level designation
+    //   - title: string (required, <= 150 chars) - Lesson title
+    //   - description: string (required, <= 500 chars) - Short summary
+    //   - order: number (optional, >= 0) - Sequence order
+    //   - category: string (optional, <= 64 chars) - Lesson category
+    //   - estimatedMinutes: number (optional, >= 0) - Estimated duration
+    //   - xpReward: number (optional, >= 0) - Completion XP
+    //   - objective: string (optional, <= 500 chars) - Learning objective
+    //   - vocabulary: list (optional, <= 200 items) - Vocabulary word list
+    //   - grammarNotes: list (optional, <= 50 items) - Grammar rules list
+    //   - exercises: list (optional, <= 100 items) - Interactive exercises
+    //
+    // Collection: materials
+    // Document ID: {materialId}
+    // Fields:
+    //   - materialId / id: string (optional, <= 128 chars) - Material identifier
+    //   - title: string (required, <= 150 chars) - Material handbook title
+    //   - languageId: string (required, <= 30 chars) - Language identifier
+    //   - level: string (required, <= 20 chars) - Target proficiency level
+    //   - description: string (optional, <= 500 chars) - Material description
+    //   - priceInInr: number (required, >= 0) - Price in INR
+    //   - pagesCount: number (optional, >= 0) - Page count
+    //   - previewUrl: string (optional, <= 500 chars) - Preview URL
+    //   - chapters: list (optional, <= 100 items) - Table of contents
+    //   - featured: bool (optional) - Featured flag
+    //
+    // Collection: admins
+    // Document ID: {userId}
+    // Fields:
+    //   - email: string (required, <= 256 chars) - Administrator email
+    //   - grantedAt: string (optional, <= 100 chars) - Timestamp granted
+    //
+    // ===============================================================
+
+    // Global Safety Net: Deny all reads and writes by default
     match /{document=**} {
       allow read, write: if false;
     }
 
-    function isValidId(id) {
-      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Alias for isAuthenticated for backward compatibility
+    function isSignedIn() {
+      return isAuthenticated();
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        (
+          request.auth.token.email == 'shadowmonarch8688@gmail.com' ||
+          request.auth.token.email == 'vishwanathpatil1922@gmail.com'
+        ) ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
     }
 
     function incoming() {
@@ -18,75 +151,238 @@ service cloud.firestore {
       return resource.data;
     }
 
-    function isSignedIn() {
-      return request.auth != null;
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
     }
 
-    function isAdmin() {
-      return isSignedIn() && (
-        request.auth.token.email == 'vishwanathpatil1922@gmail.com' ||
-        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
-      );
+    function isValidEmail(email) {
+      return email is string &&
+        email.size() <= 256 &&
+        email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
     }
+
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data) {
+      return data.keys().hasAll([
+          'userId', 'email', 'displayName', 'targetLanguage', 'currentLevel',
+          'totalXp', 'streak', 'role'
+        ]) &&
+        data.keys().hasOnly([
+          'userId', 'email', 'displayName', 'photoURL', 'targetLanguage', 'currentLevel',
+          'totalXp', 'streak', 'hearts', 'gems', 'dailyGoalXp', 'role', 'plan',
+          'interfaceLanguage', 'hasCompletedOnboarding', 'studyGoal', 'dailyStudyMinutes',
+          'completedLessons', 'purchasedMaterials', 'unlockedLanguages',
+          'createdAt', 'updatedAt', 'lastActiveDate'
+        ]) &&
+        data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 &&
+        isValidEmail(data.email) &&
+        data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+        (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 500)) &&
+        data.targetLanguage is string && data.targetLanguage.size() >= 2 && data.targetLanguage.size() <= 30 &&
+        data.currentLevel is string && data.currentLevel.size() >= 1 && data.currentLevel.size() <= 30 &&
+        data.totalXp is number && data.totalXp >= 0 &&
+        data.streak is number && data.streak >= 0 &&
+        (!('hearts' in data) || (data.hearts is number && data.hearts >= 0)) &&
+        (!('gems' in data) || (data.gems is number && data.gems >= 0)) &&
+        (!('dailyGoalXp' in data) || (data.dailyGoalXp is number && data.dailyGoalXp >= 0)) &&
+        data.role in ['user', 'admin'] &&
+        (!('plan' in data) || data.plan in ['free', 'premium']) &&
+        (!('interfaceLanguage' in data) || data.interfaceLanguage in ['english', 'hindi']) &&
+        (!('hasCompletedOnboarding' in data) || data.hasCompletedOnboarding is bool) &&
+        (!('studyGoal' in data) || (data.studyGoal is string && data.studyGoal.size() <= 100)) &&
+        (!('dailyStudyMinutes' in data) || (data.dailyStudyMinutes is number && data.dailyStudyMinutes >= 0)) &&
+        (!('completedLessons' in data) || (data.completedLessons is list && data.completedLessons.size() <= 1000)) &&
+        (!('purchasedMaterials' in data) || (data.purchasedMaterials is list && data.purchasedMaterials.size() <= 500)) &&
+        (!('unlockedLanguages' in data) || (data.unlockedLanguages is list && data.unlockedLanguages.size() <= 50)) &&
+        (!('createdAt' in data) || (data.createdAt is string && data.createdAt.size() <= 100)) &&
+        (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 100)) &&
+        (!('lastActiveDate' in data) || (data.lastActiveDate is string && data.lastActiveDate.size() <= 50));
+    }
+
+    function isValidProgress(data, userId) {
+      return data.keys().hasAll(['userId', 'lessonId', 'languageId', 'completed', 'score', 'xpEarned']) &&
+        data.keys().hasOnly(['userId', 'lessonId', 'languageId', 'level', 'completed', 'score', 'xpEarned', 'completedAt']) &&
+        data.userId == userId &&
+        data.lessonId is string && data.lessonId.size() >= 1 && data.lessonId.size() <= 128 &&
+        data.languageId is string && data.languageId.size() >= 1 && data.languageId.size() <= 30 &&
+        (!('level' in data) || (data.level is string && data.level.size() <= 20)) &&
+        data.completed is bool &&
+        data.score is number && data.score >= 0 &&
+        data.xpEarned is number && data.xpEarned >= 0 &&
+        (!('completedAt' in data) || (data.completedAt is string && data.completedAt.size() <= 100));
+    }
+
+    function isValidPurchase(data, userId) {
+      return data.keys().hasAll(['purchaseId', 'userId', 'materialId', 'amount', 'status']) &&
+        data.keys().hasOnly(['purchaseId', 'userId', 'materialId', 'amount', 'currency', 'status', 'purchasedAt']) &&
+        data.userId == userId &&
+        data.purchaseId is string && data.purchaseId.size() >= 1 && data.purchaseId.size() <= 128 &&
+        data.materialId is string && data.materialId.size() >= 1 && data.materialId.size() <= 128 &&
+        data.amount is number && data.amount >= 0 &&
+        (!('currency' in data) || (data.currency is string && data.currency.size() <= 10)) &&
+        data.status in ['completed', 'pending', 'refunded'] &&
+        (!('purchasedAt' in data) || (data.purchasedAt is string && data.purchasedAt.size() <= 100));
+    }
+
+    function isValidLanguage(data) {
+      return data.keys().hasAll(['id', 'name']) &&
+        data.keys().hasOnly([
+          'id', 'name', 'code', 'flag', 'description', 'nativeName',
+          'speechCode', 'accentColor', 'pathwayType', 'availableLevels'
+        ]) &&
+        data.id is string && data.id.size() >= 1 && data.id.size() <= 32 &&
+        data.name is string && data.name.size() >= 1 && data.name.size() <= 64 &&
+        (!('code' in data) || (data.code is string && data.code.size() <= 10)) &&
+        (!('flag' in data) || (data.flag is string && data.flag.size() <= 10)) &&
+        (!('description' in data) || (data.description is string && data.description.size() <= 500)) &&
+        (!('nativeName' in data) || (data.nativeName is string && data.nativeName.size() <= 64)) &&
+        (!('speechCode' in data) || (data.speechCode is string && data.speechCode.size() <= 20)) &&
+        (!('accentColor' in data) || (data.accentColor is string && data.accentColor.size() <= 20)) &&
+        (!('pathwayType' in data) || (data.pathwayType is string && data.pathwayType.size() <= 20)) &&
+        (!('availableLevels' in data) || (data.availableLevels is list && data.availableLevels.size() <= 20));
+    }
+
+    function isValidLesson(data) {
+      return data.keys().hasAll(['id', 'languageId', 'level', 'title', 'description']) &&
+        data.keys().hasOnly([
+          'id', 'languageId', 'level', 'title', 'description', 'order',
+          'category', 'estimatedMinutes', 'xpReward', 'objective',
+          'vocabulary', 'grammarNotes', 'exercises'
+        ]) &&
+        data.id is string && data.id.size() >= 1 && data.id.size() <= 128 &&
+        data.languageId is string && data.languageId.size() >= 1 && data.languageId.size() <= 30 &&
+        data.level is string && data.level.size() >= 1 && data.level.size() <= 20 &&
+        data.title is string && data.title.size() >= 1 && data.title.size() <= 150 &&
+        data.description is string && data.description.size() >= 1 && data.description.size() <= 500 &&
+        (!('order' in data) || (data.order is number && data.order >= 0)) &&
+        (!('category' in data) || (data.category is string && data.category.size() <= 64)) &&
+        (!('estimatedMinutes' in data) || (data.estimatedMinutes is number && data.estimatedMinutes >= 0)) &&
+        (!('xpReward' in data) || (data.xpReward is number && data.xpReward >= 0)) &&
+        (!('objective' in data) || (data.objective is string && data.objective.size() <= 500)) &&
+        (!('vocabulary' in data) || (data.vocabulary is list && data.vocabulary.size() <= 200)) &&
+        (!('grammarNotes' in data) || (data.grammarNotes is list && data.grammarNotes.size() <= 50)) &&
+        (!('exercises' in data) || (data.exercises is list && data.exercises.size() <= 100));
+    }
+
+    function isValidMaterial(data) {
+      return data.keys().hasAll(['title', 'languageId', 'level', 'priceInInr']) &&
+        data.keys().hasOnly([
+          'materialId', 'id', 'title', 'languageId', 'level', 'description',
+          'priceInInr', 'pagesCount', 'previewUrl', 'chapters', 'featured'
+        ]) &&
+        (!('materialId' in data) || (data.materialId is string && data.materialId.size() <= 128)) &&
+        (!('id' in data) || (data.id is string && data.id.size() <= 128)) &&
+        data.title is string && data.title.size() >= 1 && data.title.size() <= 150 &&
+        data.languageId is string && data.languageId.size() >= 1 && data.languageId.size() <= 30 &&
+        data.level is string && data.level.size() >= 1 && data.level.size() <= 20 &&
+        (!('description' in data) || (data.description is string && data.description.size() <= 500)) &&
+        data.priceInInr is number && data.priceInInr >= 0 &&
+        (!('pagesCount' in data) || (data.pagesCount is number && data.pagesCount >= 0)) &&
+        (!('previewUrl' in data) || (data.previewUrl is string && data.previewUrl.size() <= 500)) &&
+        (!('chapters' in data) || (data.chapters is list && data.chapters.size() <= 100)) &&
+        (!('featured' in data) || data.featured is bool);
+    }
+
+    function isValidAdmin(data) {
+      return data.keys().hasAll(['email']) &&
+        data.keys().hasOnly(['email', 'grantedAt']) &&
+        isValidEmail(data.email) &&
+        (!('grantedAt' in data) || (data.grantedAt is string && data.grantedAt.size() <= 100));
+    }
+
+    // ===============================================================
+    // Collection Security Rules
+    // ===============================================================
 
     // User Profiles
     match /users/{userId} {
-      allow get: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow get: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       allow list: if isAdmin();
-      allow create: if isSignedIn() && request.auth.uid == userId && incoming().userId == userId;
-      allow update: if isSignedIn() && (
-        isAdmin() ||
+      allow create: if isAuthenticated() &&
+        request.resource.data.userId == userId &&
+        isValidUser(request.resource.data) &&
+        (isAdmin() || (request.auth.uid == userId && request.resource.data.role == 'user'));
+      allow update: if isAuthenticated() &&
+        isValidUser(request.resource.data) &&
         (
-          request.auth.uid == userId &&
-          incoming().userId == userId &&
-          (incoming().role == existing().role || (existing().role == null && incoming().role == 'user'))
-        )
-      );
+          isAdmin() ||
+          (
+            request.auth.uid == userId &&
+            request.resource.data.userId == userId &&
+            areImmutableFieldsUnchanged(['userId', 'createdAt']) &&
+            (
+              request.resource.data.role == resource.data.role ||
+              (!('role' in resource.data) && request.resource.data.role == 'user')
+            )
+          )
+        );
       allow delete: if isAdmin();
 
       // Subcollection: User lesson progress
       match /progress/{progressId} {
-        allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
-        allow create, update: if isSignedIn() && (
-          isAdmin() ||
-          (request.auth.uid == userId && incoming().userId == userId)
-        );
-        allow delete: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+        allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+        allow create: if isAuthenticated() &&
+          isValidProgress(request.resource.data, userId) &&
+          (isAdmin() || (request.auth.uid == userId && request.resource.data.userId == userId));
+        allow update: if isAuthenticated() &&
+          isValidProgress(request.resource.data, userId) &&
+          areImmutableFieldsUnchanged(['userId', 'lessonId']) &&
+          (isAdmin() || (request.auth.uid == userId && request.resource.data.userId == userId));
+        allow delete: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       }
 
       // Subcollection: Purchased study materials
       match /purchases/{purchaseId} {
-        allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
-        allow create, update: if isSignedIn() && (
-          isAdmin() ||
-          (request.auth.uid == userId && incoming().userId == userId)
-        );
+        allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+        allow create: if isAuthenticated() &&
+          isValidPurchase(request.resource.data, userId) &&
+          (isAdmin() || (request.auth.uid == userId && request.resource.data.userId == userId));
+        allow update: if isAuthenticated() &&
+          isValidPurchase(request.resource.data, userId) &&
+          areImmutableFieldsUnchanged(['purchaseId', 'userId', 'materialId']) &&
+          (isAdmin() || (request.auth.uid == userId && request.resource.data.userId == userId));
         allow delete: if isAdmin();
       }
     }
 
-    // Languages curriculum definition
+    // Languages curriculum definition (Publicly readable course catalogue)
     match /languages/{langId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow create, update: if isAdmin() && isValidLanguage(request.resource.data);
+      allow delete: if isAdmin();
     }
 
-    // Lessons and exercises
+    // Lessons and exercises (Publicly readable course material)
     match /lessons/{lessonId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow create, update: if isAdmin() && isValidLesson(request.resource.data);
+      allow delete: if isAdmin();
     }
 
-    // Paid & Licensed Study Materials
+    // Paid & Licensed Study Materials (Publicly browsable handbook catalogue)
     match /materials/{materialId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow create, update: if isAdmin() && isValidMaterial(request.resource.data);
+      allow delete: if isAdmin();
     }
 
     // System Admins
     match /admins/{userId} {
       allow read: if isSignedIn();
-      allow write: if isAdmin();
+      allow create, update: if isAdmin() && isValidAdmin(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    // Connection health check
+    match /test/{docId} {
+      allow get: if true;
     }
   }
 }

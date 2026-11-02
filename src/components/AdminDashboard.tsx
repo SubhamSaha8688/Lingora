@@ -33,7 +33,7 @@ export const AdminDashboard: React.FC = () => {
 
   // Mock users list for management
   const [userList, setUserList] = useState([
-    { id: '1', name: 'Vishwanath Patil', email: 'vishwanathpatil1922@gmail.com', role: 'admin', plan: 'premium', xp: 450 },
+    { id: '1', name: 'Subham Saha', email: 'shadowmonarch8688@gmail.com', role: 'admin', plan: 'premium', xp: 450 },
     { id: '2', name: 'Claire Moreau', email: 'claire@lingora.test', role: 'user', plan: 'free', xp: 320 },
     { id: '3', name: 'Florian Becker', email: 'florian@lingora.test', role: 'user', plan: 'premium', xp: 280 },
     { id: '4', name: 'Kenji Sato', email: 'kenji@lingora.test', role: 'user', plan: 'free', xp: 190 },

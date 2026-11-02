@@ -100,6 +100,19 @@ const DEFAULT_GUEST_PROFILE: UserProfile = {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+const ADMIN_EMAILS: string[] = [
+  'shadowmonarch8688@gmail.com',
+  'admin@lingora.app',
+  ...(typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_ADMIN_EMAILS
+    ? ((import.meta as any).env.VITE_ADMIN_EMAILS as string).split(',').map((e: string) => e.trim().toLowerCase())
+    : []),
+].map((e) => e.toLowerCase());
+
+function checkIsAdmin(email?: string | null): boolean {
+  if (!email) return false;
+  return ADMIN_EMAILS.includes(email.toLowerCase());
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [firebaseUser, setFirebaseUser] = useState<FirebaseUser | null>(null);
   const [profile, setProfile] = useState<UserProfile>(() => {
@@ -135,7 +148,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const userRef = doc(db, 'users', user.uid);
     try {
       const snap = await getDoc(userRef);
-      const isAutoAdmin = user.email === 'vishwanathpatil1922@gmail.com';
+      const isAutoAdmin = checkIsAdmin(user.email);
 
       if (snap.exists()) {
         const data = snap.data() as UserProfile;
@@ -304,8 +317,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const isAdmin =
     profile.role === 'admin' ||
-    firebaseUser?.email === 'vishwanathpatil1922@gmail.com' ||
-    profile.email === 'vishwanathpatil1922@gmail.com';
+    checkIsAdmin(firebaseUser?.email) ||
+    checkIsAdmin(profile.email);
 
   return (
     <AuthContext.Provider

@@ -12,7 +12,7 @@ function getAiClient(): GoogleGenAI {
       apiKey,
       httpOptions: {
         headers: {
-          'User-Agent': 'aistudio-build',
+          'User-Agent': 'lingora-app',
         },
       },
     });
@@ -48,6 +48,15 @@ export interface TutorRequest {
 }
 
 export async function handleTutorInteraction(request: TutorRequest) {
+  const apiKey = process.env.GEMINI_API_KEY?.trim();
+  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY' || apiKey.length < 5) {
+    return {
+      success: false,
+      error: 'GEMINI_API_KEY is not configured',
+      text: 'Lingora AI Tutor requires a Gemini API key. Please add your GEMINI_API_KEY to the .env file in the project root to start conversational practice!',
+    };
+  }
+
   const ai = getAiClient();
 
   const langNames: Record<string, string> = {
@@ -67,7 +76,7 @@ export async function handleTutorInteraction(request: TutorRequest) {
   const userLevel = request.level || 'Beginner';
   const explainLang = request.explanationLanguage === 'hindi' ? 'Hindi and simple English' : 'clear, encouraging English';
 
-  let systemPrompt = `You are "Lingora AI", an elite, warm, pedagogical language tutor specializing in ${targetLang}.
+  const systemPrompt = `You are "Lingora AI", an elite, warm, pedagogical language tutor specializing in ${targetLang}.
 The learner's current proficiency pathway level is ${userLevel}.
 All grammatical explanations, corrections, and meta-instructions must be in ${explainLang}.
 Always format your responses with clean Markdown, bullet points, and helpful formatting.
@@ -127,18 +136,40 @@ Keep the tone warm, patient, inspiring, and encouraging. Never shame mistakes; c
       parts: [{ text: request.message }],
     });
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.8-flash',
-      contents: formattedContents,
-      config: {
-        systemInstruction: systemPrompt,
-      },
-    });
+    const candidateModels = [
+      process.env.GEMINI_MODEL,
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash',
+    ].filter(Boolean) as string[];
 
-    return {
-      success: true,
-      text: response.text || 'I am ready to help you practice! What would you like to explore next?',
-    };
+    let lastError: any = null;
+    for (const modelToTry of candidateModels) {
+      try {
+        const response = await ai.models.generateContent({
+          model: modelToTry,
+          contents: formattedContents,
+          config: {
+            systemInstruction: systemPrompt,
+          },
+        });
+
+        return {
+          success: true,
+          text: response.text || 'I am ready to help you practice! What would you like to explore next?',
+        };
+      } catch (err: any) {
+        lastError = err;
+        // If error is 404 or model not found, try next candidate model
+        if (err?.message?.includes('404') || err?.message?.includes('not found') || err?.status === 404) {
+          console.warn(`Model ${modelToTry} unavailable, trying fallback...`);
+          continue;
+        }
+        throw err;
+      }
+    }
+
+    throw lastError || new Error('No compatible Gemini model responded');
   } catch (error: any) {
     console.error('Gemini Tutor Error:', error);
     return {
