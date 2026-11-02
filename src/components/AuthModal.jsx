@@ -29,46 +29,68 @@ export const AuthModal = ({ isOpen, onClose }) => {
   const [showGooglePrompt, setShowGooglePrompt] = useState(false);
   const [googleEmailInput, setGoogleEmailInput] = useState('');
   const [googleNameInput, setGoogleNameInput] = useState('');
+  const [gisReady, setGisReady] = useState(false);
 
   const googleBtnRef = useRef(null);
-  const clientId = typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_CLIENT_ID;
+  const clientId =
+    (typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_CLIENT_ID) ||
+    '387268916354-kqrkklqgaai97o24rap4kp34cpckr9vp.apps.googleusercontent.com';
 
   // Setup Google Identity Services if client ID is configured
   useEffect(() => {
     if (!isOpen) return;
-    if (clientId && window.google?.accounts?.id) {
-      try {
-        window.google.accounts.id.initialize({
-          client_id: clientId,
-          callback: async (response) => {
-            if (response.credential) {
-              setLoading(true);
-              try {
-                await signInWithGoogle({ credential: response.credential });
-                onClose();
-              } catch (err) {
-                setError(err.message || 'Google authentication failed');
-              } finally {
-                setLoading(false);
-              }
-            }
-          },
-        });
 
-        if (googleBtnRef.current) {
-          googleBtnRef.current.innerHTML = '';
-          window.google.accounts.id.renderButton(googleBtnRef.current, {
-            theme: 'outline',
-            size: 'large',
-            text: 'continue_with',
-            shape: 'pill',
-            width: 340,
+    let checkInterval = null;
+    const tryInitGoogle = () => {
+      if (clientId && window.google?.accounts?.id) {
+        try {
+          window.google.accounts.id.initialize({
+            client_id: clientId,
+            callback: async (response) => {
+              if (response.credential) {
+                setLoading(true);
+                try {
+                  await signInWithGoogle({ credential: response.credential });
+                  onClose();
+                } catch (err) {
+                  setError(err.message || 'Google authentication failed');
+                } finally {
+                  setLoading(false);
+                }
+              }
+            },
           });
+
+          if (googleBtnRef.current) {
+            googleBtnRef.current.innerHTML = '';
+            window.google.accounts.id.renderButton(googleBtnRef.current, {
+              theme: 'outline',
+              size: 'large',
+              text: 'continue_with',
+              shape: 'pill',
+              width: 320,
+            });
+            setGisReady(true);
+          }
+          return true;
+        } catch (err) {
+          console.warn('Google Identity Services init:', err);
         }
-      } catch (err) {
-        console.warn('Google Identity Services init:', err);
       }
+      return false;
+    };
+
+    if (!tryInitGoogle()) {
+      checkInterval = setInterval(() => {
+        if (tryInitGoogle()) {
+          clearInterval(checkInterval);
+        }
+      }, 300);
     }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+    };
   }, [isOpen, showGooglePrompt, clientId]);
 
   if (!isOpen) return null;
@@ -101,8 +123,6 @@ export const AuthModal = ({ isOpen, onClose }) => {
 
   const handleGoogleClick = async () => {
     setError(null);
-    const clientId = typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_CLIENT_ID;
-
     // If official Google Client ID is configured and Google script is available, trigger native Google prompt
     if (clientId && window.google?.accounts?.id) {
       window.google.accounts.id.prompt((notification) => {
@@ -224,7 +244,7 @@ export const AuthModal = ({ isOpen, onClose }) => {
         {/* Google Authentication Section */}
         {mode !== 'forgot' && (
           <div className="space-y-2.5 mb-4">
-            {clientId ? (
+            {gisReady ? (
               <div className="flex justify-center w-full min-h-[44px]">
                 <div ref={googleBtnRef} />
               </div>
