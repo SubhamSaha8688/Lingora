@@ -2,6 +2,14 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/api/auth/:match*",
+      "destination": "/api/auth"
+    },
+    {
+      "source": "/api/progress/:match*",
+      "destination": "/api/progress"
+    },
+    {
       "source": "/api/tutor",
       "destination": "/api/tutor"
     },

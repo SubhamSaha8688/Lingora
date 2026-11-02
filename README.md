@@ -1,199 +1,134 @@
 # 🌍 Lingora – AI-Powered Multilingual Learning Platform
 
-[![React](https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=white)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.0%20(JSX)-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![MongoDB Atlas](https://img.shields.io/badge/MongoDB%20Atlas-Mongoose-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI%20Tutor-4285F4?logo=google&logoColor=white)](https://ai.google.dev/)
-[![Firebase](https://img.shields.io/badge/Firebase-Auth%20%26%20Firestore-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Learn Languages. Unlock Your World.**  
-> Master 10 world languages with structured CEFR/JLPT/TOPIK/HSK curriculum, real-time conversational AI tutoring powered by Google Gemini, pronunciation coaching, study materials hub, and gamified progress tracking.
+> Master 10 world languages with structured CEFR/JLPT/TOPIK/HSK curriculum, real-time conversational AI tutoring powered by Google Gemini, native voice speech recognition, study materials hub, and gamified progress tracking.
 
 ---
 
-## ✨ Features
+## 🚀 Key Highlights & Architectural Overview
 
-### 🌐 10 Supported World Languages
-- 🇫🇷 **French** (CEFR A1–B2)
-- 🇩🇪 **German** (CEFR A1–B2)
-- 🇯🇵 **Japanese** (JLPT N5–N2 with Kanji, Kana & Romaji)
-- 🇰🇷 **Korean** (TOPIK I–II with Hangul & Romanization)
-- 🇪🇸 **Spanish** (CEFR A1–B2)
-- 🇨🇳 **Mandarin Chinese** (HSK 1–4 with Pinyin & Tones)
-- 🇷🇺 **Russian** (A1–B1 with Cyrillic & Latin phonetics)
-- 🇵🇹 **Portuguese** (CEFR A1–B2)
-- 🇮🇹 **Italian** (CEFR A1–B2)
-- 🇸🇦 **Arabic** (Modern Standard Arabic with transliteration)
+1. **Pure React JSX & JavaScript Frontend**:
+   - Clean, lightweight, and modern React JSX architecture (`.jsx` and `.js`).
+   - Zero TypeScript compilation hurdles, fast build times (~1.5s).
+   - Pixel-perfect responsive design across all devices (mobile phones, tablets, laptops, widescreen PCs).
+   - Native SVG vector flag icons for all supported countries.
 
-### 🤖 Gemini AI Tutor (5 Adaptive Modes)
-1. **Interactive Chat**: Conversational practice adapted to your proficiency level with instant grammar feedback.
-2. **Grammar Professor**: Deep linguistic breakdowns, conjugation tables, and practice sentences in English or Hindi.
-3. **Situational Roleplay**: Real-world scenarios (ordering coffee in Paris, booking trains in Tokyo, asking directions in Berlin).
-4. **Pronunciation Coach**: Syllable stress, phonetic transcription, tone marks, and audio tips.
-5. **Quiz Generator**: Dynamic practice exercises and translation quizzes generated on the fly.
+2. **Independent Backend with MongoDB Atlas**:
+   - Dedicated `backend/` folder built with Node.js, Express, Mongoose, and JWT.
+   - Built for **MongoDB Atlas** (100% free M0 cluster supported).
+   - Password hashing with `bcryptjs` and session tokens with `jsonwebtoken`.
+   - **Zero-Config Resilient Fallback**: If `MONGODB_URI` is not yet configured, the platform automatically switches to an in-memory session store so anyone can sign up, log in, and learn immediately without errors!
 
-### 🎮 Gamification & Retention
-- **Streaks & Daily Goals**: Keep the momentum alive with streak counters and customizable daily XP goals.
-- **Hearts & Gems**: Interactive learning mechanics with rewards and heart replenishment.
-- **Global Leaderboard**: Compete with other language learners across the world.
-- **Interactive Quizzes**: Multiple choice, word pairing, listening recognition, and sentence building with confetti celebration.
+3. **1-Click Instant Learner & Admin Access**:
+   - Instant guest / demo access for any visitor so they can experience courses right away.
+   - 1-Click Founder & Administrator console login (`shadowmonarch8688@gmail.com`).
 
-### 📚 Study Materials & Cheatsheets
-- Downloadable and previewable grammar cheat sheets, vocabulary workbooks, and exam prep PDFs.
-- Integrated purchase and unlocking system.
+4. **10 Supported Global Languages**:
+   - 🇫🇷 **French** (CEFR A1–C2)
+   - 🇩🇪 **German** (CEFR A1–C2)
+   - 🇯🇵 **Japanese** (JLPT N5–N1)
+   - 🇰🇷 **Korean** (TOPIK I–II)
+   - 🇪🇸 **Spanish** (CEFR A1–C2)
+   - 🇨🇳 **Mandarin Chinese** (HSK 1–4)
+   - 🇷🇺 **Russian** (A1–C1)
+   - 🇵🇹 **Portuguese** (CEFR A1–B2)
+   - 🇮🇹 **Italian** (CEFR A1–C2)
+   - 🇸🇦 **Arabic** (Modern Standard Arabic)
 
-### 📱 Progressive Web App (PWA)
-- Full standalone mobile app experience for Android and iOS.
-- Offline caching, responsive layout, and app-like navigation.
-
-### 🛡️ Admin Management Console
-- Curriculum and lesson creator with preview.
-- Student analytics, engagement metrics, and subscription plan management.
+5. **AI Language Tutor (Google Gemini)**:
+   - Free-form conversation practice with voice output & recognition.
+   - Situational roleplay (Café, Train Station, Hotel, Meet & Greet).
+   - Grammar doctor with dual-language explanations (English & Hindi).
+   - Pronunciation accent lab and dynamic quiz generator.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Quick Start Guide
 
-- **Frontend**: React 19, TypeScript, Vite 8, TailwindCSS v4, Framer Motion, Lucide Icons, Canvas Confetti.
-- **Backend**: Node.js, Express, tsx.
-- **AI Engine**: Google Gemini API via official `@google/genai` SDK (`gemini-2.5-flash` / `gemini-2.0-flash`).
-- **Database & Auth**: Google Firebase Auth & Cloud Firestore.
-- **Speech**: HTML5 Web Speech API (Speech Recognition & Speech Synthesis).
+### 1. Installation
 
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) v20+ or v22+
-- npm v10+
-- (Optional) [Google Gemini API Key](https://aistudio.google.com/app/apikey)
-
-### 1. Clone the Repository
 ```bash
+# Clone the repository
 git clone https://github.com/SubhamSaha8688/Lingora.git
 cd Lingora
-```
 
-### 2. Install Dependencies
-```bash
+# Install dependencies
 npm install
 ```
 
-### 3. Configure Environment Variables
-Copy `.env.example` to `.env`:
-```bash
-cp .env.example .env
-```
-Open `.env` and fill in your Gemini API key:
+### 2. Configure Environment Variables (`.env`)
+
+Create a `.env` file in the root directory:
+
 ```env
-PORT=3000
-NODE_ENV=development
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-2.5-flash
+# MongoDB Atlas Database URI (Free tier from https://cloud.mongodb.com)
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/lingora?retryWrites=true&w=majority
+
+# JWT Token Secret
+JWT_SECRET=your_jwt_secret_key_here
+
+# Google Gemini API Key (Free from https://aistudio.google.com)
+GEMINI_API_KEY=your_gemini_api_key
+
+# Admin Email Privileges
 VITE_ADMIN_EMAILS=shadowmonarch8688@gmail.com
-APP_URL=http://localhost:3000
 ```
 
-### 4. Start Development Server
+> **Note**: Even if you haven't created your MongoDB Atlas cluster yet, Lingora will launch and work right away in session mode!
+
+### 3. Run the Full-Stack Application
+
 ```bash
+# Start backend and frontend simultaneously
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
-
-## 📦 Production Build & Deployment
-
-### Build the Static Assets
-```bash
+# Or build the frontend for production
 npm run build
-```
-
-### Run the Full-Stack Production Server
-```bash
 npm start
 ```
 
-### Deploy with Docker
-```bash
-# Build Docker image
-docker build -t lingora .
-
-# Run container
-docker run -d -p 3000:3000 --env-file .env lingora
-```
-
-### Deploy to Cloud Platforms (Vercel, Render, Railway, Cloud Run)
-- **Render / Railway**: Connect your GitHub repository, choose **Node**, build command: `npm install && npm run build`, start command: `npm start`. Add your environment variables (`GEMINI_API_KEY`, etc.) in the platform dashboard.
-- **Vercel / Netlify**: Configure root directory with build command `npm run build` and output directory `dist`.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## ⚙️ Environment Variables Reference
+## ☁️ Deploying to Vercel
 
-| Variable | Description | Default |
-|---|---|---|
-| `PORT` | HTTP port for the Express full-stack server | `3000` |
-| `NODE_ENV` | Environment mode (`development` or `production`) | `development` |
-| `GEMINI_API_KEY` | Google Gemini API Key for AI tutoring & quizzes | *None* |
-| `GEMINI_MODEL` | Gemini model code (`gemini-2.5-flash`, `gemini-2.0-flash`, `gemini-1.5-flash`) | `gemini-2.5-flash` |
-| `VITE_ADMIN_EMAILS`| Comma-separated list of admin email addresses | `shadowmonarch8688@gmail.com` |
-| `APP_URL` | Public URL of the app | `http://localhost:3000` |
-
----
-
-## 📁 Project Structure
-
-```
-lingora/
-├── public/                 # Static assets, SVG icons, PWA manifest
-│   ├── icon.svg
-│   └── manifest.json
-├── server/                 # Express backend services
-│   └── tutorService.ts     # Gemini AI tutor orchestration & prompt engineering
-├── src/                    # Frontend React 19 application
-│   ├── components/         # UI components & views
-│   │   ├── AdminDashboard.tsx
-│   │   ├── AiTutor.tsx
-│   │   ├── AuthModal.tsx
-│   │   ├── Header.tsx
-│   │   ├── HomeDashboard.tsx
-│   │   ├── InstallAppModal.tsx
-│   │   ├── Leaderboard.tsx
-│   │   ├── LearnPath.tsx
-│   │   ├── LingoraLogo.tsx
-│   │   ├── LingoraMascot.tsx
-│   │   ├── Navigation.tsx
-│   │   ├── OnboardingModal.tsx
-│   │   ├── PracticeHub.tsx
-│   │   ├── QuizSession.tsx
-│   │   ├── StudyMaterialsView.tsx
-│   │   ├── SubscriptionModal.tsx
-│   │   └── UserProfileView.tsx
-│   ├── context/            # Global state (Auth, User Profile, Gamification)
-│   │   └── AuthContext.tsx
-│   ├── data/               # Multilingual curriculum database
-│   │   └── curriculum.ts
-│   ├── lib/                # Firebase SDK initialization & error handling
-│   │   └── firebase.ts
-│   ├── utils/              # Speech recognition & TTS speech helpers
-│   │   └── speech.ts
-│   ├── App.tsx             # Root application view
-│   ├── index.css           # Tailwind v4 styles
-│   └── main.tsx            # Vite entrypoint
-├── Dockerfile              # Production container build
-├── firestore.rules         # Hardened Firestore security rules
-├── package.json            # Scripts & dependencies
-├── server.ts               # Full-stack server entrypoint
-├── tsconfig.json           # TypeScript configuration
-└── vite.config.ts          # Vite bundler & vendor code-splitting configuration
-```
+1. Push your repository to GitHub: `https://github.com/SubhamSaha8688/Lingora.git`
+2. Go to [vercel.com](https://vercel.com) and click **Add New Project**.
+3. Import `SubhamSaha8688/Lingora`.
+4. Under **Environment Variables**, add:
+   - `MONGODB_URI` = your MongoDB Atlas connection string
+   - `GEMINI_API_KEY` = your Google Gemini API key
+   - `JWT_SECRET` = your secret string
+5. Click **Deploy**. Vercel will build the Vite app and serve the serverless API routes (`/api/auth`, `/api/progress`, `/api/tutor`, `/api/health`) automatically.
 
 ---
 
-## 📄 License
+## 🍃 MongoDB Atlas Setup Guide (Free Tier)
 
-This project is licensed under the [MIT License](LICENSE) © 2026 Subham Saha.
+1. Sign up for free at [mongodb.com/atlas](https://www.mongodb.com/atlas).
+2. Create a new **M0 (Free)** cluster (choose AWS or Google Cloud, nearest region).
+3. Under **Security > Database Access**, add a database user with username & password.
+4. Under **Security > Network Access**, click **Add IP Address** > select **Allow Access from Anywhere** (`0.0.0.0/0`).
+5. Click **Connect > Drivers > Node.js**, and copy your connection string:
+   ```
+   mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/lingora?retryWrites=true&w=majority
+   ```
+6. Paste it into your `.env` or Vercel Environment Variables as `MONGODB_URI`.
+
+---
+
+## 👤 Author & Ownership
+
+- **Founder & Maintainer**: Subham Saha ([@SubhamSaha8688](https://github.com/SubhamSaha8688))
+- **Email**: `shadowmonarch8688@gmail.com`
+- **Repository**: [https://github.com/SubhamSaha8688/Lingora](https://github.com/SubhamSaha8688/Lingora)
+- **License**: MIT
