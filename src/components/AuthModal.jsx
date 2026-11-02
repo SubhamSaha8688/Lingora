@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { LingoraLogo } from './LingoraLogo.jsx';
 import {
@@ -30,10 +30,12 @@ export const AuthModal = ({ isOpen, onClose }) => {
   const [googleEmailInput, setGoogleEmailInput] = useState('');
   const [googleNameInput, setGoogleNameInput] = useState('');
 
+  const googleBtnRef = useRef(null);
+  const clientId = typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_CLIENT_ID;
+
   // Setup Google Identity Services if client ID is configured
   useEffect(() => {
     if (!isOpen) return;
-    const clientId = typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_CLIENT_ID;
     if (clientId && window.google?.accounts?.id) {
       try {
         window.google.accounts.id.initialize({
@@ -52,11 +54,22 @@ export const AuthModal = ({ isOpen, onClose }) => {
             }
           },
         });
+
+        if (googleBtnRef.current) {
+          googleBtnRef.current.innerHTML = '';
+          window.google.accounts.id.renderButton(googleBtnRef.current, {
+            theme: 'outline',
+            size: 'large',
+            text: 'continue_with',
+            shape: 'pill',
+            width: 340,
+          });
+        }
       } catch (err) {
         console.warn('Google Identity Services init:', err);
       }
     }
-  }, [isOpen]);
+  }, [isOpen, showGooglePrompt, clientId]);
 
   if (!isOpen) return null;
 
@@ -211,7 +224,11 @@ export const AuthModal = ({ isOpen, onClose }) => {
         {/* Google Authentication Section */}
         {mode !== 'forgot' && (
           <div className="space-y-2.5 mb-4">
-            {!showGooglePrompt ? (
+            {clientId ? (
+              <div className="flex justify-center w-full min-h-[44px]">
+                <div ref={googleBtnRef} />
+              </div>
+            ) : !showGooglePrompt ? (
               <button
                 type="button"
                 onClick={handleGoogleClick}
