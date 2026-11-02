@@ -1,5 +1,5 @@
 import { connectDB } from '../backend/services/db.js';
-import { register, login, getProfile, updateProfile } from '../backend/controllers/authController.js';
+import { register, login, googleAuth, getProfile, updateProfile } from '../backend/controllers/authController.js';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'lingora-secure-jwt-secret-key-2026';
@@ -19,6 +19,10 @@ export default async function handler(req, res) {
 
   if (url.includes('register') || req.body?.action === 'register') {
     return register(req, res);
+  }
+
+  if (url.includes('google') || req.body?.action === 'google') {
+    return googleAuth(req, res);
   }
 
   if (url.includes('login') || req.body?.action === 'login') {

@@ -12,8 +12,19 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      required: function () {
+        return this.authProvider !== 'google';
+      },
       minlength: 6,
+    },
+    authProvider: {
+      type: String,
+      enum: ['local', 'google'],
+      default: 'local',
+    },
+    googleId: {
+      type: String,
+      sparse: true,
     },
     displayName: {
       type: String,
@@ -103,7 +114,7 @@ const userSchema = new mongoose.Schema(
 
 // Hash password before saving
 userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
+  if (!this.password || !this.isModified('password')) return next();
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
@@ -115,6 +126,7 @@ userSchema.pre('save', async function (next) {
 
 // Compare password helper
 userSchema.methods.comparePassword = async function (candidatePassword) {
+  if (!this.password) return false;
   return bcrypt.compare(candidatePassword, this.password);
 };
 
@@ -125,6 +137,7 @@ userSchema.methods.toProfileJSON = function () {
     email: this.email,
     displayName: this.displayName,
     photoURL: this.photoURL,
+    authProvider: this.authProvider || 'local',
     targetLanguage: this.targetLanguage,
     currentLevel: this.currentLevel,
     totalXp: this.totalXp,

@@ -258,3 +258,122 @@ export async function updateProfile(req, res) {
     return res.status(500).json({ error: error.message || 'Failed to update profile' });
   }
 }
+
+export async function googleAuth(req, res) {
+  try {
+    const { email, displayName, photoURL, googleId, credential } = req.body;
+
+    let userEmail = email;
+    let userName = displayName;
+    let userPhoto = photoURL;
+    let userGoogleId = googleId;
+
+    // If Google Identity Services ID token (JWT) is sent in credential, decode payload safely
+    if (credential && typeof credential === 'string') {
+      try {
+        const parts = credential.split('.');
+        if (parts.length === 3) {
+          const payloadBase64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+          const decoded = JSON.parse(Buffer.from(payloadBase64, 'base64').toString('utf-8'));
+          userEmail = decoded.email || userEmail;
+          userName = decoded.name || decoded.given_name || userName;
+          userPhoto = decoded.picture || userPhoto;
+          userGoogleId = decoded.sub || userGoogleId;
+        }
+      } catch (e) {
+        console.warn('Failed to parse Google JWT credential payload:', e.message);
+      }
+    }
+
+    if (!userEmail) {
+      return res.status(400).json({ error: 'Please provide a valid Google email.' });
+    }
+
+    const cleanEmail = userEmail.toLowerCase().trim();
+
+    if (isDbConnected()) {
+      let user = await User.findOne({ email: cleanEmail });
+
+      if (!user) {
+        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+          .split(',')
+          .map((e) => e.trim().toLowerCase());
+
+        const role = adminEmails.includes(cleanEmail) ? 'admin' : 'user';
+
+        user = new User({
+          email: cleanEmail,
+          displayName: userName?.trim() || cleanEmail.split('@')[0],
+          photoURL: userPhoto || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+          authProvider: 'google',
+          googleId: userGoogleId,
+          role,
+          targetLanguage: 'french',
+          currentLevel: 'A1',
+        });
+
+        await user.save();
+      } else {
+        if (userGoogleId && !user.googleId) user.googleId = userGoogleId;
+        if (userPhoto && (!user.photoURL || user.photoURL.includes('unsplash'))) user.photoURL = userPhoto;
+        if (userName && (user.displayName === 'Learner' || !user.displayName)) user.displayName = userName;
+        await user.save();
+      }
+
+      const token = generateToken(user._id.toString(), user.email);
+      return res.json({
+        success: true,
+        token,
+        user: user.toProfileJSON(),
+      });
+    } else {
+      // In-Memory Fallback
+      let user = fallbackUsers.get(cleanEmail);
+      if (!user) {
+        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+          .split(',')
+          .map((e) => e.trim().toLowerCase());
+
+        const mockId = 'google_user_' + Date.now();
+        user = {
+          userId: mockId,
+          email: cleanEmail,
+          displayName: userName?.trim() || cleanEmail.split('@')[0],
+          photoURL: userPhoto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80',
+          authProvider: 'google',
+          googleId: userGoogleId,
+          targetLanguage: 'french',
+          currentLevel: 'A1',
+          totalXp: 100,
+          streak: 1,
+          hearts: 5,
+          gems: 100,
+          dailyGoalXp: 50,
+          role: adminEmails.includes(cleanEmail) ? 'admin' : 'user',
+          plan: 'free',
+          interfaceLanguage: 'english',
+          hasCompletedOnboarding: false,
+          studyGoal: 'travel',
+          dailyStudyMinutes: 15,
+          completedLessons: [],
+          purchasedMaterials: [],
+          unlockedLanguages: ['french', 'german', 'japanese', 'korean', 'spanish'],
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          lastActiveDate: new Date().toISOString().split('T')[0],
+        };
+        fallbackUsers.set(cleanEmail, user);
+      }
+
+      const token = generateToken(user.userId, cleanEmail);
+      return res.json({
+        success: true,
+        token,
+        user,
+      });
+    }
+  } catch (error) {
+    console.error('Google auth error:', error);
+    return res.status(500).json({ error: error.message || 'Google authentication failed' });
+  }
+}

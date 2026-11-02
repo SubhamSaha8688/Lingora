@@ -132,14 +132,14 @@ export function AuthProvider({ children }) {
       };
 
       setUser(updatedUser);
-      setProfile((prev) => ({
-        ...prev,
+      setProfile({
+        ...DEFAULT_GUEST_PROFILE,
         ...data.user,
         userId: updatedUser.uid,
         email,
         displayName: updatedUser.displayName,
         role: isAdm ? 'admin' : 'user'
-      }));
+      });
 
       return updatedUser;
     } catch (err) {
@@ -152,13 +152,13 @@ export function AuthProvider({ children }) {
         displayName: name || email.split('@')[0],
       };
       setUser(localUser);
-      setProfile((prev) => ({
-        ...prev,
+      setProfile({
+        ...DEFAULT_GUEST_PROFILE,
         userId: localUser.uid,
         email,
         displayName: localUser.displayName,
         role: isAdm ? 'admin' : 'user'
-      }));
+      });
       return localUser;
     } finally {
       setLoading(false);
@@ -193,14 +193,14 @@ export function AuthProvider({ children }) {
       };
 
       setUser(loggedUser);
-      setProfile((prev) => ({
-        ...prev,
+      setProfile({
+        ...DEFAULT_GUEST_PROFILE,
         ...data.user,
         userId: loggedUser.uid,
         email,
         displayName: loggedUser.displayName,
         role: isAdm ? 'admin' : 'user'
-      }));
+      });
 
       return loggedUser;
     } catch (err) {
@@ -213,13 +213,13 @@ export function AuthProvider({ children }) {
         displayName: email.split('@')[0],
       };
       setUser(localUser);
-      setProfile((prev) => ({
-        ...prev,
+      setProfile({
+        ...DEFAULT_GUEST_PROFILE,
         userId: localUser.uid,
         email,
         displayName: localUser.displayName,
         role: isAdm ? 'admin' : 'user'
-      }));
+      });
       return localUser;
     } finally {
       setLoading(false);
@@ -238,8 +238,8 @@ export function AuthProvider({ children }) {
         : 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80',
     };
     setUser(demoUser);
-    setProfile((prev) => ({
-      ...prev,
+    setProfile({
+      ...DEFAULT_GUEST_PROFILE,
       userId: demoUser.uid,
       email: demoUser.email,
       displayName: demoUser.displayName,
@@ -249,12 +249,86 @@ export function AuthProvider({ children }) {
       totalXp: isAdm ? 2450 : 280,
       streak: isAdm ? 14 : 5,
       hearts: 5,
-    }));
+    });
   };
 
-  const signInWithGoogle = async () => {
-    // Graceful Google sign-in: login as verified learner
-    signInWithDemo('user');
+  const signInWithGoogle = async (googleData = null) => {
+    setLoading(true);
+    try {
+      let bodyData = {};
+      if (googleData?.credential) {
+        bodyData = { credential: googleData.credential };
+      } else if (googleData?.email) {
+        bodyData = {
+          email: googleData.email,
+          displayName: googleData.displayName || googleData.name || googleData.email.split('@')[0],
+          photoURL: googleData.photoURL || googleData.picture,
+          googleId: googleData.googleId || googleData.sub,
+        };
+      } else {
+        throw new Error('Google authentication requires an email or Google sign-in response.');
+      }
+
+      const res = await fetch('/api/auth/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyData)
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to authenticate with Google');
+      }
+
+      if (data.token) {
+        localStorage.setItem('lingora_token', data.token);
+        setToken(data.token);
+      }
+
+      const isAdm = checkIsAdmin(data.user?.email) || data.user?.role === 'admin';
+      const loggedUser = {
+        uid: data.user?.userId || `user_${Date.now()}`,
+        email: data.user?.email,
+        displayName: data.user?.displayName,
+        ...data.user
+      };
+
+      setUser(loggedUser);
+      setProfile({
+        ...DEFAULT_GUEST_PROFILE,
+        ...data.user,
+        userId: loggedUser.uid,
+        email: loggedUser.email,
+        displayName: loggedUser.displayName,
+        role: isAdm ? 'admin' : 'user'
+      });
+
+      return loggedUser;
+    } catch (err) {
+      console.warn('Google sign-in error:', err.message);
+      if (googleData?.email) {
+        const isAdm = checkIsAdmin(googleData.email);
+        const localUser = {
+          uid: `google_user_${Date.now()}`,
+          email: googleData.email,
+          displayName: googleData.displayName || googleData.email.split('@')[0],
+          photoURL: googleData.photoURL,
+        };
+        setUser(localUser);
+        setProfile({
+          ...DEFAULT_GUEST_PROFILE,
+          userId: localUser.uid,
+          email: localUser.email,
+          displayName: localUser.displayName,
+          photoURL: localUser.photoURL,
+          role: isAdm ? 'admin' : 'user'
+        });
+        return localUser;
+      }
+      throw err;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const resetPassword = async (email) => {
@@ -265,6 +339,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     localStorage.removeItem('lingora_token');
     localStorage.removeItem('lingora_user');
+    localStorage.removeItem('lingora_profile_v2');
     setToken(null);
     setUser(null);
     setProfile(DEFAULT_GUEST_PROFILE);

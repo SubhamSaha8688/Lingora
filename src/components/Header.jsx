@@ -188,6 +188,17 @@ export const Header = ({
             </button>
           )}
 
+          {/* Sign In CTA if not logged in */}
+          {!firebaseUser && (
+            <button
+              onClick={onOpenAuth}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-bold transition shadow-xs cursor-pointer active:scale-95"
+            >
+              <User className="w-3.5 h-3.5" />
+              <span>Sign In</span>
+            </button>
+          )}
+
           {/* User Account / Avatar */}
           <div className="relative">
             <button
