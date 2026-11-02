@@ -73,8 +73,8 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/SubhamSaha8688/lingora.git
-cd lingora
+git clone https://github.com/SubhamSaha8688/Lingora.git
+cd Lingora
 ```
 
 ### 2. Install Dependencies
