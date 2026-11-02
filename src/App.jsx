@@ -74,7 +74,10 @@ function AppContent() {
           )}
 
           {activeTab === 'learn' && (
-            <LearnPath onStartLesson={(lesson) => setActiveLesson(lesson)} />
+            <LearnPath
+              onStartLesson={(lesson) => setActiveLesson(lesson)}
+              onNavigateTab={(tab) => setActiveTab(tab)}
+            />
           )}
 
           {activeTab === 'practice' && <PracticeHub />}
