@@ -36,6 +36,11 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
   });
   const [certificateOpen, setCertificateOpen] = useState(false);
 
+  const currentLang =
+    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
+
+  const allLanguageLessons = curriculum[profile.targetLanguage] || [];
+
   // Sync level filter when user changes level in header
   React.useEffect(() => {
     if (profile.currentLevel && currentLang.availableLevels?.includes(profile.currentLevel)) {
@@ -43,18 +48,13 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
     }
   }, [profile.currentLevel, currentLang]);
 
-  const currentLang =
-    languages.find((l) => l.id === profile.targetLanguage) || languages[0];
-
-  const allLanguageLessons = curriculum[profile.targetLanguage] || [];
-
   // Filter by level if specified, otherwise show all
   const filteredLessons =
     selectedLevelFilter === 'ALL'
       ? allLanguageLessons
       : allLanguageLessons.filter((l) => l.level === selectedLevelFilter);
 
-  // Group lessons by Unit
+  // Group lessons by Unit and sort sequentially
   const unitsMap = new Map();
   filteredLessons.forEach((lesson) => {
     const unitName = lesson.unitTitle || `Unit ${lesson.unitNumber || 1}: Core Curriculum`;
@@ -70,7 +70,7 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
     }
     unitsMap.get(unitName).lessons.push(lesson);
   });
-  const units = Array.from(unitsMap.values());
+  const units = Array.from(unitsMap.values()).sort((a, b) => a.number - b.number);
 
   const totalLessonsCount = allLanguageLessons.length;
   const completedCount = allLanguageLessons.filter((l) =>

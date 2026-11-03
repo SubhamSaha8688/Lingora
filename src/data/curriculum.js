@@ -1336,92 +1336,92 @@ export const CURRICULUM = {
     }
   ],
   "japanese": [
-    {
+        {
             "id": "ja-n5-u1-01",
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 1,
-            "unitTitle": "Unit 1: Foundations & Tokyo Greetings (挨拶)",
-            "unitDescription": "Hiragana syllabary, bow culture, and standard everyday Tokyo greetings.",
-            "title": "Essential Greetings & Aisatsu (挨拶)",
-            "description": "Learn Konnichiwa, Arigatou gozaimasu, and bowing etiquette.",
-            "category": "Basics & Etiquette",
+            "unitTitle": "Unit 1: Foundations, Kana & Phonetics (五十音・発音)",
+            "unitDescription": "Hiragana, Katakana, Tokyo pitch accent mechanics, and standard Japanese phonology.",
+            "title": "Hiragana Syllabary & The 5 Pure Vowels (平仮名)",
+            "description": "Master the 5 core Japanese vowels (A-I-U-E-O), Dakuten marks (がざだば), and Handakuten (ぱ).",
+            "category": "Characters & Phonology",
             "estimatedMinutes": 5,
             "xpReward": 30,
-            "objective": "Properly greet in morning, afternoon, and evening with polite honorifics.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "objective": "Read and pronounce basic Hiragana syllables with authentic Tokyo mora timing.",
+            "videoUrl": "https://www.youtube.com/watch?v=6p9Il_j0zjc",
             "videoDuration": "4:15",
             "vocabulary": [
                 {
-                    "word": "おはようございます",
-                    "romajiOrPronunciation": "Ohayou gozaimasu",
-                    "translation": "Good morning (polite)",
-                    "partOfSpeech": "Greeting",
-                    "exampleSentence": "先生、おはようございます！",
-                    "exampleTranslation": "Teacher, good morning!"
+                    "word": "あめ (雨)",
+                    "romajiOrPronunciation": "Ame",
+                    "translation": "Rain",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "東京は今日、雨です。",
+                    "exampleTranslation": "Tokyo is rainy today."
                 },
                 {
-                    "word": "こんにちは",
-                    "romajiOrPronunciation": "Konnichiwa",
-                    "translation": "Hello / Good afternoon",
-                    "partOfSpeech": "Greeting",
-                    "exampleSentence": "皆さん、こんにちは。",
-                    "exampleTranslation": "Hello, everyone."
+                    "word": "いえ (家)",
+                    "romajiOrPronunciation": "Ie",
+                    "translation": "House / Home",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "ここが私の家です。",
+                    "exampleTranslation": "This is my house."
                 },
                 {
-                    "word": "ありがとうございます",
-                    "romajiOrPronunciation": "Arigatou gozaimasu",
-                    "translation": "Thank you very much (polite)",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "親切にありがとうございます。",
-                    "exampleTranslation": "Thank you very much for your kindness."
+                    "word": "うみ (海)",
+                    "romajiOrPronunciation": "Umi",
+                    "translation": "Sea / Ocean",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "夏に海へ行きます。",
+                    "exampleTranslation": "I go to the sea in summer."
                 },
                 {
-                    "word": "すみません",
-                    "romajiOrPronunciation": "Sumimasen",
-                    "translation": "Excuse me / I'm sorry",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "すみません、お水をください。",
-                    "exampleTranslation": "Excuse me, water please."
+                    "word": "えき (駅)",
+                    "romajiOrPronunciation": "Eki",
+                    "translation": "Train station",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "新宿駅は大きいです。",
+                    "exampleTranslation": "Shinjuku station is large."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Bowing (お辞儀 - Ojigi) & Polite Endings",
-                    "explanation": "Japanese greetings vary by time of day. Adding 'ございます (gozaimasu)' elevates an informal greeting to polite society standard.",
+                    "title": "Mora Rhythm & Equal Syllable Length",
+                    "explanation": "Every Japanese Hiragana character takes up exactly one 'mora' (one equal musical beat). Unlike English, syllables are never stressed by volume; they are sustained with uniform duration.",
                     "examples": [
-                        "おはよう (Informal to friends) vs おはようございます (Polite to seniors/teachers)",
-                        "ありがとう (Casual) vs ありがとうございます (Polite)"
+                        "あ-め (2 beats)",
+                        "しん-じゅ-く (4 beats including ん)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Kenji",
-                    "text": "田中さん、おはようございます！",
-                    "romajiOrPronunciation": "Tanaka-san, ohayou gozaimasu!",
-                    "translation": "Good morning, Mr. Tanaka!"
+                    "speaker": "Sensei",
+                    "text": "あいうえお、リズムに合わせて読んでみましょう。",
+                    "romajiOrPronunciation": "A-i-u-e-o, rizumu ni awasete yonde mimashou.",
+                    "translation": "A-I-U-E-O, let's read them in rhythm together."
                 },
                 {
-                    "speaker": "Tanaka",
-                    "text": "ケンジさん、おはようございます。今日もいい天気ですね。",
-                    "romajiOrPronunciation": "Kenji-san, ohayou gozaimasu. Kyou mo ii tenki desu ne.",
-                    "translation": "Good morning, Kenji. It's nice weather today too, isn't it?"
+                    "speaker": "Student",
+                    "text": "あ、い、う、え、お！音がはっきりしていますね。",
+                    "romajiOrPronunciation": "A, i, u, e, o! Oto ga hakkiri shite imasu ne.",
+                    "translation": "A, I, U, E, O! The sounds are very clear, aren't they?"
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q1",
+                    "id": "ja-n5-u1-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "Which greeting is used to greet someone in the morning politely?",
+                    "prompt": "How many basic pure vowels does the Japanese language possess?",
                     "options": [
-                        "おはようございます",
-                        "こんにちは",
-                        "こんばんは",
-                        "おやすみなさい"
+                        "5 (A, I, U, E, O)",
+                        "7",
+                        "3",
+                        "12"
                     ],
-                    "correctAnswer": "おはようございます",
-                    "explanation": "'Ohayou gozaimasu' is the standard polite morning greeting."
+                    "correctAnswer": "5 (A, I, U, E, O)",
+                    "explanation": "Japanese phonology is founded strictly on the five pure vowels: A, I, U, E, and O."
                 }
             ]
         },
@@ -1430,87 +1430,87 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 1,
-            "unitTitle": "Unit 1: Foundations & Tokyo Greetings (挨拶)",
-            "unitDescription": "Hiragana syllabary, bow culture, and standard everyday Tokyo greetings.",
-            "title": "Self Introductions & Jikoshoukai (自己紹介)",
-            "description": "State your name, nationality, and profession using 'watashi wa... desu'.",
-            "category": "Introductions",
-            "estimatedMinutes": 6,
+            "unitTitle": "Unit 1: Foundations, Kana & Phonetics (五十音・発音)",
+            "unitDescription": "Hiragana, Katakana, Tokyo pitch accent mechanics, and standard Japanese phonology.",
+            "title": "Katakana & Foreign Loanwords (片仮名・外来語)",
+            "description": "Master Katakana characters used for foreign loanwords, technical terms, and modern cuisine.",
+            "category": "Characters & Loanwords",
+            "estimatedMinutes": 5,
             "xpReward": 30,
-            "objective": "Introduce yourself with name, nationality, and polite closing phrase.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:10",
+            "objective": "Instantly recognize Katakana words on Japanese menus, street signs, and technology.",
+            "videoUrl": "https://www.youtube.com/watch?v=s6DKRgtVLGA",
+            "videoDuration": "4:30",
             "vocabulary": [
                 {
-                    "word": "わたし",
-                    "romajiOrPronunciation": "Watashi",
-                    "translation": "I / me",
-                    "partOfSpeech": "Pronoun",
-                    "exampleSentence": "私は学生です。",
-                    "exampleTranslation": "I am a student."
-                },
-                {
-                    "word": "はじめまして",
-                    "romajiOrPronunciation": "Hajimemashite",
-                    "translation": "Nice to meet you (for the first time)",
-                    "partOfSpeech": "Greeting",
-                    "exampleSentence": "はじめまして、アレックスです。",
-                    "exampleTranslation": "Nice to meet you, I am Alex."
-                },
-                {
-                    "word": "よろしくおねがいします",
-                    "romajiOrPronunciation": "Yoroshiku onegaishimasu",
-                    "translation": "Please treat me favorably / Nice meeting you",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "どうぞよろしくお願いします。",
-                    "exampleTranslation": "Please treat me favorably."
-                },
-                {
-                    "word": "がくせい",
-                    "romajiOrPronunciation": "Gakusei",
-                    "translation": "Student",
+                    "word": "コーヒー",
+                    "romajiOrPronunciation": "Koohii",
+                    "translation": "Coffee",
                     "partOfSpeech": "Noun",
-                    "exampleSentence": "東京大学の学生です。",
-                    "exampleTranslation": "I am a Tokyo University student."
+                    "exampleSentence": "温かいコーヒーをください。",
+                    "exampleTranslation": "Hot coffee, please."
+                },
+                {
+                    "word": "コンビニ",
+                    "romajiOrPronunciation": "Konbini",
+                    "translation": "Convenience store",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "コンビニでおにぎりを買います。",
+                    "exampleTranslation": "I buy an onigiri at the convenience store."
+                },
+                {
+                    "word": "ホテル",
+                    "romajiOrPronunciation": "Hoteru",
+                    "translation": "Hotel",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "ホテルは駅の近くです。",
+                    "exampleTranslation": "The hotel is near the station."
+                },
+                {
+                    "word": "パソコン",
+                    "romajiOrPronunciation": "Pasokon",
+                    "translation": "PC / Laptop",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "新しいパソコンが欲しいです。",
+                    "exampleTranslation": "I want a new personal computer."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "A は B です (A is B)",
-                    "explanation": "The topic particle 'は' (pronounced 'wa' when used as a particle) marks the topic of the sentence. 'です (desu)' acts as the polite copula (is/am/are).",
+                    "title": "The Long Vowel Dash (ー) in Katakana",
+                    "explanation": "In Katakana, the horizontal bar 'ー' extends the preceding vowel sound by exactly one mora. E.g., 'コー' is two beats, 'ヒー' is two beats (4 beats total: Ko-o-hi-i).",
                     "examples": [
-                        "私はエンジニアです。(I am an engineer.)",
-                        "田中さんは日本人です。(Mr. Tanaka is Japanese.)"
+                        "コーヒー (Coffee = 4 beats)",
+                        "タクシー (Taxi = 4 beats)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Alex",
-                    "text": "はじめまして。私はアレックスです。アメリカから来ました。",
-                    "romajiOrPronunciation": "Hajimemashite. Watashi wa Arekkusu desu. Amerika kara kimashita.",
-                    "translation": "Nice to meet you. I am Alex. I came from America."
+                    "speaker": "Clerk",
+                    "text": "いらっしゃいませ！ホットコーヒーでよろしいですか？",
+                    "romajiOrPronunciation": "Irasshaimase! Hotto koohii de yoroshii desu ka?",
+                    "translation": "Welcome! Would hot coffee be alright?"
                 },
                 {
-                    "speaker": "Yuki",
-                    "text": "はじめまして、ユキです。よろしくお願いします！",
-                    "romajiOrPronunciation": "Hajimemashite, Yuki desu. Yoroshiku onegaishimasu!",
-                    "translation": "Nice to meet you, I'm Yuki. Pleased to meet you!"
+                    "speaker": "Customer",
+                    "text": "はい、ホットコーヒーを一つお願いします。",
+                    "romajiOrPronunciation": "Hai, hotto koohii o hitotsu onegai shimasu.",
+                    "translation": "Yes, one hot coffee, please."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q2",
+                    "id": "ja-n5-u1-02-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you say 'I am a student' in Japanese?",
+                    "prompt": "What does the horizontal mark 'ー' indicate in Katakana words?",
                     "options": [
-                        "私は学生です",
-                        "私は先生です",
-                        "私は日本人です",
-                        "私は医者です"
+                        "Extends the vowel sound by one mora beat",
+                        "Makes the sound silent",
+                        "Marks a glottal stop",
+                        "Indicates a question"
                     ],
-                    "correctAnswer": "私は学生です",
-                    "explanation": "'Watashi wa gakusei desu' translates to 'I am a student'."
+                    "correctAnswer": "Extends the vowel sound by one mora beat",
+                    "explanation": "The chouonpu (ー) elongates the preceding vowel by one full beat."
                 }
             ]
         },
@@ -1519,87 +1519,176 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 1,
-            "unitTitle": "Unit 1: Foundations & Tokyo Greetings (挨拶)",
-            "unitDescription": "Hiragana syllabary, bow culture, and standard everyday Tokyo greetings.",
-            "title": "Numbers, Counting & Japanese Yen (数字・お金)",
-            "description": "Count 1 to 10,000 and ask 'Ikura desu ka?' (How much is it?).",
-            "category": "Numbers & Shopping",
-            "estimatedMinutes": 6,
+            "unitTitle": "Unit 1: Foundations, Kana & Phonetics (五十音・発音)",
+            "unitDescription": "Hiragana, Katakana, Tokyo pitch accent mechanics, and standard Japanese phonology.",
+            "title": "Tokyo Pitch Accent & Native Intonation (高低アクセント)",
+            "description": "Understand why Japanese pitch accent matters and avoid robotic flat English intonation.",
+            "category": "Phonetics & Fluency",
+            "estimatedMinutes": 5,
             "xpReward": 30,
-            "objective": "Understand Japanese numerals (一, 二, 三, 十, 百, 千, 万) and ask prices in Yen.",
+            "objective": "Distinguish homophones and master natural Tokyo downstep patterns.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "4:40",
+            "videoDuration": "5:00",
             "vocabulary": [
                 {
-                    "word": "いくら",
-                    "romajiOrPronunciation": "Ikura",
-                    "translation": "How much (price)",
-                    "partOfSpeech": "Question word",
-                    "exampleSentence": "これはいくらですか？",
-                    "exampleTranslation": "How much is this?"
+                    "word": "はし (箸)",
+                    "romajiOrPronunciation": "Háshi [Atamadaka]",
+                    "translation": "Chopsticks (High-Low pitch)",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "お箸を使います。",
+                    "exampleTranslation": "I use chopsticks."
                 },
                 {
-                    "word": "えん",
-                    "romajiOrPronunciation": "En",
-                    "translation": "Yen (currency)",
-                    "partOfSpeech": "Counter",
-                    "exampleSentence": "これは五百円です。",
-                    "exampleTranslation": "This is 500 yen."
+                    "word": "はし (橋)",
+                    "romajiOrPronunciation": "Hashí [Odaka]",
+                    "translation": "Bridge (Low-High pitch)",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "大きい橋を渡ります。",
+                    "exampleTranslation": "I cross the large bridge."
                 },
                 {
-                    "word": "ひゃく",
-                    "romajiOrPronunciation": "Hyaku",
-                    "translation": "100 (Hundred)",
-                    "partOfSpeech": "Number",
-                    "exampleSentence": "百円ショップに行きます。",
-                    "exampleTranslation": "I go to a 100-yen shop."
+                    "word": "あめ (雨)",
+                    "romajiOrPronunciation": "Áme [Atamadaka]",
+                    "translation": "Rain (High-Low pitch)",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "外は雨です。",
+                    "exampleTranslation": "It is rain outside."
                 },
                 {
-                    "word": "せん",
-                    "romajiOrPronunciation": "Sen",
-                    "translation": "1,000 (Thousand)",
-                    "partOfSpeech": "Number",
-                    "exampleSentence": "千円札があります。",
-                    "exampleTranslation": "I have a 1,000-yen bill."
+                    "word": "あめ (飴)",
+                    "romajiOrPronunciation": "Amé [Heiban]",
+                    "translation": "Candy (Low-High pitch)",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "甘い飴を食べます。",
+                    "exampleTranslation": "I eat sweet candy."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Asking Prices: [Item] は いくらですか？",
-                    "explanation": "Use 'kore' (this near speaker), 'sore' (that near listener), and 'are' (that over there) to point to items when asking prices.",
+                    "title": "The Four Tokyo Pitch Patterns",
+                    "explanation": "Standard Tokyo Japanese uses pitch (high vs. low tone) rather than volume stress: 1. Heiban (Flat: Low-High), 2. Atamadaka (Initial high drop), 3. Nakadaka (Drop inside the word), 4. Odaka (Drop on the following particle).",
                     "examples": [
-                        "これはいくらですか？ (How much is this?)",
-                        "それは千円です。(That is 1,000 yen.)"
+                        "箸 (Háshi = chopsticks) vs 橋 (Hashí = bridge)",
+                        "雨 (Áme = rain) vs 飴 (Amé = candy)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Customer",
-                    "text": "すみません、この抹茶ラテはいくらですか？",
-                    "romajiOrPronunciation": "Sumimasen, kono matcha rate wa ikura desu ka?",
-                    "translation": "Excuse me, how much is this matcha latte?"
+                    "speaker": "Native",
+                    "text": "日本語は英語と違って、強さではなく音の高低で意味が変わるんですよ。",
+                    "romajiOrPronunciation": "Nihongo wa Eigo to chigatte, tsuyosa dewa naku oto no koutei de imi ga kawarun desu yo.",
+                    "translation": "Unlike English, Japanese changes meaning through pitch height rather than volume strength."
                 },
                 {
-                    "speaker": "Clerk",
-                    "text": "それは五百円（500円）です。",
-                    "romajiOrPronunciation": "Sore wa gohyaku-en desu.",
-                    "translation": "That is 500 yen."
+                    "speaker": "Learner",
+                    "text": "なるほど！だから箸と橋の発音が違うんですね。",
+                    "romajiOrPronunciation": "Naruhodo! Dakara hashi to hashi no hatsuon ga chigaun desu ne.",
+                    "translation": "I see! That's why the pronunciation of chopsticks and bridge is different."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q3",
+                    "id": "ja-n5-u1-03-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you ask 'How much is this?' in Japanese?",
+                    "prompt": "In Tokyo Japanese, how is 'chopsticks' (箸) distinguished from 'bridge' (橋)?",
                     "options": [
-                        "これはいくらですか？",
-                        "これはなんですか？",
-                        "ここはどこですか？",
-                        "だれですか？"
+                        "Pitch accent: Chopsticks starts high, while Bridge starts low",
+                        "Loudness stress on the last syllable",
+                        "Chopsticks has a silent 'h'",
+                        "They sound identical in all contexts"
                     ],
-                    "correctAnswer": "これはいくらですか？",
-                    "explanation": "'Kore wa ikura desu ka?' specifically asks for the price."
+                    "correctAnswer": "Pitch accent: Chopsticks starts high, while Bridge starts low",
+                    "explanation": "Chopsticks (箸) is Atamadaka (High-Low), while Bridge (橋) is Odaka (Low-High followed by drop on particle)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u1-04",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 1,
+            "unitTitle": "Unit 1: Foundations, Kana & Phonetics (五十音・発音)",
+            "unitDescription": "Hiragana, Katakana, Tokyo pitch accent mechanics, and standard Japanese phonology.",
+            "title": "Daily Aisatsu, Bowing Culture & Ojigi (挨拶・お辞儀)",
+            "description": "Master essential everyday greetings, bows (Eshaku, Keirei), and politeness registers.",
+            "category": "Etiquette & Culture",
+            "estimatedMinutes": 5,
+            "xpReward": 30,
+            "objective": "Greet neighbors, coworkers, and teachers with proper body language and verbal respect.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "4:45",
+            "vocabulary": [
+                {
+                    "word": "おはようございます",
+                    "romajiOrPronunciation": "Ohayou gozaimasu",
+                    "translation": "Good morning (polite)",
+                    "partOfSpeech": "Greeting",
+                    "exampleSentence": "先生、おはようございます。",
+                    "exampleTranslation": "Teacher, good morning."
+                },
+                {
+                    "word": "お疲れ様です",
+                    "romajiOrPronunciation": "Otsukaresama desu",
+                    "translation": "Thank you for your hard work",
+                    "partOfSpeech": "Greeting",
+                    "exampleSentence": "皆さん、今日もお疲れ様でした。",
+                    "exampleTranslation": "Everyone, thank you for your hard work today too."
+                },
+                {
+                    "word": "失礼します",
+                    "romajiOrPronunciation": "Shitsurei shimasu",
+                    "translation": "Excuse me (entering/leaving an office)",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "お先に失礼します。",
+                    "exampleTranslation": "I am leaving ahead (goodbye at work)."
+                },
+                {
+                    "word": "よろしくお願いいたします",
+                    "romajiOrPronunciation": "Yoroshiku onegai itashimasu",
+                    "translation": "Please treat me well (business polite)",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "今後ともよろしくお願いいたします。",
+                    "exampleTranslation": "I look forward to our ongoing cooperation."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The 3 Levels of Japanese Bowing (お辞儀)",
+                    "explanation": "1. 会釈 (Eshaku - 15°): Casual greeting to colleagues in hallways. 2. 敬礼 (Keirei - 30°): Respectful bow to clients, seniors, and teachers. 3. 最敬礼 (Saikeirei - 45°): Deepest bow for sincere gratitude or deep apologies.",
+                    "examples": [
+                        "Morning greeting in hallway -> 15° Eshaku",
+                        "Meeting client / Teacher -> 30° Keirei"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Colleague A",
+                    "text": "お先に失礼します！",
+                    "romajiOrPronunciation": "Osaki ni shitsurei shimasu!",
+                    "translation": "I'm leaving for the day!"
+                },
+                {
+                    "speaker": "Colleague B",
+                    "text": "お疲れ様でした！また明日。",
+                    "romajiOrPronunciation": "Otsukaresama deshita! Mata ashita.",
+                    "translation": "Thank you for your hard work! See you tomorrow."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u1-04-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the standard workplace phrase when leaving the office before your colleagues?",
+                    "options": [
+                        "お先に失礼します (Osaki ni shitsurei shimasu)",
+                        "さようなら (Sayounara)",
+                        "じゃあね (Jaa ne)",
+                        "おやすみ (Oyasumi)"
+                    ],
+                    "correctAnswer": "お先に失礼します (Osaki ni shitsurei shimasu)",
+                    "explanation": "'Osaki ni shitsurei shimasu' politely acknowledges leaving before others who are still working."
                 }
             ]
         },
@@ -1608,87 +1697,87 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 2,
-            "unitTitle": "Unit 2: Essential Particles & Daily Actions (助詞・動詞)",
-            "unitDescription": "Master the direct object particle を, destination に, and action place で.",
-            "title": "Everyday Verbs & Particle を (Tabemasu / Nomimasu)",
-            "description": "Learn to say 'I eat ramen' and 'I drink green tea' using verb polite forms.",
-            "category": "Verbs & Food",
+            "unitTitle": "Unit 2: Sentence Structure & Essential Particles (助詞・語順)",
+            "unitDescription": "The SOV sentence order, topic particle は, object particle を, and direction particles.",
+            "title": "The SOV Structure & Topic Marker は (語順と「は」)",
+            "description": "Understand the Subject-Object-Verb architecture and the fundamental topic particle は (pronounced 'wa').",
+            "category": "Sentence Architecture",
             "estimatedMinutes": 6,
             "xpReward": 35,
-            "objective": "Form transitive verb sentences using '[Noun] を [Verb-ます]'.",
+            "objective": "Form grammatically flawless sentences using '[Noun] は [Predicate] です'.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:30",
+            "videoDuration": "5:15",
             "vocabulary": [
                 {
-                    "word": "たべます",
-                    "romajiOrPronunciation": "Tabemasu",
-                    "translation": "To eat (polite present)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "ラーメンを食べます。",
-                    "exampleTranslation": "I eat ramen."
+                    "word": "わたし (私)",
+                    "romajiOrPronunciation": "Watashi",
+                    "translation": "I / Me",
+                    "partOfSpeech": "Pronoun",
+                    "exampleSentence": "私は学生です。",
+                    "exampleTranslation": "I am a student."
                 },
                 {
-                    "word": "のみます",
-                    "romajiOrPronunciation": "Nomimasu",
-                    "translation": "To drink (polite present)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "お茶を飲みます。",
-                    "exampleTranslation": "I drink green tea."
-                },
-                {
-                    "word": "みず",
-                    "romajiOrPronunciation": "Mizu",
-                    "translation": "Water",
+                    "word": "がくせい (学生)",
+                    "romajiOrPronunciation": "Gakusei",
+                    "translation": "Student",
                     "partOfSpeech": "Noun",
-                    "exampleSentence": "冷たい水を飲みます。",
-                    "exampleTranslation": "I drink cold water."
+                    "exampleSentence": "田中さんは大学生です。",
+                    "exampleTranslation": "Mr. Tanaka is a university student."
                 },
                 {
-                    "word": "ごはん",
-                    "romajiOrPronunciation": "Gohan",
-                    "translation": "Meal / Cooked rice",
+                    "word": "せんせい (先生)",
+                    "romajiOrPronunciation": "Sensei",
+                    "translation": "Teacher / Doctor",
                     "partOfSpeech": "Noun",
-                    "exampleSentence": "朝ごはんを食べます。",
-                    "exampleTranslation": "I eat breakfast."
+                    "exampleSentence": "佐藤先生は親切です。",
+                    "exampleTranslation": "Teacher Sato is kind."
+                },
+                {
+                    "word": "にほんじん (日本人)",
+                    "romajiOrPronunciation": "Nihonjin",
+                    "translation": "Japanese person",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "ケンさんは日本人です。",
+                    "exampleTranslation": "Ken is a Japanese person."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "The Direct Object Particle: を (O)",
-                    "explanation": "Particle を indicates the direct object that receives the action of the verb.",
+                    "title": "The Golden Rule: Predicate Goes at the Very End",
+                    "explanation": "In Japanese, the verb or copula (です / だ) MUST be at the end of the clause. Formula: [Topic / Subject] は + [Attribute / Noun] です. Negative form: ではありません (polite) or じゃありません (conversational).",
                     "examples": [
-                        "本を読みます。(I read a book.)",
-                        "映画を見ます。(I watch a movie.)"
+                        "私は学生です (I am a student)",
+                        "私は先生ではありません (I am not a teacher)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Hana",
-                    "text": "昼ごはんに何を食べますか？",
-                    "romajiOrPronunciation": "Hirugohan ni nani o tabemasu ka?",
-                    "translation": "What will you eat for lunch?"
+                    "speaker": "Kenji",
+                    "text": "はじめまして。私はケンジです。大学生です。",
+                    "romajiOrPronunciation": "Hajimemashite. Watashi wa Kenji desu. Daigakusei desu.",
+                    "translation": "Nice to meet you. I am Kenji. I am a university student."
                 },
                 {
-                    "speaker": "Kenji",
-                    "text": "美味しい寿司を食べます。お茶も飲みます。",
-                    "romajiOrPronunciation": "Oishii sushi o tabemasu. Ocha mo nomimasu.",
-                    "translation": "I will eat delicious sushi. I will also drink green tea."
+                    "speaker": "Elena",
+                    "text": "はじめまして、エレナです。私は会社員です。",
+                    "romajiOrPronunciation": "Hajimemashite, Elena desu. Watashi wa kaishain desu.",
+                    "translation": "Nice to meet you, I am Elena. I am a company employee."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q4",
+                    "id": "ja-n5-u2-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "Which particle marks the direct object in 'Mizu __ nomimasu' (I drink water)?",
+                    "prompt": "How is the topic particle 'は' pronounced when used as a grammatical particle?",
                     "options": [
-                        "を",
-                        "に",
-                        "で",
-                        "は"
+                        "Wa",
+                        "Ha",
+                        "Ba",
+                        "Ya"
                     ],
-                    "correctAnswer": "を",
-                    "explanation": "The particle 'を' (pronounced 'o') marks the object receiving the action."
+                    "correctAnswer": "Wa",
+                    "explanation": "When written as the grammatical topic particle, 'は' is always pronounced 'wa'."
                 }
             ]
         },
@@ -1697,88 +1786,87 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 2,
-            "unitTitle": "Unit 2: Essential Particles & Daily Actions (助詞・動詞)",
-            "unitDescription": "Master the direct object particle を, destination に, and action place で.",
-            "title": "Places & Transport with に & で (Ikimasu / Shinkansen)",
-            "description": "Express going to places (Tokyo ni ikimasu) and methods (shinkansen de).",
-            "category": "Travel & Places",
+            "unitTitle": "Unit 2: Sentence Structure & Essential Particles (助詞・語順)",
+            "unitDescription": "The SOV sentence order, topic particle は, object particle を, and direction particles.",
+            "title": "The Epic Mystery: Topic は vs Subject が (「は」と「が」の違い)",
+            "description": "Solve the #1 stumbling block in Japanese: Old/known information (は) vs New/focused information (が).",
+            "category": "Grammar Mastery",
             "estimatedMinutes": 7,
-            "xpReward": 35,
-            "objective": "Use に for destination and で for means/tools and location of action.",
+            "xpReward": 40,
+            "objective": "Know exactly when to use は and when to switch to が with zero hesitation.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
             "videoDuration": "6:00",
             "vocabulary": [
                 {
-                    "word": "いきます",
-                    "romajiOrPronunciation": "Ikimasu",
-                    "translation": "To go (polite)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "明日、京都に行きます。",
-                    "exampleTranslation": "Tomorrow, I go to Kyoto."
+                    "word": "だれ (誰)",
+                    "romajiOrPronunciation": "Dare",
+                    "translation": "Who",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "誰が来ましたか？",
+                    "exampleTranslation": "Who came?"
                 },
                 {
-                    "word": "きます",
-                    "romajiOrPronunciation": "Kimasu",
-                    "translation": "To come (polite)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "友達が日本に来ます。",
-                    "exampleTranslation": "My friend comes to Japan."
+                    "word": "なに (何)",
+                    "romajiOrPronunciation": "Nani / Nan",
+                    "translation": "What",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "何が好きですか？",
+                    "exampleTranslation": "What do you like?"
                 },
                 {
-                    "word": "しんかんせん",
-                    "romajiOrPronunciation": "Shinkansen",
-                    "translation": "Bullet train",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "新幹線で大阪へ行きます。",
-                    "exampleTranslation": "I go to Osaka by bullet train."
+                    "word": "すき (好き)",
+                    "romajiOrPronunciation": "Suki",
+                    "translation": "Liked / Fond of",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "私は寿司が好きです。",
+                    "exampleTranslation": "I like sushi."
                 },
                 {
-                    "word": "えき",
-                    "romajiOrPronunciation": "Eki",
-                    "translation": "Station",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "新宿駅で会いましょう。",
-                    "exampleTranslation": "Let's meet at Shinjuku station."
+                    "word": "じょうず (上手)",
+                    "romajiOrPronunciation": "Jouzu",
+                    "translation": "Skilled at",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "日本語が上手ですね。",
+                    "exampleTranslation": "You are skilled at Japanese, aren't you?"
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Particle に (Destination) vs. Particle で (Location of Action / Means)",
-                    "explanation": "Use に (or へ) with motion verbs: [Place] に 行きます. Use で for the place where an activity occurs, or means of transport: [Transport] で 行きます.",
+                    "title": "The Decisive Formula: [Topic] は vs [Subject of Focus] が",
+                    "explanation": "1. は marks old or shared knowledge ('As for X...'). 2. が marks NEW information, specific identification, or the answer to a question word (誰が/何が). 3. Verbs of liking/skill/potential take が (寿司が好きです).",
                     "examples": [
-                        "東京に行きます。(I go to Tokyo.)",
-                        "電車で行きます。(I go by train.)",
-                        "カフェで勉強します。(I study at a cafe.)"
+                        "誰が来ましたか？ -> 田中さんが来ました (Tanaka is the answer, so が)",
+                        "田中さんは学生です (Talking about Tanaka, so は)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Tourist",
-                    "text": "すみません、新宿駅へはどうやって行きますか？",
-                    "romajiOrPronunciation": "Sumimasen, Shinjuku-eki e wa dou yatte ikimasu ka?",
-                    "translation": "Excuse me, how do I get to Shinjuku Station?"
+                    "speaker": "A",
+                    "text": "誰がリーダーですか？",
+                    "romajiOrPronunciation": "Dare ga riidaa desu ka?",
+                    "translation": "Who is the leader?"
                 },
                 {
-                    "speaker": "Local",
-                    "text": "山手線で行くことができますよ。",
-                    "romajiOrPronunciation": "Yamanote-sen de iku koto ga dekimasu yo.",
-                    "translation": "You can go by the Yamanote Line!"
+                    "speaker": "B",
+                    "text": "私がリーダーです。田中さんは副リーダーです。",
+                    "romajiOrPronunciation": "Watashi ga riidaa desu. Tanaka-san wa fuku-riidaa desu.",
+                    "translation": "I am the leader (focus). As for Tanaka-san, he is the sub-leader."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q5",
+                    "id": "ja-n5-u2-02-q1",
                     "type": "multiple_choice",
-                    "prompt": "Fill in the blank: 'Toukyou __ ikimasu' (I go to Tokyo).",
+                    "prompt": "When answering 'Who ate the cake?' (誰がケーキを食べましたか？), which particle marks the answer 'Kenji'?",
                     "options": [
-                        "に",
-                        "を",
-                        "が",
-                        "から"
+                        "ケンジが (Kenji ga)",
+                        "ケンジは (Kenji wa)",
+                        "ケンジを (Kenji o)",
+                        "ケンジに (Kenji ni)"
                     ],
-                    "correctAnswer": "に",
-                    "explanation": "Particle 'に' marks the target destination of movement."
+                    "correctAnswer": "ケンジが (Kenji ga)",
+                    "explanation": "When answering a question word marked by が (誰が), the answer must also be marked by が."
                 }
             ]
         },
@@ -1787,87 +1875,176 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 2,
-            "unitTitle": "Unit 2: Essential Particles & Daily Actions (助詞・動詞)",
-            "unitDescription": "Master the direct object particle を, destination に, and action place で.",
-            "title": "Existence: います (Living) vs あります (Inanimate)",
-            "description": "Say where things and people are: 'Neko ga imasu' vs 'Hon ga arimasu'.",
-            "category": "Existence & Location",
+            "unitTitle": "Unit 2: Sentence Structure & Essential Particles (助詞・語順)",
+            "unitDescription": "The SOV sentence order, topic particle は, object particle を, and direction particles.",
+            "title": "Direct Object Particle を & Daily Transitive Verbs (目的語「を」)",
+            "description": "Learn particle を (pronounced 'o') and the essential verbs of eating, drinking, and reading.",
+            "category": "Essential Verbs",
             "estimatedMinutes": 6,
             "xpReward": 35,
-            "objective": "Distinguish between います (animate beings) and あります (inanimate objects).",
+            "objective": "Connect direct objects to transitive action verbs: [Noun] を [Verb] ます.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:15",
+            "videoDuration": "5:00",
             "vocabulary": [
                 {
-                    "word": "います",
-                    "romajiOrPronunciation": "Imasu",
-                    "translation": "There is / exists (living things)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "公園に猫がいます。",
-                    "exampleTranslation": "There is a cat in the park."
+                    "word": "たべます (食べます)",
+                    "romajiOrPronunciation": "Tabemasu",
+                    "translation": "To eat (polite non-past)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "毎朝、パンを食べます。",
+                    "exampleTranslation": "I eat bread every morning."
                 },
                 {
-                    "word": "あります",
-                    "romajiOrPronunciation": "Arimasu",
-                    "translation": "There is / exists (inanimate things)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "机の上に本があります。",
-                    "exampleTranslation": "There is a book on the desk."
+                    "word": "のみます (飲みます)",
+                    "romajiOrPronunciation": "Nomimasu",
+                    "translation": "To drink (polite non-past)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "お茶を飲みます。",
+                    "exampleTranslation": "I drink green tea."
                 },
                 {
-                    "word": "ねこ",
-                    "romajiOrPronunciation": "Neko",
-                    "translation": "Cat",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "白い猫がいます。",
-                    "exampleTranslation": "There is a white cat."
+                    "word": "よみます (読みます)",
+                    "romajiOrPronunciation": "Yomimasu",
+                    "translation": "To read (polite non-past)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "本を読みます。",
+                    "exampleTranslation": "I read books."
                 },
                 {
-                    "word": "つくえ",
-                    "romajiOrPronunciation": "Tsukue",
-                    "translation": "Desk",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "机の前に座ります。",
-                    "exampleTranslation": "I sit in front of the desk."
+                    "word": "みます (見ます)",
+                    "romajiOrPronunciation": "Mimasu",
+                    "translation": "To see / watch (polite non-past)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "アニメを見ます。",
+                    "exampleTranslation": "I watch anime."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Existential Verbs: います vs あります",
-                    "explanation": "います is strictly for people, animals, and insects (living things). あります is for books, buildings, furniture, plants, and abstract concepts.",
+                    "title": "The Particle を (O) Rule",
+                    "explanation": "The particle を marks the direct receiver of an action. Written with Hiragana 'を', pronounced simply as 'o'. Conjugations: 食べます (present/future), 食べません (negative), 食べました (past), 食べませんでした (past negative).",
                     "examples": [
-                        "先生がいます。(The teacher is here.)",
-                        "スマホがあります。(There is a smartphone.)"
+                        "水を飲みます (Drink water)",
+                        "昨日は肉を食べませんでした (I didn't eat meat yesterday)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Riko",
-                    "text": "部屋に誰かいますか？",
-                    "romajiOrPronunciation": "Heya ni dareka imasu ka?",
-                    "translation": "Is anyone in the room?"
+                    "speaker": "Aoi",
+                    "text": "お昼ご飯に何を食べますか？",
+                    "romajiOrPronunciation": "Ohirugohan ni nani o tabemasu ka?",
+                    "translation": "What will you eat for lunch?"
                 },
                 {
-                    "speaker": "Sora",
-                    "text": "いいえ、猫だけがいますよ。",
-                    "romajiOrPronunciation": "Iie, neko dake ga imasu yo.",
-                    "translation": "No, only the cat is here."
+                    "speaker": "Ren",
+                    "text": "ラーメンを食べます。それから緑茶を飲みます。",
+                    "romajiOrPronunciation": "Raamen o tabemasu. Sorekara ryokucha o nomimasu.",
+                    "translation": "I will eat ramen. And then drink green tea."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q6",
+                    "id": "ja-n5-u2-03-q1",
                     "type": "multiple_choice",
-                    "prompt": "Which verb completes 'Kouen ni inu ga ___' (There is a dog in the park)?",
+                    "prompt": "Which particle correctly completes '本___読みます' (I read a book)?",
                     "options": [
-                        "います",
-                        "あります",
-                        "たべます",
-                        "いきます"
+                        "を (o)",
+                        "は (wa)",
+                        "に (ni)",
+                        "で (de)"
                     ],
-                    "correctAnswer": "います",
-                    "explanation": "Dogs are living beings, so 'います' (imasu) must be used."
+                    "correctAnswer": "を (o)",
+                    "explanation": "Particle を marks the direct object of the transitive verb 読みます."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u2-04",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 2,
+            "unitTitle": "Unit 2: Sentence Structure & Essential Particles (助詞・語順)",
+            "unitDescription": "The SOV sentence order, topic particle は, object particle を, and direction particles.",
+            "title": "Direction Particles へ vs に & Locomotion (移動・「へ」と「に」)",
+            "description": "Master verbs of motion (行く, 来る, 帰る) and the destination markers に and へ.",
+            "category": "Motion & Direction",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Express where you are going, coming from, or returning to with natural fluency.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:15",
+            "vocabulary": [
+                {
+                    "word": "いきます (行きます)",
+                    "romajiOrPronunciation": "Ikimasu",
+                    "translation": "To go",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "明日、東京へ行きます。",
+                    "exampleTranslation": "Tomorrow, I go to Tokyo."
+                },
+                {
+                    "word": "きます (来ます)",
+                    "romajiOrPronunciation": "Kimasu",
+                    "translation": "To come",
+                    "partOfSpeech": "Verb (Irregular)",
+                    "exampleSentence": "友達が家に来ます。",
+                    "exampleTranslation": "A friend is coming to my house."
+                },
+                {
+                    "word": "かえります (帰ります)",
+                    "romajiOrPronunciation": "Kaerimasu",
+                    "translation": "To return / go home",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "7時にうちへ帰ります。",
+                    "exampleTranslation": "I return home at 7 o'clock."
+                },
+                {
+                    "word": "どこ (何処)",
+                    "romajiOrPronunciation": "Doko",
+                    "translation": "Where",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "どこへ行きますか？",
+                    "exampleTranslation": "Where are you going?"
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Direction Particle へ (e) vs Destination に (ni)",
+                    "explanation": "へ (written 'he', pronounced 'e') emphasizes the direction or heading of movement. に emphasizes the final destination or arrival point. In everyday speech, both are widely interchangeable with 行きます, 来ます, 帰ります.",
+                    "examples": [
+                        "日本へ行きます (Heading toward Japan)",
+                        "駅に着きます (Arrive at the station - specifically に)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Ken",
+                    "text": "週末はどこかへ行きますか？",
+                    "romajiOrPronunciation": "Shuumatsu wa dokoka e ikimasu ka?",
+                    "translation": "Are you going anywhere this weekend?"
+                },
+                {
+                    "speaker": "Hana",
+                    "text": "はい、京都へ行きます。新幹線で行きます。",
+                    "romajiOrPronunciation": "Hai, Kyouto e ikimasu. Shinkansen de ikimasu.",
+                    "translation": "Yes, I am going to Kyoto. I'll go by Shinkansen bullet train."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u2-04-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which particle marks the destination in '明日、学校___行きます'?",
+                    "options": [
+                        "へ (e) or に (ni)",
+                        "を (o)",
+                        "が (ga)",
+                        "と (to)"
+                    ],
+                    "correctAnswer": "へ (e) or に (ni)",
+                    "explanation": "Both へ and に indicate destination or direction of travel."
                 }
             ]
         },
@@ -1876,87 +2053,88 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 3,
-            "unitTitle": "Unit 3: Konbini Shopping & Dining Out (コンビニ・外食)",
-            "unitDescription": "Ordering food, asking for recommendations, and Tokyo konbini shopping.",
-            "title": "Ordering at Restaurants: [Item] をください (Kudasai)",
-            "description": "Order onigiri, ramen, and iced coffee politely in shops.",
-            "category": "Food & Dining",
+            "unitTitle": "Unit 3: Numbers, Counters & Shopping (数字・助数詞・買い物)",
+            "unitDescription": "Japanese numerals up to 100,000, essential counters (つ, 人, 本, 枚), and Konbini transactions.",
+            "title": "The Japanese Numeral System (数字 0〜100,000)",
+            "description": "Count from 1 to 100,000 in Japanese and master the 4-digit grouping system (万 - Man = 10,000).",
+            "category": "Numbers & Math",
             "estimatedMinutes": 6,
             "xpReward": 35,
-            "objective": "Order items and specify quantity using をください and counters.",
+            "objective": "Fluently read prices, phone numbers, and room numbers in Japanese.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:45",
+            "videoDuration": "5:30",
             "vocabulary": [
                 {
-                    "word": "ください",
-                    "romajiOrPronunciation": "Kudasai",
-                    "translation": "Please give me",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "メニューをください。",
-                    "exampleTranslation": "The menu, please."
+                    "word": "いち・に・さん・よん・ご",
+                    "romajiOrPronunciation": "Ichi, Ni, San, Yon/Shi, Go",
+                    "translation": "1, 2, 3, 4, 5",
+                    "partOfSpeech": "Number",
+                    "exampleSentence": "3階へ行きます。",
+                    "exampleTranslation": "I go to the 3rd floor."
                 },
                 {
-                    "word": "おにぎり",
-                    "romajiOrPronunciation": "Onigiri",
-                    "translation": "Rice ball",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "鮭のおにぎりを二つください。",
-                    "exampleTranslation": "Two salmon rice balls, please."
+                    "word": "ろく・なな・はち・きゅう・じゅう",
+                    "romajiOrPronunciation": "Roku, Nana/Shichi, Hachi, Kyuu/Ku, Juu",
+                    "translation": "6, 7, 8, 9, 10",
+                    "partOfSpeech": "Number",
+                    "exampleSentence": "10時です。",
+                    "exampleTranslation": "It is 10 o'clock."
                 },
                 {
-                    "word": "おかいけい",
-                    "romajiOrPronunciation": "Okaikei",
-                    "translation": "The bill / check",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "お会計をお願いします。",
-                    "exampleTranslation": "The check, please."
+                    "word": "ひゃく・せん・まん",
+                    "romajiOrPronunciation": "Hyaku (100), Sen (1,000), Man (10,000)",
+                    "translation": "100, 1,000, 10,000",
+                    "partOfSpeech": "Number",
+                    "exampleSentence": "この靴は一万円です。",
+                    "exampleTranslation": "These shoes are 10,000 yen."
                 },
                 {
-                    "word": "おすすめ",
-                    "romajiOrPronunciation": "Osusume",
-                    "translation": "Recommendation",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "今日のおすすめは何ですか？",
-                    "exampleTranslation": "What is today's recommendation?"
+                    "word": "いくら (幾ら)",
+                    "romajiOrPronunciation": "Ikura",
+                    "translation": "How much (cost)",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "これはいくらですか？",
+                    "exampleTranslation": "How much is this?"
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "General Counters: ひとつ、ふたつ、みっつ",
-                    "explanation": "Use native Japanese counters for ordering items: ひとつ (1), ふたつ (2), みっつ (3). Place the counter after the particle を or directly before the verb.",
+                    "title": "The Japanese 4-Digit Unit: 万 (Man = 10,000)",
+                    "explanation": "English counts by thousands (1,000 -> 1,000,000). Japanese counts by ten-thousands (万). Therefore, 50,000 is '五万' (5 Man), and 100,000 is '十万' (10 Man).",
                     "examples": [
-                        "これを二つ（ふたつ）ください。(Two of these, please.)",
-                        "お水を一つください。(One water, please.)"
+                        "1,000 = 一千 (Issen) or 千 (Sen)",
+                        "10,000 = 一万 (Ichiman)",
+                        "50,000 = 五万 (Goman)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Customer",
-                    "text": "すみません、醤油ラーメンを一つと、餃子を一つください。",
-                    "romajiOrPronunciation": "Sumimasen, shouyu raamen o hitotsu to, gyouza o hitotsu kudasai.",
-                    "translation": "Excuse me, one shoyu ramen and one gyoza, please."
+                    "speaker": "Shopper",
+                    "text": "すみません、このシャツはいくらですか？",
+                    "romajiOrPronunciation": "Sumimasen, kono shatsu wa ikura desu ka?",
+                    "translation": "Excuse me, how much is this shirt?"
                 },
                 {
-                    "speaker": "Server",
-                    "text": "かしこまりました！少々お待ちください。",
-                    "romajiOrPronunciation": "Kashikomarimashita! Shou-shou omachi kudasai.",
-                    "translation": "Understood! Please wait a moment."
+                    "speaker": "Clerk",
+                    "text": "それは三千五百円（3,500円）です。",
+                    "romajiOrPronunciation": "Sore wa sanzen gohyaku-en desu.",
+                    "translation": "That is 3,500 yen."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q7",
+                    "id": "ja-n5-u3-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you ask for the restaurant bill in Japanese?",
+                    "prompt": "How do you say '20,000' in Japanese?",
                     "options": [
-                        "お会計をお願いします",
-                        "ごちそうさまでした",
-                        "いただきます",
-                        "いらっしゃいませ"
+                        "二万 (Niman)",
+                        "二十千 (Nijuusen)",
+                        "二千 (Nisen)",
+                        "二十百 (Nijuuhyaku)"
                     ],
-                    "correctAnswer": "お会計をお願いします",
-                    "explanation": "'Okaikei o onegaishimasu' asks for the bill politely."
+                    "correctAnswer": "二万 (Niman)",
+                    "explanation": "Japanese groups by 万 (10,000), so 20,000 is 2 x 10,000 = 二万 (Niman)."
                 }
             ]
         },
@@ -1965,87 +2143,87 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 3,
-            "unitTitle": "Unit 3: Konbini Shopping & Dining Out (コンビニ・外食)",
-            "unitDescription": "Ordering food, asking for recommendations, and Tokyo konbini shopping.",
-            "title": "Asking Directions: [Place] はどこですか (Doko desu ka)",
-            "description": "Find bathrooms, train gates, and ATMs in Japanese cities.",
-            "category": "Directions",
-            "estimatedMinutes": 6,
-            "xpReward": 35,
-            "objective": "Ask where facilities are and understand 'koko' (here), 'soko' (there), and 'asoko' (over there).",
+            "unitTitle": "Unit 3: Numbers, Counters & Shopping (数字・助数詞・買い物)",
+            "unitDescription": "Japanese numerals up to 100,000, essential counters (つ, 人, 本, 枚), and Konbini transactions.",
+            "title": "Essential Japanese Counters & Classifiers (助数詞: つ・人・本・枚)",
+            "description": "Master the Japanese counting system: generic objects (つ), people (人), long items (本), and flat things (枚).",
+            "category": "Counters & Classifiers",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Order food, count tickets, and specify quantities accurately without offending native grammar.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:20",
+            "videoDuration": "5:45",
             "vocabulary": [
                 {
-                    "word": "どこ",
-                    "romajiOrPronunciation": "Doko",
-                    "translation": "Where",
-                    "partOfSpeech": "Question word",
-                    "exampleSentence": "お手洗いはどこですか？",
-                    "exampleTranslation": "Where is the restroom?"
+                    "word": "ひとつ・ふたつ・みっつ",
+                    "romajiOrPronunciation": "Hitotsu, Futatsu, Mittsu",
+                    "translation": "1, 2, 3 (Native generic counter)",
+                    "partOfSpeech": "Counter",
+                    "exampleSentence": "りんごを二つください。",
+                    "exampleTranslation": "Two apples, please."
                 },
                 {
-                    "word": "おてあらい",
-                    "romajiOrPronunciation": "Otearai / Toire",
-                    "translation": "Restroom / Bathroom",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "お手洗いはあそこです。",
-                    "exampleTranslation": "The restroom is over there."
+                    "word": "ひとり・ふたり・さんにん",
+                    "romajiOrPronunciation": "Hitori, Futari, Sannin",
+                    "translation": "1 person, 2 people, 3 people",
+                    "partOfSpeech": "Counter",
+                    "exampleSentence": "二人でレストランに行きます。",
+                    "exampleTranslation": "We go to the restaurant as two people."
                 },
                 {
-                    "word": "みぎ",
-                    "romajiOrPronunciation": "Migi",
-                    "translation": "Right",
-                    "partOfSpeech": "Direction",
-                    "exampleSentence": "右に曲がってください。",
-                    "exampleTranslation": "Please turn right."
+                    "word": "いっぽん・にほん・さんぼん (本)",
+                    "romajiOrPronunciation": "Ippon, Nihon, Sanbon",
+                    "translation": "Cylindrical objects (pens, bottles, trees)",
+                    "partOfSpeech": "Counter",
+                    "exampleSentence": "ビールを二本ください。",
+                    "exampleTranslation": "Two bottles of beer, please."
                 },
                 {
-                    "word": "ひだり",
-                    "romajiOrPronunciation": "Hidari",
-                    "translation": "Left",
-                    "partOfSpeech": "Direction",
-                    "exampleSentence": "左側にあります。",
-                    "exampleTranslation": "It is on the left side."
+                    "word": "いちまい・にまい (枚)",
+                    "romajiOrPronunciation": "Ichimai, Nimai",
+                    "translation": "Flat objects (paper, shirts, tickets)",
+                    "partOfSpeech": "Counter",
+                    "exampleSentence": "切符を一枚買いました。",
+                    "exampleTranslation": "I bought one ticket."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Location Pronouns: ここ (Here), そこ (There), あそこ (Over there)",
-                    "explanation": "Use '〜はどこですか' to ask where anything is located.",
+                    "title": "The Native 1 to 10 Counter (ひとつ 〜 とお)",
+                    "explanation": "When counting general items without a specialized counter: 1:ひとつ, 2:ふたつ, 3:みっつ, 4:よっつ, 5:いつつ, 6:むっつ, 7:ななつ, 8:やっつ, 9:ここのつ, 10:とお. Above 10, use standard Sino-Japanese numbers.",
                     "examples": [
-                        "コンビニはどこですか？ (Where is the convenience store?)",
-                        "あそこにあります。(It is over there.)"
+                        "これを二つください (Please give me two of these)",
+                        "三人 (Three people)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Traveler",
-                    "text": "すみません、交番（こうばん）はどこですか？",
-                    "romajiOrPronunciation": "Sumimasen, kouban wa doko desu ka?",
-                    "translation": "Excuse me, where is the police box?"
+                    "speaker": "Waiter",
+                    "text": "いらっしゃいませ。何名様ですか？",
+                    "romajiOrPronunciation": "Irasshaimase. Nan-mei-sama desu ka?",
+                    "translation": "Welcome. How many people in your party?"
                 },
                 {
-                    "speaker": "Local",
-                    "text": "あの信号を右に曲がると、左側にありますよ。",
-                    "romajiOrPronunciation": "Ano shingou o migi ni magaru to, hidari-gawa ni arimasu yo.",
-                    "translation": "Turn right at that traffic light, and it will be on your left."
+                    "speaker": "Customer",
+                    "text": "二人です。禁煙席をお願いします。",
+                    "romajiOrPronunciation": "Futari desu. Kin'en-seki o onegai shimasu.",
+                    "translation": "Two people. Non-smoking seats, please."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q8",
+                    "id": "ja-n5-u3-02-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you ask 'Where is the restroom?' in Japanese?",
+                    "prompt": "How do you say 'two people' in natural Japanese?",
                     "options": [
-                        "お手洗いはどこですか？",
-                        "お手洗いはいくらですか？",
-                        "お手洗いは何ですか？",
-                        "お手洗いは誰ですか？"
+                        "二人 (ふたり - Futari)",
+                        "二つ (ふたつ - Futatsu)",
+                        "二人 (ににん - Ninin)",
+                        "二本 (にほん - Nihon)"
                     ],
-                    "correctAnswer": "お手洗いはどこですか？",
-                    "explanation": "'...wa doko desu ka?' translates to 'Where is...?'"
+                    "correctAnswer": "二人 (ふたり - Futari)",
+                    "explanation": "1 person is ひとり (Hitori), 2 people is ふたり (Futari). From 3 onwards, it uses 〜にん (さんにん, よにん)."
                 }
             ]
         },
@@ -2054,1958 +2232,3041 @@ export const CURRICULUM = {
             "languageId": "japanese",
             "level": "JLPT N5",
             "unitNumber": 3,
-            "unitTitle": "Unit 3: Konbini Shopping & Dining Out (コンビニ・外食)",
-            "unitDescription": "Ordering food, asking for recommendations, and Tokyo konbini shopping.",
-            "title": "Time, Days & Daily Schedule (時間・曜日)",
-            "description": "Tell time, specify hours and minutes, and talk about your daily schedule.",
+            "unitTitle": "Unit 3: Numbers, Counters & Shopping (数字・助数詞・買い物)",
+            "unitDescription": "Japanese numerals up to 100,000, essential counters (つ, 人, 本, 枚), and Konbini transactions.",
+            "title": "Konbini Mastery & Ordering Food (コンビニ・飲食店)",
+            "description": "Navigate 7-Eleven, FamilyMart, Lawson, and Japanese ramen shops with authentic real-life phrases.",
+            "category": "Daily Life & Shopping",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Order food, request heated bento, decline plastic bags, and pay with confidence.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "これをください",
+                    "romajiOrPronunciation": "Kore o kudasai",
+                    "translation": "Please give me this",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "このお弁当をください。",
+                    "exampleTranslation": "Please give me this bento box."
+                },
+                {
+                    "word": "ふくろ (袋)",
+                    "romajiOrPronunciation": "Fukuro",
+                    "translation": "Bag / Plastic shopping bag",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "袋は大丈夫です（いりません）。",
+                    "exampleTranslation": "I am fine without a bag (I don't need one)."
+                },
+                {
+                    "word": "あたためますか (温めますか)",
+                    "romajiOrPronunciation": "Atatamemasu ka",
+                    "translation": "Would you like this heated up?",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "お弁当、温めますか？",
+                    "exampleTranslation": "Shall I microwave your bento?"
+                },
+                {
+                    "word": "おかいけい (お会計)",
+                    "romajiOrPronunciation": "Okaikei",
+                    "translation": "The bill / check",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "お会計をお願いします。",
+                    "exampleTranslation": "The bill, please."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Magic Phrase: '大丈夫です' (Daijoubu desu)",
+                    "explanation": "In modern Tokyo convenience stores, when asked if you need a receipt or plastic bag, saying '袋は大丈夫です' (Fukuro wa daijoubu desu) politely means 'No thank you, I don't need a bag'.",
+                    "examples": [
+                        "レシートは大丈夫です (No receipt needed)",
+                        "温めてください (Please heat it up)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Clerk",
+                    "text": "お弁当温めますか？袋はおつけしますか？",
+                    "romajiOrPronunciation": "Obentou atatamemasu ka? Fukuro wa otsuke shimasu ka?",
+                    "translation": "Would you like your bento heated? Would you like a bag?"
+                },
+                {
+                    "speaker": "Customer",
+                    "text": "温めてください。袋は大丈夫です。",
+                    "romajiOrPronunciation": "Atatamete kudasai. Fukuro wa daijoubu desu.",
+                    "translation": "Please heat it. I don't need a bag."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u3-03-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What does 'お会計をお願いします' (Okaikei o onegai shimasu) mean at a restaurant?",
+                    "options": [
+                        "Please give us the bill / check",
+                        "Please bring the menu",
+                        "Is this seat taken?",
+                        "More water please"
+                    ],
+                    "correctAnswer": "Please give us the bill / check",
+                    "explanation": "'Okaikei' refers to the restaurant bill or bill payment."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u4-01",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 4,
+            "unitTitle": "Unit 4: Existence, Positions & Telling Time (存在・位置・時間)",
+            "unitDescription": "Living (います) vs inanimate (あります) existence, spatial prepositions, and scheduling.",
+            "title": "Living vs Inanimate Existence: います vs あります (存在動詞)",
+            "description": "Master the critical distinction between living beings (people, animals) and inanimate objects.",
+            "category": "Core Verbs",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Correctly express the existence of people, pets, buildings, and items: [Place] に [Noun] が います/あります.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "います (居ます)",
+                    "romajiOrPronunciation": "Imasu",
+                    "translation": "Exists (living: people, animals)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "庭に犬がいます。",
+                    "exampleTranslation": "There is a dog in the garden."
+                },
+                {
+                    "word": "あります (有ります)",
+                    "romajiOrPronunciation": "Arimasu",
+                    "translation": "Exists (inanimate: objects, plants, events)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "机の上に本があります。",
+                    "exampleTranslation": "There is a book on the desk."
+                },
+                {
+                    "word": "へや (部屋)",
+                    "romajiOrPronunciation": "Heya",
+                    "translation": "Room",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "部屋に猫がいます。",
+                    "exampleTranslation": "There is a cat in the room."
+                },
+                {
+                    "word": "どこ (何処)",
+                    "romajiOrPronunciation": "Doko",
+                    "translation": "Where",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "トイレはどこにありますか？",
+                    "exampleTranslation": "Where is the restroom located?"
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Ironclad Rule: Animate vs Inanimate",
+                    "explanation": "Formula: [Location] に [Subject] が います / あります. 1. います is ONLY for autonomous living beings (humans, cats, birds). 2. あります is for non-living objects, plants, buildings, or abstract events (concerts, exams).",
+                    "examples": [
+                        "公園に子供がいます (There are children in the park)",
+                        "東京タワーがあります (There is Tokyo Tower)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Guest",
+                    "text": "すみません、この近くにコンビニはありますか？",
+                    "romajiOrPronunciation": "Sumimasen, kono chikaku ni konbini wa arimasu ka?",
+                    "translation": "Excuse me, is there a convenience store near here?"
+                },
+                {
+                    "speaker": "Local",
+                    "text": "はい、駅の前にローソンがありますよ。",
+                    "romajiOrPronunciation": "Hai, eki no mae ni Rooson ga arimasu yo.",
+                    "translation": "Yes, there is a Lawson in front of the station."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u4-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which verb completes '庭に猫が___' (There is a cat in the garden)?",
+                    "options": [
+                        "います (imasu)",
+                        "あります (arimasu)",
+                        "します (shimasu)",
+                        "いきます (ikimasu)"
+                    ],
+                    "correctAnswer": "います (imasu)",
+                    "explanation": "A cat (猫) is a living animal, which strictly requires います."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u4-02",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 4,
+            "unitTitle": "Unit 4: Existence, Positions & Telling Time (存在・位置・時間)",
+            "unitDescription": "Living (います) vs inanimate (あります) existence, spatial prepositions, and scheduling.",
+            "title": "Spatial Positions & Directions (上・下・前・後ろ・中・隣)",
+            "description": "Describe exactly where objects and landmarks are located using Japanese spatial nouns.",
+            "category": "Spatial Vocabulary",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Locate items and landmarks using '[Noun A] の [Position] に [Noun B] が あります/います'.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "うえ・した (上・下)",
+                    "romajiOrPronunciation": "Ue / Shita",
+                    "translation": "Above / Below (Top / Bottom)",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "机の上に鍵があります。",
+                    "exampleTranslation": "The key is on top of the desk."
+                },
+                {
+                    "word": "まえ・うしろ (前・後ろ)",
+                    "romajiOrPronunciation": "Mae / Ushiro",
+                    "translation": "In front / Behind",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "駅の前に交番があります。",
+                    "exampleTranslation": "There is a police box in front of the station."
+                },
+                {
+                    "word": "なか・そと (中・外)",
+                    "romajiOrPronunciation": "Naka / Soto",
+                    "translation": "Inside / Outside",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "箱の中に何がありますか？",
+                    "exampleTranslation": "What is inside the box?"
+                },
+                {
+                    "word": "となり・あいだ (隣・間)",
+                    "romajiOrPronunciation": "Tonari / Aida",
+                    "translation": "Next to / Between",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "銀行と郵便局の間にカフェがあります。",
+                    "exampleTranslation": "There is a cafe between the bank and post office."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Position Formula: [A] の [Position] に [B] が ある/いる",
+                    "explanation": "Japanese places the anchor object first, followed by the possessive の, the position noun, and the location particle に. E.g., '机の上' = top of desk.",
+                    "examples": [
+                        "机 (Desk) + の + 上 (Top) + に = On top of the desk",
+                        "本屋の隣に (Next to the bookstore)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Tourist",
+                    "text": "すみません、交番はどこですか？",
+                    "romajiOrPronunciation": "Sumimasen, kouban wa doko desu ka?",
+                    "translation": "Excuse me, where is the police box?"
+                },
+                {
+                    "speaker": "Officer",
+                    "text": "駅の出口のすぐ前にありますよ。",
+                    "romajiOrPronunciation": "Eki no deguchi no sugu mae ni arimasu yo.",
+                    "translation": "It is right in front of the station exit."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u4-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you say 'under the table' in Japanese?",
+                    "options": [
+                        "テーブルの下 (Teeburu no shita)",
+                        "テーブルの上 (Teeburu no ue)",
+                        "テーブルの前 (Teeburu no mae)",
+                        "テーブルの隣 (Teeburu no tonari)"
+                    ],
+                    "correctAnswer": "テーブルの下 (Teeburu no shita)",
+                    "explanation": "下 (した - shita) means below or under."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u4-03",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 4,
+            "unitTitle": "Unit 4: Existence, Positions & Telling Time (存在・位置・時間)",
+            "unitDescription": "Living (います) vs inanimate (あります) existence, spatial prepositions, and scheduling.",
+            "title": "Telling Time, Minutes & Daily Schedule (時間・〜時〜分・曜日)",
+            "description": "Master hours (時), minutes (分 with sound changes: ぷん vs ふん), half past (半), and calendar days.",
             "category": "Time & Schedule",
             "estimatedMinutes": 6,
             "xpReward": 35,
-            "objective": "Tell time in Japanese using 〜時 (ji) and 〜分 (fun/pun) and express daily routines.",
+            "objective": "Schedule meetings, ask train departure times, and express daily time routines.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
             "videoDuration": "5:30",
             "vocabulary": [
                 {
-                    "word": "なんじ",
-                    "romajiOrPronunciation": "Nan-ji",
-                    "translation": "What time",
-                    "partOfSpeech": "Question word",
+                    "word": "いま・なんじ (今・何時)",
+                    "romajiOrPronunciation": "Ima / Nanji",
+                    "translation": "Now / What time",
+                    "partOfSpeech": "Noun",
                     "exampleSentence": "今、何時ですか？",
-                    "exampleTranslation": "What time is it now?"
+                    "exampleTranslation": "What time is it right now?"
                 },
                 {
-                    "word": "おきます",
-                    "romajiOrPronunciation": "Okimasu",
-                    "translation": "To wake up / get up",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "毎朝七時に起きます。",
-                    "exampleTranslation": "I wake up at 7 o'clock every morning."
+                    "word": "〜じ・〜はん (〜時・〜半)",
+                    "romajiOrPronunciation": "〜Ji / 〜Han",
+                    "translation": "〜 O'clock / 〜 Half past",
+                    "partOfSpeech": "Suffix",
+                    "exampleSentence": "会議は3時半からです。",
+                    "exampleTranslation": "The meeting is from 3:30."
                 },
                 {
-                    "word": "ねます",
-                    "romajiOrPronunciation": "Nemasu",
-                    "translation": "To go to bed / sleep",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "夜十一時に寝ます。",
-                    "exampleTranslation": "I go to bed at 11 PM."
+                    "word": "〜ふん・〜ぷん (〜分)",
+                    "romajiOrPronunciation": "〜Fun / 〜Pun",
+                    "translation": "〜 Minute(s)",
+                    "partOfSpeech": "Suffix",
+                    "exampleSentence": "電車は10時15分に出発します。",
+                    "exampleTranslation": "The train departs at 10:15."
                 },
                 {
-                    "word": "きょう",
-                    "romajiOrPronunciation": "Kyou",
-                    "translation": "Today",
-                    "partOfSpeech": "Time noun",
-                    "exampleSentence": "今日は金曜日です。",
-                    "exampleTranslation": "Today is Friday."
+                    "word": "げつ・か・すい・もく・きん・ど・にち (月火水木金土日)",
+                    "romajiOrPronunciation": "Getsu, Ka, Sui, Moku, Kin, Do, Nichi",
+                    "translation": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "金曜日の夜に映画を見ます。",
+                    "exampleTranslation": "I watch movies on Friday night."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Time Particle: に (At [Time]) and から・まで (From - Until)",
-                    "explanation": "Specific clock times take the particle に. Use から (from) and まで (until) to indicate time spans.",
+                    "title": "Irregular Hours: 4, 7, and 9 O'clock",
+                    "explanation": "Watch out for these 3 crucial irregular hours on the JLPT N5: 4 o'clock is よじ (Yoji - NEVER Yonji), 7 o'clock is しちじ (Shichiji - rarely Nanaji), 9 o'clock is くじ (Kuji - NEVER Kyuuji).",
                     "examples": [
-                        "午前９時から午後５時まで働きます。(I work from 9 AM to 5 PM.)",
-                        "何時に起きますか？ (What time do you wake up?)"
+                        "4:00 = よじ (Yoji)",
+                        "7:00 = しちじ (Shichiji)",
+                        "9:00 = くじ (Kuji)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Daiki",
-                    "text": "毎朝、何時に起きますか？",
-                    "romajiOrPronunciation": "Maiasa, nan-ji ni okimasu ka?",
-                    "translation": "What time do you wake up every morning?"
+                    "speaker": "Traveler",
+                    "text": "次の電車は何時に出ますか？",
+                    "romajiOrPronunciation": "Tsugi no densha wa nanji ni demasu ka?",
+                    "translation": "What time does the next train leave?"
                 },
                 {
-                    "speaker": "Sara",
-                    "text": "だいたい朝の七時に起きます。それからコーヒーを飲みます。",
-                    "romajiOrPronunciation": "Daitai asa no shichi-ji ni okimasu. Sorekara koohii o nomimasu.",
-                    "translation": "Usually I wake up at 7:00 AM. After that, I drink coffee."
+                    "speaker": "Station Staff",
+                    "text": "次は9時15分発です。3番線へどうぞ。",
+                    "romajiOrPronunciation": "Tsugi wa kuji juugofun hatsu desu. Sanban-sen e douzo.",
+                    "translation": "The next is at 9:15. Please go to Platform 3."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n5-q9",
+                    "id": "ja-n5-u4-03-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you ask 'What time is it now?' in Japanese?",
+                    "prompt": "How is 4:00 (4 o'clock) pronounced correctly in Japanese?",
                     "options": [
-                        "今、何時ですか？",
-                        "今、何曜日ですか？",
-                        "今、何日ですか？",
-                        "今、いくらですか？"
+                        "よじ (Yoji)",
+                        "よんじ (Yonji)",
+                        "しじ (Shiji)",
+                        "よんじかん (Yonjikan)"
                     ],
-                    "correctAnswer": "今、何時ですか？",
-                    "explanation": "'Ima, nan-ji desu ka?' means 'What time is it right now?'"
+                    "correctAnswer": "よじ (Yoji)",
+                    "explanation": "4 o'clock is strictly irregular: よじ (Yoji)."
                 }
             ]
         },
         {
-            "id": "ja-n4-u4-01",
+            "id": "ja-n5-u5-01",
             "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 4,
-            "unitTitle": "Unit 4: The Crucial Te-Form & Requests (て形・依頼)",
-            "unitDescription": "Conjugate verbs into the te-form and make polite requests (〜てください).",
-            "title": "Te-form Conjugation & Polite Requests (〜てください)",
-            "description": "Learn to make courteous requests like 'Chotto matte kudasai'.",
-            "category": "Te-form Grammar",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Form the te-form of verbs and ask others to do something politely.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:30",
-            "vocabulary": [
-                {
-                    "word": "まってください",
-                    "romajiOrPronunciation": "Matte kudasai",
-                    "translation": "Please wait",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "少々お待ちください。",
-                    "exampleTranslation": "Please wait a moment."
-                },
-                {
-                    "word": "みてください",
-                    "romajiOrPronunciation": "Mite kudasai",
-                    "translation": "Please look",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "この写真を見てください。",
-                    "exampleTranslation": "Please look at this picture."
-                },
-                {
-                    "word": "きいてください",
-                    "romajiOrPronunciation": "Kiite kudasai",
-                    "translation": "Please listen",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "よく聞いてください。",
-                    "exampleTranslation": "Please listen carefully."
-                },
-                {
-                    "word": "かいてください",
-                    "romajiOrPronunciation": "Kaite kudasai",
-                    "translation": "Please write",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "お名前を書いてください。",
-                    "exampleTranslation": "Please write your name."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Te-form (〜て) + ください (Please do...)",
-                    "explanation": "The Te-form (〜て) is the crucial connective form of Japanese verbs. Adding ください turns it into a polite request.",
-                    "examples": [
-                        "待つ (matsu) ➔ 待ってください (Please wait)",
-                        "見る (miru) ➔ 見てください (Please look)",
-                        "食べる (taberu) ➔ 食べてください (Please eat)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Staff",
-                    "text": "こちらの用紙にお名前とお電話番号を書いてください。",
-                    "romajiOrPronunciation": "Kochira no youshi ni onamae to odenwa bangou o kaite kudasai.",
-                    "translation": "Please write your name and phone number on this form."
-                },
-                {
-                    "speaker": "Customer",
-                    "text": "はい、わかりました。ペンを貸してください。",
-                    "romajiOrPronunciation": "Hai, wakarimashita. Pen o kashite kudasai.",
-                    "translation": "Yes, understood. Please lend me a pen."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q1",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'Please wait a moment' in Japanese?",
-                    "options": [
-                        "ちょっと待ってください",
-                        "ちょっと見てください",
-                        "ちょっと食べてください",
-                        "ちょっと来てください"
-                    ],
-                    "correctAnswer": "ちょっと待ってください",
-                    "explanation": "'Chotto matte kudasai' means please wait a moment."
-                }
-            ]
-        },
-        {
-            "id": "ja-n4-u4-02",
-            "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 4,
-            "unitTitle": "Unit 4: The Crucial Te-Form & Requests (て形・依頼)",
-            "unitDescription": "Conjugate verbs into the te-form and make polite requests (〜てください).",
-            "title": "Present Continuous & States: 〜ています (Te-imasu)",
-            "description": "Express what you are currently doing and continuous states (living, working).",
-            "category": "Continuous State",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Express ongoing actions and resulting states using '〜ています'.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:15",
-            "vocabulary": [
-                {
-                    "word": "べんきょうしています",
-                    "romajiOrPronunciation": "Benkyou shite imasu",
-                    "translation": "Am studying",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "今、日本語を勉強しています。",
-                    "exampleTranslation": "I am studying Japanese right now."
-                },
-                {
-                    "word": "すんでいます",
-                    "romajiOrPronunciation": "Sunde imasu",
-                    "translation": "Am living / reside",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "東京の渋谷に住んでいます。",
-                    "exampleTranslation": "I am living in Shibuya, Tokyo."
-                },
-                {
-                    "word": "はたらいています",
-                    "romajiOrPronunciation": "Hataraite imasu",
-                    "translation": "Am working",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "IT企業で働いています。",
-                    "exampleTranslation": "I am working at an IT company."
-                },
-                {
-                    "word": "しっています",
-                    "romajiOrPronunciation": "Shitte imasu",
-                    "translation": "I know",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "その人を知っています。",
-                    "exampleTranslation": "I know that person."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Te-form + います: Action in Progress vs. Resulting State",
-                    "explanation": "With action verbs (like taberu, benkyou suru), 〜ています means an action in progress. With change-of-state verbs (sumu, kekkon suru), it indicates a current continuing state.",
-                    "examples": [
-                        "本を読んでいます。(I am reading a book.)",
-                        "京都に住んでいます。(I live in Kyoto.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Rina",
-                    "text": "今、何をしていますか？暇ですか？",
-                    "romajiOrPronunciation": "Ima, nani o shite imasu ka? Hima desu ka?",
-                    "translation": "What are you doing right now? Are you free?"
-                },
-                {
-                    "speaker": "Kaito",
-                    "text": "JLPTの文法を勉強しています。一時間後に終わりますよ。",
-                    "romajiOrPronunciation": "JLPT no bunpou o benkyou shite imasu. Ichijikan-go ni owarimasu yo.",
-                    "translation": "I am studying JLPT grammar. I will finish in an hour."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q2",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'I am currently studying' in Japanese?",
-                    "options": [
-                        "勉強しています",
-                        "勉強しました",
-                        "勉強しません",
-                        "勉強しましょう"
-                    ],
-                    "correctAnswer": "勉強しています",
-                    "explanation": "'Benkyou shite imasu' expresses an action currently in progress."
-                }
-            ]
-        },
-        {
-            "id": "ja-n4-u4-03",
-            "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 4,
-            "unitTitle": "Unit 4: The Crucial Te-Form & Requests (て形・依頼)",
-            "unitDescription": "Conjugate verbs into the te-form and make polite requests (〜てください).",
-            "title": "Asking Permission: 〜てもいいですか (May I...?)",
-            "description": "Politely ask permission to take photos, sit down, or enter rooms.",
-            "category": "Etiquette & Rules",
+            "level": "JLPT N5",
+            "unitNumber": 5,
+            "unitTitle": "Unit 5: Adjectives & Comparisons (い形容詞・な形容詞・比較)",
+            "unitDescription": "Master I-adjectives, Na-adjectives, past/negative conjugations, and comparative structures.",
+            "title": "True I-Adjectives & Conjugations (い形容詞の活用)",
+            "description": "Master い-adjectives and their 4 grammatical states: Present, Negative, Past, and Past Negative.",
+            "category": "Adjectives",
             "estimatedMinutes": 7,
             "xpReward": 40,
-            "objective": "Use 〜てもいいですか for permission and 〜てはいけません for prohibition.",
+            "objective": "Conjugate any true I-adjective seamlessly: 〜い, 〜くない, 〜かった, 〜くなかった.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:50",
+            "videoDuration": "5:45",
             "vocabulary": [
                 {
-                    "word": "しゃしん",
-                    "romajiOrPronunciation": "Shashin",
-                    "translation": "Photograph",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "ここで写真を撮ってもいいですか？",
-                    "exampleTranslation": "May I take a photo here?"
+                    "word": "たかい (高い)",
+                    "romajiOrPronunciation": "Takai",
+                    "translation": "Expensive / High / Tall",
+                    "partOfSpeech": "I-Adjective",
+                    "exampleSentence": "このカメラは高かったです。",
+                    "exampleTranslation": "This camera was expensive."
                 },
                 {
-                    "word": "すわります",
-                    "romajiOrPronunciation": "Suwarimasu",
-                    "translation": "To sit down",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "ここに座ってもいいですか？",
-                    "exampleTranslation": "May I sit here?"
+                    "word": "やすい (安い)",
+                    "romajiOrPronunciation": "Yasui",
+                    "translation": "Cheap / Inexpensive",
+                    "partOfSpeech": "I-Adjective",
+                    "exampleSentence": "このリンゴは安くないです。",
+                    "exampleTranslation": "These apples are not cheap."
                 },
                 {
-                    "word": "はいってもいい",
-                    "romajiOrPronunciation": "Haitte mo ii",
-                    "translation": "Good to enter",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "部屋に入ってもいいですか？",
-                    "exampleTranslation": "May I enter the room?"
+                    "word": "おいしい (美味しい)",
+                    "romajiOrPronunciation": "Oishii",
+                    "translation": "Delicious / Tasty",
+                    "partOfSpeech": "I-Adjective",
+                    "exampleSentence": "日本のラーメンはとても美味しいです。",
+                    "exampleTranslation": "Japanese ramen is very delicious."
                 },
                 {
-                    "word": "だめ",
-                    "romajiOrPronunciation": "Dame",
-                    "translation": "Not allowed / No good",
-                    "partOfSpeech": "Na-adj",
-                    "exampleSentence": "ここでは撮影はダメです。",
-                    "exampleTranslation": "Photography is not allowed here."
+                    "word": "いい・よい (良い)",
+                    "romajiOrPronunciation": "Ii / Yoi",
+                    "translation": "Good (Irregular)",
+                    "partOfSpeech": "I-Adjective",
+                    "exampleSentence": "昨日の映画はとてもよかったです。",
+                    "exampleTranslation": "Yesterday's movie was very good."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Te-form + もいいですか (Permission) vs. てはいけません (Prohibition)",
-                    "explanation": "Turn verb to Te-form + もいいですか to ask 'Is it okay if I do...?' Use てはいけません to say 'You must not do...'",
+                    "title": "The 4-Step I-Adjective Conjugation Chart",
+                    "explanation": "Drop the final 'い' and add: 1. Present Affirmative: 高い (Takai). 2. Present Negative: 高くない (Takakunai). 3. Past Affirmative: 高かった (Takakatta). 4. Past Negative: 高くなかった (Takakunakatta). *Exception: いい conjugates using よい (よくない, よかった).",
                     "examples": [
-                        "食べてもいいですか？ (May I eat?)",
-                        "タバコを吸ってはいけません。(You must not smoke.)"
+                        "美味しい -> 美味しくない -> 美味しかった -> 美味しくなかった",
+                        "いい -> よくない -> よかった"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Museum Visitor",
-                    "text": "すみません、この絵の写真を撮ってもいいですか？",
-                    "romajiOrPronunciation": "Sumimasen, kono e no shashin o totte mo ii desu ka?",
-                    "translation": "Excuse me, may I take a photograph of this painting?"
+                    "speaker": "Riko",
+                    "text": "昨日のテストはどうでしたか？難しかったですか？",
+                    "romajiOrPronunciation": "Kinou no tesuto wa dou deshita ka? Muzukashikatta desu ka?",
+                    "translation": "How was yesterday's test? Was it difficult?"
                 },
                 {
-                    "speaker": "Security",
-                    "text": "申し訳ございません。館内での撮影はご遠慮ください。",
-                    "romajiOrPronunciation": "Moushiwake gozaimasen. Kannai de no satsuei wa go-enryo kudasai.",
-                    "translation": "I apologize, please refrain from photography inside the museum."
+                    "speaker": "Daiki",
+                    "text": "いいえ、全然難しくなかったです。とても簡単でした。",
+                    "romajiOrPronunciation": "Iie, zenzen muzukashikunakatta desu. Totemo kantan deshita.",
+                    "translation": "No, it wasn't difficult at all. It was very easy."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n4-q3",
+                    "id": "ja-n5-u5-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you ask 'May I take a photo?' in Japanese?",
+                    "prompt": "What is the past-negative form of '暑い' (Atsui - hot)?",
                     "options": [
-                        "写真を撮ってもいいですか？",
-                        "写真を撮ってください",
-                        "写真を撮りません",
-                        "写真を撮りました"
+                        "暑くなかった (Atsukunakatta)",
+                        "暑くないでした (Atsukunaideshita)",
+                        "暑いでした (Atsuideshita)",
+                        "暑かったない (Atsukattanai)"
                     ],
-                    "correctAnswer": "写真を撮ってもいいですか？",
-                    "explanation": "'〜te mo ii desu ka' is the standard way to politely ask permission."
+                    "correctAnswer": "暑くなかった (Atsukunakatta)",
+                    "explanation": "Drop 'い' and add 'くなかった' -> 暑くなかった (It was not hot)."
                 }
             ]
         },
         {
-            "id": "ja-n4-u5-01",
+            "id": "ja-n5-u5-02",
             "languageId": "japanese",
-            "level": "JLPT N4",
+            "level": "JLPT N5",
             "unitNumber": 5,
-            "unitTitle": "Unit 5: Ability, Experience & Giving/Receiving (可能・経験・授受)",
-            "unitDescription": "Express capability (〜ことができる) and past experiences (〜たことがある).",
-            "title": "Expressing Ability: 〜ことができる (Koto ga dekiru)",
-            "description": "Talk about skills and capabilities: 'Kanji o yomu koto ga dekimasu'.",
-            "category": "Potential & Ability",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Express abilities using Dictionary Form + ことができる and potential verb forms.",
+            "unitTitle": "Unit 5: Adjectives & Comparisons (い形容詞・な形容詞・比較)",
+            "unitDescription": "Master I-adjectives, Na-adjectives, past/negative conjugations, and comparative structures.",
+            "title": "Na-Adjectives & Noun Modifiers (な形容詞と名詞修飾)",
+            "description": "Master な-adjectives, their copula endings (です/でした/じゃない), and the connecting 'な'.",
+            "category": "Adjectives",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Modify nouns directly and describe personality, places, and health using Na-adjectives.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:10",
+            "videoDuration": "5:00",
             "vocabulary": [
                 {
-                    "word": "できます",
-                    "romajiOrPronunciation": "Dekimasu",
-                    "translation": "Can do / Be able to",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "日本語を話すことができます。",
-                    "exampleTranslation": "I can speak Japanese."
+                    "word": "しずか (静か)",
+                    "romajiOrPronunciation": "Shizuka",
+                    "translation": "Quiet / Peaceful",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "ここはとても静かな町です。",
+                    "exampleTranslation": "This is a very quiet town."
                 },
                 {
-                    "word": "かんじ",
-                    "romajiOrPronunciation": "Kanji",
-                    "translation": "Kanji characters",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "百の漢字を読むことができます。",
-                    "exampleTranslation": "I can read 100 kanji characters."
+                    "word": "べんり (便利)",
+                    "romajiOrPronunciation": "Benri",
+                    "translation": "Convenient / Handy",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "地下鉄はとても便利です。",
+                    "exampleTranslation": "The subway is very convenient."
                 },
                 {
-                    "word": "およぎます",
-                    "romajiOrPronunciation": "Oyogimasu",
-                    "translation": "To swim",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "海で泳ぐことができます。",
-                    "exampleTranslation": "I can swim in the ocean."
+                    "word": "ゆうめい (有名)",
+                    "romajiOrPronunciation": "Yuumei",
+                    "translation": "Famous",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "京都は有名なお寺が多いです。",
+                    "exampleTranslation": "Kyoto has many famous temples."
                 },
                 {
-                    "word": "うんてん",
-                    "romajiOrPronunciation": "Unten",
-                    "translation": "Driving",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "車を運転することができます。",
-                    "exampleTranslation": "I can drive a car."
+                    "word": "げんき (元気)",
+                    "romajiOrPronunciation": "Genki",
+                    "translation": "Healthy / Energetic",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "お元気ですか？",
+                    "exampleTranslation": "How are you? (Are you healthy?)"
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Verb Dictionary Form + ことができる",
-                    "explanation": "Adding こと (koto) nominalizes the dictionary form verb, turning it into a noun phrase. Adding ができます indicates ability.",
+                    "title": "Why They Are Called 'Na-Adjectives'",
+                    "explanation": "When modifying a noun directly, you MUST insert 'な' between the adjective and noun: 静かな部屋 (Quiet room), 有名な人 (Famous person). When ending a sentence, they use です: この町は静かです (This town is quiet).",
                     "examples": [
-                        "ピアノを弾くことができます。(I can play the piano.)",
-                        "箸を使うことができます。(I can use chopsticks.)"
+                        "静かな部屋 (Quiet room)",
+                        "静かではありません (Not quiet)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Tourist",
+                    "text": "東京の電車はどうですか？",
+                    "romajiOrPronunciation": "Toukyou no densha wa dou desu ka?",
+                    "translation": "How are trains in Tokyo?"
+                },
+                {
+                    "speaker": "Resident",
+                    "text": "とても便利ですが、朝は全然静かじゃないです。",
+                    "romajiOrPronunciation": "Totemo benri desu ga, asa wa zenzen shizuka ja nai desu.",
+                    "translation": "They are very convenient, but in the morning they are not quiet at all."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u5-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you correctly say 'a famous restaurant' using 有名 (Yuumei)?",
+                    "options": [
+                        "有名なレストラン (Yuumei na resutoran)",
+                        "有名のレストラン (Yuumei no resutoran)",
+                        "有名いレストラン (Yuumei i resutoran)",
+                        "有名レストラン (Yuumei resutoran)"
+                    ],
+                    "correctAnswer": "有名なレストラン (Yuumei na resutoran)",
+                    "explanation": "Na-adjectives require 'な' when modifying nouns directly."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u5-03",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 5,
+            "unitTitle": "Unit 5: Adjectives & Comparisons (い形容詞・な形容詞・比較)",
+            "unitDescription": "Master I-adjectives, Na-adjectives, past/negative conjugations, and comparative structures.",
+            "title": "Comparisons & Superlatives (比較: より・どちら・一番)",
+            "description": "Compare two things (AはBより〜), ask choices (どちらが〜), and express the absolute best (一番〜).",
+            "category": "Comparisons",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Make comparisons and express preferences naturally: '[A] の方が [B] より [Adj] です'.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:15",
+            "vocabulary": [
+                {
+                    "word": "より",
+                    "romajiOrPronunciation": "Yori",
+                    "translation": "Than (comparison marker)",
+                    "partOfSpeech": "Particle",
+                    "exampleSentence": "飛行機は新幹線より速いです。",
+                    "exampleTranslation": "Airplanes are faster than Shinkansen bullet trains."
+                },
+                {
+                    "word": "〜のほうが (〜の方)",
+                    "romajiOrPronunciation": "〜 No hou ga",
+                    "translation": "More ... (indicates chosen side)",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "寿司の方が好きです。",
+                    "exampleTranslation": "I prefer sushi (sushi is more liked)."
+                },
+                {
+                    "word": "どちら (何方)",
+                    "romajiOrPronunciation": "Dochira",
+                    "translation": "Which one (of two choices)",
+                    "partOfSpeech": "Question word",
+                    "exampleSentence": "肉と魚と、どちらが好きですか？",
+                    "exampleTranslation": "Between meat and fish, which do you like?"
+                },
+                {
+                    "word": "いちばん (一番)",
+                    "romajiOrPronunciation": "Ichiban",
+                    "translation": "The most / Number one / Best",
+                    "partOfSpeech": "Adverb",
+                    "exampleSentence": "日本で富士山が一番高い山です。",
+                    "exampleTranslation": "Mt. Fuji is the tallest mountain in Japan."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The 3 Fundamental Comparison Patterns",
+                    "explanation": "1. Comparison: [A] は [B] より [Adj] です (A is more [Adj] than B). 2. Choice: [A] と [B] と どちらが [Adj] ですか (Between A and B, which is more [Adj]?). 3. Superlative: [Category] の中で [A] が 一番 [Adj] です (Among [Category], A is the most [Adj]).",
+                    "examples": [
+                        "コーヒーと紅茶、どちらが好きですか？",
+                        "スポーツの中でサッカーが一番面白いです"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
                     "speaker": "Interviewer",
-                    "text": "日本語で日常会話ができますか？",
-                    "romajiOrPronunciation": "Nihongo de nichijou kaiwa ga dekimasu ka?",
-                    "translation": "Can you carry out everyday conversation in Japanese?"
+                    "text": "夏と冬と、どちらが好きですか？",
+                    "romajiOrPronunciation": "Natsu to fuyu to, dochira ga suki desu ka?",
+                    "translation": "Between summer and winter, which do you prefer?"
                 },
                 {
-                    "speaker": "Applicant",
-                    "text": "はい！簡単な日常会話を話すことができます。",
-                    "romajiOrPronunciation": "Hai! Kantan na nichijou kaiwa o hanasu koto ga dekimasu.",
-                    "translation": "Yes! I can speak simple everyday conversations."
+                    "speaker": "Guest",
+                    "text": "冬の方が好きです。スノーボードが一番楽しいですから。",
+                    "romajiOrPronunciation": "Fuyu no hou ga suki desu. Sunooboodo ga ichiban tanoshii desu kara.",
+                    "translation": "I prefer winter. Because snowboarding is the most fun."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n4-q4",
+                    "id": "ja-n5-u5-03-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you say 'I can speak Japanese' using 'koto ga dekimasu'?",
+                    "prompt": "Which sentence means 'Apples are cheaper than melons'?",
                     "options": [
-                        "日本語を話すことができます",
-                        "日本語を話します",
-                        "日本語を話したいです",
-                        "日本語を話してください"
+                        "りんごはメロンより安いです",
+                        "メロンはりんごより安いです",
+                        "りんごはメロンが安いです",
+                        "りんごよりメロンが安いです"
                     ],
-                    "correctAnswer": "日本語を話すことができます",
-                    "explanation": "Dictionary form '話す' + 'ことができます' expresses ability."
+                    "correctAnswer": "りんごはメロンより安いです",
+                    "explanation": "[A] は [B] より [Adj] です -> Apples (A) are cheaper than melons (B)."
                 }
             ]
         },
         {
-            "id": "ja-n4-u5-02",
+            "id": "ja-n5-u6-01",
             "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 5,
-            "unitTitle": "Unit 5: Ability, Experience & Giving/Receiving (可能・経験・授受)",
-            "unitDescription": "Express capability (〜ことができる) and past experiences (〜たことがある).",
-            "title": "Past Life Experiences: 〜たことがある (Ta koto ga aru)",
-            "description": "Talk about travel memories: 'Fujisan ni nobotta koto ga arimasu'.",
-            "category": "Life Experiences",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Form sentences describing past lifetime experiences using Verb Ta-form + ことがある.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:20",
-            "vocabulary": [
-                {
-                    "word": "のぼりました",
-                    "romajiOrPronunciation": "Noborimashita",
-                    "translation": "Climbed",
-                    "partOfSpeech": "Verb (past)",
-                    "exampleSentence": "富士山に登ったことがあります。",
-                    "exampleTranslation": "I have climbed Mount Fuji before."
-                },
-                {
-                    "word": "おんせん",
-                    "romajiOrPronunciation": "Onsen",
-                    "translation": "Hot spring",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "日本の温泉に入ったことがありますか？",
-                    "exampleTranslation": "Have you ever entered a Japanese hot spring?"
-                },
-                {
-                    "word": "いちども",
-                    "romajiOrPronunciation": "Ichido mo",
-                    "translation": "Not even once (with negative)",
-                    "partOfSpeech": "Adverb",
-                    "exampleSentence": "一度も行ったことがありません。",
-                    "exampleTranslation": "I have not been there even once."
-                },
-                {
-                    "word": "なんかいも",
-                    "romajiOrPronunciation": "Nankai mo",
-                    "translation": "Many times",
-                    "partOfSpeech": "Adverb",
-                    "exampleSentence": "何回も日本に行ったことがあります。",
-                    "exampleTranslation": "I have been to Japan many times."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Verb Plain Past (〜た) + ことがある (Have the experience of...)",
-                    "explanation": "Use Verb Ta-form + ことがある to speak of past experiences in one's life history.",
-                    "examples": [
-                        "刺身を食べたことがあります。(I have eaten sashimi before.)",
-                        "歌舞伎を見たことがありますか？ (Have you ever watched Kabuki?)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Ken",
-                    "text": "日本へ旅行に行ったことがありますか？",
-                    "romajiOrPronunciation": "Nihon e ryokou ni itta koto ga arimasu ka?",
-                    "translation": "Have you ever been on a trip to Japan?"
-                },
-                {
-                    "speaker": "Emi",
-                    "text": "はい！去年の春に京都へ桜を見に行ったことがあります。",
-                    "romajiOrPronunciation": "Hai! Kyonen no haru ni Kyouto e sakura o mi ni itta koto ga arimasu.",
-                    "translation": "Yes! Last spring I went to Kyoto to see the cherry blossoms."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q5",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'I have climbed Mt. Fuji before'?",
-                    "options": [
-                        "富士山に登ったことがあります",
-                        "富士山に登ります",
-                        "富士山に登りたいです",
-                        "富士山に登ってください"
-                    ],
-                    "correctAnswer": "富士山に登ったことがあります",
-                    "explanation": "Ta-form '登った' + 'ことがあります' expresses past experience."
-                }
-            ]
-        },
-        {
-            "id": "ja-n4-u5-03",
-            "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 5,
-            "unitTitle": "Unit 5: Ability, Experience & Giving/Receiving (可能・経験・授受)",
-            "unitDescription": "Express capability (〜ことができる) and past experiences (〜たことがある).",
-            "title": "Giving & Receiving: あげる・もらう・くれる (Ageru / Morau / Kureru)",
-            "description": "Master the Japanese perspective on transactions, gifts, and favors.",
-            "category": "Gift Giving & Favors",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Correctly use あげる (give to other), くれる (give to me), and もらう (receive).",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:40",
-            "vocabulary": [
-                {
-                    "word": "あげます",
-                    "romajiOrPronunciation": "Agemasu",
-                    "translation": "To give (to someone else)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "友達にプレゼントをあげました。",
-                    "exampleTranslation": "I gave a present to my friend."
-                },
-                {
-                    "word": "もらいます",
-                    "romajiOrPronunciation": "Moraimasu",
-                    "translation": "To receive (from someone)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "母にお小遣いをもらいました。",
-                    "exampleTranslation": "I received pocket money from my mother."
-                },
-                {
-                    "word": "くれます",
-                    "romajiOrPronunciation": "Kuremasu",
-                    "translation": "To give (to me or my in-group)",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "田中さんが本をくれました。",
-                    "exampleTranslation": "Mr. Tanaka gave me a book."
-                },
-                {
-                    "word": "おみやげ",
-                    "romajiOrPronunciation": "Omiyage",
-                    "translation": "Souvenir gift",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "東京のお土産をもらいました。",
-                    "exampleTranslation": "I received a Tokyo souvenir."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Direction of Giving: あげる vs くれる",
-                    "explanation": "あげる is used when speaker gives to someone, or A gives to B. くれる is strictly used when someone gives TO the speaker (or speaker's in-group). もらう means to receive from someone.",
-                    "examples": [
-                        "私は妹に時計をあげました。(I gave a watch to my sister.)",
-                        "友達が私にお土産をくれました。(My friend gave me a souvenir.)",
-                        "私は先生に教えてもらいました。(I received instruction from my teacher.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Yuto",
-                    "text": "その素敵なネクタイはどうしたの？",
-                    "romajiOrPronunciation": "Sono suteki na nekutai wa dou shita no?",
-                    "translation": "Where did you get that lovely necktie?"
-                },
-                {
-                    "speaker": "Shin",
-                    "text": "誕生日に彼女がくれたんだよ。",
-                    "romajiOrPronunciation": "Tanjoubi ni kanojo ga kureta n da yo.",
-                    "translation": "My girlfriend gave it to me on my birthday."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q6",
-                    "type": "multiple_choice",
-                    "prompt": "Fill in the blank: 'Tomodachi ga watashi ni hon o ___' (My friend gave me a book).",
-                    "options": [
-                        "くれました",
-                        "あげました",
-                        "もらいました",
-                        "とりました"
-                    ],
-                    "correctAnswer": "くれました",
-                    "explanation": "When someone gives something TO the speaker, 'くれました' (kuremashita) is required."
-                }
-            ]
-        },
-        {
-            "id": "ja-n4-u6-01",
-            "languageId": "japanese",
-            "level": "JLPT N4",
+            "level": "JLPT N5",
             "unitNumber": 6,
-            "unitTitle": "Unit 6: Desires, Reasons & Conditionals (希望・理由・条件)",
-            "unitDescription": "Express desires (〜たい), causes (〜ので・〜から), and if-then conditionals (〜たら).",
-            "title": "Expressing Wishes: 〜たい & 〜ほしい (Tai / Hoshii)",
-            "description": "Say what you want to do: 'Nihon e ikitai desu' (I want to go to Japan).",
-            "category": "Wishes & Desires",
+            "unitTitle": "Unit 6: The Crucial Te-form Mastery (て形の活用・依頼・状態)",
+            "unitDescription": "Master Godan, Ichidan, and Irregular Te-form conjugations, polite requests, and continuous states.",
+            "title": "The 3 Verb Groups & Te-form Conjugation (動詞のグループとて形)",
+            "description": "Conquer the single most important conjugation in Japanese: Group 1 (Godan), Group 2 (Ichidan), Group 3 (Irregular).",
+            "category": "Verb Conjugation",
+            "estimatedMinutes": 8,
+            "xpReward": 45,
+            "objective": "Conjugate any Japanese verb into its Te-form rapidly using the rhythm rule.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "6:30",
+            "vocabulary": [
+                {
+                    "word": "かきます (書きます) -> かいて",
+                    "romajiOrPronunciation": "Kakimasu -> Kaite",
+                    "translation": "Write -> Writing (ku -> ite)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "名前を書いてください。",
+                    "exampleTranslation": "Please write your name."
+                },
+                {
+                    "word": "のみます (飲みます) -> のんで",
+                    "romajiOrPronunciation": "Nomimasu -> Nonde",
+                    "translation": "Drink -> Drinking (mu -> nde)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "お薬を飲んでください。",
+                    "exampleTranslation": "Please drink your medicine."
+                },
+                {
+                    "word": "たべます (食べます) -> たべて",
+                    "romajiOrPronunciation": "Tabemasu -> Tabete",
+                    "translation": "Eat -> Eating (ru -> te)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "野菜を食べてください。",
+                    "exampleTranslation": "Please eat vegetables."
+                },
+                {
+                    "word": "します / きます -> して / きて",
+                    "romajiOrPronunciation": "Shimasu -> Shite / Kimasu -> Kite",
+                    "translation": "Do -> Doing / Come -> Coming (Irregular)",
+                    "partOfSpeech": "Verb (Irregular)",
+                    "exampleSentence": "ここに来てください。",
+                    "exampleTranslation": "Please come here."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Godan Te-Form Rhythm Song",
+                    "explanation": "Group 1 (Godan) rules: 1. う・つ・る -> って (買って, 待って, 帰って). 2. む・ぶ・ぬ -> んで (飲んで, 遊んで, 死んで). 3. く -> いて (書いて) *Special: 行く -> 行って. 4. ぐ -> いで (泳いで). 5. す -> して (話して). Group 2 (Ichidan): drop る + て (食べて, 見て). Group 3: して, きて.",
+                    "examples": [
+                        "待つ -> 待って (Matte)",
+                        "飲む -> 飲んで (Nonde)",
+                        "行く -> 行って (Itte)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Teacher",
+                    "text": "教科書の25ページを開いて、読んでください。",
+                    "romajiOrPronunciation": "Kyoukasho no nijuugopeeji o hiraite, yonde kudasai.",
+                    "translation": "Please open page 25 of the textbook and read."
+                },
+                {
+                    "speaker": "Student",
+                    "text": "はい、読んでみます。",
+                    "romajiOrPronunciation": "Hai, yonde mimasu.",
+                    "translation": "Yes, I will read it."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u6-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the correct Te-form of the irregular verb '行く' (Iku - to go)?",
+                    "options": [
+                        "行って (Itte)",
+                        "行いて (Iite)",
+                        "行きて (Ikite)",
+                        "行いで (Iide)"
+                    ],
+                    "correctAnswer": "行って (Itte)",
+                    "explanation": "Even though く normally becomes いて, 行く is the famous exception: 行って (Itte)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u6-02",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 6,
+            "unitTitle": "Unit 6: The Crucial Te-form Mastery (て形の活用・依頼・状態)",
+            "unitDescription": "Master Godan, Ichidan, and Irregular Te-form conjugations, polite requests, and continuous states.",
+            "title": "Polite Requests: 〜てください (Please do...)",
+            "description": "Make polite everyday requests in stores, taxis, trains, and offices using [Verb Te-form] + ください.",
+            "category": "Polite Requests",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Ask native speakers for directions, assistance, and actions politely and accurately.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "まってください (待ってください)",
+                    "romajiOrPronunciation": "Matte kudasai",
+                    "translation": "Please wait",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "少々お待ちください。",
+                    "exampleTranslation": "Please wait a brief moment (polite)."
+                },
+                {
+                    "word": "おしえてください (教えてください)",
+                    "romajiOrPronunciation": "Oshiete kudasai",
+                    "translation": "Please teach / tell me",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "駅への道を教えてください。",
+                    "exampleTranslation": "Please tell me the way to the station."
+                },
+                {
+                    "word": "みせてください (見せてください)",
+                    "romajiOrPronunciation": "Misete kudasai",
+                    "translation": "Please show me",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "パスポートを見せてください。",
+                    "exampleTranslation": "Please show your passport."
+                },
+                {
+                    "word": "もういちど (もう一度)",
+                    "romajiOrPronunciation": "Mou ichido",
+                    "translation": "Once more / Again",
+                    "partOfSpeech": "Adverb",
+                    "exampleSentence": "もう一度言ってください。",
+                    "exampleTranslation": "Please say that once more."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Formula: [Verb て-form] + ください",
+                    "explanation": "Adding ください to the Te-form is the foundation of polite instruction and requests. For negative requests ('Please do not...'), use [Verb ない-form] + でください (e.g. 写真を撮らないでください = Please do not take photos).",
+                    "examples": [
+                        "ゆっくり話してください (Please speak slowly)",
+                        "ここに座ってください (Please sit here)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Passenger",
+                    "text": "すみません、東京駅まで行ってください。",
+                    "romajiOrPronunciation": "Sumimasen, Toukyou-eki made itte kudasai.",
+                    "translation": "Excuse me, please go to Tokyo Station."
+                },
+                {
+                    "speaker": "Taxi Driver",
+                    "text": "かしこまりました。東京駅ですね。シートベルトを締めてください。",
+                    "romajiOrPronunciation": "Kashikomarimashita. Toukyou-eki desu ne. Shiitoberuto o shimete kudasai.",
+                    "translation": "Understood. Tokyo Station it is. Please fasten your seatbelt."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u6-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you politely ask someone to 'please speak slowly'?",
+                    "options": [
+                        "ゆっくり話してください (Yukkuri hanashite kudasai)",
+                        "早く話してください (Hayaku hanashite kudasai)",
+                        "静かに話してください (Shizuka ni hanashite kudasai)",
+                        "話さないでください (Hanasanaide kudasai)"
+                    ],
+                    "correctAnswer": "ゆっくり話してください (Yukkuri hanashite kudasai)",
+                    "explanation": "ゆっくり (slowly) + 話して (Te-form of to speak) + ください."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u6-03",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 6,
+            "unitTitle": "Unit 6: The Crucial Te-form Mastery (て形の活用・依頼・状態)",
+            "unitDescription": "Master Godan, Ichidan, and Irregular Te-form conjugations, polite requests, and continuous states.",
+            "title": "Present Continuous & Resulting States: 〜ています (Te-imasu)",
+            "description": "Express actions happening right now AND ongoing states of being (marriage, residence, knowing).",
+            "category": "Continuous & States",
             "estimatedMinutes": 7,
             "xpReward": 40,
-            "objective": "Form statements expressing personal wishes using Verb Stem + たい and Noun がほしい.",
+            "objective": "Distinguish actions in progress from enduring resulting states using [Verb Te] + います.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "べんきょうしています (勉強しています)",
+                    "romajiOrPronunciation": "Benkyou shite imasu",
+                    "translation": "Am studying (Action in progress)",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "今、図書館で日本語を勉強しています。",
+                    "exampleTranslation": "Right now, I am studying Japanese at the library."
+                },
+                {
+                    "word": "すんでいます (住んでいます)",
+                    "romajiOrPronunciation": "Sunde imasu",
+                    "translation": "Am living in (Resulting state)",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "私は東京に住んでいます。",
+                    "exampleTranslation": "I live in Tokyo."
+                },
+                {
+                    "word": "しっています (知っています)",
+                    "romajiOrPronunciation": "Shitte imasu",
+                    "translation": "I know / Am aware of (State)",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "田中さんの電話番号を知っています。",
+                    "exampleTranslation": "I know Mr. Tanaka's phone number."
+                },
+                {
+                    "word": "けっこんしています (結婚しています)",
+                    "romajiOrPronunciation": "Kekkon shite imasu",
+                    "translation": "Am married (State)",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "兄は結婚しています。",
+                    "exampleTranslation": "My older brother is married."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Action in Progress vs Resulting State",
+                    "explanation": "〜ています has TWO meanings: 1. Action happening now: 今、本を読んでいます (Reading now). 2. Resulting state of a change: 住んでいます (Living in), 結婚しています (Married), 知っています (Knowing). *Trap: Negative of 知っています is 知りません (NEVER 知っていません).",
+                    "examples": [
+                        "東京に住んでいます (I reside in Tokyo)",
+                        "知りません (I don't know - irregular negative)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "今、何をしていますか？",
+                    "romajiOrPronunciation": "Ima, nani o shite imasu ka?",
+                    "translation": "What are you doing right now?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "テレビを見ています。あなたは？",
+                    "romajiOrPronunciation": "Terebi o mite imasu. Anata wa?",
+                    "translation": "I am watching TV. How about you?"
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u6-03-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the correct negative form of '知っています' (I know)?",
+                    "options": [
+                        "知りません (Shirimasen)",
+                        "知っていません (Shitte imasen)",
+                        "知らなかったです (Shirakatta desu)",
+                        "知るではありません (Shiru dewa arimasen)"
+                    ],
+                    "correctAnswer": "知りません (Shirimasen)",
+                    "explanation": "The negative of the state '知っています' is strictly '知りません' in Japanese."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u6-04",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 6,
+            "unitTitle": "Unit 6: The Crucial Te-form Mastery (て形の活用・依頼・状態)",
+            "unitDescription": "Master Godan, Ichidan, and Irregular Te-form conjugations, polite requests, and continuous states.",
+            "title": "Permissions & Prohibitions: 〜てもいいですか & 〜てはいけません",
+            "description": "Ask permission politely ('May I...?') and state rules or prohibitions ('You must not...').",
+            "category": "Permissions & Rules",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Ask permission in public venues and understand museum, train, and library rules.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜てもいいですか",
+                    "romajiOrPronunciation": "〜 Te mo ii desu ka",
+                    "translation": "May I do ...? (Asking permission)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "写真を撮ってもいいですか？",
+                    "exampleTranslation": "May I take a photograph?"
+                },
+                {
+                    "word": "〜てはいけません",
+                    "romajiOrPronunciation": "〜 Te wa ikemasen",
+                    "translation": "Must not do ... (Prohibition)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "ここでタバコを吸ってはいけません。",
+                    "exampleTranslation": "You must not smoke cigarettes here."
+                },
+                {
+                    "word": "しゃしん (写真)",
+                    "romajiOrPronunciation": "Shashin",
+                    "translation": "Photograph",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "富士山の写真を撮りました。",
+                    "exampleTranslation": "I took a photo of Mt. Fuji."
+                },
+                {
+                    "word": "すわります (座ります)",
+                    "romajiOrPronunciation": "Suwarimasu",
+                    "translation": "To sit down",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "ここに座ってもいいですか？",
+                    "exampleTranslation": "May I sit here?"
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Permission Formula: [Verb Te] + もいいですか",
+                    "explanation": "To ask permission: [Verb て-form] + もいいですか. To give permission: [Verb て-form] + もいいですよ (You may). To forbid: [Verb て-form] + はいけません (You must not).",
+                    "examples": [
+                        "入ってもいいですか？ (May I come in?)",
+                        "入ってはいけません (Do not enter)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Visitor",
+                    "text": "すみません、この美術館で写真を撮ってもいいですか？",
+                    "romajiOrPronunciation": "Sumimasen, kono bijutsukan de shashin o totte mo ii desu ka?",
+                    "translation": "Excuse me, may I take pictures in this art museum?"
+                },
+                {
+                    "speaker": "Attendant",
+                    "text": "申し訳ございません。館内での撮影はご遠慮ください（撮ってはいけません）。",
+                    "romajiOrPronunciation": "Moushiwake gozaimasen. Kannai de no satsuei wa go-enryo kudasai.",
+                    "translation": "We are very sorry. Photography inside is prohibited."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u6-04-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which phrase means 'May I sit here?'",
+                    "options": [
+                        "ここに座ってもいいですか？",
+                        "ここに座ってはいけません",
+                        "ここに座ってください",
+                        "ここに座りましょうか？"
+                    ],
+                    "correctAnswer": "ここに座ってもいいですか？",
+                    "explanation": "[Verb て-form] + もいいですか is the polite formula for asking permission."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u7-01",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 7,
+            "unitTitle": "Unit 7: Nai-form, Obligations & Experiences (ない形・義務・経験)",
+            "unitDescription": "Master the plain negative (ない形), must do (〜なければならない), and life experiences (〜たことがある).",
+            "title": "The Plain Negative Nai-Form & Prohibitions (ない形・ないでください)",
+            "description": "Master the Nai-form conjugation across all 3 verb groups and express negative polite requests.",
+            "category": "Negative Conjugations",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Form the Nai-form effortlessly: Group 1 (a-stem + ない), Group 2 (stem + ない), Group 3 (しない, こない).",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
             "videoDuration": "5:45",
             "vocabulary": [
                 {
-                    "word": "いきたい",
-                    "romajiOrPronunciation": "Ikitai",
-                    "translation": "Want to go",
-                    "partOfSpeech": "I-adjective form",
-                    "exampleSentence": "北海道へ行きたいです。",
-                    "exampleTranslation": "I want to go to Hokkaido."
+                    "word": "かかない (書かない)",
+                    "romajiOrPronunciation": "Kakanai",
+                    "translation": "Do not write (Godan: ku -> ka + nai)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "ボールペンで書かないでください。",
+                    "exampleTranslation": "Please do not write in ballpoint pen."
                 },
                 {
-                    "word": "たべたい",
-                    "romajiOrPronunciation": "Tabetai",
-                    "translation": "Want to eat",
-                    "partOfSpeech": "I-adjective form",
-                    "exampleSentence": "本場の和牛を食べたいです。",
-                    "exampleTranslation": "I want to eat authentic Wagyu."
+                    "word": "たべない (食べない)",
+                    "romajiOrPronunciation": "Tabenai",
+                    "translation": "Do not eat (Ichidan: drop ru + nai)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "甘いものを食べないようにしています。",
+                    "exampleTranslation": "I try not to eat sweet things."
                 },
                 {
-                    "word": "ほしい",
-                    "romajiOrPronunciation": "Hoshii",
-                    "translation": "Want (a noun/object)",
-                    "partOfSpeech": "I-adjective",
-                    "exampleSentence": "新しいパソコンがほしいです。",
-                    "exampleTranslation": "I want a new computer."
+                    "word": "しない・こない (来ない)",
+                    "romajiOrPronunciation": "Shinai / Konai",
+                    "translation": "Do not do / Do not come (Irregular)",
+                    "partOfSpeech": "Verb (Irregular)",
+                    "exampleSentence": "無理をしないでください。",
+                    "exampleTranslation": "Please don't overexert yourself."
                 },
                 {
-                    "word": "やすみたい",
-                    "romajiOrPronunciation": "Yasumitai",
-                    "translation": "Want to rest",
-                    "partOfSpeech": "I-adjective form",
-                    "exampleSentence": "少し休みたいです。",
-                    "exampleTranslation": "I want to rest a little."
+                    "word": "わすれます (忘れます) -> わすれないで",
+                    "romajiOrPronunciation": "Wasuremasu -> Wasurenaide",
+                    "translation": "Forget -> Please don't forget",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "傘を忘れないでください。",
+                    "exampleTranslation": "Please don't forget your umbrella."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Verb Stem + たい (Want to do) vs. Noun が ほしい (Want an item)",
-                    "explanation": "Replace ます with たい to express wanting to do an action. For desiring a physical object, use [Object] が ほしいです.",
+                    "title": "The Nai-Form Conjugation Formula",
+                    "explanation": "Group 1 (Godan): Change the 'u' sound to the 'a' sound + ない (書く -> 書かない, 飲む -> 飲まない). *Note: verbs ending in う become わない (買う -> 買わない). Group 2: drop る + ない (食べる -> 食べない). Group 3: する -> しない, 来る -> こない (Konai).",
                     "examples": [
-                        "日本に住みたいです。(I want to live in Japan.)",
-                        "温かいお茶がほしいです。(I want warm tea.)"
+                        "話す -> 話さない",
+                        "行く -> 行かない",
+                        "来る -> こない"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Doctor",
+                    "text": "今日はお風呂に入らないでください。激しい運動もしないでくださいね。",
+                    "romajiOrPronunciation": "Kyou wa ofuro ni hairanaide kudasai. Hageshii undou mo shinaide kudasai ne.",
+                    "translation": "Please do not take a bath today. Also, please do not do strenuous exercise."
+                },
+                {
+                    "speaker": "Patient",
+                    "text": "はい、わかりました。安静にします。",
+                    "romajiOrPronunciation": "Hai, wakarimashita. Ansei ni shimasu.",
+                    "translation": "Yes, understood. I will rest quietly."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n5-u7-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the plain negative (Nai-form) of '買う' (Kau - to buy)?",
+                    "options": [
+                        "買わない (Kawanai)",
+                        "買かない (Kakanai)",
+                        "買あない (Kaanai)",
+                        "買ない (Kanai)"
+                    ],
+                    "correctAnswer": "買わない (Kawanai)",
+                    "explanation": "Verbs ending in 'う' always change to 'わ' before ない (買う -> 買わない)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n5-u7-02",
+            "languageId": "japanese",
+            "level": "JLPT N5",
+            "unitNumber": 7,
+            "unitTitle": "Unit 7: Nai-form, Obligations & Experiences (ない形・義務・経験)",
+            "unitDescription": "Master the plain negative (ない形), must do (〜なければならない), and life experiences (〜たことがある).",
+            "title": "Expressing Obligation: 〜なければなりません (Must / Have to)",
+            "description": "Express duty, legal requirements, and daily necessities using the essential 'must do' construction.",
+            "category": "Obligation & Rules",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "State obligations formally (なければなりません) and in casual daily speech (なきゃ / なくちゃ).",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "〜なければなりません",
+                    "romajiOrPronunciation": "〜 Nakereba narimasen",
+                    "translation": "Must do ... / Have to do ... (Formal)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "明日、早く起きなければなりません。",
+                    "exampleTranslation": "I have to wake up early tomorrow."
+                },
+                {
+                    "word": "〜なきゃ (〜なきゃいけない)",
+                    "romajiOrPronunciation": "〜 Nakya",
+                    "translation": "Gotta do ... / Must (Casual native)",
+                    "partOfSpeech": "Casual contraction",
+                    "exampleSentence": "もう帰らなきゃ！",
+                    "exampleTranslation": "I've gotta head home now!"
+                },
+                {
+                    "word": "くすり (薬)",
+                    "romajiOrPronunciation": "Kusuri",
+                    "translation": "Medicine",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "毎食後、薬を飲まなければなりません。",
+                    "exampleTranslation": "I have to take medicine after every meal."
+                },
+                {
+                    "word": "はらいます (払います)",
+                    "romajiOrPronunciation": "Haraimasu",
+                    "translation": "To pay",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "家賃を払わなければなりません。",
+                    "exampleTranslation": "I must pay the rent."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Formula: Drop ない from Nai-Form + なければなりません",
+                    "explanation": "Take the verb's Nai-form, drop 'い', and attach 'ければなりません'. Literal meaning: 'If you don't do it, it won't do'. Casual native spoken form: [Stem] + なきゃ (Nakya).",
+                    "examples": [
+                        "行かない -> 行かなければなりません (Must go) -> 行かなきゃ (Casual)",
+                        "食べる -> 食べなければなりません (Must eat)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
                     "speaker": "Friend",
-                    "text": "日本に行ったら、何が一番したいですか？",
-                    "romajiOrPronunciation": "Nihon ni ittara, nani ga ichiban shitai desu ka?",
-                    "translation": "When you go to Japan, what do you want to do most?"
+                    "text": "明日、遊びに行かない？",
+                    "romajiOrPronunciation": "Ashita, asobi ni ikanai?",
+                    "translation": "Wanna hang out tomorrow?"
                 },
                 {
-                    "speaker": "Traveler",
-                    "text": "秋葉原でアニメグッズを買いたいです！",
-                    "romajiOrPronunciation": "Akihabara de anime guzzu o kaitai desu!",
-                    "translation": "I want to buy anime goods in Akihabara!"
+                    "speaker": "You",
+                    "text": "ごめん、明日はレポートを出さなきゃいけないんだ。",
+                    "romajiOrPronunciation": "Gomen, ashita wa repooto o dasanakya ikenain da.",
+                    "translation": "Sorry, I have to submit a report tomorrow."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n4-q7",
+                    "id": "ja-n5-u7-02-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you say 'I want to drink green tea'?",
+                    "prompt": "How do you say 'I must study tonight' formally?",
                     "options": [
-                        "お茶が飲みたいです",
-                        "お茶を飲みます",
-                        "お茶を飲んでください",
-                        "お茶を飲みました"
+                        "今夜、勉強しなければなりません",
+                        "今夜、勉強してもいいです",
+                        "今夜、勉強しないでください",
+                        "今夜、勉強したいです"
                     ],
-                    "correctAnswer": "お茶が飲みたいです",
-                    "explanation": "Verb stem '飲み' + 'たいです' expresses the desire to drink."
+                    "correctAnswer": "今夜、勉強しなければなりません",
+                    "explanation": "〜なければなりません expresses strict obligation ('must')."
                 }
             ]
         },
         {
-            "id": "ja-n4-u6-02",
+            "id": "ja-n5-u7-03",
             "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 6,
-            "unitTitle": "Unit 6: Desires, Reasons & Conditionals (希望・理由・条件)",
-            "unitDescription": "Express desires (〜たい), causes (〜ので・〜から), and if-then conditionals (〜たら).",
-            "title": "The Tara Conditional: 〜たら (If / When)",
-            "description": "Form if-then statements: 'Ame ga futtara...' (If it rains...).",
-            "category": "Conditionals",
-            "estimatedMinutes": 8,
-            "xpReward": 40,
-            "objective": "Form general conditional statements using Verb/Adjective Ta-form + ら.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:15",
-            "vocabulary": [
-                {
-                    "word": "ふったら",
-                    "romajiOrPronunciation": "Futtara",
-                    "translation": "If it rains / falls",
-                    "partOfSpeech": "Conditional",
-                    "exampleSentence": "雨が降ったら、家で映画を見ます。",
-                    "exampleTranslation": "If it rains, I will watch a movie at home."
-                },
-                {
-                    "word": "やすかったら",
-                    "romajiOrPronunciation": "Yasukattara",
-                    "translation": "If it is cheap",
-                    "partOfSpeech": "Conditional",
-                    "exampleSentence": "安かったら買います。",
-                    "exampleTranslation": "If it is cheap, I will buy it."
-                },
-                {
-                    "word": "じかんがあったら",
-                    "romajiOrPronunciation": "Jikan ga attara",
-                    "translation": "If there is time",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "時間があったら、カフェに行きましょう。",
-                    "exampleTranslation": "If you have time, let's go to a cafe."
-                },
-                {
-                    "word": "ついたら",
-                    "romajiOrPronunciation": "Tsuitara",
-                    "translation": "When I arrive",
-                    "partOfSpeech": "Conditional",
-                    "exampleSentence": "駅に着いたら連絡してください。",
-                    "exampleTranslation": "When you arrive at the station, please contact me."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Plain Past (〜た) + ら (If / When)",
-                    "explanation": "The 〜たら conditional is the most versatile conditional form in Japanese. It covers both hypothetical 'if' and sequential 'when/after'.",
-                    "examples": [
-                        "東京に着いたら、電話します。(When I arrive in Tokyo, I will call.)",
-                        "高かったら、買いません。(If it is expensive, I won't buy it.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Guide",
-                    "text": "明日、天気が良かったら富士山が見えますよ。",
-                    "romajiOrPronunciation": "Ashita, tenki ga yokattara Fujisan ga miemasu yo.",
-                    "translation": "Tomorrow, if the weather is good, you will be able to see Mt. Fuji."
-                },
-                {
-                    "speaker": "Tourist",
-                    "text": "晴れたら嬉しいですね！楽しみにしています。",
-                    "romajiOrPronunciation": "Haretara ureshii desu ne! Tanoshimi ni shite imasu.",
-                    "translation": "I'll be so glad if it's sunny! I'm looking forward to it."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q8",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'If it rains, I won't go'?",
-                    "options": [
-                        "雨が降ったら、行きません",
-                        "雨が降りますから、行きません",
-                        "雨が降れば、行きます",
-                        "雨が降っても、行きます"
-                    ],
-                    "correctAnswer": "雨が降ったら、行きません",
-                    "explanation": "'Futtara' (if it rains) + 'ikimasen' (I won't go)."
-                }
-            ]
-        },
-        {
-            "id": "ja-n4-u6-03",
-            "languageId": "japanese",
-            "level": "JLPT N4",
-            "unitNumber": 6,
-            "unitTitle": "Unit 6: Desires, Reasons & Conditionals (希望・理由・条件)",
-            "unitDescription": "Express desires (〜たい), causes (〜ので・〜から), and if-then conditionals (〜たら).",
-            "title": "Conjectures & Uncertainty: 〜でしょう & 〜かもしれません",
-            "description": "Express probabilities like 'Ashita wa ame ga furu deshou' (It will probably rain tomorrow).",
-            "category": "Conjectures & Probability",
+            "level": "JLPT N5",
+            "unitNumber": 7,
+            "unitTitle": "Unit 7: Nai-form, Obligations & Experiences (ない形・義務・経験)",
+            "unitDescription": "Master the plain negative (ない形), must do (〜なければならない), and life experiences (〜たことがある).",
+            "title": "The Ta-Form & Past Life Experiences: 〜たことがある (Have experienced)",
+            "description": "Conjugate the plain past Ta-form and express life milestones and travel experiences.",
+            "category": "Experience & Past",
             "estimatedMinutes": 7,
             "xpReward": 40,
-            "objective": "Express probability with でしょう (probably) and かもしれません (might/maybe).",
+            "objective": "Ask and answer questions about past life experiences using [Verb Ta-form] + ことがある.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
             "videoDuration": "5:30",
             "vocabulary": [
                 {
-                    "word": "でしょう",
-                    "romajiOrPronunciation": "Deshou",
-                    "translation": "Probably / Right?",
-                    "partOfSpeech": "Auxiliary",
-                    "exampleSentence": "明日は晴れるでしょう。",
-                    "exampleTranslation": "It will probably be sunny tomorrow."
+                    "word": "〜たことがある",
+                    "romajiOrPronunciation": "〜 Ta koto ga aru",
+                    "translation": "Have had the experience of ...",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "日本へ行ったことがありますか？",
+                    "exampleTranslation": "Have you ever been to Japan?"
                 },
                 {
-                    "word": "かもしれません",
-                    "romajiOrPronunciation": "Kamoshiremasen",
-                    "translation": "May / Might / Perhaps",
-                    "partOfSpeech": "Phrase",
-                    "exampleSentence": "電車が遅れるかもしれません。",
-                    "exampleTranslation": "The train might be late."
-                },
-                {
-                    "word": "たぶん",
-                    "romajiOrPronunciation": "Tabun",
-                    "translation": "Probably / Perhaps",
+                    "word": "いちども (一度も)",
+                    "romajiOrPronunciation": "Ichido mo",
+                    "translation": "Not even once (+ negative)",
                     "partOfSpeech": "Adverb",
-                    "exampleSentence": "多分、大丈夫です。",
-                    "exampleTranslation": "It is probably fine."
+                    "exampleSentence": "一度も納豆を食べたことがありません。",
+                    "exampleTranslation": "I have never eaten natto even once."
                 },
                 {
-                    "word": "てんきよほう",
-                    "romajiOrPronunciation": "Tenki yohou",
-                    "translation": "Weather forecast",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "天気予報を見ました。",
-                    "exampleTranslation": "I watched the weather forecast."
+                    "word": "なんかいも (何回も)",
+                    "romajiOrPronunciation": "Nankai mo",
+                    "translation": "Many times",
+                    "partOfSpeech": "Adverb",
+                    "exampleSentence": "その映画は何回も見たことがあります。",
+                    "exampleTranslation": "I have watched that movie many times."
+                },
+                {
+                    "word": "のぼります (登ります)",
+                    "romajiOrPronunciation": "Noborimasu",
+                    "translation": "To climb (a mountain)",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "富士山に登ったことがあります。",
+                    "exampleTranslation": "I have climbed Mt. Fuji before."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Plain Form + でしょう (70-80% certainty) vs. かもしれません (50% possibility)",
-                    "explanation": "Attach plain forms directly to でしょう or かもしれません to indicate degrees of likelihood.",
+                    "title": "Formula: [Verb Plain Past (Ta-Form)] + ことがある",
+                    "explanation": "The Ta-form follows the EXACT same phonetic changes as the Te-form (simply replace 'て/で' with 'た/だ'). Then add ことがあります: 行ったことがある (Have gone), 食べたことがある (Have eaten).",
                     "examples": [
-                        "雨が降るでしょう。(It will probably rain.)",
-                        "雪が降るかもしれません。(It might snow.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "News Reporter",
-                    "text": "東京の明日の天気は午後から雨が降るでしょう。",
-                    "romajiOrPronunciation": "Toukyou no ashita no tenki wa gogo kara ame ga furu deshou.",
-                    "translation": "Tomorrow's weather in Tokyo will probably bring rain from the afternoon."
-                },
-                {
-                    "speaker": "Commuter",
-                    "text": "傘を持って行ったほうがいいですね。",
-                    "romajiOrPronunciation": "Kasa o motte itta hou ga ii desu ne.",
-                    "translation": "It would be better to take an umbrella then."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n4-q9",
-                    "type": "multiple_choice",
-                    "prompt": "Which ending expresses 'might / perhaps'?",
-                    "options": [
-                        "かもしれません",
-                        "でしょう",
-                        "てください",
-                        "たいです"
-                    ],
-                    "correctAnswer": "かもしれません",
-                    "explanation": "'〜kamoshiremasen' indicates a 50% possibility that something might happen."
-                }
-            ]
-        },
-        {
-            "id": "ja-n3-u7-01",
-            "languageId": "japanese",
-            "level": "JLPT N3",
-            "unitNumber": 7,
-            "unitTitle": "Unit 7: Opinions, Intentions & Trying Out (思考・意図・試行)",
-            "unitDescription": "Express nuanced personal opinions (〜と思う), future plans (〜つもり), and attempts (〜てみる).",
-            "title": "Expressing Thoughts & Quotations: 〜とおもう (To omou)",
-            "description": "Express opinions politely: 'Nihon no seikatsu wa benri da to omoimasu'.",
-            "category": "Opinions & Discourse",
-            "estimatedMinutes": 8,
-            "xpReward": 45,
-            "objective": "Express opinions using Plain Form + と思う and quote others using と言っていました.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:15",
-            "vocabulary": [
-                {
-                    "word": "おもいます",
-                    "romajiOrPronunciation": "Omoimasu",
-                    "translation": "To think",
-                    "partOfSpeech": "Verb",
-                    "exampleSentence": "この映画は面白いと思います。",
-                    "exampleTranslation": "I think this movie is interesting."
-                },
-                {
-                    "word": "いけん",
-                    "romajiOrPronunciation": "Iken",
-                    "translation": "Opinion",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "あなたの意見を聞かせてください。",
-                    "exampleTranslation": "Please let me hear your opinion."
-                },
-                {
-                    "word": "さんせい",
-                    "romajiOrPronunciation": "Sansei",
-                    "translation": "Agreement / Approval",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "その計画に賛成です。",
-                    "exampleTranslation": "I agree with that plan."
-                },
-                {
-                    "word": "たいせつ",
-                    "romajiOrPronunciation": "Taisetsu",
-                    "translation": "Important / Precious",
-                    "partOfSpeech": "Na-adj",
-                    "exampleSentence": "健康が一番大切だと思います。",
-                    "exampleTranslation": "I think health is the most important."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Plain Form + と思います (I think that...)",
-                    "explanation": "Japanese thoughts, quotes, and opinions require the plain form before the quotation particle と.",
-                    "examples": [
-                        "明日、雨が降ると思います。(I think it will rain tomorrow.)",
-                        "田中さんは来ないと思います。(I think Mr. Tanaka won't come.)"
+                        "行った (Went) + ことがある = Have been to",
+                        "飲んだ (Drank) + ことがある = Have drunk"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
                     "speaker": "Ken",
-                    "text": "日本の生活はどうですか？",
-                    "romajiOrPronunciation": "Nihon no seikatsu wa dou desu ka?",
-                    "translation": "How is life in Japan?"
+                    "text": "すき焼きを食べたことがありますか？",
+                    "romajiOrPronunciation": "Sukiyaki o tabeta koto ga arimasu ka?",
+                    "translation": "Have you ever eaten Sukiyaki?"
                 },
                 {
-                    "speaker": "Elena",
-                    "text": "とても安全で便利だと思います。電車も時間通りに来ますね。",
-                    "romajiOrPronunciation": "Totemo anzen de benri da to omoimasu. Densha mo jikandouri ni kimasu ne.",
-                    "translation": "I think it is very safe and convenient. The trains arrive on time, too."
+                    "speaker": "Anna",
+                    "text": "いいえ、一度も食べたことがありません。一度食べてみたいです！",
+                    "romajiOrPronunciation": "Iie, ichido mo tabeta koto ga arimasen. Ichido tabete mitai desu!",
+                    "translation": "No, I have never eaten it even once. I'd love to try eating it once!"
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n3-q1",
+                    "id": "ja-n5-u7-03-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you say 'I think Japanese is interesting'?",
+                    "prompt": "Which sentence means 'I have climbed Mt. Fuji before'?",
                     "options": [
-                        "日本語は面白いと思います",
-                        "日本語は面白いです",
-                        "日本語を面白くします",
-                        "日本語が面白いでしょう"
+                        "富士山に登ったことがあります",
+                        "富士山に登ります",
+                        "富士山に登りたいです",
+                        "富士山に登っています"
                     ],
-                    "correctAnswer": "日本語は面白いと思います",
-                    "explanation": "Plain form '面白い' + 'と思います' expresses personal opinion."
+                    "correctAnswer": "富士山に登ったことがあります",
+                    "explanation": "[Verb Ta-form] + ことがあります is the exact pattern for past experience."
                 }
             ]
         },
         {
-            "id": "ja-n3-u7-02",
+            "id": "ja-n4-u8-01",
             "languageId": "japanese",
-            "level": "JLPT N3",
-            "unitNumber": 7,
-            "unitTitle": "Unit 7: Opinions, Intentions & Trying Out (思考・意図・試行)",
-            "unitDescription": "Express nuanced personal opinions (〜と思う), future plans (〜つもり), and attempts (〜てみる).",
-            "title": "Plans & Intentions: 〜つもり & 〜よてい (Tsumori / Yotei)",
-            "description": "Speak about study abroad, career goals, and upcoming scheduled events.",
-            "category": "Future Intentions",
-            "estimatedMinutes": 8,
-            "xpReward": 45,
-            "objective": "Express determined intentions using つもり and scheduled events using 予定.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:00",
-            "vocabulary": [
-                {
-                    "word": "つもり",
-                    "romajiOrPronunciation": "Tsumori",
-                    "translation": "Intention / Plan",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "来年、日本へ留学するつもりです。",
-                    "exampleTranslation": "I intend to study abroad in Japan next year."
-                },
-                {
-                    "word": "よてい",
-                    "romajiOrPronunciation": "Yotei",
-                    "translation": "Schedule / Plan",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "来週、東京に出張する予定です。",
-                    "exampleTranslation": "I am scheduled to go on a business trip to Tokyo next week."
-                },
-                {
-                    "word": "りゅうがく",
-                    "romajiOrPronunciation": "Ryuugaku",
-                    "translation": "Study abroad",
-                    "partOfSpeech": "Noun / Suru-verb",
-                    "exampleSentence": "日本語学校に留学します。",
-                    "exampleTranslation": "I will study abroad at a Japanese language school."
-                },
-                {
-                    "word": "しょうらい",
-                    "romajiOrPronunciation": "Shourai",
-                    "translation": "Future",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "将来、日本で働きたいです。",
-                    "exampleTranslation": "In the future, I want to work in Japan."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Verb Dictionary / Nai Form + つもりです (Intention)",
-                    "explanation": "つもり reflects a personal decision or firm resolve. 予定 (yotei) refers to an official arrangement or scheduled appointment.",
-                    "examples": [
-                        "タバコをやめるつもりです。(I intend to quit smoking.)",
-                        "会議は３時から始まる予定です。(The meeting is scheduled to start at 3:00.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Mentor",
-                    "text": "卒業後はどうするつもりですか？",
-                    "romajiOrPronunciation": "Sotsugyou-go wa dou suru tsumori desu ka?",
-                    "translation": "What do you intend to do after graduation?"
-                },
-                {
-                    "speaker": "Student",
-                    "text": "日本のIT企業に就職するつもりです。面接の準備をしています。",
-                    "romajiOrPronunciation": "Nihon no IT kigyou ni shuushoku suru tsumori desu. Mensetsu no junbi o shite imasu.",
-                    "translation": "I intend to find employment at a Japanese IT company. I am preparing for interviews."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n3-q2",
-                    "type": "multiple_choice",
-                    "prompt": "Which phrase expresses 'I intend to study abroad in Japan'?",
-                    "options": [
-                        "日本へ留学するつもりです",
-                        "日本へ留学してください",
-                        "日本へ留学したことがあります",
-                        "日本へ留学してもいいです"
-                    ],
-                    "correctAnswer": "日本へ留学するつもりです",
-                    "explanation": "Dictionary form '留学する' + 'つもりです' expresses clear personal intention."
-                }
-            ]
-        },
-        {
-            "id": "ja-n3-u7-03",
-            "languageId": "japanese",
-            "level": "JLPT N3",
-            "unitNumber": 7,
-            "unitTitle": "Unit 7: Opinions, Intentions & Trying Out (思考・意図・試行)",
-            "unitDescription": "Express nuanced personal opinions (〜と思う), future plans (〜つもり), and attempts (〜てみる).",
-            "title": "Trying Something Out: 〜てみる (Te-miru)",
-            "description": "Express trying an experience: 'Natto o tabete mimasu' (I'll try eating natto).",
-            "category": "Trial & Experience",
-            "estimatedMinutes": 8,
-            "xpReward": 45,
-            "objective": "Use Verb Te-form + みる to describe trying or attempting an activity.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "5:50",
-            "vocabulary": [
-                {
-                    "word": "たべてみる",
-                    "romajiOrPronunciation": "Tabete miru",
-                    "translation": "To try eating",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "納豆を初めて食べてみます。",
-                    "exampleTranslation": "I will try eating natto for the first time."
-                },
-                {
-                    "word": "きてみる",
-                    "romajiOrPronunciation": "Kite miru",
-                    "translation": "To try wearing / try on",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "着物を着てみたいです。",
-                    "exampleTranslation": "I want to try wearing a kimono."
-                },
-                {
-                    "word": "ちょうせん",
-                    "romajiOrPronunciation": "Chousen",
-                    "translation": "Challenge / Attempt",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "新しいことに挑戦してみます。",
-                    "exampleTranslation": "I will try challenging myself to new things."
-                },
-                {
-                    "word": "いってみる",
-                    "romajiOrPronunciation": "Itte miru",
-                    "translation": "To try going to",
-                    "partOfSpeech": "Verb phrase",
-                    "exampleSentence": "その有名なカフェに行ってみましょう。",
-                    "exampleTranslation": "Let's try going to that famous cafe."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Verb Te-form + みる (To do and see what happens)",
-                    "explanation": "みる here does not mean 'to look' with eyes; it means to test, sample, or attempt an action to see its result.",
-                    "examples": [
-                        "日本語で話してみます。(I will try speaking in Japanese.)",
-                        "靴を履いてみてもいいですか？ (May I try on these shoes?)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Shop Staff",
-                    "text": "こちらのジャケットはいかがですか？",
-                    "romajiOrPronunciation": "Kochira no jaketto wa ikaga desu ka?",
-                    "translation": "How about this jacket?"
-                },
-                {
-                    "speaker": "Customer",
-                    "text": "素敵ですね！試着して着てみてもいいですか？",
-                    "romajiOrPronunciation": "Suteki desu ne! Shichaku shite kite mite mo ii desu ka?",
-                    "translation": "It's lovely! May I try it on in the fitting room?"
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n3-q3",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'I want to try wearing a kimono'?",
-                    "options": [
-                        "着物を着てみたいです",
-                        "着物を着てください",
-                        "着物を着ました",
-                        "着物を着るでしょう"
-                    ],
-                    "correctAnswer": "着物を着てみたいです",
-                    "explanation": "Te-form '着て' + 'みたいです' expresses wanting to try wearing something."
-                }
-            ]
-        },
-        {
-            "id": "ja-n3-u8-01",
-            "languageId": "japanese",
-            "level": "JLPT N3",
+            "level": "JLPT N4",
             "unitNumber": 8,
-            "unitTitle": "Unit 8: Complex Interactions & Everyday Keigo (受身・使役・敬語)",
-            "unitDescription": "Passive voice (〜られる), causative voice (〜させる), and essential business Keigo.",
-            "title": "Passive Voice: 〜られる (Rareru / Suffering & Praise)",
-            "description": "Express being praised, spoken to, or affected by someone's action.",
-            "category": "Passive Voice",
-            "estimatedMinutes": 9,
-            "xpReward": 45,
-            "objective": "Form and understand regular and suffering passive voice constructions.",
+            "unitTitle": "Unit 8: Potential Ability & Transitive/Intransitive Pairs (可能形・自動詞・他動詞)",
+            "unitDescription": "Expressing ability (Can do), object particle が shift, and transitive/intransitive verb pairs.",
+            "title": "The Potential Form: Verb Conjugations & Particle が (可能形)",
+            "description": "Conjugate verbs into the potential form (can do) across all groups and master the particle を -> が shift.",
+            "category": "Potential & Ability",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Conjugate Godan (える), Ichidan (られる), and irregular verbs to express what you can and cannot do.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:50",
+            "videoDuration": "5:45",
             "vocabulary": [
                 {
-                    "word": "ほめられました",
-                    "romajiOrPronunciation": "Homeraremashita",
-                    "translation": "Was praised",
-                    "partOfSpeech": "Passive verb",
-                    "exampleSentence": "先生に褒められました。",
-                    "exampleTranslation": "I was praised by my teacher."
+                    "word": "はなせます (話せます)",
+                    "romajiOrPronunciation": "Hanasemasu",
+                    "translation": "Can speak (Godan: su -> se + masu)",
+                    "partOfSpeech": "Verb (Potential)",
+                    "exampleSentence": "少し日本語が話せます。",
+                    "exampleTranslation": "I can speak a little Japanese."
                 },
                 {
-                    "word": "たのまれました",
-                    "romajiOrPronunciation": "Tanomaremashita",
-                    "translation": "Was asked / requested",
-                    "partOfSpeech": "Passive verb",
-                    "exampleSentence": "部長に仕事を頼まれました。",
-                    "exampleTranslation": "I was asked by the department manager to do a job."
+                    "word": "たべられます (食べられます)",
+                    "romajiOrPronunciation": "Taberaremasu",
+                    "translation": "Can eat (Ichidan: drop ru + raremasu)",
+                    "partOfSpeech": "Verb (Potential)",
+                    "exampleSentence": "辛いものが食べられますか？",
+                    "exampleTranslation": "Can you eat spicy food?"
                 },
                 {
-                    "word": "しかられました",
-                    "romajiOrPronunciation": "Shikararemashita",
-                    "translation": "Was scolded",
-                    "partOfSpeech": "Passive verb",
-                    "exampleSentence": "遅刻して怒られました。",
-                    "exampleTranslation": "I was scolded for being late."
+                    "word": "できます (出来ます)",
+                    "romajiOrPronunciation": "Dekimasu",
+                    "translation": "Can do (Irregular: suru -> dekiru)",
+                    "partOfSpeech": "Verb (Potential)",
+                    "exampleSentence": "ピアノを弾くことができます（ピアノができます）。",
+                    "exampleTranslation": "I can play the piano."
                 },
                 {
-                    "word": "ぬすまれました",
-                    "romajiOrPronunciation": "Nusumaremashita",
-                    "translation": "Was stolen",
-                    "partOfSpeech": "Passive verb",
-                    "exampleSentence": "財布を盗まれてしまいました。",
-                    "exampleTranslation": "My wallet was stolen (suffering passive)."
+                    "word": "こられます (来られます)",
+                    "romajiOrPronunciation": "Koraremasu",
+                    "translation": "Can come (Irregular: kuru -> korareru)",
+                    "partOfSpeech": "Verb (Potential)",
+                    "exampleSentence": "明日のパーティーに来られますか？",
+                    "exampleTranslation": "Can you come to tomorrow's party?"
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Passive Voice: [Victim/Receiver] は [Agent] に [Verb-られる]",
-                    "explanation": "Ichidan verbs drop る and add られる. Godan verbs change the final -u sound to -a and add れる. In Japanese, 'suffering passive' expresses inconvenience caused by someone.",
+                    "title": "The Particle Shift: [Object] が [Potential Verb]",
+                    "explanation": "In potential sentences, the direct object particle を usually converts to が because the potential form describes an ability/state. E.g., 日本語を話します (I speak Japanese) -> 日本語が話せます (I CAN speak Japanese).",
                     "examples": [
-                        "雨に降られました。(I got rained on.)",
-                        "友達に笑われました。(I was laughed at by my friends.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Colleague",
-                    "text": "プレゼン、大成功でしたね！",
-                    "romajiOrPronunciation": "Purezen, daiseikou deshita ne!",
-                    "translation": "The presentation was a huge success, wasn't it!"
-                },
-                {
-                    "speaker": "Presenter",
-                    "text": "ありがとうございます！社長にも熱意を褒められました。",
-                    "romajiOrPronunciation": "Arigatou gozaimasu! Shachou ni mo netsui o homeraremashita.",
-                    "translation": "Thank you! Even the company president praised my enthusiasm."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n3-q4",
-                    "type": "multiple_choice",
-                    "prompt": "How do you say 'I was praised by the teacher' in Japanese?",
-                    "options": [
-                        "先生に褒められました",
-                        "先生を褒めました",
-                        "先生が褒めました",
-                        "先生と褒め合いました"
-                    ],
-                    "correctAnswer": "先生に褒められました",
-                    "explanation": "'Sensei ni' (by teacher) + 'homeraremashita' (was praised)."
-                }
-            ]
-        },
-        {
-            "id": "ja-n3-u8-02",
-            "languageId": "japanese",
-            "level": "JLPT N3",
-            "unitNumber": 8,
-            "unitTitle": "Unit 8: Complex Interactions & Everyday Keigo (受身・使役・敬語)",
-            "unitDescription": "Passive voice (〜られる), causative voice (〜させる), and essential business Keigo.",
-            "title": "Causative Form: 〜させる (Saseru / Make or Let Do)",
-            "description": "Express making someone do something or permitting them to do something.",
-            "category": "Causative Voice",
-            "estimatedMinutes": 9,
-            "xpReward": 45,
-            "objective": "Form causative verbs and distinguish between forcing and granting permission.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:30",
-            "vocabulary": [
-                {
-                    "word": "たべさせます",
-                    "romajiOrPronunciation": "Tabesasemasu",
-                    "translation": "To make/let someone eat",
-                    "partOfSpeech": "Causative verb",
-                    "exampleSentence": "子供に野菜を食べさせます。",
-                    "exampleTranslation": "I make my child eat vegetables."
-                },
-                {
-                    "word": "いかせます",
-                    "romajiOrPronunciation": "Ikasemasu",
-                    "translation": "To let/make someone go",
-                    "partOfSpeech": "Causative verb",
-                    "exampleSentence": "息子を塾に行かせます。",
-                    "exampleTranslation": "I send my son to cram school."
-                },
-                {
-                    "word": "てつだわせます",
-                    "romajiOrPronunciation": "Tetsudawasemasu",
-                    "translation": "To make someone help",
-                    "partOfSpeech": "Causative verb",
-                    "exampleSentence": "弟に掃除を手伝わせました。",
-                    "exampleTranslation": "I made my younger brother help with cleaning."
-                },
-                {
-                    "word": "およがせます",
-                    "romajiOrPronunciation": "Oyogasemasu",
-                    "translation": "To let/make someone swim",
-                    "partOfSpeech": "Causative verb",
-                    "exampleSentence": "プールで子供たちを泳がせます。",
-                    "exampleTranslation": "I let the children swim in the pool."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Causative Voice: [Director] は [Target] に/を [Verb-させる]",
-                    "explanation": "Ichidan verbs drop る and add させる. Godan verbs change final -u to -a and add せる. Combined with てください (〜させてください), it means 'Please let me do...'",
-                    "examples": [
-                        "私に自己紹介をさせてください。(Please let me introduce myself.)",
-                        "質問させていただけますか？ (Could you please allow me to ask a question?)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Employee",
-                    "text": "課長、このプロジェクトのリーダーを私にやらせてください！",
-                    "romajiOrPronunciation": "Kachou, kono purojekuto no riidaa o watashi ni yarawete kudasai!",
-                    "translation": "Section Chief, please let me serve as the leader for this project!"
-                },
-                {
-                    "speaker": "Section Chief",
-                    "text": "いい意気込みだね。ぜひやってみなさい。",
-                    "romajiOrPronunciation": "Ii ikigomi da ne. Zehi yatte minasai.",
-                    "translation": "That's great spirit. By all means, give it your best shot."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n3-q5",
-                    "type": "multiple_choice",
-                    "prompt": "How do you politely ask 'Please let me introduce myself'?",
-                    "options": [
-                        "自己紹介をさせてください",
-                        "自己紹介をしてください",
-                        "自己紹介をします",
-                        "自己紹介をみてください"
-                    ],
-                    "correctAnswer": "自己紹介をさせてください",
-                    "explanation": "Causative 'させて' + 'ください' politely asks permission to perform an action."
-                }
-            ]
-        },
-        {
-            "id": "ja-n3-u8-03",
-            "languageId": "japanese",
-            "level": "JLPT N3",
-            "unitNumber": 8,
-            "unitTitle": "Unit 8: Complex Interactions & Everyday Keigo (受身・使役・敬語)",
-            "unitDescription": "Passive voice (〜られる), causative voice (〜させる), and essential business Keigo.",
-            "title": "Essential Business Keigo: 敬語 (Sonkeigo & Kenjougo)",
-            "description": "Master honorific respectful speech (Irassharu) and humble speech (Mousu).",
-            "category": "Business Japanese & Etiquette",
-            "estimatedMinutes": 10,
-            "xpReward": 50,
-            "objective": "Distinguish between Sonkeigo (elevating customer) and Kenjougo (lowering oneself).",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "7:15",
-            "vocabulary": [
-                {
-                    "word": "いらっしゃいます",
-                    "romajiOrPronunciation": "Irasshaimasu",
-                    "translation": "To be / go / come (Honorific Sonkeigo)",
-                    "partOfSpeech": "Keigo verb",
-                    "exampleSentence": "社長はオフィスにいらっしゃいますか？",
-                    "exampleTranslation": "Is the company president in the office?"
-                },
-                {
-                    "word": "もうします",
-                    "romajiOrPronunciation": "Moushimasu",
-                    "translation": "To say / be called (Humble Kenjougo)",
-                    "partOfSpeech": "Keigo verb",
-                    "exampleSentence": "私はスミスと申します。",
-                    "exampleTranslation": "I am called Smith (humble)."
-                },
-                {
-                    "word": "めしあがります",
-                    "romajiOrPronunciation": "Meshiagarimasu",
-                    "translation": "To eat / drink (Honorific Sonkeigo)",
-                    "partOfSpeech": "Keigo verb",
-                    "exampleSentence": "温かいお茶を召し上がってください。",
-                    "exampleTranslation": "Please enjoy the warm tea (polite to customer)."
-                },
-                {
-                    "word": "しょうしょうおまちください",
-                    "romajiOrPronunciation": "Shoushou omachi kudasai",
-                    "translation": "Please wait a moment (business)",
-                    "partOfSpeech": "Business phrase",
-                    "exampleSentence": "確認いたしますので、少々お待ちください。",
-                    "exampleTranslation": "I will check, so please wait a moment."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Respectful (尊敬語 - Sonkeigo) vs. Humble (謙譲語 - Kenjougo)",
-                    "explanation": "Sonkeigo elevates the actions of customers, superiors, and business partners. Kenjougo lowers your own actions to show humility.",
-                    "examples": [
-                        "行く (iku) ➔ いらっしゃる (Honorific for superior) vs 参る (Humble for self)",
-                        "言う (iu) ➔ おっしゃる (Superior speaks) vs 申す (Self speaks)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Receptionist",
-                    "text": "いらっしゃいませ。恐れ入りますが、お名前をお伺いしてもよろしいでしょうか？",
-                    "romajiOrPronunciation": "Irasshaimase. Osoreirimasu ga, onamae o oukagai shite mo yoroshii deshou ka?",
-                    "translation": "Welcome. Pardon me, but may I inquire your name?"
-                },
-                {
-                    "speaker": "Client",
-                    "text": "ABC商事の田中と申します。鈴木部長とお約束しております。",
-                    "romajiOrPronunciation": "ABC Shouji no Tanaka to moushimasu. Suzuki-buchou to oyakusoku shite orimasu.",
-                    "translation": "I am called Tanaka from ABC Trading. I have an appointment with Director Suzuki."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n3-q6",
-                    "type": "multiple_choice",
-                    "prompt": "How do you humbly state your name in a Japanese business setting?",
-                    "options": [
-                        "田中と申します",
-                        "田中とおっしゃいます",
-                        "田中といらっしゃいます",
-                        "田中と召し上がります"
-                    ],
-                    "correctAnswer": "田中と申します",
-                    "explanation": "'Moushimasu' is the humble form (Kenjougo) used for one's own name."
-                }
-            ]
-        },
-        {
-            "id": "ja-n2-u9-01",
-            "languageId": "japanese",
-            "level": "JLPT N2",
-            "unitNumber": 9,
-            "unitTitle": "Unit 9: Formal Discourse & Professional Nuance (論理・複合格助詞)",
-            "unitDescription": "Formal newspaper and professional grammar structures: 〜に基づいて and 〜に伴って.",
-            "title": "Actions Based Upon & Progression: 〜にもとづいて & 〜にともなって",
-            "description": "Express basing decisions on principles and actions progressing with time.",
-            "category": "Formal Compounds",
-            "estimatedMinutes": 10,
-            "xpReward": 50,
-            "objective": "Understand and deploy 〜に基づいて (based upon) and 〜に伴って (in accordance with).",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "7:30",
-            "vocabulary": [
-                {
-                    "word": "もとづいて",
-                    "romajiOrPronunciation": "Motozuite",
-                    "translation": "Based upon",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "調査の結果に基づいて方針を決定します。",
-                    "exampleTranslation": "We will determine the policy based on the survey results."
-                },
-                {
-                    "word": "ともなって",
-                    "romajiOrPronunciation": "Tomonatte",
-                    "translation": "Along with / as a result of",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "技術の発展に伴って生活が豊かになりました。",
-                    "exampleTranslation": "Along with technological development, our lives have become richer."
-                },
-                {
-                    "word": "ほうしん",
-                    "romajiOrPronunciation": "Houshin",
-                    "translation": "Policy / Objective",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "会社の新方針を発表しました。",
-                    "exampleTranslation": "We announced the company's new policy."
-                },
-                {
-                    "word": "けっか",
-                    "romajiOrPronunciation": "Kekka",
-                    "translation": "Result / Outcome",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "実験の結果は良好でした。",
-                    "exampleTranslation": "The outcome of the experiment was favorable."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Noun + に基づいて (Based on / In accordance with facts)",
-                    "explanation": "Indicates the foundational data, legal premise, or experimental fact upon which an action or judgment is executed.",
-                    "examples": [
-                        "法律に基づいて公正に裁判を行います。(We conduct the trial fairly based on the law.)",
-                        "アンケート結果に基づいて製品を改良しました。(We improved the product based on questionnaire results.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Executive",
-                    "text": "今回の新規事業の予算案はどのように算出したのですか？",
-                    "romajiOrPronunciation": "Konkai no shinki jigyou no yosan-an wa dono you ni sanshutsu shita no desu ka?",
-                    "translation": "How did you calculate the budget proposal for this new business venture?"
-                },
-                {
-                    "speaker": "Planner",
-                    "text": "過去５年間の市場分析データに基づいて綿密に計算いたしました。",
-                    "romajiOrPronunciation": "Kako gonenkan no shijou bunseki deeta ni motozuite menmitsu ni keisan itashimashita.",
-                    "translation": "We calculated it meticulously based on market analysis data from the past five years."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n2-q1",
-                    "type": "multiple_choice",
-                    "prompt": "Fill in the blank: 'Jitsurei __ motozuite setsumei shimasu' (I will explain based on actual examples).",
-                    "options": [
-                        "に",
-                        "で",
-                        "を",
-                        "から"
-                    ],
-                    "correctAnswer": "に",
-                    "explanation": "The grammar pattern is fixed as '〜に基づいて' (ni motozuite)."
-                }
-            ]
-        },
-        {
-            "id": "ja-n2-u9-02",
-            "languageId": "japanese",
-            "level": "JLPT N2",
-            "unitNumber": 9,
-            "unitTitle": "Unit 9: Formal Discourse & Professional Nuance (論理・複合格助詞)",
-            "unitDescription": "Formal newspaper and professional grammar structures: 〜に基づいて and 〜に伴って.",
-            "title": "Strong Contrasts: 〜にもかかわらず (Despite / In Spite Of)",
-            "description": "Express counter-expectations: 'Oogame ni mo kakawarazu...' (Despite heavy rain...).",
-            "category": "Contrasting Logic",
-            "estimatedMinutes": 10,
-            "xpReward": 50,
-            "objective": "Use 〜にもかかわらず to indicate surprise that an unexpected outcome occurred despite a condition.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "7:00",
-            "vocabulary": [
-                {
-                    "word": "にもかかわらず",
-                    "romajiOrPronunciation": "Ni mo kakawarazu",
-                    "translation": "Despite / In spite of",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "悪天候にもかかわらず、多くの観客が集まりました。",
-                    "exampleTranslation": "In spite of bad weather, a large audience gathered."
-                },
-                {
-                    "word": "どりょく",
-                    "romajiOrPronunciation": "Doryoku",
-                    "translation": "Effort / Endeavor",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "懸命な努力にもかかわらず、試合に敗れました。",
-                    "exampleTranslation": "Despite strenuous effort, we lost the match."
-                },
-                {
-                    "word": "かんきゃく",
-                    "romajiOrPronunciation": "Kankyaku",
-                    "translation": "Spectators / Audience",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "スタジアムは満員の観客で熱気に包まれています。",
-                    "exampleTranslation": "The stadium is enveloped in excitement with a packed crowd."
-                },
-                {
-                    "word": "たいちょう",
-                    "romajiOrPronunciation": "Taichou",
-                    "translation": "Physical condition",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "体調が優れないにもかかわらず出勤しました。",
-                    "exampleTranslation": "Despite not feeling well, he reported to work."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Plain Form / Noun + にもかかわらず (Despite / Regardless of)",
-                    "explanation": "Marks a strong logical contradiction between condition A and the unexpected outcome B.",
-                    "examples": [
-                        "熱があるにもかかわらず、彼は休もうとしない。(Despite having a fever, he won't try to rest.)",
-                        "初心者であるにもかかわらず、見事な演奏を披露した。(Despite being a beginner, they gave a magnificent performance.)"
+                        "寿司を食べます -> 寿司が食べられます (Can eat sushi)",
+                        "漢字が読めます (Can read Kanji)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
                     "speaker": "Host",
-                    "text": "本日は大雪にもかかわらず、お越しいただき誠にありがとうございます。",
-                    "romajiOrPronunciation": "Honjitsu wa ooyuki ni mo kakawarazu, okoshi itadaki makoto ni arigatou gozaimasu.",
-                    "translation": "Despite heavy snow today, thank you very much for coming."
+                    "text": "刺身や生魚は食べられますか？",
+                    "romajiOrPronunciation": "Sashimi ya namazakana wa taberaremasu ka?",
+                    "translation": "Can you eat sashimi and raw fish?"
                 },
                 {
                     "speaker": "Guest",
-                    "text": "楽しみにしていた記念式典ですから、駆けつけましたよ。",
-                    "romajiOrPronunciation": "Tanoshimi ni shite ita kinen shikiten desu kara, kaketsukemashita yo.",
-                    "translation": "Because it was an anniversary ceremony I was looking forward to, I rushed right over."
+                    "text": "はい！大好物ですから、たくさん食べられます。",
+                    "romajiOrPronunciation": "Hai! Daikoubutsu desu kara, takusan taberaremasu.",
+                    "translation": "Yes! Because it's my favorite food, I can eat a lot."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n2-q2",
+                    "id": "ja-n4-u8-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "Which grammar pattern conveys 'Despite / In spite of'?",
+                    "prompt": "Which particle typically marks the object in '日本語___話せます' (I can speak Japanese)?",
                     "options": [
-                        "にもかかわらず",
-                        "につれて",
-                        "にとって",
-                        "について"
+                        "が (ga)",
+                        "を (o)",
+                        "に (ni)",
+                        "で (de)"
                     ],
-                    "correctAnswer": "にもかかわらず",
-                    "explanation": "'〜ni mo kakawarazu' indicates that an event happened despite expectations."
+                    "correctAnswer": "が (ga)",
+                    "explanation": "Potential verbs typically shift the direct object marker from を to が."
                 }
             ]
         },
         {
-            "id": "ja-n2-u9-03",
+            "id": "ja-n4-u8-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 8,
+            "unitTitle": "Unit 8: Potential Ability & Transitive/Intransitive Pairs (可能形・自動詞・他動詞)",
+            "unitDescription": "Expressing ability (Can do), object particle が shift, and transitive/intransitive verb pairs.",
+            "title": "Transitive vs. Intransitive Verb Pairs (自動詞と他動詞)",
+            "description": "Master Japanese verb pairs: Transitive actions caused by an agent (を) vs. Intransitive natural occurrences (が).",
+            "category": "Verb Dynamics",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Distinguish '開ける / 開く', 'つける / つく', '消す / 消える', and never confuse agency with natural states.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "あけます (開けます) [他動詞]",
+                    "romajiOrPronunciation": "Akemasu (Transitive)",
+                    "translation": "To open (something) [requires agent + を]",
+                    "partOfSpeech": "Verb",
+                    "exampleSentence": "私が窓を開けます。",
+                    "exampleTranslation": "I open the window."
+                },
+                {
+                    "word": "あきます (開きます) [自動詞]",
+                    "romajiOrPronunciation": "Akimasu (Intransitive)",
+                    "translation": "Opens (by itself) [takes subject + が]",
+                    "partOfSpeech": "Verb",
+                    "exampleSentence": "ドアが開きました。",
+                    "exampleTranslation": "The door opened."
+                },
+                {
+                    "word": "つけます (他) / つきます (自)",
+                    "romajiOrPronunciation": "Tsukemasu / Tsukimasu",
+                    "translation": "Turn on (transitive) / Turns on (intransitive)",
+                    "partOfSpeech": "Verb pair",
+                    "exampleSentence": "電気をつけます。電気がつきました。",
+                    "exampleTranslation": "I turn on the light. The light turned on."
+                },
+                {
+                    "word": "けします (他) / きえます (自)",
+                    "romajiOrPronunciation": "Keshimasu / Kiemasu",
+                    "translation": "Turn off, extinguish (transitive) / Goes out (intransitive)",
+                    "partOfSpeech": "Verb pair",
+                    "exampleSentence": "火を消してください。火が消えました。",
+                    "exampleTranslation": "Please put out the fire. The fire went out."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Decisive Formula: [Agent] が [Noun] を [他動詞] vs [Noun] が [自動詞]",
+                    "explanation": "1. 他動詞 (Transitive) has human intention and takes を: 窓を開ける (Someone opens the window). 2. 自動詞 (Intransitive) describes the state or spontaneous action and takes が: 窓が開く (The window opens).",
+                    "examples": [
+                        "私が電気を消します (I turn off the light)",
+                        "電気が消えています (The light is off)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "部屋が暑いですね。窓を開けましょうか？",
+                    "romajiOrPronunciation": "Heya ga atsui desu ne. Mado o akemashou ka?",
+                    "translation": "The room is hot, isn't it? Shall I open the window?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "あ、風で窓がもう開いていますよ。",
+                    "romajiOrPronunciation": "A, kaze de mado ga mou aite imasu yo.",
+                    "translation": "Ah, the window is already open due to the wind."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u8-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which sentence means 'The door opened' (intransitive event)?",
+                    "options": [
+                        "ドアが開きました (Doa ga akimashita)",
+                        "ドアを開けました (Doa o akemashita)",
+                        "ドアを開けます (Doa o akemasu)",
+                        "ドアを開けてください (Doa o akete kudasai)"
+                    ],
+                    "correctAnswer": "ドアが開きました (Doa ga akimashita)",
+                    "explanation": "自動詞 (開く) with particle が indicates the door opened naturally."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u8-03",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 8,
+            "unitTitle": "Unit 8: Potential Ability & Transitive/Intransitive Pairs (可能形・自動詞・他動詞)",
+            "unitDescription": "Expressing ability (Can do), object particle が shift, and transitive/intransitive verb pairs.",
+            "title": "Actions Prepared in Advance: 〜ておく & Spoken 〜とく (Advance Prep)",
+            "description": "Express preparing something in advance for future convenience using [Verb Te] + おく (contracted to 〜とく).",
+            "category": "Preparation & Daily Life",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Use 〜ておきます formally and 〜とく in natural native daily conversation.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜ておく (〜ておきます)",
+                    "romajiOrPronunciation": "〜 Te oku (Te okimasu)",
+                    "translation": "To do in advance (for later use)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "ホテルの部屋を予約しておきます。",
+                    "exampleTranslation": "I will reserve a hotel room in advance."
+                },
+                {
+                    "word": "〜とく (〜ときます)",
+                    "romajiOrPronunciation": "〜 Toku",
+                    "translation": "Do in advance (Casual spoken contraction)",
+                    "partOfSpeech": "Spoken contraction",
+                    "exampleSentence": "ビールを買っとくね（買っておくね）。",
+                    "exampleTranslation": "I'll buy some beer in advance, okay?"
+                },
+                {
+                    "word": "よやく (予約)",
+                    "romajiOrPronunciation": "Yoyaku",
+                    "translation": "Reservation / Booking",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "新幹線のチケットを予約しておきました。",
+                    "exampleTranslation": "I booked the bullet train tickets in advance."
+                },
+                {
+                    "word": "しらべます (調べます)",
+                    "romajiOrPronunciation": "Shirabemasu",
+                    "translation": "To investigate / check / look up",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "時刻表を調べておきます。",
+                    "exampleTranslation": "I will check the timetable in advance."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Native Contraction: ておく -> とく",
+                    "explanation": "In real-life spoken Japanese, nobody says '買っておくね' (too stiff). Native speakers contract ておく to とく: 買っておく -> 買っとく, 準備しておく -> 準備しとく, 調べておく -> 調べとく.",
+                    "examples": [
+                        "席を取っとくね (I'll save our seats)",
+                        "冷やしておきます (I'll chill it in the fridge in advance)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Wife",
+                    "text": "今夜、友達が家に来るから、ビールを冷やしておいてね。",
+                    "romajiOrPronunciation": "Kon'ya, tomodachi ga ie ni kuru kara, biiru o hiyashite oite ne.",
+                    "translation": "Friends are coming over tonight, so please chill the beer in advance."
+                },
+                {
+                    "speaker": "Husband",
+                    "text": "了解！冷蔵庫に入れとくよ。",
+                    "romajiOrPronunciation": "Ryoukai! Reizouko ni iretoku yo.",
+                    "translation": "Roger! I'll put it in the fridge in advance (casual contraction)."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u8-03-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the casual spoken form of '買っておく' (buy in advance)?",
+                    "options": [
+                        "買っとく (Kattoku)",
+                        "買っちゃう (Kacchau)",
+                        "買ってる (Katteru)",
+                        "買っといて (Kattoite)"
+                    ],
+                    "correctAnswer": "買っとく (Kattoku)",
+                    "explanation": "〜ておく contracts directly to 〜とく in natural spoken Japanese."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u9-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 9,
+            "unitTitle": "Unit 9: Giving, Receiving & Social Favors (授受表現: あげる・もらう・くれる)",
+            "unitDescription": "Master the core of Japanese social harmony: giving (あげる), receiving (もらう), and giving to me (くれる).",
+            "title": "The 3 Giving & Receiving Verbs: あげる・もらう・くれる (授受動詞)",
+            "description": "Master the directional psychology of Japanese gifts: Giving outward (あげる), Receiving (もらう), and Inward giving (くれる).",
+            "category": "Social Psychology",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Never mix up who gave what to whom on the JLPT N4 exam.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "あげます (上げます)",
+                    "romajiOrPronunciation": "Agemasu",
+                    "translation": "I give to someone / Someone gives to equal",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "妹に誕生日プレゼントをあげました。",
+                    "exampleTranslation": "I gave a birthday present to my younger sister."
+                },
+                {
+                    "word": "くれます",
+                    "romajiOrPronunciation": "Kuremasu",
+                    "translation": "Someone gives to ME (or my in-group)",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "田中さんが私にお土産をくれました。",
+                    "exampleTranslation": "Mr. Tanaka gave me a souvenir."
+                },
+                {
+                    "word": "もらいます (貰います)",
+                    "romajiOrPronunciation": "Moraimasu",
+                    "translation": "I receive from someone",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "先生に辞書をもらいました。",
+                    "exampleTranslation": "I received a dictionary from my teacher."
+                },
+                {
+                    "word": "プレゼント",
+                    "romajiOrPronunciation": "Purezento",
+                    "translation": "Present / Gift",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "素敵なプレゼントをありがとう。",
+                    "exampleTranslation": "Thank you for the wonderful present."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Golden Rule of くれる (Kureru)",
+                    "explanation": "You can NEVER say '私が田中さんにあげます' with くれる. くれる is ONLY used when someone else directs an item or kindness TOWARD YOU or your immediate family: [Giver] が 私に [Item] を くれました.",
+                    "examples": [
+                        "田中さんが私に本をくれました (Tanaka gave me a book)",
+                        "私は田中さんに本をあげました (I gave Tanaka a book)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Friend",
+                    "text": "その腕時計、すごくかっこいいね！",
+                    "romajiOrPronunciation": "Sono udedokei, sugoku kakkoii ne!",
+                    "translation": "That wristwatch is super cool!"
+                },
+                {
+                    "speaker": "You",
+                    "text": "ありがとう！誕生日に父がくれたんだ。",
+                    "romajiOrPronunciation": "Arigatou! Tanjoubi ni chichi ga kuretan da.",
+                    "translation": "Thanks! My father gave it to me for my birthday."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u9-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which verb correctly fills '佐藤さんが私に花を___' (Sato gave me flowers)?",
+                    "options": [
+                        "くれました (kuremashita)",
+                        "あげました (agemashita)",
+                        "もらいました (moraimashita)",
+                        "やりました (yarimashita)"
+                    ],
+                    "correctAnswer": "くれました (kuremashita)",
+                    "explanation": "When an external person gives something to YOU (私に), the verb MUST be くれました."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u9-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 9,
+            "unitTitle": "Unit 9: Giving, Receiving & Social Favors (授受表現: あげる・もらう・くれる)",
+            "unitDescription": "Master the core of Japanese social harmony: giving (あげる), receiving (もらう), and giving to me (くれる).",
+            "title": "Exchanging Favors with Verbs: 〜てあげる, 〜てもらう, 〜てくれる",
+            "description": "Express doing favors for others and receiving acts of kindness using [Verb Te] + あげる/もらう/くれる.",
+            "category": "Favors & Politeness",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Show genuine appreciation and gratitude for actions done on your behalf.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:45",
+            "vocabulary": [
+                {
+                    "word": "〜てくれる (〜てくれます)",
+                    "romajiOrPronunciation": "〜 Te kureru",
+                    "translation": "Do (a favor) for me",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "友達が駅まで送ってくれました。",
+                    "exampleTranslation": "My friend kindly drove me to the station."
+                },
+                {
+                    "word": "〜てもらう (〜てもらいます)",
+                    "romajiOrPronunciation": "〜 Te morau",
+                    "translation": "Receive the favor of having someone do ...",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "先生に日本語を直してもらいました。",
+                    "exampleTranslation": "I had my teacher correct my Japanese."
+                },
+                {
+                    "word": "〜てあげる (〜てあげます)",
+                    "romajiOrPronunciation": "〜 Te ageru",
+                    "translation": "Do a favor for someone else",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "弟の宿題を手伝ってあげました。",
+                    "exampleTranslation": "I helped my little brother with his homework."
+                },
+                {
+                    "word": "てつだいます (手伝います)",
+                    "romajiOrPronunciation": "Tetsudaimasu",
+                    "translation": "To help / assist",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "引っ越しを手伝ってくれました。",
+                    "exampleTranslation": "They kindly helped with my move."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Politeness Trap of '〜てあげる'",
+                    "explanation": "Be cautious: saying '〜てあげます' directly to a teacher or boss can sound condescending ('I am doing you a favor!'). Use it freely with children, family, or close friends. When speaking to seniors, use humble Keigo: 〜て差し上げます or simply 〜ましょうか.",
+                    "examples": [
+                        "荷物を持ってあげましょうか (To a friend)",
+                        "直してくれました (Someone corrected it for me)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Lost Traveler",
+                    "text": "道が全然わからなくて困っています...",
+                    "romajiOrPronunciation": "Michi ga zenzen wakaranakute komatte imasu...",
+                    "translation": "I don't know the way at all and am in trouble..."
+                },
+                {
+                    "speaker": "Local",
+                    "text": "あ、親切な交番のお巡りさんが地図を書いてくれましたよ！",
+                    "romajiOrPronunciation": "A, shinsetsu na kouban no omawari-san ga chizu o kaite kuremashita yo!",
+                    "translation": "Ah, the kind police officer at the police box drew a map for me!"
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u9-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which pattern means 'My friend helped me with my homework'?",
+                    "options": [
+                        "友達が宿題を手伝ってくれました",
+                        "友達に宿題を手伝ってあげました",
+                        "私が友達に宿題を手伝ってくれました",
+                        "友達は宿題を手伝わないでした"
+                    ],
+                    "correctAnswer": "友達が宿題を手伝ってくれました",
+                    "explanation": "〜てくれました expresses that an external person kindly performed an action for the speaker."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u9-03",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 9,
+            "unitTitle": "Unit 9: Giving, Receiving & Social Favors (授受表現: あげる・もらう・くれる)",
+            "unitDescription": "Master the core of Japanese social harmony: giving (あげる), receiving (もらう), and giving to me (くれる).",
+            "title": "Regret & Completion: 〜てしまう & Spoken 〜ちゃう (Shimau / Chau)",
+            "description": "Express completed actions ('done completely') AND accidents/regret ('darn it, I accidentally did it!').",
+            "category": "Regret & Spoken Native",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Use 〜てしまう in writing and 〜ちゃった / 〜じゃった in casual native conversations.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜てしまう (〜てしまいました)",
+                    "romajiOrPronunciation": "〜 Te shimau",
+                    "translation": "Completely do / Accidentally do (with regret)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "電車の中に財布を忘れてしまいました。",
+                    "exampleTranslation": "I accidentally left my wallet in the train (regret)."
+                },
+                {
+                    "word": "〜ちゃう (〜ちゃった)",
+                    "romajiOrPronunciation": "〜 Chau (Chatta)",
+                    "translation": "Accidentally did it (Spoken contraction)",
+                    "partOfSpeech": "Spoken contraction",
+                    "exampleSentence": "ケーキを全部食べちゃった！",
+                    "exampleTranslation": "I ended up eating all the cake!"
+                },
+                {
+                    "word": "さいふ (財布)",
+                    "romajiOrPronunciation": "Saifu",
+                    "translation": "Wallet / Purse",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "財布を落としました。",
+                    "exampleTranslation": "I dropped my wallet."
+                },
+                {
+                    "word": "わすれもの (忘れ物)",
+                    "romajiOrPronunciation": "Wasuremono",
+                    "translation": "Lost item / Something left behind",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "駅の忘れ物センターへ行きます。",
+                    "exampleTranslation": "I'll go to the station's lost-and-found center."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Native Spoken Contraction: てしまう -> ちゃう",
+                    "explanation": "1. てしまう becomes ちゃう (食べてしまう -> 食べちゃう). 2. でしまう becomes じゃう (飲んでしまう -> 飲んじゃう). Past tense: ちゃった / じゃった. Used constantly in anime and real Japanese.",
+                    "examples": [
+                        "忘れちゃった (I accidentally forgot)",
+                        "死んじゃった (Died / passed away)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Yuki",
+                    "text": "どうしたの？顔色が悪いよ。",
+                    "romajiOrPronunciation": "Doushita no? Kaoiro ga warui yo.",
+                    "translation": "What happened? You look pale."
+                },
+                {
+                    "speaker": "Kenta",
+                    "text": "スマホをタクシーの中に忘れちゃったんだ...",
+                    "romajiOrPronunciation": "Sumaho o takushii no naka ni wasurechattan da...",
+                    "translation": "I accidentally left my smartphone in the taxi..."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u9-03-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What does '宿題を忘れちゃった！' mean in natural Japanese?",
+                    "options": [
+                        "I accidentally forgot my homework!",
+                        "I did my homework in advance",
+                        "Please do my homework",
+                        "I can't do homework"
+                    ],
+                    "correctAnswer": "I accidentally forgot my homework!",
+                    "explanation": "〜ちゃった expresses accidental action accompanied by feelings of regret."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u10-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 10,
+            "unitTitle": "Unit 10: Future Plans, Volitional & Intentions (意向形・意志・予定)",
+            "unitDescription": "Volitional casual let's (〜よう), firm intentions (〜つもり), and scheduled plans (〜予定).",
+            "title": "The Volitional Form: Casual Let's & Decisions: 〜よう / 〜おう (意向形)",
+            "description": "Conjugate the volitional form across all groups and use it for casual suggestions and personal determination.",
+            "category": "Volitional Form",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Conjugate Godan (お-sound + う), Ichidan (よう), and irregulars (しよう, こよう) naturally.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "いこう (行こう)",
+                    "romajiOrPronunciation": "Ikou",
+                    "translation": "Let's go / I will go (Godan: ku -> kou)",
+                    "partOfSpeech": "Verb (Volitional)",
+                    "exampleSentence": "一緒に映画を見に行こう！",
+                    "exampleTranslation": "Let's go see a movie together!"
+                },
+                {
+                    "word": "たべよう (食べよう)",
+                    "romajiOrPronunciation": "Tabeyou",
+                    "translation": "Let's eat (Ichidan: drop ru + you)",
+                    "partOfSpeech": "Verb (Volitional)",
+                    "exampleSentence": "お昼ご飯を食べよう。",
+                    "exampleTranslation": "Let's eat lunch."
+                },
+                {
+                    "word": "しよう・こよう (来よう)",
+                    "romajiOrPronunciation": "Shiyou / Koyou",
+                    "translation": "Let's do / Let's come (Irregular)",
+                    "partOfSpeech": "Verb (Volitional)",
+                    "exampleSentence": "週末、パーティーをしよう！",
+                    "exampleTranslation": "Let's throw a party this weekend!"
+                },
+                {
+                    "word": "〜とおもっています (〜と思っています)",
+                    "romajiOrPronunciation": "〜 To omotte imasu",
+                    "translation": "I am thinking of / planning to ...",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "来年、日本へ留学しようと思っています。",
+                    "exampleTranslation": "I am thinking of studying abroad in Japan next year."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Formula: [Volitional Form] + と思っています",
+                    "explanation": "When expressing a plan you have already been considering for some time, combine the Volitional form with と思っています: 大学で医学を勉強しようと思っています (I have been thinking of studying medicine at university).",
+                    "examples": [
+                        "車を買おうと思っています (I'm thinking of buying a car)",
+                        "早く寝よう (Let's sleep early)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Takuya",
+                    "text": "卒業したら何をするの？",
+                    "romajiOrPronunciation": "Sotsugyou shitara nani o suru no?",
+                    "translation": "What will you do after graduation?"
+                },
+                {
+                    "speaker": "Maya",
+                    "text": "日本でITの会社で働こうと思っています。",
+                    "romajiOrPronunciation": "Nihon de IT no kaisha de hatarakou to omotte imasu.",
+                    "translation": "I'm planning to work at an IT company in Japan."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u10-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What is the volitional form of '飲む' (Nomu - to drink)?",
+                    "options": [
+                        "飲もう (Nomou)",
+                        "飲みよう (Nomiyou)",
+                        "飲まよう (Nomayou)",
+                        "飲めよう (Nomeyou)"
+                    ],
+                    "correctAnswer": "飲もう (Nomou)",
+                    "explanation": "Godan verbs change the 'u' ending to 'o' + う -> 飲む -> 飲もう (Nomou)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u10-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 10,
+            "unitTitle": "Unit 10: Future Plans, Volitional & Intentions (意向形・意志・予定)",
+            "unitDescription": "Volitional casual let's (〜よう), firm intentions (〜つもり), and scheduled plans (〜予定).",
+            "title": "Firm Intentions vs Schedules: 〜つもり vs 〜予定 (Tsumori / Yotei)",
+            "description": "Distinguish personal subjective determination (〜つもり) from objective organizational schedules (〜予定).",
+            "category": "Plans & Intentions",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "State your firm life resolutions using つもり and professional calendars using 予定.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜つもりです",
+                    "romajiOrPronunciation": "〜 Tsumori desu",
+                    "translation": "I intend to / plan to (personal resolution)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "タバコをやめるつもりです。",
+                    "exampleTranslation": "I intend to quit smoking."
+                },
+                {
+                    "word": "〜よていです (〜予定です)",
+                    "romajiOrPronunciation": "〜 Yotei desu",
+                    "translation": "Is scheduled to / plan (objective)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "新幹線は午後3時に到着する予定です。",
+                    "exampleTranslation": "The bullet train is scheduled to arrive at 3:00 PM."
+                },
+                {
+                    "word": "りょこう (旅行)",
+                    "romajiOrPronunciation": "Ryokou",
+                    "translation": "Travel / Trip",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "来月、北海道を旅行するつもりです。",
+                    "exampleTranslation": "Next month, I plan to travel around Hokkaido."
+                },
+                {
+                    "word": "けいかく (計画)",
+                    "romajiOrPronunciation": "Keikaku",
+                    "translation": "Plan / Project",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "計画を立てます。",
+                    "exampleTranslation": "I make a plan."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Decisive Contrast: つもり vs 予定",
+                    "explanation": "1. つもり expresses PERSONAL internal willpower or resolution: 国へ帰らないつもりです (I intend not to go back). 2. 予定 expresses FIXED official schedules or facts outside personal whim: 会議は10時からの予定です (The meeting is scheduled from 10).",
+                    "examples": [
+                        "JLPT N4に合格するつもりです (I intend to pass JLPT N4)",
+                        "出張の予定です (Scheduled on business trip)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Colleague",
+                    "text": "出張は何曜日の予定ですか？",
+                    "romajiOrPronunciation": "Shucchou wa nanyoubi no yotei desu ka?",
+                    "translation": "What day of the week is the business trip scheduled for?"
+                },
+                {
+                    "speaker": "Manager",
+                    "text": "水曜日から金曜日までの予定です。",
+                    "romajiOrPronunciation": "Suiyoubi kara Kin'youbi made no yotei desu.",
+                    "translation": "It is scheduled from Wednesday until Friday."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u10-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which phrase expresses 'I intend to study abroad' (personal willpower)?",
+                    "options": [
+                        "留学するつもりです",
+                        "留学する予定です",
+                        "留学してもいいです",
+                        "留学してください"
+                    ],
+                    "correctAnswer": "留学するつもりです",
+                    "explanation": "〜つもりです expresses the speaker's personal intention or resolution."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u11-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 11,
+            "unitTitle": "Unit 11: The 4 Conditionals: たら・と・ば・なら (条件表現)",
+            "unitDescription": "Master the four Japanese 'ifs': General (たら), Natural consequence (と), Hypothetical (ば), Contextual (なら).",
+            "title": "The King of Conditionals: 〜たら (If / When)",
+            "description": "Conjugate the versatile たら conditional (Plain past + ら) and use it for general conditions and time triggers.",
+            "category": "Conditionals",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Form [Verb Ta] + ら and use it for both hypothetical 'if' and sequential 'when'.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:45",
+            "vocabulary": [
+                {
+                    "word": "〜たら (〜動詞た形＋ら)",
+                    "romajiOrPronunciation": "〜 Tara",
+                    "translation": "If / When (General conditional)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "日本へ行ったら、寿司を食べたいです。",
+                    "exampleTranslation": "If / When I go to Japan, I want to eat sushi."
+                },
+                {
+                    "word": "じかんがあったら (時間があったら)",
+                    "romajiOrPronunciation": "Jikan ga attara",
+                    "translation": "If you have time ...",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "時間があったら、お茶を飲みませんか？",
+                    "exampleTranslation": "If you have time, wouldn't you like to have tea?"
+                },
+                {
+                    "word": "あめがふったら (雨が降ったら)",
+                    "romajiOrPronunciation": "Ame ga futtara",
+                    "translation": "If it rains ...",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "雨が降ったら、家にいます。",
+                    "exampleTranslation": "If it rains, I will stay home."
+                },
+                {
+                    "word": "おわったら (終わったら)",
+                    "romajiOrPronunciation": "Owattara",
+                    "translation": "When it finishes / ends",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "仕事が終わったら、連絡します。",
+                    "exampleTranslation": "When work finishes, I will contact you."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Why 〜たら is the Most Common Conditional",
+                    "explanation": "Unlike the other conditionals, 〜たら allows requests, invitations, and permissions in the main clause: 駅に着いたら電話してください (When you arrive at the station, please call me). Formula: Take plain past (た-form) and add ら.",
+                    "examples": [
+                        "着いた -> 着いたら (When you arrive)",
+                        "安かったら買います (If it is cheap, I'll buy it)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Sara",
+                    "text": "今週末、ハイキングに行きませんか？",
+                    "romajiOrPronunciation": "Konshuumatsu, haikingu ni ikimasen ka?",
+                    "translation": "Would you like to go hiking this weekend?"
+                },
+                {
+                    "speaker": "Ken",
+                    "text": "いいですね！でも、雨が降ったら美術館に行きましょう。",
+                    "romajiOrPronunciation": "Ii desu ne! Demo, ame ga futtara bijutsukan ni ikimashou.",
+                    "translation": "Sounds good! But if it rains, let's go to an art museum."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u11-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you form the conditional 'If you eat' using 食べる?",
+                    "options": [
+                        "食べたら (Tabetara)",
+                        "食べたらば (Tabetaraba)",
+                        "食べるたら (Taberutara)",
+                        "食べてら (Tabetera)"
+                    ],
+                    "correctAnswer": "食べたら (Tabetara)",
+                    "explanation": "Plain past 食べた + ら = 食べたら (If / when you eat)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u11-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 11,
+            "unitTitle": "Unit 11: The 4 Conditionals: たら・と・ば・なら (条件表現)",
+            "unitDescription": "Master the four Japanese 'ifs': General (たら), Natural consequence (と), Hypothetical (ば), Contextual (なら).",
+            "title": "Natural Consequence & Machines: 〜と (Whenever / Inevitably)",
+            "description": "Express natural consequences, mechanical reactions (buttons, vending machines), and giving street directions.",
+            "category": "Conditionals & Directions",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Use [Dictionary Form] + と for inevitable natural laws and street navigation.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜と (辞書形＋と)",
+                    "romajiOrPronunciation": "〜 To",
+                    "translation": "Whenever / When (Natural or mechanical consequence)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "このボタンを押すと、切符が出ます。",
+                    "exampleTranslation": "When you press this button, the ticket comes out."
+                },
+                {
+                    "word": "おす (押す) -> おすと",
+                    "romajiOrPronunciation": "Osu -> Osuto",
+                    "translation": "To press -> When pressed",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "ボタンを押すと、お釣りが戻ります。",
+                    "exampleTranslation": "When you press the button, your change returns."
+                },
+                {
+                    "word": "まがる (曲がる) -> まがると",
+                    "romajiOrPronunciation": "Magaru -> Magaruto",
+                    "translation": "To turn -> When you turn",
+                    "partOfSpeech": "Verb (Godan)",
+                    "exampleSentence": "右に曲がると、銀行があります。",
+                    "exampleTranslation": "When you turn right, there is a bank."
+                },
+                {
+                    "word": "はるになると (春になると)",
+                    "romajiOrPronunciation": "Haru ni naru to",
+                    "translation": "When spring arrives",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "春になると、桜が咲きます。",
+                    "exampleTranslation": "When spring arrives, cherry blossoms bloom."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Golden Restriction of 〜と",
+                    "explanation": "You can NEVER use requests, invitations, or commands with 〜と (NEVER ボタンを押すと、来てください). It describes strictly objective, automatic cause-and-effect: Button pressed -> Ticket emerges.",
+                    "examples": [
+                        "春になると桜が咲く (Natural law)",
+                        "右へ曲がると郵便局がある (Objective direction)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Tourist",
+                    "text": "すみません、東京駅へはどう行けばいいですか？",
+                    "romajiOrPronunciation": "Sumimasen, Toukyou-eki e wa dou ikeba ii desu ka?",
+                    "translation": "Excuse me, how can I get to Tokyo Station?"
+                },
+                {
+                    "speaker": "Local",
+                    "text": "この道を真っ直ぐ行くと、左手に大きな駅が見えますよ。",
+                    "romajiOrPronunciation": "Kono michi o massugu iku to, hidarite ni ookina eki ga miemasu yo.",
+                    "translation": "If you go straight down this street, you'll see a large station on your left."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u11-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Which conditional particle is used for giving street directions (e.g. 'Turn left and you will see the post office')?",
+                    "options": [
+                        "〜と (〜 to)",
+                        "〜たら (〜 tara)",
+                        "〜ば (〜 ba)",
+                        "〜なら (〜 nara)"
+                    ],
+                    "correctAnswer": "〜と (〜 to)",
+                    "explanation": "〜と describes inevitable physical layout and navigation consequences."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u11-03",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 11,
+            "unitTitle": "Unit 11: The 4 Conditionals: たら・と・ば・なら (条件表現)",
+            "unitDescription": "Master the four Japanese 'ifs': General (たら), Natural consequence (と), Hypothetical (ば), Contextual (なら).",
+            "title": "Contextual Advice: 〜なら (If that's the case / As for)",
+            "description": "Give expert recommendations and advice based on a topic raised by your conversational partner.",
+            "category": "Advice & Conversation",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Form [Topic] なら and give tailored suggestions: 'If it's [Topic], I recommend...'.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜なら",
+                    "romajiOrPronunciation": "〜 Nara",
+                    "translation": "If that is the case / If it's ... (Contextual advice)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "京都に行くなら、秋が一番おすすめですよ。",
+                    "exampleTranslation": "If you're going to Kyoto, autumn is most recommended."
+                },
+                {
+                    "word": "おすすめ (お勧め)",
+                    "romajiOrPronunciation": "Osusume",
+                    "translation": "Recommendation",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "ラーメンなら、あのお店が一番おすすめです。",
+                    "exampleTranslation": "If it's ramen, that shop is the most recommended."
+                },
+                {
+                    "word": "パソコンをかうなら (パソコンを買うなら)",
+                    "romajiOrPronunciation": "Pasokon o kau nara",
+                    "translation": "If you are buying a PC",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "パソコンを買うなら、秋葉原がいいですよ。",
+                    "exampleTranslation": "If you're buying a PC, Akihabara is great."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Meaning of 〜なら: Topic Picking",
+                    "explanation": "Use 〜なら when picking up a topic the other speaker just mentioned and giving them advice: 'Oh, if THAT is what you want to do, then this is the best option'.",
+                    "examples": [
+                        "日本料理なら寿司が一番です (If it's Japanese food, sushi is number one)",
+                        "明日なら空いています (If it's tomorrow, I'm free)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "来週、日本へ旅行に行くんですよ。",
+                    "romajiOrPronunciation": "Raishuu, Nihon e ryokou ni ikun desu yo.",
+                    "translation": "I'm going on a trip to Japan next week."
+                },
+                {
+                    "speaker": "B",
+                    "text": "いいですね！日本へ行くなら、ポケットWi-Fiを借りておくと便利ですよ。",
+                    "romajiOrPronunciation": "Ii desu ne! Nihon e iku nara, poketto waifai o karite oku to benri desu yo.",
+                    "translation": "Nice! If you're going to Japan, renting a pocket Wi-Fi in advance is very convenient."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u11-03-q1",
+                    "type": "multiple_choice",
+                    "prompt": "When offering advice based on what someone just said ('If it's ramen, go to that shop'), which conditional is ideal?",
+                    "options": [
+                        "〜なら (〜 nara)",
+                        "〜と (〜 to)",
+                        "〜たら (〜 tara)",
+                        "〜ば (〜 ba)"
+                    ],
+                    "correctAnswer": "〜なら (〜 nara)",
+                    "explanation": "〜なら picks up on context or topics raised by the listener to provide tailored advice."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u12-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 12,
+            "unitTitle": "Unit 12: Conjectures, Hearsay & Impressions (様態・伝聞・推量)",
+            "unitDescription": "Looks like (〜そう), Hearsay (〜そう), Uncertainty (〜かもしれない), and Impressions (〜よう/〜らしい).",
+            "title": "The Epic Battle: Looks Like 〜そう vs Hearsay 〜そう (様態と伝聞)",
+            "description": "Never confuse 'It looks delicious' with 'I heard it is delicious': Verb stem + そう vs Plain form + そう.",
+            "category": "Conjectures & Hearsay",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Instantly distinguish visual conjecture (美味しそう) from reported hearsay (美味しいそうだ) on the JLPT N4.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "おいしそう (美味しそう)",
+                    "romajiOrPronunciation": "Oishisou",
+                    "translation": "Looks delicious (Stem + sou: Visual impression)",
+                    "partOfSpeech": "Na-Adjective",
+                    "exampleSentence": "このケーキ、とても美味しそうですね！",
+                    "exampleTranslation": "This cake looks very delicious!"
+                },
+                {
+                    "word": "おいしいそうだ (美味しいそうだ)",
+                    "romajiOrPronunciation": "Oishii sou da",
+                    "translation": "I heard that it's delicious (Plain + sou: Hearsay)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "あの店のラーメンはとても美味しいそうです。",
+                    "exampleTranslation": "I heard that restaurant's ramen is very delicious."
+                },
+                {
+                    "word": "あめがふりそう (雨が降りそう)",
+                    "romajiOrPronunciation": "Ame ga furisou",
+                    "translation": "It looks like it's going to rain (Masu stem + sou)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "空が暗いです。雨が降りそうですね。",
+                    "exampleTranslation": "The sky is dark. It looks like it will rain."
+                },
+                {
+                    "word": "あめがふるそうだ (雨が降るそうだ)",
+                    "romajiOrPronunciation": "Ame ga furu sou da",
+                    "translation": "I heard it will rain (Weather report hearsay)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "天気予報によると、明日は雨が降るそうです。",
+                    "exampleTranslation": "According to the weather forecast, I heard it will rain tomorrow."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Decisive Grammatical Formula",
+                    "explanation": "1. Visual Impression (Looks like): Drop い or ます + そう -> 美味しそう (Looks tasty), 降りそう (Looks like raining). *Special: いい -> よさそう. 2. Hearsay (I heard that): Keep complete PLAIN FORM + そう -> 美味しいそうだ (I heard it's tasty), 降るそうだ (I heard it will rain).",
+                    "examples": [
+                        "美味しそう (Looks delicious)",
+                        "美味しいそうだ (I heard it is delicious)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Colleague",
+                    "text": "天気予報見ましたか？",
+                    "romajiOrPronunciation": "Tenkiyohou mimashita ka?",
+                    "translation": "Did you see the weather forecast?"
+                },
+                {
+                    "speaker": "You",
+                    "text": "はい、午後から大雨が降るそうですよ。傘を持っていきましょう。",
+                    "romajiOrPronunciation": "Hai, gogo kara ooame ga furu sou desu yo. Kasa o motte ikimashou.",
+                    "translation": "Yes, I heard heavy rain will fall from the afternoon. Let's take umbrellas."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u12-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you say 'This food looks delicious' based on visual appearance?",
+                    "options": [
+                        "美味しそうです (Oishisou desu)",
+                        "美味しいそうです (Oishii sou desu)",
+                        "美味しかったです (Oishikatta desu)",
+                        "美味しいようです (Oishii you desu)"
+                    ],
+                    "correctAnswer": "美味しそうです (Oishisou desu)",
+                    "explanation": "Drop 'い' + そう expresses immediate visual appearance ('looks delicious')."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u12-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 12,
+            "unitTitle": "Unit 12: Conjectures, Hearsay & Impressions (様態・伝聞・推量)",
+            "unitDescription": "Looks like (〜そう), Hearsay (〜そう), Uncertainty (〜かもしれない), and Impressions (〜よう/〜らしい).",
+            "title": "Uncertainty & Possibility: 〜かもしれません (Might / Perhaps)",
+            "description": "Express moderate or low probability (~50% chance) using [Plain Form] + かもしれません (casual: かも).",
+            "category": "Possibility",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Express caution and possibility in business and daily conversation without sounding overly certain.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜かもしれません",
+                    "romajiOrPronunciation": "〜 Kamoshiremasen",
+                    "translation": "Might be / Perhaps / Maybe (Formal)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "明日は雨が降るかもしれません。",
+                    "exampleTranslation": "It might rain tomorrow."
+                },
+                {
+                    "word": "〜かも",
+                    "romajiOrPronunciation": "〜 Kamo",
+                    "translation": "Maybe / Might (Casual spoken native)",
+                    "partOfSpeech": "Casual particle",
+                    "exampleSentence": "彼、もう帰ったかも。",
+                    "exampleTranslation": "He might have gone home already."
+                },
+                {
+                    "word": "おくれます (遅れます)",
+                    "romajiOrPronunciation": "Okuremasu",
+                    "translation": "To be late / delayed",
+                    "partOfSpeech": "Verb (Ichidan)",
+                    "exampleSentence": "電車が遅れるかもしれません。",
+                    "exampleTranslation": "The train might be delayed."
+                },
+                {
+                    "word": "かぜ (風邪)",
+                    "romajiOrPronunciation": "Kaze",
+                    "translation": "A cold / illness",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "風邪を引いたかもしれません。",
+                    "exampleTranslation": "I might have caught a cold."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Native Spoken Shortcut: 〜かも (Kamo)",
+                    "explanation": "In casual everyday Japanese, native speakers drop 'しれません' and just say '〜かも' at the end of sentences: 行くかも (Might go), 無理かも (Might be impossible), 好きかも (Might like it).",
+                    "examples": [
+                        "間に合わないかもしれない (Might not make it in time)",
+                        "そうかも (That might be so)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Yuto",
+                    "text": "田中さん、まだ来ていませんね。",
+                    "romajiOrPronunciation": "Tanaka-san, mada kite imasen ne.",
+                    "translation": "Tanaka-san hasn't arrived yet, has he?"
+                },
+                {
+                    "speaker": "Mika",
+                    "text": "中央線が止まっているから、遅れるかもしれませんね。",
+                    "romajiOrPronunciation": "Chuuou-sen ga tomatte iru kara, okureru kamoshiremasen ne.",
+                    "translation": "Because the Chuo Line is stopped, he might be delayed."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u12-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What does '電車に間に合わないかもしれません' mean?",
+                    "options": [
+                        "I might not make it in time for the train",
+                        "I definitely missed the train",
+                        "Please wait for the train",
+                        "I caught the train"
+                    ],
+                    "correctAnswer": "I might not make it in time for the train",
+                    "explanation": "〜かもしれません expresses uncertainty or moderate probability ('might')."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u13-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 13,
+            "unitTitle": "Unit 13: Voice Transformations: Passive & Causative (受身・使役)",
+            "unitDescription": "Master the passive voice (〜られる), indirect suffering passive, and causative (〜させる).",
+            "title": "The Passive Voice & Suffering Passive: 〜られる (受身形)",
+            "description": "Conjugate passive verbs and understand the unique Japanese 'Suffering / Indirect Passive' (迷惑の受身).",
+            "category": "Passive Voice",
+            "estimatedMinutes": 8,
+            "xpReward": 45,
+            "objective": "Conjugate passive verbs across all groups and correctly use particle に for the agent.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "6:00",
+            "vocabulary": [
+                {
+                    "word": "ほめられます (褒められます)",
+                    "romajiOrPronunciation": "Homeraremasu",
+                    "translation": "To be praised (Ichidan passive)",
+                    "partOfSpeech": "Verb (Passive)",
+                    "exampleSentence": "先生に褒められました。",
+                    "exampleTranslation": "I was praised by the teacher."
+                },
+                {
+                    "word": "ふまれます (踏まれます)",
+                    "romajiOrPronunciation": "Fumaremasu",
+                    "translation": "To be stepped on (Godan passive)",
+                    "partOfSpeech": "Verb (Passive)",
+                    "exampleSentence": "満員電車で足を踏まれました。",
+                    "exampleTranslation": "My foot was stepped on in the packed train (suffering passive)."
+                },
+                {
+                    "word": "ぬすまれます (盗まれます)",
+                    "romajiOrPronunciation": "Nusumaremasu",
+                    "translation": "To be stolen",
+                    "partOfSpeech": "Verb (Passive)",
+                    "exampleSentence": "自転車を盗まれてしまいました。",
+                    "exampleTranslation": "My bicycle was stolen (suffering)."
+                },
+                {
+                    "word": "あめにふられます (雨に降られます)",
+                    "romajiOrPronunciation": "Ame ni furaremasu",
+                    "translation": "To be rained upon (suffering)",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "途中で雨に降られて、濡れました。",
+                    "exampleTranslation": "I got rained on halfway and became soaked."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Japanese 'Suffering Passive' (迷惑の受身)",
+                    "explanation": "In Japanese, passive can be applied to intransitive verbs to express annoyance or suffering from an event: 雨に降られた (Rained upon), 猫に逃げられた (The cat ran away on me). Formula: The person who caused the action is marked by に.",
+                    "examples": [
+                        "先生に褒められた (Praised by teacher)",
+                        "泥棒に財布を盗まれた (Had wallet stolen by thief)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Colleague",
+                    "text": "服が濡れていますね！どうしたんですか？",
+                    "romajiOrPronunciation": "Fuku ga nurete imasu ne! Doushitan desu ka?",
+                    "translation": "Your clothes are soaked! What happened?"
+                },
+                {
+                    "speaker": "You",
+                    "text": "傘を持っていなくて、途中で急な大雨に降られてしまったんです。",
+                    "romajiOrPronunciation": "Kasa o motte inakute, tochuu de kyuu na ooame ni furarete shimattan desu.",
+                    "translation": "I didn't have an umbrella and got caught in sudden heavy rain on the way."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u13-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "In the passive sentence '私は先生___褒められました' (I was praised by the teacher), which particle marks the teacher?",
+                    "options": [
+                        "に (ni)",
+                        "を (o)",
+                        "が (ga)",
+                        "で (de)"
+                    ],
+                    "correctAnswer": "に (ni)",
+                    "explanation": "In passive sentences, the agent who performed the action is marked by particle に."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u13-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 13,
+            "unitTitle": "Unit 13: Voice Transformations: Passive & Causative (受身・使役)",
+            "unitDescription": "Master the passive voice (〜られる), indirect suffering passive, and causative (〜させる).",
+            "title": "The Causative Voice: Make or Let Someone Do: 〜させる (使役形)",
+            "description": "Conjugate causative verbs to express making someone do an action, or granting permission to let them do it.",
+            "category": "Causative Voice",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Conjugate Godan (せる), Ichidan (させる), and irregulars (させる, こさせる).",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:30",
+            "vocabulary": [
+                {
+                    "word": "たべさせます (食べさせます)",
+                    "romajiOrPronunciation": "Tabesasemasu",
+                    "translation": "Make/let someone eat (Ichidan causative)",
+                    "partOfSpeech": "Verb (Causative)",
+                    "exampleSentence": "母は子供に野菜を食べさせます。",
+                    "exampleTranslation": "The mother makes the child eat vegetables."
+                },
+                {
+                    "word": "いかせます (行かせます)",
+                    "romajiOrPronunciation": "Ikasemasu",
+                    "translation": "Make/let someone go (Godan: ku -> kaseru)",
+                    "partOfSpeech": "Verb (Causative)",
+                    "exampleSentence": "息子をアメリカに留学させたいです。",
+                    "exampleTranslation": "I want to let my son study abroad in America."
+                },
+                {
+                    "word": "〜させてください",
+                    "romajiOrPronunciation": "〜 Sasete kudasai",
+                    "translation": "Please let me do ... (Polite request for permission)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "私にやらせてください！",
+                    "exampleTranslation": "Please let me do it!"
+                },
+                {
+                    "word": "やすませてください (休ませてください)",
+                    "romajiOrPronunciation": "Yasumasete kudasai",
+                    "translation": "Please allow me to take time off / rest",
+                    "partOfSpeech": "Phrase",
+                    "exampleSentence": "体調が悪いので、今日休ませてください。",
+                    "exampleTranslation": "Because I feel unwell, please allow me to take the day off today."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Magic Polite Request: 〜させてください (Let me do)",
+                    "explanation": "Combining the causative with ください creates the most respectful way to request permission for yourself: 休ませてください (Please let me take time off), 自己紹介させてください (Please allow me to introduce myself).",
+                    "examples": [
+                        "説明させてください (Please allow me to explain)",
+                        "手伝わせてください (Please let me help)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Employee",
+                    "text": "部長、熱が38度あるので、今日は病院へ行かせてください。",
+                    "romajiOrPronunciation": "Buchou, netsu ga sanjuuhachido aru node, kyou wa byouin e ikasete kudasai.",
+                    "translation": "Manager, because I have a fever of 38 degrees, please allow me to go to the hospital today."
+                },
+                {
+                    "speaker": "Manager",
+                    "text": "それは大変だ！仕事はいいから、すぐに休んでください。",
+                    "romajiOrPronunciation": "Sore wa taihen da! Shigoto wa ii kara, sugu ni yasunde kudasai.",
+                    "translation": "That's terrible! Don't worry about work, please rest immediately."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u13-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you politely ask your boss 'Please allow me to explain'?",
+                    "options": [
+                        "説明させてください (Setsumei sasete kudasai)",
+                        "説明してください (Setsumei shite kudasai)",
+                        "説明させます (Setsumei sasemasu)",
+                        "説明しましょう (Setsumei shimashou)"
+                    ],
+                    "correctAnswer": "説明させてください (Setsumei sasete kudasai)",
+                    "explanation": "〜させてください is the humble causative request meaning 'please allow me to do'."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u14-01",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 14,
+            "unitTitle": "Unit 14: Everyday Keigo & Native Speech Secrets (敬語・口語・相槌)",
+            "unitDescription": "Foundations of Keigo (Sonkeigo & Kenjougo), dropping the subject (脱・主語), and native Aizuchi.",
+            "title": "The 3 Keigo Tiers: Sonkeigo, Kenjougo & Teineigo (敬語の基礎)",
+            "description": "Master the Japanese honorific triangle: Respectful speech for others (尊敬語) vs Humble speech for yourself (謙譲語).",
+            "category": "Honorifics & Business",
+            "estimatedMinutes": 8,
+            "xpReward": 45,
+            "objective": "Recognize the essential special Keigo verbs on the JLPT N4 exam and in Japanese workplaces.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "6:00",
+            "vocabulary": [
+                {
+                    "word": "いらっしゃいます (尊敬語)",
+                    "romajiOrPronunciation": "Irasshaimasu",
+                    "translation": "To go / come / exist (Respectful for 行く・来る・いる)",
+                    "partOfSpeech": "Keigo (Sonkeigo)",
+                    "exampleSentence": "社長は部屋にいらっしゃいますか？",
+                    "exampleTranslation": "Is the company president in the room?"
+                },
+                {
+                    "word": "まいります (参ります) [謙譲語]",
+                    "romajiOrPronunciation": "Mairimasu",
+                    "translation": "To go / come (Humble for 行く・来る)",
+                    "partOfSpeech": "Keigo (Kenjougo)",
+                    "exampleSentence": "今からそちらへ参ります。",
+                    "exampleTranslation": "I will come over to your location right now (humble)."
+                },
+                {
+                    "word": "おっしゃいます (尊敬語)",
+                    "romajiOrPronunciation": "Osshaimasu",
+                    "translation": "To say (Respectful for 言う)",
+                    "partOfSpeech": "Keigo (Sonkeigo)",
+                    "exampleSentence": "お客様がおっしゃいました。",
+                    "exampleTranslation": "The customer said so."
+                },
+                {
+                    "word": "もうします (申します) [謙譲語]",
+                    "romajiOrPronunciation": "Moushimasu",
+                    "translation": "To say / be called (Humble for 言う)",
+                    "partOfSpeech": "Keigo (Kenjougo)",
+                    "exampleSentence": "スミスと申します。",
+                    "exampleTranslation": "I am called Smith (humble self-intro)."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The Fundamental Rule of Keigo",
+                    "explanation": "1. 尊敬語 (Sonkeigo - Respectful): ELEVATES the customer, client, or teacher. NEVER use Sonkeigo for yourself. 2. 謙譲語 (Kenjougo - Humble): LOWERS yourself and your colleagues to show modesty and respect.",
+                    "examples": [
+                        "先生がいらっしゃいました (Teacher arrived - Sonkeigo)",
+                        "私が参ります (I will go - Kenjougo)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Receptionist",
+                    "text": "お名前をお伺いしてもよろしいでしょうか？",
+                    "romajiOrPronunciation": "Onamae o oukagai shite mo yoroshii deshous ka?",
+                    "translation": "May I inquire your honorable name?"
+                },
+                {
+                    "speaker": "Client",
+                    "text": "ABC商事の佐藤と申します。田中部長はいらっしゃいますか？",
+                    "romajiOrPronunciation": "ABC-shouji no Satou to moushimasu. Tanaka-buchou wa irasshaimasu ka?",
+                    "translation": "I am called Sato from ABC Trading (humble). Is Director Tanaka in (respectful)?"
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u14-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "When introducing your own name in a business interview, which verb is grammatically correct?",
+                    "options": [
+                        "〜と申します (〜 to moushimasu - Humble)",
+                        "〜とおっしゃいます (〜 to osshaimasu - Respectful)",
+                        "〜といらっしゃいます (〜 to irasshaimasu)",
+                        "〜と申されます (〜 to mousaremasu)"
+                    ],
+                    "correctAnswer": "〜と申します (〜 to moushimasu - Humble)",
+                    "explanation": "申します (Moushimasu) is the humble Kenjougo verb used strictly for oneself."
+                }
+            ]
+        },
+        {
+            "id": "ja-n4-u14-02",
+            "languageId": "japanese",
+            "level": "JLPT N4",
+            "unitNumber": 14,
+            "unitTitle": "Unit 14: Everyday Keigo & Native Speech Secrets (敬語・口語・相槌)",
+            "unitDescription": "Foundations of Keigo (Sonkeigo & Kenjougo), dropping the subject (脱・主語), and native Aizuchi.",
+            "title": "The Native Conversational Layer: Dropping the Subject & Aizuchi (脱・主語・相槌)",
+            "description": "Speak like a true Tokyo native: drop robotic 'watashi wa', use casual contractions (てる・ちゃう・なきゃ), and master active listening Aizuchi.",
+            "category": "Native Fluency Secrets",
+            "estimatedMinutes": 8,
+            "xpReward": 45,
+            "objective": "Transform stiff textbook Japanese into natural, authentic, flowing native conversation.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "6:00",
+            "vocabulary": [
+                {
+                    "word": "うん・そうなんだ",
+                    "romajiOrPronunciation": "Un / Sou nan da",
+                    "translation": "Yeah / I see! (Casual Aizuchi nod)",
+                    "partOfSpeech": "Aizuchi phrase",
+                    "exampleSentence": "へえ、そうなんだ！知らなかった。",
+                    "exampleTranslation": "Whoa, is that so! I didn't know that."
+                },
+                {
+                    "word": "なるほど・たしかに",
+                    "romajiOrPronunciation": "Naruhodo / Tashika ni",
+                    "translation": "Indeed / That makes complete sense",
+                    "partOfSpeech": "Aizuchi phrase",
+                    "exampleSentence": "なるほど、そういうことですね。",
+                    "exampleTranslation": "I see, that makes sense now."
+                },
+                {
+                    "word": "何してるの？ (何しているの？)",
+                    "romajiOrPronunciation": "Nani shiteru no?",
+                    "translation": "What are you doing? (Contraction: shiteiru -> shiteru)",
+                    "partOfSpeech": "Casual contraction",
+                    "exampleSentence": "今どこ？何してるの？",
+                    "exampleTranslation": "Where are you now? What're you doing?"
+                },
+                {
+                    "word": "〜じゃん！",
+                    "romajiOrPronunciation": "〜 Jan!",
+                    "translation": "Isn't it?! / Right?! (Tokyo casual confirmation)",
+                    "partOfSpeech": "Sentence ending",
+                    "exampleSentence": "これ、すごく美味しいじゃん！",
+                    "exampleTranslation": "This is super delicious, right?!"
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "The 3 Secrets to Sounding Like a Native Speaker",
+                    "explanation": "1. Stop saying '私は' (Watashi wa) every sentence. In Japanese, repeating 'I' sounds self-obsessed and unnatural. 2. Contract continuous forms: している -> してる, 食べている -> 食べてる. 3. Use Aizuchi (相槌): Always nod verbally while listening (うん, そうなんだ, なるほど) so the speaker knows you are engaged.",
+                    "examples": [
+                        "(私は) ラーメン食べたい (Just: ラーメン食べたい！)",
+                        "行かなきゃ！ (I gotta go!)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Friend A",
+                    "text": "昨日、渋谷で新しいカフェ見つけたんだけど、めっちゃ良かったよ！",
+                    "romajiOrPronunciation": "Kinou, Shibuya de atarashii kafe mitsuketan dakedo, meccha yokatta yo!",
+                    "translation": "Yesterday I found a new cafe in Shibuya, and it was super great!"
+                },
+                {
+                    "speaker": "Friend B",
+                    "text": "へえ、マジで？なんていうお店？今度一緒に行こうよ！",
+                    "romajiOrPronunciation": "Hee, maji de? Nante iu omise? Kondo issho ni ikou yo!",
+                    "translation": "Whoa, seriously? What's the shop called? Let's go together next time!"
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n4-u14-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "Why do native Japanese speakers omit '私は' (Watashi wa) in natural daily conversation?",
+                    "options": [
+                        "Japanese is a high-context language where the topic is already understood",
+                        "It is grammatically forbidden",
+                        "'Watashi' is an archaic word",
+                        "It can only be used by children"
+                    ],
+                    "correctAnswer": "Japanese is a high-context language where the topic is already understood",
+                    "explanation": "Japanese omitted subjects (脱・主語) keep dialogue natural, dynamic, and non-repetitive."
+                }
+            ]
+        },
+        {
+            "id": "ja-n3-u15-01",
+            "languageId": "japanese",
+            "level": "JLPT N3",
+            "unitNumber": 15,
+            "unitTitle": "Unit 15: JLPT N3 Intermediate Mastery (中級文法・思考・試行)",
+            "unitDescription": "Bridging to advanced fluency: opinions (〜と思う), attempting actions (〜てみる), and simultaneous events (〜ながら).",
+            "title": "Expressing Thoughts & Quotations: 〜とおもう (To omou)",
+            "description": "Express opinions, subjective evaluations, and indirect reported speech: [Plain form] + と思います.",
+            "category": "Opinions & Thoughts",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Quote statements and frame opinions politely in academic and casual discourse.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜とおもいます (〜と思います)",
+                    "romajiOrPronunciation": "〜 To omoimasu",
+                    "translation": "I think that ...",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "日本語の漢字はとても面白いと思います。",
+                    "exampleTranslation": "I think Japanese Kanji are very interesting."
+                },
+                {
+                    "word": "いけん (意見)",
+                    "romajiOrPronunciation": "Iken",
+                    "translation": "Opinion",
+                    "partOfSpeech": "Noun",
+                    "exampleSentence": "自分の意見を述べます。",
+                    "exampleTranslation": "I state my own opinion."
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Formula: [Plain Form] + と思います",
+                    "explanation": "Verbs, adjectives, and nouns in their plain form attach directly to と思います. For nouns and Na-adjectives, attach だ: 学生だと思います (I think he is a student).",
+                    "examples": [
+                        "明日は晴れると思います (I think it will be sunny tomorrow)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "新しいプロジェクトはどう思いますか？",
+                    "romajiOrPronunciation": "Atarashii purojekuto wa dou omoimasu ka?",
+                    "translation": "What do you think of the new project?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "少し大変ですが、成功すると思います。",
+                    "romajiOrPronunciation": "Sukoshi taihen desu ga, seikou suru to omoimasu.",
+                    "translation": "It is a bit tough, but I think it will succeed."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n3-u15-01-q1",
+                    "type": "multiple_choice",
+                    "prompt": "How do you form 'I think it is convenient' using 便利 (Benri)?",
+                    "options": [
+                        "便利だと思います (Benri da to omoimasu)",
+                        "便利と思います (Benri to omoimasu)",
+                        "便利いと思います (Benri i to omoimasu)",
+                        "便利でしたと思います (Benri deshita to omoimasu)"
+                    ],
+                    "correctAnswer": "便利だと思います (Benri da to omoimasu)",
+                    "explanation": "Na-adjectives require だ before the quotation particle と."
+                }
+            ]
+        },
+        {
+            "id": "ja-n3-u15-02",
+            "languageId": "japanese",
+            "level": "JLPT N3",
+            "unitNumber": 15,
+            "unitTitle": "Unit 15: JLPT N3 Intermediate Mastery (中級文法・思考・試行)",
+            "unitDescription": "Bridging to advanced fluency: opinions (〜と思う), attempting actions (〜てみる), and simultaneous events (〜ながら).",
+            "title": "Attempting Actions: 〜てみる (Te-miru - Try doing)",
+            "description": "Express trying something out to see what it is like: [Verb Te] + みる.",
+            "category": "Attempts & Experiments",
+            "estimatedMinutes": 6,
+            "xpReward": 35,
+            "objective": "Express tasting new cuisine, trying on clothes, or experimenting with new hobbies.",
+            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
+            "videoDuration": "5:00",
+            "vocabulary": [
+                {
+                    "word": "〜てみる (〜てみます)",
+                    "romajiOrPronunciation": "〜 Te miru",
+                    "translation": "To try doing ... (to see how it goes)",
+                    "partOfSpeech": "Pattern",
+                    "exampleSentence": "納豆を初めて食べてみました。",
+                    "exampleTranslation": "I tried eating natto for the first time."
+                },
+                {
+                    "word": "きてみます (着てみます)",
+                    "romajiOrPronunciation": "Kite mimasu",
+                    "translation": "Try on (clothes)",
+                    "partOfSpeech": "Verb phrase",
+                    "exampleSentence": "このジャケットを着てみてもいいですか？",
+                    "exampleTranslation": "May I try on this jacket?"
+                }
+            ],
+            "grammarNotes": [
+                {
+                    "title": "Formula: [Verb て-form] + みる",
+                    "explanation": "Derived from the verb 見る (to see), 〜てみる literally means 'do and see what happens'.",
+                    "examples": [
+                        "やってみます (I'll give it a try)",
+                        "行ってみてください (Please try going there)"
+                    ]
+                }
+            ],
+            "conversationDialogue": [
+                {
+                    "speaker": "Shopper",
+                    "text": "このシャツ、試着してみてもいいですか？",
+                    "romajiOrPronunciation": "Kono shatsu, shichaku shite mite mo ii desu ka?",
+                    "translation": "May I try on this shirt?"
+                },
+                {
+                    "speaker": "Clerk",
+                    "text": "かしこまりました。試着室へご案内します。",
+                    "romajiOrPronunciation": "Kashikomarimashita. Shichakushitsu e go-annai shimasu.",
+                    "translation": "Certainly. I will guide you to the fitting room."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ja-n3-u15-02-q1",
+                    "type": "multiple_choice",
+                    "prompt": "What does '一度日本酒を飲んでみたいです' mean?",
+                    "options": [
+                        "I want to try drinking sake once",
+                        "I always drink sake",
+                        "I don't like sake",
+                        "Please drink sake"
+                    ],
+                    "correctAnswer": "I want to try drinking sake once",
+                    "explanation": "〜てみたい combines trial (〜てみる) with desire (〜たい)."
+                }
+            ]
+        },
+        {
+            "id": "ja-n2-u16-01",
             "languageId": "japanese",
             "level": "JLPT N2",
-            "unitNumber": 9,
-            "unitTitle": "Unit 9: Formal Discourse & Professional Nuance (論理・複合格助詞)",
-            "unitDescription": "Formal newspaper and professional grammar structures: 〜に基づいて and 〜に伴って.",
-            "title": "Reporting News & Sources: 〜によると & 〜とのことだ",
-            "description": "Report verified information: 'Tenki yohou ni yoru to, ashita wa taifuu ga kimasu'.",
-            "category": "Journalism & Reports",
-            "estimatedMinutes": 9,
-            "xpReward": 50,
-            "objective": "Cite information sources formally and conclude sentences with reported speech markers.",
+            "unitNumber": 16,
+            "unitTitle": "Unit 16: JLPT N2 Advanced & Business Logic (論理・複合格助詞)",
+            "unitDescription": "Advanced formal structures: based upon (〜に基づいて), strong contrasts (〜にもかかわらず), and sources (〜によると).",
+            "title": "Actions Based Upon: 〜にもとづいて (Based on data/facts)",
+            "description": "Express actions, laws, and decisions grounded in objective data, evidence, or regulations.",
+            "category": "Advanced Logic",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Form [Noun] に基づいて in academic essays, news, and business presentations.",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "6:45",
+            "videoDuration": "5:30",
             "vocabulary": [
                 {
-                    "word": "によると",
-                    "romajiOrPronunciation": "Ni yoru to",
-                    "translation": "According to",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "ニュースによると、来月から物価が下がるそうです。",
-                    "exampleTranslation": "According to the news, prices will drop starting next month."
+                    "word": "〜にもとづいて (〜に基づいて)",
+                    "romajiOrPronunciation": "〜 Ni motozuite",
+                    "translation": "Based on / Grounded upon",
+                    "partOfSpeech": "Compound particle",
+                    "exampleSentence": "アンケートの結果に基づいて計画を立てます。",
+                    "exampleTranslation": "We develop our plan based on the survey results."
                 },
                 {
-                    "word": "とのことだ",
-                    "romajiOrPronunciation": "To no koto da",
-                    "translation": "Reportedly / It is said that",
-                    "partOfSpeech": "Sentence ending",
-                    "exampleSentence": "全員無事救助されたとのことです。",
-                    "exampleTranslation": "Reportedly, everyone was rescued safely."
-                },
-                {
-                    "word": "ほうどう",
-                    "romajiOrPronunciation": "Houdou",
-                    "translation": "News report / Journalism",
+                    "word": "ほうりつ (法律)",
+                    "romajiOrPronunciation": "Houritsu",
+                    "translation": "Law / Legislation",
                     "partOfSpeech": "Noun",
-                    "exampleSentence": "現地の報道機関が伝えています。",
-                    "exampleTranslation": "Local journalism agencies are reporting it."
-                },
-                {
-                    "word": "しょうげん",
-                    "romajiOrPronunciation": "Shougen",
-                    "translation": "Eyewitness testimony",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "目撃者の証言によると、犯人は黒い車に乗っていた。",
-                    "exampleTranslation": "According to eyewitness testimony, the suspect was in a black car."
+                    "exampleSentence": "法律に基づいて行動します。",
+                    "exampleTranslation": "We act in accordance with the law."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "[Source] によると (According to...) + そうだ / とのことだ",
-                    "explanation": "Always pair the source marked by によると with a hearsay ending (そうだ, ということだ, とのことだ) at the end of the sentence.",
+                    "title": "Formula: [Noun] + に基づいて",
+                    "explanation": "Used in formal written and spoken Japanese to denote that an action is derived from an objective foundation, survey, law, or fact.",
                     "examples": [
-                        "専門家の話によると、予防が最も効果的だそうだ。(According to experts, prevention is most effective.)",
-                        "関係者によると、プロジェクトは順調とのことだ。(According to those involved, the project is progressing smoothly.)"
+                        "事実に基づいて報道する (Report based on facts)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Anchor",
-                    "text": "気象庁の発表によると、台風15号は明朝未明に関東地方に最接近する見込みとのことです。",
-                    "romajiOrPronunciation": "Kishouchou no happyou ni yoru to, taifuu juugogou wa myouchou mimei ni Kantou-chihou ni saisekkin suru mikomi to no koto desu.",
-                    "translation": "According to the Meteorological Agency, Typhoon 15 is expected to make its closest approach to Kanto early tomorrow morning."
-                },
-                {
-                    "speaker": "Citizen",
-                    "text": "交通機関が乱れる可能性が高いので、早めに帰宅しましょう。",
-                    "romajiOrPronunciation": "Koutsuu kikan ga midareru kanousei ga takai node, hayame ni kitaku shimashou.",
-                    "translation": "Since public transit is likely to be disrupted, let's head home early."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n2-q3",
-                    "type": "multiple_choice",
-                    "prompt": "How do you cite a source formally: 'Shinbun ___ yoru to' (According to the newspaper)?",
-                    "options": [
-                        "に",
-                        "で",
-                        "を",
-                        "へ"
-                    ],
-                    "correctAnswer": "に",
-                    "explanation": "The source is always marked with 'によると' (ni yoru to)."
-                }
-            ]
-        },
-        {
-            "id": "ja-n1-u10-01",
-            "languageId": "japanese",
-            "level": "JLPT N1",
-            "unitNumber": 10,
-            "unitTitle": "Unit 10: Literary & Advanced Mastery (高度な文法・洗練された表現)",
-            "unitDescription": "Master native subtleties: 〜を皮切りに (starting with) and 〜ならでは (unique to).",
-            "title": "Groundbreaking Beginnings: 〜を皮切りに (O kawakiri ni)",
-            "description": "Express monumental kickoff events: 'Tokyo kouen o kawakiri ni zenkoku tsuaa ga hajimatta'.",
-            "category": "High Formalism",
-            "estimatedMinutes": 10,
-            "xpReward": 60,
-            "objective": "Master the literary construction 〜を皮切りに to express an event that sets off a series of developments.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "8:00",
-            "vocabulary": [
-                {
-                    "word": "をかわきりに",
-                    "romajiOrPronunciation": "O kawakiri ni",
-                    "translation": "Starting with / kicking off with",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "東京公演を皮切りに、全国１０都市でのツアーがスタートします。",
-                    "exampleTranslation": "Starting with the Tokyo performance, a nationwide 10-city tour will kick off."
-                },
-                {
-                    "word": "ぜんこく",
-                    "romajiOrPronunciation": "Zenkoku",
-                    "translation": "Nationwide",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "全国で大規模なキャンペーンを展開する。",
-                    "exampleTranslation": "We will roll out a large-scale campaign nationwide."
-                },
-                {
-                    "word": "はってん",
-                    "romajiOrPronunciation": "Hatten",
-                    "translation": "Expansion / Development",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "事業の飛躍的な発展を遂げた。",
-                    "exampleTranslation": "We achieved dramatic development of the business."
-                },
-                {
-                    "word": "かいさい",
-                    "romajiOrPronunciation": "Kaisai",
-                    "translation": "Hosting / Holding an event",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "国際会議を開催いたします。",
-                    "exampleTranslation": "We will host the international conference."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Noun + を皮切りに (して) (Starting with A, similar things expand rapidly)",
-                    "explanation": "Expresses an initial milestone event that triggers a sequence of positive, energetic developments on a grand scale.",
-                    "examples": [
-                        "このヒット曲を皮切りに、彼女は世界的なスターへと駆け上がった。(Beginning with this hit single, she ascended to global stardom.)",
-                        "東京での展示会を皮切りに、アジア各国で巡回展が行われます。(Starting with the Tokyo exhibition, traveling exhibitions will be held across Asia.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Producer",
-                    "text": "来春の新作映画の公開スケジュールは確定しましたか？",
-                    "romajiOrPronunciation": "Raishun no shinsaku eiga no koukai sukejuuru wa kakutei shimashita ka?",
-                    "translation": "Has the release schedule for next spring's new movie been finalized?"
+                    "speaker": "Presenter",
+                    "text": "本日の提案は、最新の市場データに基づいて作成いたしました。",
+                    "romajiOrPronunciation": "Honjitsu no teian wa, saishin no shijou deeta ni motozuite sakusei itashimashita.",
+                    "translation": "Today's proposal was prepared based on the latest market data."
                 },
                 {
                     "speaker": "Director",
-                    "text": "はい。カンヌ映画祭での上映を皮切りに、世界３０カ国で順次公開いたします。",
-                    "romajiOrPronunciation": "Hai. Kannu eigasai de no jouei o kawakiri ni, sekai sanjuukakoku de junji koukai itashimasu.",
-                    "translation": "Yes. Starting with its screening at the Cannes Film Festival, it will be released sequentially across 30 countries."
+                    "text": "素晴らしい分析ですね。詳しく聞かせてください。",
+                    "romajiOrPronunciation": "Subarashii bunseki desu ne. Kuwashiku kikasete kudasai.",
+                    "translation": "Wonderful analysis. Please share more details."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n1-q1",
+                    "id": "ja-n2-u16-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "Which expression describes an initial event that kicks off a nationwide or global sequence?",
+                    "prompt": "Which phrase means 'Based on data' in formal Japanese?",
                     "options": [
-                        "〜を皮切りに",
-                        "〜をきっかけに",
-                        "〜をはじめとして",
-                        "〜にしては"
+                        "データに基づいて (Deeta ni motozuite)",
+                        "データにとって (Deeta ni totte)",
+                        "データに関して (Deeta ni kanshite)",
+                        "データに対して (Deeta ni taishite)"
                     ],
-                    "correctAnswer": "〜を皮切りに",
-                    "explanation": "'〜o kawakiri ni' is the formal N1 grammar explicitly describing a grand opening kickoff event."
+                    "correctAnswer": "データに基づいて (Deeta ni motozuite)",
+                    "explanation": "〜に基づいて expresses 'grounded upon' or 'based upon'."
                 }
             ]
         },
         {
-            "id": "ja-n1-u10-02",
+            "id": "ja-n1-u17-01",
             "languageId": "japanese",
             "level": "JLPT N1",
-            "unitNumber": 10,
-            "unitTitle": "Unit 10: Literary & Advanced Mastery (高度な文法・洗練された表現)",
-            "unitDescription": "Master native subtleties: 〜を皮切りに (starting with) and 〜ならでは (unique to).",
-            "title": "Uniqueness & Exclusivity: 〜ならでは (Naredewa)",
-            "description": "Express distinctive qualities only possible with that entity: 'Kyoto naredewa no dentou'.",
-            "category": "Exclusivity & Praise",
-            "estimatedMinutes": 10,
-            "xpReward": 60,
-            "objective": "Express exclusive characteristics using Noun + ならでは(の) (uniquely possible because of).",
+            "unitNumber": 17,
+            "unitTitle": "Unit 17: JLPT N1 Literary & Native Masterclass (高度な文法・洗練された表現)",
+            "unitDescription": "Literary markers (〜を皮切りに), unique identity expressions (〜ならでは), and formal compulsion (〜を余儀なくされる).",
+            "title": "Uniqueness & Inimitable Quality: 〜ならでは (Naredewa)",
+            "description": "Express qualities, craftsmanship, or cultural traits that can only be found in a specific entity.",
+            "category": "Literary Nuance",
+            "estimatedMinutes": 7,
+            "xpReward": 40,
+            "objective": "Express unique praise: '[Entity] ならではの [Noun]' (A specialty only achievable by Entity).",
             "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "7:45",
+            "videoDuration": "5:30",
             "vocabulary": [
                 {
-                    "word": "ならでは",
-                    "romajiOrPronunciation": "Naredewa",
-                    "translation": "Unique to / only possible with",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "これぞ老舗旅館ならではの心のこもったおもてなしです。",
-                    "exampleTranslation": "This is truly the heartfelt hospitality unique to a venerable traditional ryokan."
+                    "word": "〜ならでは (〜ならではの)",
+                    "romajiOrPronunciation": "〜 Naredewa",
+                    "translation": "Distinctive to / Unique only to ...",
+                    "partOfSpeech": "Expression",
+                    "exampleSentence": "これは京都の職人ならではの繊細な技術です。",
+                    "exampleTranslation": "This is delicate craftsmanship unique only to Kyoto artisans."
                 },
                 {
-                    "word": "おもてなし",
-                    "romajiOrPronunciation": "Omotenashi",
-                    "translation": "Selfless hospitality",
-                    "partOfSpeech": "Cultural noun",
-                    "exampleSentence": "日本のおもてなし文化に深く感銘を受けました。",
-                    "exampleTranslation": "I was deeply impressed by Japan's hospitality culture."
-                },
-                {
-                    "word": "しにせ",
-                    "romajiOrPronunciation": "Shinise",
-                    "translation": "Long-established / venerable store",
+                    "word": "しょくにん (職人)",
+                    "romajiOrPronunciation": "Shokunin",
+                    "translation": "Artisan / Craftsman",
                     "partOfSpeech": "Noun",
-                    "exampleSentence": "創業三百年を誇る老舗の和菓子店です。",
-                    "exampleTranslation": "A venerable traditional sweet shop boasting 300 years since founding."
-                },
-                {
-                    "word": "みりょく",
-                    "romajiOrPronunciation": "Miryoku",
-                    "translation": "Charm / Fascination",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "四季折々の自然の美しさが日本の魅力です。",
-                    "exampleTranslation": "The beauty of nature in each distinct season is Japan's charm."
+                    "exampleSentence": "熟練の職人の技です。",
+                    "exampleTranslation": "It is the technique of a master craftsman."
                 }
             ],
             "grammarNotes": [
                 {
-                    "title": "Noun + ならでは (Unique to / Special characteristic of)",
-                    "explanation": "Highlights a high-quality virtue or unique charm that can ONLY be experienced through the specific person, organization, or place mentioned.",
+                    "title": "Formula: [Noun] + ならではの + [Quality]",
+                    "explanation": "Derived from 'なら' (if) and 'では' (not), meaning 'if it were not for X, it would be impossible'. Expresses high praise for unique attributes.",
                     "examples": [
-                        "プロならではの熟練した技に圧倒された。(I was overwhelmed by the skilled technique unique to a true professional.)",
-                        "手作りならではの温かみがある。(There is a distinctive warmth unique to handmade items.)"
+                        "日本ならではのおもてなし (Hospitality unique to Japan)"
                     ]
                 }
             ],
             "conversationDialogue": [
                 {
-                    "speaker": "Traveler",
-                    "text": "京都の町家でいただく京料理は、本当に風情がありますね。",
-                    "romajiOrPronunciation": "Kyouto no machiya de itadaku Kyou-ryouri wa, hontou ni fuzei ga arimasu ne.",
-                    "translation": "Dining on Kyoto cuisine inside a traditional machiya townhouse truly possesses great ambiance."
+                    "speaker": "Critic",
+                    "text": "この料理は、日本の四季ならではの素材の美しさが活かされていますね。",
+                    "romajiOrPronunciation": "Kono ryouri wa, Nihon no shiki naredewa no sozai no utsukushisa ga ikasarete imasu ne.",
+                    "translation": "This dish brings to life the beauty of ingredients unique to Japan's four seasons."
                 },
                 {
-                    "speaker": "Connoisseur",
-                    "text": "ええ、古都京都ならではの至福のひとときですね。",
-                    "romajiOrPronunciation": "Ee, koto Kyouto naredewa no shifuku no hitotoki desu ne.",
-                    "translation": "Indeed, it is a moment of pure bliss that is uniquely possible in the ancient capital of Kyoto."
+                    "speaker": "Chef",
+                    "text": "ありがとうございます。旬の味わいをお楽しみください。",
+                    "romajiOrPronunciation": "Arigatou gozaimasu. Shun no ajiwai o o-tanoshimi kudasai.",
+                    "translation": "Thank you very much. Please enjoy the flavor of the season."
                 }
             ],
             "exercises": [
                 {
-                    "id": "ja-n1-q2",
+                    "id": "ja-n1-u17-01-q1",
                     "type": "multiple_choice",
-                    "prompt": "How do you praise 'Hospitality unique only to Japan'?",
+                    "prompt": "What does '京都ならではの体験' mean?",
                     "options": [
-                        "日本ならではのおもてなし",
-                        "日本にすぎないおもてなし",
-                        "日本をめぐるおもてなし",
-                        "日本に伴うおもてなし"
+                        "An experience that can only be had in Kyoto",
+                        "A cheap trip to Kyoto",
+                        "A common experience across Japan",
+                        "An impossible journey to Kyoto"
                     ],
-                    "correctAnswer": "日本ならではのおもてなし",
-                    "explanation": "'〜naredewa no' expresses special excellence unique to that subject."
-                }
-            ]
-        },
-        {
-            "id": "ja-n1-u10-03",
-            "languageId": "japanese",
-            "level": "JLPT N1",
-            "unitNumber": 10,
-            "unitTitle": "Unit 10: Literary & Advanced Mastery (高度な文法・洗練された表現)",
-            "unitDescription": "Master native subtleties: 〜を皮切りに (starting with) and 〜ならでは (unique to).",
-            "title": "Inevitable Circumstances: 〜をよぎなくされる (O yoginaku sareru)",
-            "description": "Express situations compelled by circumstance: 'Keikaku no henkou o yoginaku sareta'.",
-            "category": "High Nuance",
-            "estimatedMinutes": 10,
-            "xpReward": 60,
-            "objective": "Use 〜を余儀なくされる to express when someone is compelled by external forces to take an action against their will.",
-            "videoUrl": "https://www.youtube.com/watch?v=ujDtm0hZyII",
-            "videoDuration": "8:10",
-            "vocabulary": [
-                {
-                    "word": "よぎなくされる",
-                    "romajiOrPronunciation": "Yoginaku sareru",
-                    "translation": "To be forced / compelled into",
-                    "partOfSpeech": "Grammar compound",
-                    "exampleSentence": "予期せぬトラブルにより、計画の変更を余儀なくされました。",
-                    "exampleTranslation": "Due to unexpected trouble, we were compelled to change the plan."
-                },
-                {
-                    "word": "てったい",
-                    "romajiOrPronunciation": "Tettai",
-                    "translation": "Withdrawal / Pullout",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "採算悪化により市場からの撤退を余儀なくされた。",
-                    "exampleTranslation": "Due to deteriorating profitability, they were forced into withdrawing from the market."
-                },
-                {
-                    "word": "えんき",
-                    "romajiOrPronunciation": "Enki",
-                    "translation": "Postponement",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "悪天候によりロケットの打ち上げは延期を余儀なくされた。",
-                    "exampleTranslation": "Due to adverse weather, the rocket launch was forced into postponement."
-                },
-                {
-                    "word": "けつだん",
-                    "romajiOrPronunciation": "Ketsudan",
-                    "translation": "Decisive decision",
-                    "partOfSpeech": "Noun",
-                    "exampleSentence": "苦渋の決断を下しました。",
-                    "exampleTranslation": "We made an agonizing decision."
-                }
-            ],
-            "grammarNotes": [
-                {
-                    "title": "Noun + を余儀なくされる (To be forced to... / To leave no choice)",
-                    "explanation": "Literary Japanese expression meaning external circumstances give the subject zero choice but to undertake an unfortunate action.",
-                    "examples": [
-                        "怪我のため、選手生命の引退を余儀なくされた。(Due to injury, he was compelled into retirement from athletics.)",
-                        "資金不足から、プロジェクトの中止を余儀なくされた。(Due to lack of funds, they were forced to abort the project.)"
-                    ]
-                }
-            ],
-            "conversationDialogue": [
-                {
-                    "speaker": "Spokesperson",
-                    "text": "大型台風の直撃が予想されるため、明日の便は欠航を余儀なくされました。",
-                    "romajiOrPronunciation": "Oogata taifuu no chokugeki ga yosou sareru tame, ashita no bin wa kekkou o yoginaku saremashita.",
-                    "translation": "Because a direct hit from a major typhoon is anticipated, tomorrow's flights were unfortunately forced into cancellation."
-                },
-                {
-                    "speaker": "Passenger",
-                    "text": "自然災害ですから仕方ありませんね。安全第一で振替便をお願いします。",
-                    "romajiOrPronunciation": "Shizen saigai desu kara shikata arimasen ne. Anzen daiichi de furikaebin o onegaishimasu.",
-                    "translation": "Because it's a natural disaster, it can't be helped. Safety first, please arrange a rescheduled flight."
-                }
-            ],
-            "exercises": [
-                {
-                    "id": "ja-n1-q3",
-                    "type": "multiple_choice",
-                    "prompt": "Which grammar pattern conveys being compelled by external forces into an unfortunate outcome?",
-                    "options": [
-                        "〜を余儀なくされた",
-                        "〜を皮切りにした",
-                        "〜を禁じ得ない",
-                        "〜にほかならない"
-                    ],
-                    "correctAnswer": "〜を余儀なくされた",
-                    "explanation": "'〜o yoginaku sareta' expresses being forced into a situation against one's desires."
+                    "correctAnswer": "An experience that can only be had in Kyoto",
+                    "explanation": "〜ならでは denotes a unique, distinctive quality exclusive to that subject."
                 }
             ]
         }

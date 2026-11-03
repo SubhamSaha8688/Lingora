@@ -17,14 +17,33 @@ const DEFAULT_PAYMENT_CONFIG = {
   usdYearlyPrice: 39.99,
 };
 
+export const CURRICULUM_VERSION = '2026.11.03.v5_jlpt_mastery';
+
 export function CurriculumProvider({ children }) {
+  // Clear stale local cache if version is outdated
+  useEffect(() => {
+    try {
+      const v = localStorage.getItem('lingora_curriculum_version');
+      if (v !== CURRICULUM_VERSION) {
+        localStorage.setItem('lingora_curriculum_version', CURRICULUM_VERSION);
+        localStorage.removeItem('lingora_dynamic_curriculum');
+        localStorage.removeItem('lingora_dynamic_languages');
+        setCurriculum(DEFAULT_CURRICULUM);
+        setLanguages(DEFAULT_LANGUAGES);
+      }
+    } catch (_) {}
+  }, []);
+
   // 1. Languages
   const [languages, setLanguages] = useState(() => {
     try {
-      const saved = localStorage.getItem('lingora_dynamic_languages');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      const v = localStorage.getItem('lingora_curriculum_version');
+      if (v === CURRICULUM_VERSION) {
+        const saved = localStorage.getItem('lingora_dynamic_languages');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
       }
     } catch (_) {}
     return DEFAULT_LANGUAGES;
@@ -33,6 +52,12 @@ export function CurriculumProvider({ children }) {
   // 2. Curriculum
   const [curriculum, setCurriculum] = useState(() => {
     try {
+      const v = localStorage.getItem('lingora_curriculum_version');
+      if (v !== CURRICULUM_VERSION) {
+        localStorage.setItem('lingora_curriculum_version', CURRICULUM_VERSION);
+        localStorage.removeItem('lingora_dynamic_curriculum');
+        return DEFAULT_CURRICULUM;
+      }
       const saved = localStorage.getItem('lingora_dynamic_curriculum');
       if (saved) {
         const parsed = JSON.parse(saved);
@@ -43,7 +68,7 @@ export function CurriculumProvider({ children }) {
               merged[k] = parsed[k];
             } else if (Array.isArray(parsed[k])) {
               const existingIds = new Set(merged[k].map((l) => l.id));
-              const extraLessons = parsed[k].filter((l) => !existingIds.has(l.id));
+              const extraLessons = parsed[k].filter((l) => !existingIds.has(l.id) && l.isCustom);
               merged[k] = [...merged[k], ...extraLessons];
             }
           });
@@ -118,7 +143,20 @@ export function CurriculumProvider({ children }) {
         if (res.ok) {
           const remote = await res.json();
           if (remote.languages?.length) setLanguages(remote.languages);
-          if (remote.curriculum) setCurriculum((prev) => ({ ...prev, ...remote.curriculum }));
+          if (remote.curriculum && typeof remote.curriculum === 'object') {
+            setCurriculum((prev) => {
+              const next = { ...prev };
+              Object.keys(remote.curriculum).forEach((lang) => {
+                const defaultList = DEFAULT_CURRICULUM[lang] || [];
+                const defaultIds = new Set(defaultList.map((l) => l.id));
+                const remoteList = Array.isArray(remote.curriculum[lang]) ? remote.curriculum[lang] : [];
+                // Only merge lessons that are custom created by admin
+                const customLessons = remoteList.filter((l) => !defaultIds.has(l.id) && l.isCustom);
+                next[lang] = [...defaultList, ...customLessons];
+              });
+              return next;
+            });
+          }
           if (remote.studyMaterials?.length) setStudyMaterials(remote.studyMaterials);
           if (remote.paymentConfig) setPaymentConfig((prev) => ({ ...prev, ...remote.paymentConfig }));
         }
