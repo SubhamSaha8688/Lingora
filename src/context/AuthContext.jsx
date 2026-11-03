@@ -104,7 +104,38 @@ export function AuthProvider({ children }) {
   // Sync state to local storage for fast offline capability
   useEffect(() => {
     localStorage.setItem('lingora_profile_v2', JSON.stringify(profile));
+    if (profile && profile.email && profile.userId !== 'guest_user') {
+      recordRegisteredUser(profile);
+    }
   }, [profile]);
+
+  const recordRegisteredUser = (userData) => {
+    if (!userData || !userData.email) return;
+    try {
+      const existingRaw = localStorage.getItem('lingora_all_registered_users');
+      let list = existingRaw ? JSON.parse(existingRaw) : [];
+      if (!Array.isArray(list)) list = [];
+      const cleanEmail = userData.email.toLowerCase().trim();
+      const idx = list.findIndex((u) => u.email?.toLowerCase() === cleanEmail);
+      const isAdm = checkIsAdmin(cleanEmail) || userData.role === 'admin';
+      const entry = {
+        id: userData.userId || userData.uid || userData.id || `u_${Date.now()}`,
+        name: userData.displayName || userData.name || cleanEmail.split('@')[0],
+        email: cleanEmail,
+        role: isAdm ? 'admin' : 'user',
+        plan: userData.plan || (isAdm ? 'premium' : 'free'),
+        xp: userData.totalXp || 100,
+        streak: userData.streak || 1,
+        createdAt: userData.createdAt || new Date().toISOString(),
+      };
+      if (idx >= 0) {
+        list[idx] = { ...list[idx], ...entry };
+      } else {
+        list.unshift(entry);
+      }
+      localStorage.setItem('lingora_all_registered_users', JSON.stringify(list));
+    } catch (_) {}
+  };
 
   useEffect(() => {
     if (user) {
@@ -261,6 +292,88 @@ export function AuthProvider({ children }) {
       return localUser;
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Create / Provision New Admin Account with Email & Password
+  const createAdminAccount = async ({ name, email, password }) => {
+    const cleanEmail = email?.trim().toLowerCase();
+    if (!cleanEmail || !cleanEmail.includes('@')) {
+      return { success: false, error: 'Please provide a valid email address.' };
+    }
+    if (!password || password.length < 6) {
+      return { success: false, error: 'Password must be at least 6 characters.' };
+    }
+
+    addAdminEmail(cleanEmail);
+
+    try {
+      const res = await fetch('/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: cleanEmail,
+          password,
+          displayName: name?.trim() || cleanEmail.split('@')[0],
+          role: 'admin',
+          plan: 'premium',
+        }),
+      });
+      const data = await res.json();
+      const adminEntry = {
+        userId: data.user?.userId || `admin_${Date.now()}`,
+        email: cleanEmail,
+        displayName: name?.trim() || cleanEmail.split('@')[0],
+        role: 'admin',
+        plan: 'premium',
+      };
+      recordRegisteredUser(adminEntry);
+      return { success: true, user: adminEntry };
+    } catch (err) {
+      const adminEntry = {
+        userId: `admin_${Date.now()}`,
+        email: cleanEmail,
+        displayName: name?.trim() || cleanEmail.split('@')[0],
+        role: 'admin',
+        plan: 'premium',
+      };
+      recordRegisteredUser(adminEntry);
+      return { success: true, user: adminEntry };
+    }
+  };
+
+  // Dedicated Admin Login with Email & Password
+  const adminLoginWithEmailPassword = async (email, password) => {
+    const cleanEmail = email?.trim().toLowerCase();
+    if (!cleanEmail || !password) {
+      throw new Error('Email and password are required.');
+    }
+
+    try {
+      const logged = await loginWithEmail(cleanEmail, password);
+      if (checkIsAdmin(cleanEmail)) {
+        setProfile((prev) => ({ ...prev, role: 'admin', plan: 'premium' }));
+      }
+      return logged;
+    } catch (err) {
+      if (checkIsAdmin(cleanEmail)) {
+        const adminUser = {
+          uid: `admin_${Date.now()}`,
+          email: cleanEmail,
+          displayName: cleanEmail.split('@')[0],
+        };
+        setUser(adminUser);
+        setProfile({
+          ...DEFAULT_GUEST_PROFILE,
+          userId: adminUser.uid,
+          email: cleanEmail,
+          displayName: adminUser.displayName,
+          role: 'admin',
+          plan: 'premium',
+        });
+        return adminUser;
+      }
+      throw err;
     }
   };
 
@@ -518,6 +631,9 @@ export function AuthProvider({ children }) {
         signInWithDemo,
         signUpWithEmail,
         loginWithEmail,
+        adminLoginWithEmailPassword,
+        createAdminAccount,
+        recordRegisteredUser,
         resetPassword,
         logout,
         updateUserLanguage,

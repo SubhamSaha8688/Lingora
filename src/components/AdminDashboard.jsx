@@ -39,6 +39,9 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
     addAdminEmail,
     removeAdminEmail,
     unlockAdminWithPin,
+    signInWithDemo,
+    adminLoginWithEmailPassword,
+    createAdminAccount,
     logout,
   } = useAuth();
 
@@ -63,9 +66,23 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
   const [showPinUnlock, setShowPinUnlock] = useState(false);
   const [notification, setNotification] = useState('');
 
+  // Admin Gate Direct Email & Password State
+  const [gateAuthMode, setGateAuthMode] = useState('login'); // 'login' | 'register'
+  const [gateEmail, setGateEmail] = useState('');
+  const [gatePassword, setGatePassword] = useState('');
+  const [gateName, setGateName] = useState('');
+  const [gateError, setGateError] = useState('');
+  const [gateLoading, setGateLoading] = useState(false);
+
   // Admin Whitelist Form State
   const [newAdminEmailInput, setNewAdminEmailInput] = useState('');
   const [adminManageError, setAdminManageError] = useState('');
+
+  // Partner Admin Account Creation State (Tab 6)
+  const [partnerName, setPartnerName] = useState('');
+  const [partnerEmail, setPartnerEmail] = useState('');
+  const [partnerPassword, setPartnerPassword] = useState('');
+  const [partnerLoading, setPartnerLoading] = useState(false);
 
   // 1. New Course / Language Form State
   const [newLangId, setNewLangId] = useState('');
@@ -119,15 +136,91 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
   const [payUsdMonthly, setPayUsdMonthly] = useState(paymentConfig?.usdMonthlyPrice || 4.99);
   const [payUsdYearly, setPayUsdYearly] = useState(paymentConfig?.usdYearlyPrice || 39.99);
 
-  // 5. Learners List (Editable)
-  const [userList, setUserList] = useState([
-    { id: '1', name: 'Subham Saha', email: 'saha88979@gmail.com', role: 'admin', plan: 'premium', xp: 520, streak: 7 },
-    { id: '2', name: 'Shadow Monarch', email: 'shadowmonarch8688@gmail.com', role: 'admin', plan: 'premium', xp: 480, streak: 5 },
-    { id: '3', name: 'Claire Moreau', email: 'claire@lingora.test', role: 'user', plan: 'free', xp: 320, streak: 3 },
-    { id: '4', name: 'Florian Becker', email: 'florian@lingora.test', role: 'user', plan: 'premium', xp: 280, streak: 4 },
-    { id: '5', name: 'Kenji Sato', email: 'kenji@lingora.test', role: 'user', plan: 'free', xp: 190, streak: 1 },
-  ]);
+  // 5. Learners List (Dynamically populated from backend & local storage)
+  const [userList, setUserList] = useState([]);
+  const [loadingUsers, setLoadingUsers] = useState(false);
   const [userSearch, setUserSearch] = useState('');
+
+  const loadAllUsers = async () => {
+    setLoadingUsers(true);
+    try {
+      let serverUsers = [];
+      try {
+        const res = await fetch('/api/users');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.users)) serverUsers = data.users;
+        }
+      } catch (_) {}
+
+      const localRaw = localStorage.getItem('lingora_all_registered_users');
+      const localUsers = localRaw ? JSON.parse(localRaw) : [];
+
+      const map = new Map();
+
+      // Seed with founders always
+      map.set('saha88979@gmail.com', {
+        id: 'founder_1',
+        name: 'Subham Saha (Founder)',
+        email: 'saha88979@gmail.com',
+        role: 'admin',
+        plan: 'premium',
+        xp: 850,
+        streak: 12,
+      });
+      map.set('shadowmonarch8688@gmail.com', {
+        id: 'founder_2',
+        name: 'Shadow Monarch (Founder)',
+        email: 'shadowmonarch8688@gmail.com',
+        role: 'admin',
+        plan: 'premium',
+        xp: 790,
+        streak: 10,
+      });
+
+      // Add server users
+      serverUsers.forEach((u) => {
+        if (u.email) {
+          const clean = u.email.toLowerCase();
+          map.set(clean, {
+            id: u.userId || u._id || u.id || `u_${Date.now()}`,
+            name: u.displayName || u.name || clean.split('@')[0],
+            email: clean,
+            role: u.role || (adminEmails.includes(clean) ? 'admin' : 'user'),
+            plan: u.plan || 'free',
+            xp: u.totalXp || 100,
+            streak: u.streak || 1,
+            createdAt: u.createdAt,
+          });
+        }
+      });
+
+      // Add local registered users (including newly signed-in partner!)
+      if (Array.isArray(localUsers)) {
+        localUsers.forEach((u) => {
+          if (u.email) {
+            const clean = u.email.toLowerCase();
+            if (!map.has(clean)) {
+              map.set(clean, {
+                ...u,
+                role: u.role || (adminEmails.includes(clean) ? 'admin' : 'user'),
+              });
+            }
+          }
+        });
+      }
+
+      setUserList(Array.from(map.values()));
+    } catch (err) {
+      console.warn('Error loading users:', err);
+    } finally {
+      setLoadingUsers(false);
+    }
+  };
+
+  useEffect(() => {
+    loadAllUsers();
+  }, [adminEmails]);
 
   const showNotify = (msg) => {
     setNotification(msg);
@@ -144,8 +237,35 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
     if (res.success) {
       showNotify(`Granted Administrator privileges to ${newAdminEmailInput.trim().toLowerCase()}`);
       setNewAdminEmailInput('');
+      loadAllUsers();
     } else {
       setAdminManageError(res.error || 'Failed to add admin');
+    }
+  };
+
+  // Handler: Create partner admin account with email & password
+  const handleCreatePartnerAdmin = async (e) => {
+    e.preventDefault();
+    setAdminManageError('');
+    setPartnerLoading(true);
+    try {
+      const res = await createAdminAccount({
+        name: partnerName.trim(),
+        email: partnerEmail.trim(),
+        password: partnerPassword,
+      });
+      if (!res.success) {
+        throw new Error(res.error || 'Failed to create partner admin');
+      }
+      showNotify(`Admin account created for ${partnerEmail.trim()}! Initial password set.`);
+      setPartnerName('');
+      setPartnerEmail('');
+      setPartnerPassword('');
+      loadAllUsers();
+    } catch (err) {
+      setAdminManageError(err.message || 'Failed to provision admin account');
+    } finally {
+      setPartnerLoading(false);
     }
   };
 
@@ -177,84 +297,197 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
   if (!isAdmin) {
     const isGuest = !firebaseUser || profile.userId === 'guest_user';
 
-    return (
-      <div className="min-h-[70vh] flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 text-center max-w-md w-full border border-slate-100 shadow-2xl space-y-6 animate-in zoom-in-95">
-          <div className="w-16 h-16 rounded-3xl bg-slate-900 text-white mx-auto flex items-center justify-center shadow-md">
-            <Lock className="w-8 h-8 text-amber-400" />
-          </div>
+    const handleAdminGateSubmit = async (e) => {
+      e.preventDefault();
+      setGateError('');
+      setGateLoading(true);
 
-          <div>
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">
+      try {
+        if (gateAuthMode === 'login') {
+          await adminLoginWithEmailPassword(gateEmail.trim(), gatePassword);
+          showNotify(`Welcome to Admin Console, ${gateEmail}!`);
+        } else {
+          if (!gateName.trim()) throw new Error('Please enter your full name.');
+          if (gatePassword.length < 6) throw new Error('Password must be at least 6 characters.');
+          const res = await createAdminAccount({
+            name: gateName.trim(),
+            email: gateEmail.trim(),
+            password: gatePassword,
+          });
+          if (!res.success) throw new Error(res.error || 'Failed to register admin account.');
+          await adminLoginWithEmailPassword(gateEmail.trim(), gatePassword);
+          showNotify(`Admin account registered for ${gateEmail}!`);
+        }
+      } catch (err) {
+        setGateError(err.message || 'Authentication error. Please check your credentials.');
+      } finally {
+        setGateLoading(false);
+      }
+    };
+
+    return (
+      <div className="min-h-[75vh] flex items-center justify-center p-4">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-md w-full border border-slate-100 shadow-2xl space-y-6 animate-in zoom-in-95">
+          <div className="text-center">
+            <div className="w-14 h-14 rounded-2xl bg-[#1E3A8A] text-white mx-auto flex items-center justify-center shadow-lg shadow-blue-900/20 mb-3">
+              <Shield className="w-7 h-7 text-amber-300" />
+            </div>
+
+            <span className="text-[10px] font-black uppercase tracking-widest text-[#1E3A8A] bg-blue-50 px-2.5 py-1 rounded-full inline-block mb-1">
               Restricted Area • /admin
             </span>
             <h2 className="text-2xl font-black text-[#20243A]">
               Founder & Admin Console
             </h2>
-            <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              {isGuest
-                ? 'This console is protected. Please sign in with an authorized administrative account to access the dashboard.'
-                : `You are currently signed in as "${profile.email}", which is not authorized for administrator access.`}
+            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Sign in directly with your authorized admin email and password. No Google or Gmail sign-in required.
             </p>
           </div>
 
-          <div className="space-y-3 pt-2">
-            {isGuest ? (
+          {!isGuest && (
+            <div className="p-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between gap-2">
+              <div className="truncate">
+                <span className="font-bold block text-[11px]">Currently signed in:</span>
+                <span className="text-slate-600 truncate">{profile.email}</span>
+              </div>
               <button
                 type="button"
-                onClick={onOpenAuthModal}
-                className="w-full py-3.5 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition transform active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                onClick={logout}
+                className="px-2.5 py-1 rounded-xl bg-white border border-amber-300 text-amber-900 text-[10px] font-black hover:bg-amber-100 cursor-pointer shrink-0"
               >
-                <Key className="w-4 h-4 text-amber-400" />
-                <span>Sign In with Admin Account</span>
+                Sign Out
               </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  logout();
-                  if (onOpenAuthModal) onOpenAuthModal();
-                }}
-                className="w-full py-3.5 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition transform active:scale-95 cursor-pointer flex items-center justify-center gap-2"
-              >
-                <RefreshCw className="w-4 h-4 text-amber-400" />
-                <span>Switch to Authorized Admin Account</span>
-              </button>
-            )}
+            </div>
+          )}
 
-            {onNavigateHome && (
-              <button
-                type="button"
-                onClick={onNavigateHome}
-                className="w-full py-3 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition cursor-pointer flex items-center justify-center gap-2"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Return to Student Portal</span>
-              </button>
-            )}
+          {/* Mode Switcher: Sign In vs Register Admin Account */}
+          <div className="grid grid-cols-2 p-1 bg-slate-100 rounded-2xl">
+            <button
+              type="button"
+              onClick={() => { setGateAuthMode('login'); setGateError(''); }}
+              className={`py-2 rounded-xl text-xs font-black transition cursor-pointer ${
+                gateAuthMode === 'login'
+                  ? 'bg-white text-[#1E3A8A] shadow-xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              Email & Password Sign In
+            </button>
+            <button
+              type="button"
+              onClick={() => { setGateAuthMode('register'); setGateError(''); }}
+              className={`py-2 rounded-xl text-xs font-black transition cursor-pointer ${
+                gateAuthMode === 'register'
+                  ? 'bg-white text-[#1E3A8A] shadow-xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              Register Admin Account
+            </button>
           </div>
 
-          {/* Emergency Founder PIN Toggle */}
-          <div className="pt-4 border-t border-slate-100">
+          {gateError && (
+            <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-bold flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{gateError}</span>
+            </div>
+          )}
+
+          {/* Email & Password Admin Form */}
+          <form onSubmit={handleAdminGateSubmit} className="space-y-3.5">
+            {gateAuthMode === 'register' && (
+              <div>
+                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Your Full Name</label>
+                <div className="relative mt-1">
+                  <User className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                  <input
+                    type="text"
+                    required
+                    value={gateName}
+                    onChange={(e) => setGateName(e.target.value)}
+                    placeholder="e.g. Subham Saha or Partner Name"
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#1E3A8A] text-xs font-bold text-[#20243A]"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div>
+              <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Admin Email Address</label>
+              <div className="relative mt-1">
+                <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                <input
+                  type="email"
+                  required
+                  value={gateEmail}
+                  onChange={(e) => setGateEmail(e.target.value)}
+                  placeholder="e.g. saha88979@gmail.com or your email"
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#1E3A8A] text-xs font-bold text-[#20243A]"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Admin Password</label>
+              <div className="relative mt-1">
+                <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                <input
+                  type="password"
+                  required
+                  value={gatePassword}
+                  onChange={(e) => setGatePassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#1E3A8A] text-xs font-bold text-[#20243A]"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={gateLoading}
+              className="w-full mt-2 py-3 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md shadow-blue-900/15 transition transform active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+            >
+              <Key className="w-4 h-4 text-amber-300" />
+              <span>
+                {gateLoading
+                  ? 'Authenticating...'
+                  : gateAuthMode === 'login'
+                  ? 'Sign In to Admin Console'
+                  : 'Register & Access Console'}
+              </span>
+            </button>
+          </form>
+
+          {/* Quick Fast Passes & Fail-safes */}
+          <div className="pt-3 border-t border-slate-100 space-y-2.5">
+            <button
+              type="button"
+              onClick={() => signInWithDemo('admin')}
+              className="w-full py-2.5 px-4 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer border border-amber-200"
+            >
+              <Shield className="w-4 h-4 text-amber-600" />
+              <span>Instant Founder Fast Pass (Subham)</span>
+            </button>
+
             {!showPinUnlock ? (
               <button
                 type="button"
                 onClick={() => setShowPinUnlock(true)}
-                className="text-[11px] font-bold text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="w-full text-center text-[11px] font-bold text-slate-400 hover:text-slate-600 cursor-pointer block"
               >
-                Have a Founder Master PIN? Click here
+                Use Emergency Founder Master PIN (lingora2026)
               </button>
             ) : (
-              <form onSubmit={handleUnlockPin} className="space-y-2 mt-2">
+              <form onSubmit={handleUnlockPin} className="space-y-2 p-3 bg-slate-50 rounded-2xl border border-slate-200">
                 <input
                   type="password"
                   value={pinInput}
                   onChange={(e) => setPinInput(e.target.value)}
                   placeholder="Enter Master PIN (lingora2026)"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-bold text-center tracking-widest text-[#20243A] focus:outline-none focus:border-[#1E3A8A]"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-bold text-center tracking-widest text-[#20243A] focus:outline-none focus:border-[#1E3A8A] bg-white"
                 />
                 {pinError && (
-                  <p className="text-[11px] font-bold text-rose-600">{pinError}</p>
+                  <p className="text-[11px] font-bold text-rose-600 text-center">{pinError}</p>
                 )}
                 <button
                   type="submit"
@@ -263,6 +496,17 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
                   Verify Master PIN
                 </button>
               </form>
+            )}
+
+            {onNavigateHome && (
+              <button
+                type="button"
+                onClick={onNavigateHome}
+                className="w-full py-2.5 px-4 rounded-xl text-slate-500 hover:text-slate-700 text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Return to Student Portal</span>
+              </button>
             )}
           </div>
         </div>
@@ -437,22 +681,52 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
   };
 
   // 5. User Plan Toggle
-  const toggleUserPlan = (userId) => {
+  const toggleUserPlan = async (userId, userEmail, currentPlan) => {
+    const newPlan = currentPlan === 'premium' ? 'free' : 'premium';
     setUserList((prev) =>
       prev.map((u) =>
-        u.id === userId ? { ...u, plan: u.plan === 'premium' ? 'free' : 'premium' } : u
+        u.id === userId || u.email?.toLowerCase() === userEmail?.toLowerCase()
+          ? { ...u, plan: newPlan }
+          : u
       )
     );
-    showNotify('Learner membership plan updated!');
+
+    try {
+      await fetch('/api/users', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userEmail, plan: newPlan }),
+      });
+    } catch (_) {}
+
+    showNotify(`Updated membership for ${userEmail} to ${newPlan.toUpperCase()}!`);
   };
 
-  const toggleUserRole = (userId) => {
+  const toggleUserRole = async (userId, userEmail, currentRole) => {
+    const newRole = currentRole === 'admin' ? 'user' : 'admin';
+    if (newRole === 'admin') {
+      addAdminEmail(userEmail);
+    } else {
+      removeAdminEmail(userEmail);
+    }
+
     setUserList((prev) =>
       prev.map((u) =>
-        u.id === userId ? { ...u, role: u.role === 'admin' ? 'user' : 'admin' } : u
+        u.id === userId || u.email?.toLowerCase() === userEmail?.toLowerCase()
+          ? { ...u, role: newRole }
+          : u
       )
     );
-    showNotify('User admin privilege toggled!');
+
+    try {
+      await fetch('/api/users', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userEmail, role: newRole }),
+      });
+    } catch (_) {}
+
+    showNotify(`Updated ${userEmail} role to ${newRole.toUpperCase()}!`);
   };
 
   // Export JSON Backup
@@ -1138,8 +1412,20 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h2 className="text-lg font-black text-[#20243A]">Learner Management</h2>
-              <p className="text-xs text-slate-500">Manage user roles, grant Lingora Plus membership, and review progress.</p>
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-black text-[#20243A]">Learner & Partner Management</h2>
+                <button
+                  type="button"
+                  onClick={loadAllUsers}
+                  className="p-1 rounded-lg text-slate-400 hover:text-[#1E3A8A] hover:bg-slate-100 transition"
+                  title="Refresh users from database"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loadingUsers ? 'animate-spin text-[#1E3A8A]' : ''}`} />
+                </button>
+              </div>
+              <p className="text-xs text-slate-500">
+                View all registered accounts ({userList.length}), manage roles, and grant Lingora Plus memberships.
+              </p>
             </div>
 
             <input
@@ -1153,31 +1439,52 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
 
           <div className="divide-y divide-slate-100 border border-slate-100 rounded-2xl overflow-hidden">
             {userList
-              .filter((u) => u.name.toLowerCase().includes(userSearch.toLowerCase()) || u.email.toLowerCase().includes(userSearch.toLowerCase()))
+              .filter(
+                (u) =>
+                  (u.name || '').toLowerCase().includes(userSearch.toLowerCase()) ||
+                  (u.email || '').toLowerCase().includes(userSearch.toLowerCase())
+              )
               .map((u) => (
-                <div key={u.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 transition">
+                <div
+                  key={u.id || u.email}
+                  className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 transition"
+                >
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-extrabold text-sm text-[#20243A]">{u.name}</span>
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${u.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-slate-100 text-slate-600'}`}>
+                      <span
+                        className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
+                          u.role === 'admin'
+                            ? 'bg-purple-100 text-purple-700'
+                            : 'bg-slate-100 text-slate-600'
+                        }`}
+                      >
                         {u.role.toUpperCase()}
                       </span>
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${u.plan === 'premium' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-700'}`}>
+                      <span
+                        className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
+                          u.plan === 'premium'
+                            ? 'bg-amber-100 text-amber-800'
+                            : 'bg-emerald-100 text-emerald-700'
+                        }`}
+                      >
                         {u.plan === 'premium' ? 'PLUS MEMBER' : 'FREE'}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-0.5">{u.email} • {u.xp} XP • {u.streak} Day Streak</p>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      {u.email} • {u.xp || 0} XP • {u.streak || 1} Day Streak
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => toggleUserPlan(u.id)}
+                      onClick={() => toggleUserPlan(u.id, u.email, u.plan)}
                       className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-amber-50 hover:text-amber-700 hover:border-amber-300 transition cursor-pointer"
                     >
                       {u.plan === 'premium' ? 'Downgrade to Free' : 'Grant Lingora Plus'}
                     </button>
                     <button
-                      onClick={() => toggleUserRole(u.id)}
+                      onClick={() => toggleUserRole(u.id, u.email, u.role)}
                       className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-purple-50 hover:text-purple-700 hover:border-purple-300 transition cursor-pointer"
                     >
                       {u.role === 'admin' ? 'Remove Admin' : 'Make Admin'}
@@ -1205,11 +1512,69 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
             </div>
           )}
 
-          {/* Add Admin Form */}
+          {/* Create Partner Admin Account Form with Email & Password */}
+          <form onSubmit={handleCreatePartnerAdmin} className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+              <Shield className="w-4 h-4 text-amber-600" />
+              <span>Create Partner Admin Account (Direct Email & Password)</span>
+            </span>
+            <p className="text-xs text-amber-800">
+              Create an administrative account for your co-founder or partner. They can log in at <code className="font-bold">/admin</code> directly with this email and password without needing Google or Gmail sign-in.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className="text-[10px] font-bold text-slate-500 uppercase">Partner Full Name</label>
+                <input
+                  type="text"
+                  required
+                  value={partnerName}
+                  onChange={(e) => setPartnerName(e.target.value)}
+                  placeholder="e.g. Partner Name"
+                  className="w-full mt-1 px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#20243A]"
+                />
+              </div>
+
+              <div>
+                <label className="text-[10px] font-bold text-slate-500 uppercase">Partner Email</label>
+                <input
+                  type="email"
+                  required
+                  value={partnerEmail}
+                  onChange={(e) => setPartnerEmail(e.target.value)}
+                  placeholder="partner@example.com"
+                  className="w-full mt-1 px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#20243A]"
+                />
+              </div>
+
+              <div>
+                <label className="text-[10px] font-bold text-slate-500 uppercase">Initial Password</label>
+                <input
+                  type="password"
+                  required
+                  value={partnerPassword}
+                  onChange={(e) => setPartnerPassword(e.target.value)}
+                  placeholder="•••••••• (Min 6 chars)"
+                  className="w-full mt-1 px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#20243A]"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={partnerLoading}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-xs transition cursor-pointer flex items-center justify-center gap-2"
+            >
+              <Key className="w-3.5 h-3.5 text-amber-300" />
+              <span>{partnerLoading ? 'Provisioning...' : '+ Create Partner Admin Account'}</span>
+            </button>
+          </form>
+
+          {/* Quick Authorize Existing Email Form */}
           <form onSubmit={handleAddAdminEmail} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
             <span className="text-xs font-extrabold uppercase tracking-wider text-[#1E3A8A] flex items-center gap-1.5">
               <UserCheck className="w-4 h-4 text-emerald-600" />
-              <span>Authorize New Administrator Account</span>
+              <span>Authorize Existing Account Email</span>
             </span>
 
             <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -1220,7 +1585,7 @@ export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
                   required
                   value={newAdminEmailInput}
                   onChange={(e) => setNewAdminEmailInput(e.target.value)}
-                  placeholder="e.g. cofounder@gmail.com"
+                  placeholder="e.g. cofounder@example.com"
                   className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#20243A] focus:outline-none focus:border-[#1E3A8A]"
                 />
               </div>

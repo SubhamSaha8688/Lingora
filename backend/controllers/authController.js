@@ -32,7 +32,7 @@ export async function register(req, res) {
         return res.status(400).json({ error: 'An account with this email already exists. Please sign in.' });
       }
 
-      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
         .split(',')
         .map((e) => e.trim().toLowerCase());
 
@@ -60,7 +60,7 @@ export async function register(req, res) {
         return res.status(400).json({ error: 'An account with this email already exists' });
       }
 
-      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
         .split(',')
         .map((e) => e.trim().toLowerCase());
 
@@ -129,7 +129,7 @@ export async function login(req, res) {
       }
 
       // Check for admin status update
-      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+      const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
         .split(',')
         .map((e) => e.trim().toLowerCase());
 
@@ -150,7 +150,7 @@ export async function login(req, res) {
       let user = fallbackUsers.get(cleanEmail);
       if (!user) {
         // Auto-create demo session for convenience if password matches or standard login
-        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
           .split(',')
           .map((e) => e.trim().toLowerCase());
 
@@ -295,7 +295,7 @@ export async function googleAuth(req, res) {
       let user = await User.findOne({ email: cleanEmail });
 
       if (!user) {
-        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
           .split(',')
           .map((e) => e.trim().toLowerCase());
 
@@ -330,7 +330,7 @@ export async function googleAuth(req, res) {
       // In-Memory Fallback
       let user = fallbackUsers.get(cleanEmail);
       if (!user) {
-        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com')
+        const adminEmails = (process.env.VITE_ADMIN_EMAILS || 'shadowmonarch8688@gmail.com,saha88979@gmail.com')
           .split(',')
           .map((e) => e.trim().toLowerCase());
 
