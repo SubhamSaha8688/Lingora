@@ -6,18 +6,77 @@ dotenv.config();
 let aiInstance = null;
 
 function getAiClient() {
+  const apiKey = (process.env.GEMINI_API_KEY || '').trim();
   if (!aiInstance) {
-    const apiKey = process.env.GEMINI_API_KEY || '';
     aiInstance = new GoogleGenAI({
       apiKey,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'lingora-app',
-        },
-      },
     });
   }
   return aiInstance;
+}
+
+export async function getDiagnosticInfo() {
+  const apiKey = (process.env.GEMINI_API_KEY || '').trim();
+  const maskedKey = apiKey
+    ? `${apiKey.slice(0, 6)}...${apiKey.slice(-4)} (length: ${apiKey.length})`
+    : 'MISSING';
+
+  const diagnostics = {
+    hasKey: Boolean(apiKey),
+    maskedKey,
+    configuredModel: process.env.GEMINI_MODEL || 'None',
+    availableModels: [],
+    testResult: null,
+    error: null,
+  };
+
+  if (!apiKey) {
+    diagnostics.error = 'GEMINI_API_KEY environment variable is missing';
+    return diagnostics;
+  }
+
+  const ai = getAiClient();
+
+  try {
+    const listRes = await ai.models.list({ config: { pageSize: 15 } });
+    for await (const m of listRes) {
+      diagnostics.availableModels.push(m.name);
+    }
+  } catch (err) {
+    diagnostics.listError = err?.message || String(err);
+  }
+
+  const testCandidates = [
+    process.env.GEMINI_MODEL?.trim(),
+    'gemini-2.5-flash',
+    'gemini-2.5-flash-lite',
+    'gemini-2.0-flash',
+    'gemini-2.0-flash-lite',
+    'gemini-3-flash-preview',
+    'gemini-1.5-flash',
+  ].filter(Boolean);
+
+  for (const m of testCandidates) {
+    try {
+      const resp = await ai.models.generateContent({
+        model: m,
+        contents: 'Say hello in one word.',
+      });
+      diagnostics.testResult = {
+        workingModel: m,
+        reply: resp.text,
+      };
+      break;
+    } catch (testErr) {
+      if (!diagnostics.testAttempts) diagnostics.testAttempts = [];
+      diagnostics.testAttempts.push({
+        model: m,
+        error: testErr?.message || String(testErr),
+      });
+    }
+  }
+
+  return diagnostics;
 }
 
 export async function handleTutorInteraction(request) {
@@ -110,9 +169,12 @@ Keep the tone warm, patient, inspiring, and encouraging. Never shame mistakes; c
     });
 
     const candidateModels = [
-      process.env.GEMINI_MODEL,
+      process.env.GEMINI_MODEL?.trim(),
       'gemini-2.5-flash',
+      'gemini-2.5-flash-lite',
       'gemini-2.0-flash',
+      'gemini-2.0-flash-lite',
+      'gemini-3-flash-preview',
       'gemini-1.5-flash',
     ].filter(Boolean);
 
@@ -144,10 +206,20 @@ Keep the tone warm, patient, inspiring, and encouraging. Never shame mistakes; c
     throw lastError || new Error('No compatible Gemini model responded');
   } catch (error) {
     console.error('Gemini Tutor Error:', error);
+
+    let friendlyMessage = `Lingora AI is momentarily catching its breath. You can try asking again in a moment!`;
+    const errMsg = error?.message || '';
+
+    if (errMsg.includes('404') || errMsg.includes('not found')) {
+      friendlyMessage = `Lingora AI: Google Gemini returned a 404 (Model not found). If you created the API key in Google Cloud Console, make sure 'Generative Language API' is enabled at https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com, or create a free API key at https://aistudio.google.com/app/apikey.`;
+    } else if (errMsg.includes('API_KEY_INVALID') || errMsg.includes('API key not valid')) {
+      friendlyMessage = `Lingora AI: Invalid GEMINI_API_KEY. Please verify the Gemini API key in your Vercel Environment Variables.`;
+    }
+
     return {
       success: false,
-      error: error?.message || 'Failed to generate tutor response',
-      text: `Lingora AI is momentarily catching its breath. (${error?.message || 'Network delay'}). You can try asking again in a moment!`,
+      error: errMsg || 'Failed to generate tutor response',
+      text: friendlyMessage,
     };
   }
 }

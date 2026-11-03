@@ -1,4 +1,4 @@
-import { handleTutorInteraction } from '../backend/services/tutorService.js';
+import { handleTutorInteraction, getDiagnosticInfo } from '../backend/services/tutorService.js';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -7,6 +7,16 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
+    return;
+  }
+
+  if (req.method === 'GET') {
+    try {
+      const diag = await getDiagnosticInfo();
+      res.status(200).json(diag);
+    } catch (err) {
+      res.status(500).json({ error: err?.message || 'Diagnostic failed' });
+    }
     return;
   }
 
