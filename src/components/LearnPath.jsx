@@ -31,8 +31,17 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
   const { curriculum, languages } = useCurriculum();
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [viewMode, setViewMode] = useState('path'); // 'path' | 'syllabus'
-  const [selectedLevelFilter, setSelectedLevelFilter] = useState('ALL');
+  const [selectedLevelFilter, setSelectedLevelFilter] = useState(() => {
+    return profile.currentLevel || 'ALL';
+  });
   const [certificateOpen, setCertificateOpen] = useState(false);
+
+  // Sync level filter when user changes level in header
+  React.useEffect(() => {
+    if (profile.currentLevel && currentLang.availableLevels?.includes(profile.currentLevel)) {
+      setSelectedLevelFilter(profile.currentLevel);
+    }
+  }, [profile.currentLevel, currentLang]);
 
   const currentLang =
     languages.find((l) => l.id === profile.targetLanguage) || languages[0];
@@ -47,7 +56,7 @@ export const LearnPath = ({ onStartLesson, onNavigateTab }) => {
 
   // Group lessons by Unit
   const unitsMap = new Map();
-  allLanguageLessons.forEach((lesson) => {
+  filteredLessons.forEach((lesson) => {
     const unitName = lesson.unitTitle || `Unit ${lesson.unitNumber || 1}: Core Curriculum`;
     if (!unitsMap.has(unitName)) {
       unitsMap.set(unitName, {

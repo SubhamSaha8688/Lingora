@@ -20,19 +20,46 @@ import { LingoraMascot } from './components/LingoraMascot.jsx';
 function AppContent() {
   const { profile, loading } = useAuth();
 
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('/admin')) {
+      return 'admin';
+    }
+    return 'home';
+  });
   const [activeLesson, setActiveLesson] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [subscriptionModalOpen, setSubscriptionModalOpen] = useState(false);
   const [onboardingOpen, setOnboardingOpen] = useState(false);
   const [installModalOpen, setInstallModalOpen] = useState(false);
 
+  // Sync URL when visiting /admin directly or via browser history
+  useEffect(() => {
+    const handlePopState = () => {
+      if (window.location.pathname.toLowerCase().includes('/admin')) {
+        setActiveTab('admin');
+      } else if (activeTab === 'admin') {
+        setActiveTab('home');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [activeTab]);
+
+  const handleNavigateTab = (tab) => {
+    setActiveTab(tab);
+    if (tab === 'admin') {
+      window.history.pushState(null, '', '/admin');
+    } else if (window.location.pathname.toLowerCase().includes('/admin')) {
+      window.history.pushState(null, '', '/');
+    }
+  };
+
   // Trigger onboarding if not completed yet
   useEffect(() => {
-    if (!loading && !profile.hasCompletedOnboarding) {
+    if (!loading && !profile.hasCompletedOnboarding && activeTab !== 'admin') {
       setOnboardingOpen(true);
     }
-  }, [loading, profile.hasCompletedOnboarding]);
+  }, [loading, profile.hasCompletedOnboarding, activeTab]);
 
   if (loading) {
     return (
@@ -54,22 +81,24 @@ function AppContent() {
       <Header
         onOpenAuth={() => setAuthModalOpen(true)}
         onOpenSubscription={() => setSubscriptionModalOpen(true)}
-        onNavigateTab={(tab) => setActiveTab(tab)}
+        onNavigateTab={handleNavigateTab}
         activeTab={activeTab}
         onOpenInstallApp={() => setInstallModalOpen(true)}
       />
 
       {/* Main Container with Desktop Sidebar + Main Content */}
       <div className="max-w-6xl w-full mx-auto px-4 flex-1 flex">
-        {/* Desktop Sidebar Navigation */}
-        <DesktopSidebarNav activeTab={activeTab} onSelectTab={(tab) => setActiveTab(tab)} />
+        {/* Desktop Sidebar Navigation (Only shown for learner tabs, hidden in /admin) */}
+        {activeTab !== 'admin' && (
+          <DesktopSidebarNav activeTab={activeTab} onSelectTab={handleNavigateTab} />
+        )}
 
         {/* Content View Area */}
-        <main className="flex-1 py-6 pb-24 lg:pb-8 min-w-0">
+        <main className={`flex-1 py-6 pb-24 lg:pb-8 min-w-0 ${activeTab === 'admin' ? 'w-full' : ''}`}>
           {activeTab === 'home' && (
             <HomeDashboard
               onStartLesson={(lesson) => setActiveLesson(lesson)}
-              onNavigateTab={(tab) => setActiveTab(tab)}
+              onNavigateTab={handleNavigateTab}
               onOpenSubscription={() => setSubscriptionModalOpen(true)}
             />
           )}
@@ -77,7 +106,7 @@ function AppContent() {
           {activeTab === 'learn' && (
             <LearnPath
               onStartLesson={(lesson) => setActiveLesson(lesson)}
-              onNavigateTab={(tab) => setActiveTab(tab)}
+              onNavigateTab={handleNavigateTab}
             />
           )}
 
@@ -94,12 +123,19 @@ function AppContent() {
             />
           )}
 
-          {activeTab === 'admin' && <AdminDashboard />}
+          {activeTab === 'admin' && (
+            <AdminDashboard
+              onNavigateHome={() => handleNavigateTab('home')}
+              onOpenAuthModal={() => setAuthModalOpen(true)}
+            />
+          )}
         </main>
       </div>
 
-      {/* Mobile Bottom Navigation */}
-      <BottomNavigation activeTab={activeTab} onSelectTab={(tab) => setActiveTab(tab)} />
+      {/* Mobile Bottom Navigation (Hidden in /admin) */}
+      {activeTab !== 'admin' && (
+        <BottomNavigation activeTab={activeTab} onSelectTab={handleNavigateTab} />
+      )}
 
       {/* Interactive Quiz Session Overlay Modal */}
       {activeLesson && (

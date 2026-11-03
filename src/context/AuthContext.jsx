@@ -28,21 +28,58 @@ export const DEFAULT_GUEST_PROFILE = {
 
 const AuthContext = createContext(null);
 
-const ADMIN_EMAILS = [
-  'shadowmonarch8688@gmail.com',
+const DEFAULT_ADMIN_EMAILS = [
   'saha88979@gmail.com',
+  'shadowmonarch8688@gmail.com',
   'admin@lingora.app',
-  ...(typeof import.meta !== 'undefined' && import.meta.env?.VITE_ADMIN_EMAILS
-    ? import.meta.env.VITE_ADMIN_EMAILS.split(',').map((e) => e.trim().toLowerCase())
-    : []),
-].map((e) => e.toLowerCase());
-
-function checkIsAdmin(email) {
-  if (!email) return false;
-  return ADMIN_EMAILS.includes(email.toLowerCase());
-}
+];
 
 export function AuthProvider({ children }) {
+  const [adminEmails, setAdminEmails] = useState(() => {
+    try {
+      const saved = localStorage.getItem('lingora_admin_emails');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return Array.from(new Set([...DEFAULT_ADMIN_EMAILS, ...parsed.map((e) => e.toLowerCase())]));
+        }
+      }
+    } catch (_) {}
+    return DEFAULT_ADMIN_EMAILS;
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('lingora_admin_emails', JSON.stringify(adminEmails));
+    } catch (_) {}
+  }, [adminEmails]);
+
+  const addAdminEmail = (newEmail) => {
+    const formatted = newEmail?.trim().toLowerCase();
+    if (!formatted || !formatted.includes('@')) {
+      return { success: false, error: 'Please enter a valid email address.' };
+    }
+    if (adminEmails.includes(formatted)) {
+      return { success: false, error: 'This email is already an authorized administrator.' };
+    }
+    setAdminEmails((prev) => [...prev, formatted]);
+    return { success: true };
+  };
+
+  const removeAdminEmail = (emailToRemove) => {
+    const formatted = emailToRemove?.trim().toLowerCase();
+    if (adminEmails.length <= 1) {
+      return { success: false, error: 'Cannot remove the last remaining administrator account.' };
+    }
+    setAdminEmails((prev) => prev.filter((e) => e !== formatted));
+    return { success: true };
+  };
+
+  const checkIsAdmin = (email) => {
+    if (!email) return false;
+    return adminEmails.includes(email.toLowerCase());
+  };
+
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('lingora_user');
     if (savedUser) {
@@ -473,6 +510,9 @@ export function AuthProvider({ children }) {
         profile,
         loading,
         isAdmin,
+        adminEmails,
+        addAdminEmail,
+        removeAdminEmail,
         unlockAdminWithPin,
         signInWithGoogle,
         signInWithDemo,

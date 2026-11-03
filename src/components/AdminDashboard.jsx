@@ -23,10 +23,25 @@ import {
   DollarSign,
   Globe,
   Award,
+  ArrowLeft,
+  Lock,
+  UserCheck,
+  UserX,
+  Mail,
 } from 'lucide-react';
 
-export const AdminDashboard = () => {
-  const { profile, isAdmin, firebaseUser, unlockAdminWithPin } = useAuth();
+export const AdminDashboard = ({ onNavigateHome, onOpenAuthModal }) => {
+  const {
+    profile,
+    isAdmin,
+    firebaseUser,
+    adminEmails,
+    addAdminEmail,
+    removeAdminEmail,
+    unlockAdminWithPin,
+    logout,
+  } = useAuth();
+
   const {
     languages,
     curriculum,
@@ -42,10 +57,15 @@ export const AdminDashboard = () => {
     resetToDefaultCurriculum,
   } = useCurriculum();
 
-  const [activeAdminTab, setActiveAdminTab] = useState('courses'); // 'courses' | 'lessons' | 'materials' | 'payments' | 'users' | 'backup'
+  const [activeAdminTab, setActiveAdminTab] = useState('courses'); // 'courses' | 'lessons' | 'materials' | 'payments' | 'users' | 'whitelist' | 'backup'
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState('');
+  const [showPinUnlock, setShowPinUnlock] = useState(false);
   const [notification, setNotification] = useState('');
+
+  // Admin Whitelist Form State
+  const [newAdminEmailInput, setNewAdminEmailInput] = useState('');
+  const [adminManageError, setAdminManageError] = useState('');
 
   // 1. New Course / Language Form State
   const [newLangId, setNewLangId] = useState('');
@@ -114,7 +134,34 @@ export const AdminDashboard = () => {
     setTimeout(() => setNotification(''), 4000);
   };
 
-  // Handler: Unlock Admin with Master PIN
+  // Handler: Add new admin email to whitelist
+  const handleAddAdminEmail = (e) => {
+    e.preventDefault();
+    setAdminManageError('');
+    if (!newAdminEmailInput.trim()) return;
+
+    const res = addAdminEmail(newAdminEmailInput.trim());
+    if (res.success) {
+      showNotify(`Granted Administrator privileges to ${newAdminEmailInput.trim().toLowerCase()}`);
+      setNewAdminEmailInput('');
+    } else {
+      setAdminManageError(res.error || 'Failed to add admin');
+    }
+  };
+
+  // Handler: Remove admin email
+  const handleRemoveAdminEmail = (emailToRemove) => {
+    if (confirm(`Are you sure you want to revoke admin access for ${emailToRemove}?`)) {
+      const res = removeAdminEmail(emailToRemove);
+      if (res.success) {
+        showNotify(`Revoked admin access for ${emailToRemove}`);
+      } else {
+        alert(res.error || 'Cannot remove admin');
+      }
+    }
+  };
+
+  // Handler: Emergency Master PIN Unlock
   const handleUnlockPin = async (e) => {
     e.preventDefault();
     setPinError('');
@@ -124,55 +171,108 @@ export const AdminDashboard = () => {
     }
   };
 
-  // If not admin, show Friendly Founder PIN Unlock
+  // ==========================================
+  // CASE A: NOT LOGGED IN OR NOT ADMIN
+  // ==========================================
   if (!isAdmin) {
+    const isGuest = !firebaseUser || profile.userId === 'guest_user';
+
     return (
-      <div className="bg-white rounded-3xl p-8 sm:p-12 text-center max-w-md mx-auto border border-slate-100 shadow-xl space-y-6 animate-in zoom-in-95">
-        <div className="w-16 h-16 rounded-3xl bg-[#1E3A8A]/10 text-[#1E3A8A] mx-auto flex items-center justify-center">
-          <Key className="w-8 h-8 text-[#1E3A8A]" />
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-black text-[#20243A]">Founder & Admin Access</h2>
-          <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-            Welcome, founder! Enter your Master PIN to unlock the full Lingora management console for courses, masterclasses, payments, and users.
-          </p>
-        </div>
-
-        <form onSubmit={handleUnlockPin} className="space-y-3">
-          <div className="relative">
-            <input
-              type="password"
-              value={pinInput}
-              onChange={(e) => setPinInput(e.target.value)}
-              placeholder="Enter Master PIN (e.g. lingora2026)"
-              className="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#1E3A8A] text-center font-bold text-sm tracking-widest text-[#20243A]"
-            />
+      <div className="min-h-[70vh] flex items-center justify-center p-4">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 text-center max-w-md w-full border border-slate-100 shadow-2xl space-y-6 animate-in zoom-in-95">
+          <div className="w-16 h-16 rounded-3xl bg-slate-900 text-white mx-auto flex items-center justify-center shadow-md">
+            <Lock className="w-8 h-8 text-amber-400" />
           </div>
 
-          {pinError && (
-            <p className="text-xs font-bold text-rose-600 bg-rose-50 p-2 rounded-xl">
-              {pinError}
+          <div>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">
+              Restricted Area • /admin
+            </span>
+            <h2 className="text-2xl font-black text-[#20243A]">
+              Founder & Admin Console
+            </h2>
+            <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              {isGuest
+                ? 'This console is protected. Please sign in with an authorized administrative account to access the dashboard.'
+                : `You are currently signed in as "${profile.email}", which is not authorized for administrator access.`}
             </p>
-          )}
+          </div>
 
-          <button
-            type="submit"
-            className="w-full py-3 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition transform active:scale-95 cursor-pointer"
-          >
-            Unlock Admin Console
-          </button>
-        </form>
+          <div className="space-y-3 pt-2">
+            {isGuest ? (
+              <button
+                type="button"
+                onClick={onOpenAuthModal}
+                className="w-full py-3.5 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition transform active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <Key className="w-4 h-4 text-amber-400" />
+                <span>Sign In with Admin Account</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  logout();
+                  if (onOpenAuthModal) onOpenAuthModal();
+                }}
+                className="w-full py-3.5 px-4 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-md transition transform active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <RefreshCw className="w-4 h-4 text-amber-400" />
+                <span>Switch to Authorized Admin Account</span>
+              </button>
+            )}
 
-        <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 text-[11px] text-slate-400">
-          <span className="font-bold text-slate-600">Tip:</span> Default Founder PIN is{' '}
-          <code className="text-[#1E3A8A] font-bold">lingora2026</code>. You can also sign in with{' '}
-          <code className="text-[#1E3A8A] font-bold">saha88979@gmail.com</code> or{' '}
-          <code className="text-[#1E3A8A] font-bold">shadowmonarch8688@gmail.com</code>.
+            {onNavigateHome && (
+              <button
+                type="button"
+                onClick={onNavigateHome}
+                className="w-full py-3 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition cursor-pointer flex items-center justify-center gap-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Return to Student Portal</span>
+              </button>
+            )}
+          </div>
+
+          {/* Emergency Founder PIN Toggle */}
+          <div className="pt-4 border-t border-slate-100">
+            {!showPinUnlock ? (
+              <button
+                type="button"
+                onClick={() => setShowPinUnlock(true)}
+                className="text-[11px] font-bold text-slate-400 hover:text-slate-600 cursor-pointer"
+              >
+                Have a Founder Master PIN? Click here
+              </button>
+            ) : (
+              <form onSubmit={handleUnlockPin} className="space-y-2 mt-2">
+                <input
+                  type="password"
+                  value={pinInput}
+                  onChange={(e) => setPinInput(e.target.value)}
+                  placeholder="Enter Master PIN (lingora2026)"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-bold text-center tracking-widest text-[#20243A] focus:outline-none focus:border-[#1E3A8A]"
+                />
+                {pinError && (
+                  <p className="text-[11px] font-bold text-rose-600">{pinError}</p>
+                )}
+                <button
+                  type="submit"
+                  className="w-full py-2 rounded-xl bg-slate-900 text-white text-xs font-bold cursor-pointer"
+                >
+                  Verify Master PIN
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     );
   }
+
+  // ==========================================
+  // CASE B: AUTHORIZED ADMIN CONSOLE
+  // ==========================================
 
   // 1. Create Course / Language Handler
   const handleCreateCourse = (e) => {
@@ -399,18 +499,25 @@ export const AdminDashboard = () => {
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-0.5">
-              Dynamically add subjects, video masterclasses, PDF materials, and configure Razorpay/Stripe payments.
+              Signed in as: <span className="text-amber-400 font-bold">{firebaseUser?.email || profile.email}</span>
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs text-slate-300 font-bold px-3 py-1.5 rounded-xl bg-white/10 border border-white/10">
-            {languages.length} Courses Active
-          </span>
+          {onNavigateHome && (
+            <button
+              onClick={onNavigateHome}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition cursor-pointer"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Learner Portal</span>
+            </button>
+          )}
+
           <button
             onClick={handleExportBackup}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#3B82F6] hover:bg-blue-600 text-white text-xs font-bold transition shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#3B82F6] hover:bg-blue-600 text-white text-xs font-bold transition shadow-xs cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export Backup</span>
@@ -433,7 +540,8 @@ export const AdminDashboard = () => {
           { id: 'materials', label: '3. PDF Store', icon: FileText },
           { id: 'payments', label: '4. Payments & Gateways', icon: CreditCard },
           { id: 'users', label: '5. Learners & Members', icon: Users },
-          { id: 'backup', label: '6. Backup & Sync', icon: RefreshCw },
+          { id: 'whitelist', label: '6. Admin Whitelist', icon: Key },
+          { id: 'backup', label: '7. Backup & Sync', icon: RefreshCw },
         ].map((tab) => {
           const Icon = tab.icon;
           const isActive = activeAdminTab === tab.id;
@@ -1081,7 +1189,109 @@ export const AdminDashboard = () => {
         </div>
       )}
 
-      {/* TAB 6: BACKUP & SYNC */}
+      {/* TAB 6: ADMIN WHITELIST & TEAM PERMISSIONS */}
+      {activeAdminTab === 'whitelist' && (
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
+          <div>
+            <h2 className="text-lg font-black text-[#20243A]">Admin Whitelist & Permissions</h2>
+            <p className="text-xs text-slate-500 mt-1">
+              Add or remove authorized administrator accounts. Anyone logging in with these emails will gain access to this <code className="text-[#1E3A8A] font-bold">/admin</code> dashboard.
+            </p>
+          </div>
+
+          {adminManageError && (
+            <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-bold">
+              {adminManageError}
+            </div>
+          )}
+
+          {/* Add Admin Form */}
+          <form onSubmit={handleAddAdminEmail} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-[#1E3A8A] flex items-center gap-1.5">
+              <UserCheck className="w-4 h-4 text-emerald-600" />
+              <span>Authorize New Administrator Account</span>
+            </span>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <div className="relative flex-1 w-full">
+                <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                <input
+                  type="email"
+                  required
+                  value={newAdminEmailInput}
+                  onChange={(e) => setNewAdminEmailInput(e.target.value)}
+                  placeholder="e.g. cofounder@gmail.com"
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#20243A] focus:outline-none focus:border-[#1E3A8A]"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-xs font-black shadow-xs transition cursor-pointer shrink-0"
+              >
+                + Authorize Admin Email
+              </button>
+            </div>
+          </form>
+
+          {/* Whitelisted Emails List */}
+          <div className="space-y-3">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Currently Authorized Administrators ({adminEmails.length})
+            </span>
+
+            <div className="divide-y divide-slate-100 border border-slate-200 rounded-2xl overflow-hidden">
+              {adminEmails.map((email) => {
+                const isPrimary = email === 'saha88979@gmail.com' || email === 'shadowmonarch8688@gmail.com';
+                const isCurrent = (firebaseUser?.email || profile.email)?.toLowerCase() === email;
+
+                return (
+                  <div
+                    key={email}
+                    className="p-4 flex items-center justify-between gap-4 hover:bg-slate-50 transition"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-[#1E3A8A]/10 text-[#1E3A8A] flex items-center justify-center font-bold text-sm">
+                        {email.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-extrabold text-sm text-[#20243A]">{email}</span>
+                          {isCurrent && (
+                            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                              YOU
+                            </span>
+                          )}
+                          {isPrimary && (
+                            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                              FOUNDER
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-[11px] text-slate-400">Full administrative & curriculum control</span>
+                      </div>
+                    </div>
+
+                    {!isPrimary ? (
+                      <button
+                        onClick={() => handleRemoveAdminEmail(email)}
+                        className="p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                        title="Revoke Admin Access"
+                      >
+                        <UserX className="w-4 h-4" />
+                      </button>
+                    ) : (
+                      <span className="text-[10px] font-bold text-slate-400 uppercase">Protected</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 7: BACKUP & SYNC */}
       {activeAdminTab === 'backup' && (
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
           <div>

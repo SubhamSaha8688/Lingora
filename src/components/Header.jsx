@@ -174,21 +174,6 @@ export const Header = ({
             </button>
           )}
 
-          {/* Admin shortcut button if authorized */}
-          {isAdmin && (
-            <button
-              onClick={() => onNavigateTab('admin')}
-              className={`p-2 rounded-xl transition cursor-pointer ${
-                activeTab === 'admin'
-                  ? 'bg-[#1E3A8A] text-white'
-                  : 'bg-blue-50 text-[#1E3A8A] hover:bg-blue-100'
-              }`}
-              title="Admin Dashboard"
-            >
-              <Shield className="w-4 h-4" />
-            </button>
-          )}
-
           {/* Sign In CTA if not logged in */}
           {!firebaseUser && (
             <button
@@ -275,19 +260,6 @@ export const Header = ({
                   >
                     <Smartphone className="w-4 h-4 text-[#6546D7]" />
                     <span>Install Mobile App</span>
-                  </button>
-                )}
-
-                {isAdmin && (
-                  <button
-                    onClick={() => {
-                      onNavigateTab('admin');
-                      setUserMenuOpen(false);
-                    }}
-                    className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium hover:bg-purple-50 text-[#1E3A8A] text-left cursor-pointer"
-                  >
-                    <Shield className="w-4 h-4 text-[#1E3A8A]" />
-                    <span>Admin Console</span>
                   </button>
                 )}
 

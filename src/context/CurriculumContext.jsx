@@ -37,7 +37,17 @@ export function CurriculumProvider({ children }) {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && typeof parsed === 'object') {
-          return { ...DEFAULT_CURRICULUM, ...parsed };
+          const merged = { ...DEFAULT_CURRICULUM };
+          Object.keys(parsed).forEach((k) => {
+            if (!merged[k]) {
+              merged[k] = parsed[k];
+            } else if (Array.isArray(parsed[k])) {
+              const existingIds = new Set(merged[k].map((l) => l.id));
+              const extraLessons = parsed[k].filter((l) => !existingIds.has(l.id));
+              merged[k] = [...merged[k], ...extraLessons];
+            }
+          });
+          return merged;
         }
       }
     } catch (_) {}
