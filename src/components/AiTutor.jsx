@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { SUPPORTED_LANGUAGES } from '../data/curriculum.js';
-import { speakText, startSpeechRecognition } from '../utils/speech.js';
+import {
+  speakText,
+  startSpeechRecognition,
+  AudioRecorder,
+  isBraveBrowser,
+} from '../utils/speech.js';
 import { LingoraMascot } from './LingoraMascot.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
 import {
   Send,
   Volume2,
+  VolumeX,
   Mic,
   MicOff,
   Sparkles,
@@ -17,6 +23,11 @@ import {
   Building,
   GraduationCap,
   Gauge,
+  AlertCircle,
+  Check,
+  X,
+  RotateCcw,
+  Headphones,
 } from 'lucide-react';
 
 const ROLEPLAY_SCENARIOS = [
@@ -35,6 +46,9 @@ export const AiTutor = () => {
     profile.interfaceLanguage === 'hindi' ? 'hindi' : 'english'
   );
   const [isSlowSpeech, setIsSlowSpeech] = useState(false);
+  const [autoPlayAudio, setAutoPlayAudio] = useState(true);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
   const [messages, setMessages] = useState([
     {
       id: 'welcome',
@@ -45,33 +59,85 @@ export const AiTutor = () => {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
+
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+
+  // Voice & Recording states
   const [isRecording, setIsRecording] = useState(false);
+  const [recordingVolume, setRecordingVolume] = useState(0);
+  const [recordingSeconds, setRecordingSeconds] = useState(0);
+  const [voiceLangMode, setVoiceLangMode] = useState('target'); // 'target' | 'explain'
+  const [micNotice, setMicNotice] = useState(null);
 
   const messagesEndRef = useRef(null);
+  const audioRecorderRef = useRef(new AudioRecorder());
+  const recognitionRef = useRef(null);
+  const timerIntervalRef = useRef(null);
+  const liveTranscriptRef = useRef('');
 
   const currentLang =
     SUPPORTED_LANGUAGES.find((l) => l.id === profile.targetLanguage) || SUPPORTED_LANGUAGES[0];
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages, isTyping, isRecording]);
 
-  const handleSendMessage = async (textToSend) => {
-    const text = textToSend || inputText;
-    if (!text?.trim() || isTyping) return;
+  useEffect(() => {
+    // Check if running on Brave to display helpful guidance if needed
+    isBraveBrowser().then((brave) => {
+      if (brave) {
+        console.info('Lingora Voice: Brave Browser detected. Direct audio fallback is active.');
+      }
+    });
+
+    return () => {
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      if (recognitionRef.current) recognitionRef.current.stop();
+      audioRecorderRef.current.cleanup();
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const handleSpeak = async (text) => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    setIsSpeaking(true);
+    await speakText(text, currentLang.speechCode, isSlowSpeech ? 0.7 : 0.9);
+    setIsSpeaking(false);
+  };
+
+  const handleStopSpeaking = () => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+  };
+
+  const handleSendMessage = async (payload) => {
+    // payload can be string or object { text, audio }
+    let text = typeof payload === 'string' ? payload : payload?.text || inputText;
+    const audioData = typeof payload === 'object' ? payload?.audio : null;
+
+    if (!text?.trim() && !audioData && !payload) return;
+    if (isTyping) return;
+
+    const userDisplayText = text?.trim() || (audioData ? '🎙️ [Spoken Audio Practice]' : '');
 
     const userMsg = {
       id: String(Date.now()),
       sender: 'user',
-      text: text.trim(),
+      text: userDisplayText,
+      isAudio: Boolean(audioData),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
 
     setMessages((prev) => [...prev, userMsg]);
     setInputText('');
+    liveTranscriptRef.current = '';
     setIsTyping(true);
+    setMicNotice(null);
 
     try {
       const history = messages.slice(-8).map((m) => ({
@@ -79,18 +145,27 @@ export const AiTutor = () => {
         content: m.text,
       }));
 
+      const bodyPayload = {
+        language: profile.targetLanguage,
+        level: profile.currentLevel,
+        mode,
+        scenario: mode === 'roleplay' ? selectedScenario : undefined,
+        explanationLanguage: explainLanguage,
+        history,
+        message: text?.trim() || '',
+      };
+
+      if (audioData?.base64) {
+        bodyPayload.audio = {
+          base64: audioData.base64,
+          mimeType: audioData.mimeType,
+        };
+      }
+
       const response = await fetch('/api/tutor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          language: profile.targetLanguage,
-          level: profile.currentLevel,
-          mode,
-          scenario: mode === 'roleplay' ? selectedScenario : undefined,
-          explanationLanguage: explainLanguage,
-          history,
-          message: text.trim(),
-        }),
+        body: JSON.stringify(bodyPayload),
       });
 
       const data = await response.json();
@@ -104,6 +179,11 @@ export const AiTutor = () => {
       };
 
       setMessages((prev) => [...prev, tutorMsg]);
+
+      // Auto-play voice if enabled or if user spoke
+      if (autoPlayAudio || audioData) {
+        handleSpeak(tutorText);
+      }
     } catch (err) {
       setMessages((prev) => [
         ...prev,
@@ -119,26 +199,119 @@ export const AiTutor = () => {
     }
   };
 
-  const handleToggleVoice = () => {
-    if (isRecording) {
+  const handleStartVoice = async () => {
+    setMicNotice(null);
+    liveTranscriptRef.current = '';
+    setRecordingSeconds(0);
+    setRecordingVolume(10);
+
+    try {
+      // 1. Start Direct Audio Recorder (Works in Brave, Chrome, Safari, Firefox)
+      await audioRecorderRef.current.start((vol) => {
+        setRecordingVolume(vol);
+      });
+
+      setIsRecording(true);
+
+      // Start elapsed timer
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      timerIntervalRef.current = setInterval(() => {
+        setRecordingSeconds((prev) => prev + 1);
+      }, 1000);
+
+      // 2. Also start Web Speech API for real-time live preview (if supported & allowed)
+      const sttLang =
+        voiceLangMode === 'target'
+          ? currentLang.speechCode
+          : explainLanguage === 'hindi'
+          ? 'hi-IN'
+          : 'en-US';
+
+      recognitionRef.current = startSpeechRecognition(
+        sttLang,
+        (transcript) => {
+          liveTranscriptRef.current = transcript;
+          setInputText(transcript);
+        },
+        (errorObj) => {
+          // If browser speech recognition failed or blocked (e.g. Brave shields)
+          if (errorObj?.error === 'not-allowed') {
+            setMicNotice({
+              type: 'warn',
+              text: 'Microphone permission denied. Allow microphone access in your browser address bar to practice speaking!',
+            });
+          } else if (errorObj?.error === 'network' || errorObj?.error === 'service-not-allowed') {
+            setMicNotice({
+              type: 'info',
+              text: 'Browser cloud speech recognition blocked. Direct High-Fidelity Audio mode is active! Speak naturally, and Lingora AI will listen directly.',
+            });
+          }
+        },
+        () => {
+          // Keep recording going through AudioRecorder
+        }
+      );
+    } catch (err) {
+      console.error('Failed to access microphone:', err);
       setIsRecording(false);
-      return;
+      setMicNotice({
+        type: 'error',
+        text: `Microphone access error: ${err.message}. Please check browser microphone permissions.`,
+      });
+    }
+  };
+
+  const handleStopAndSendVoice = async () => {
+    if (!isRecording) return;
+
+    if (timerIntervalRef.current) {
+      clearInterval(timerIntervalRef.current);
+      timerIntervalRef.current = null;
     }
 
-    setIsRecording(true);
-    startSpeechRecognition(
-      currentLang.speechCode,
-      (transcript) => {
-        setInputText(transcript);
-      },
-      (error) => {
-        console.warn('Speech err:', error);
-        setIsRecording(false);
-      },
-      () => {
-        setIsRecording(false);
-      }
-    );
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+
+    setIsRecording(false);
+    setRecordingVolume(0);
+
+    // Stop audio recorder and get base64 audio
+    const audioResult = await audioRecorderRef.current.stop();
+    const finalTranscript = (inputText || liveTranscriptRef.current).trim();
+
+    if (audioResult || finalTranscript) {
+      handleSendMessage({
+        text: finalTranscript,
+        audio: audioResult
+          ? {
+              base64: audioResult.base64,
+              mimeType: audioResult.mimeType,
+            }
+          : null,
+      });
+    } else {
+      setMicNotice({
+        type: 'info',
+        text: 'No audio was captured. Please speak closer to your microphone and try again.',
+      });
+    }
+  };
+
+  const handleCancelVoice = () => {
+    if (timerIntervalRef.current) {
+      clearInterval(timerIntervalRef.current);
+      timerIntervalRef.current = null;
+    }
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+    audioRecorderRef.current.stop();
+    setIsRecording(false);
+    setRecordingVolume(0);
+    setRecordingSeconds(0);
   };
 
   const getQuickStarters = () => {
@@ -198,16 +371,46 @@ export const AiTutor = () => {
               <div className="flex items-center gap-2">
                 <h1 className="text-lg font-black text-[#20243A]">Lingora AI Voice Tutor</h1>
                 <span className="px-2 py-0.5 rounded-full bg-[#10B981]/15 text-[#059669] font-black text-[10px]">
-                  GEMINI 3.8 FLASH
+                  GEMINI 3.8 FLASH • LIVE VOICE
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Target: <FlagIcon code={currentLang.id} size="xs" className="inline-block mx-1" /><span className="font-bold text-[#1E3A8A]">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType})
+                Target: <FlagIcon code={currentLang.id} size="xs" className="inline-block mx-1" />
+                <span className="font-bold text-[#1E3A8A]">{currentLang.name}</span> ({profile.currentLevel} • {currentLang.pathwayType})
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
+            {/* Auto-Voice Speak Toggle */}
+            <button
+              onClick={() => {
+                if (isSpeaking) handleStopSpeaking();
+                setAutoPlayAudio(!autoPlayAudio);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-xs font-bold transition border cursor-pointer ${
+                autoPlayAudio
+                  ? 'bg-blue-50 border-blue-200 text-[#1E3A8A]'
+                  : 'bg-slate-50 border-slate-200 text-slate-500'
+              }`}
+              title="Automatically read aloud tutor responses"
+            >
+              {autoPlayAudio ? <Volume2 className="w-3.5 h-3.5 text-[#3B82F6]" /> : <VolumeX className="w-3.5 h-3.5" />}
+              <span>Voice Reply: {autoPlayAudio ? 'ON' : 'OFF'}</span>
+            </button>
+
+            {/* Speaking Status / Stop Audio */}
+            {isSpeaking && (
+              <button
+                onClick={handleStopSpeaking}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-2xl text-xs font-black bg-rose-50 border border-rose-200 text-rose-600 animate-pulse cursor-pointer"
+                title="Stop audio narration"
+              >
+                <VolumeX className="w-3.5 h-3.5" />
+                <span>Stop Voice</span>
+              </button>
+            )}
+
             {/* Speed Toggle */}
             <button
               onClick={() => setIsSlowSpeech(!isSlowSpeech)}
@@ -219,7 +422,7 @@ export const AiTutor = () => {
               title="Speak slower for beginner comprehension"
             >
               <Gauge className="w-3.5 h-3.5" />
-              <span>{isSlowSpeech ? 'Slow Speech (0.7x)' : 'Normal Speed'}</span>
+              <span>{isSlowSpeech ? 'Slow (0.7x)' : 'Normal Speed'}</span>
             </button>
 
             {/* Explanation Language Toggle: English vs Hindi */}
@@ -277,7 +480,7 @@ export const AiTutor = () => {
           ))}
         </div>
 
-        {/* Roleplay Scenario Selector if mode is roleplay */}
+        {/* Roleplay Scenario Selector */}
         {mode === 'roleplay' && (
           <div className="mt-3 pt-3 border-t border-slate-100">
             <span className="text-[11px] font-extrabold uppercase text-slate-400 block mb-2">
@@ -310,8 +513,32 @@ export const AiTutor = () => {
         )}
       </div>
 
+      {/* Mic Notice or Permission Alert */}
+      {micNotice && (
+        <div
+          className={`p-3.5 rounded-2xl text-xs flex items-center justify-between gap-3 ${
+            micNotice.type === 'error'
+              ? 'bg-rose-50 border border-rose-200 text-rose-800'
+              : micNotice.type === 'warn'
+              ? 'bg-amber-50 border border-amber-200 text-amber-900'
+              : 'bg-blue-50 border border-blue-200 text-[#1E3A8A]'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span>{micNotice.text}</span>
+          </div>
+          <button
+            onClick={() => setMicNotice(null)}
+            className="p-1 hover:bg-black/5 rounded-lg cursor-pointer"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
+
       {/* Chat Messages Log */}
-      <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-sm min-h-[420px] max-h-[540px] flex flex-col justify-between">
+      <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-sm min-h-[420px] max-h-[560px] flex flex-col justify-between">
         <div className="overflow-y-auto space-y-4 pr-1">
           {messages.map((msg) => {
             const isUser = msg.sender === 'user';
@@ -339,16 +566,21 @@ export const AiTutor = () => {
                       : 'bg-slate-50 border border-slate-100 text-[#20243A] rounded-tl-none shadow-xs'
                   }`}
                 >
+                  {msg.isAudio && (
+                    <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold text-blue-200">
+                      <Mic className="w-3.5 h-3.5" />
+                      <span>Audio Input</span>
+                    </div>
+                  )}
+
                   <div className="whitespace-pre-wrap font-medium">{msg.text}</div>
 
-                  <div className="mt-2 flex items-center justify-between gap-3 text-[10px] opacity-70">
+                  <div className="mt-2.5 flex items-center justify-between gap-3 text-[10px] opacity-70 border-t border-black/5 pt-1.5">
                     <span>{msg.timestamp}</span>
 
                     {!isUser && (
                       <button
-                        onClick={() =>
-                          speakText(msg.text, currentLang.speechCode, isSlowSpeech ? 0.7 : 0.9)
-                        }
+                        onClick={() => handleSpeak(msg.text)}
                         className="flex items-center gap-1 hover:opacity-100 text-[#1E3A8A] font-bold p-1 rounded-lg hover:bg-blue-100 transition cursor-pointer"
                         title="Listen native pronunciation"
                       >
@@ -365,7 +597,7 @@ export const AiTutor = () => {
           {isTyping && (
             <div className="flex items-center gap-2 text-xs font-bold text-slate-400 pl-10">
               <Sparkles className="w-4 h-4 text-[#3B82F6] animate-spin" />
-              <span>Lingo is crafting personalized feedback...</span>
+              <span>Lingora AI is listening, checking pronunciation & crafting personalized feedback...</span>
             </div>
           )}
 
@@ -392,6 +624,101 @@ export const AiTutor = () => {
           </div>
         )}
 
+        {/* Live Audio Visualizer / Voice Recording Action Bar */}
+        {isRecording && (
+          <div className="mt-3 p-4 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-lg animate-in fade-in slide-in-from-bottom-2 duration-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                {/* Pulsing Mic Dot */}
+                <div className="relative flex items-center justify-center">
+                  <span className="absolute w-4 h-4 rounded-full bg-rose-500 animate-ping opacity-75" />
+                  <span className="relative w-3.5 h-3.5 rounded-full bg-rose-500" />
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-black tracking-wide">
+                      LISTENING TO YOUR VOICE... ({recordingSeconds}s)
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-bold">
+                      {voiceLangMode === 'target' ? `Speaking ${currentLang.name}` : 'Speaking English'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-300">
+                    Speak your sentence now. Lingora AI will check your pronunciation and grammar!
+                  </p>
+                </div>
+              </div>
+
+              {/* Real-time Dynamic Soundwave Bars */}
+              <div className="flex items-center gap-1 h-6 px-3 bg-white/10 rounded-2xl">
+                {[1, 2, 3, 4, 5, 6, 7].map((bar) => {
+                  const scale = Math.max(0.2, (recordingVolume / 100) * (0.5 + (bar % 3) * 0.3));
+                  return (
+                    <span
+                      key={bar}
+                      className="w-1 bg-[#10B981] rounded-full transition-all duration-75"
+                      style={{
+                        height: `${Math.round(scale * 24)}px`,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCancelVoice}
+                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  <span>Cancel</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleStopAndSendVoice}
+                  className="px-4 py-1.5 rounded-xl bg-[#10B981] hover:bg-emerald-600 text-white text-xs font-black shadow-md transition flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Check className="w-4 h-4" />
+                  <span>Done & Teach Me</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Language Switcher for Voice */}
+            <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
+              <span className="text-slate-300">Speaking in:</span>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setVoiceLangMode('target')}
+                  className={`px-2 py-0.5 rounded-lg font-bold transition cursor-pointer ${
+                    voiceLangMode === 'target'
+                      ? 'bg-white text-[#1E3A8A]'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  {currentLang.name}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setVoiceLangMode('explain')}
+                  className={`px-2 py-0.5 rounded-lg font-bold transition cursor-pointer ${
+                    voiceLangMode === 'explain'
+                      ? 'bg-white text-[#1E3A8A]'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  English / Question
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Input Bar */}
         <div className="mt-4 pt-3 border-t border-slate-100">
           <form
@@ -401,30 +728,41 @@ export const AiTutor = () => {
             }}
             className="flex items-center gap-2"
           >
+            {/* Mic Toggle Button */}
             <button
               type="button"
-              onClick={handleToggleVoice}
-              title="Dictate with voice"
-              className={`p-3 rounded-2xl transition cursor-pointer ${
+              onClick={() => {
+                if (isRecording) {
+                  handleStopAndSendVoice();
+                } else {
+                  handleStartVoice();
+                }
+              }}
+              title={isRecording ? 'Stop and send voice recording' : 'Speak with your microphone'}
+              className={`p-3 rounded-2xl transition cursor-pointer relative ${
                 isRecording
-                  ? 'bg-rose-500 text-white animate-pulse'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  ? 'bg-rose-500 text-white ring-4 ring-rose-200'
+                  : 'bg-blue-50 hover:bg-blue-100 text-[#1E3A8A]'
               }`}
             >
-              {isRecording ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
+              {isRecording ? <MicOff className="w-5 h-5 animate-pulse" /> : <Mic className="w-5 h-5" />}
             </button>
 
             <input
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder={`Type or speak in ${currentLang.name} or English...`}
+              placeholder={
+                isRecording
+                  ? 'Listening... (Speak your sentence)'
+                  : `Type or click mic to speak in ${currentLang.name} or English...`
+              }
               className="flex-1 px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#3B82F6] text-sm font-medium text-[#20243A]"
             />
 
             <button
               type="submit"
-              disabled={!inputText.trim() || isTyping}
+              disabled={(!inputText.trim() && !isRecording) || isTyping}
               className="p-3 rounded-2xl bg-[#1E3A8A] hover:bg-[#1e40af] disabled:bg-slate-200 text-white transition shadow-xs cursor-pointer"
             >
               <Send className="w-5 h-5" />
@@ -435,4 +773,5 @@ export const AiTutor = () => {
     </div>
   );
 };
+
 export default AiTutor;

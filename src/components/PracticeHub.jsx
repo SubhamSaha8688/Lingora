@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
@@ -45,8 +45,14 @@ export const PracticeHub = () => {
   const activeFlashcard = allVocab[flashcardIndex] || allVocab[0];
   const activeListening = allVocab[listeningIndex] || allVocab[0];
 
+  const recognitionRef = useRef(null);
+
   const handleToggleSpeakingPractice = () => {
     if (isRecording) {
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
+      }
       setIsRecording(false);
       return;
     }
@@ -55,7 +61,7 @@ export const PracticeHub = () => {
     setMatchScore(null);
     setIsRecording(true);
 
-    startSpeechRecognition(
+    recognitionRef.current = startSpeechRecognition(
       currentLang.speechCode,
       (transcript) => {
         setSpokenTranscript(transcript);

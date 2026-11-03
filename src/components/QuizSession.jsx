@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { SUPPORTED_LANGUAGES } from '../data/curriculum.js';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -167,8 +167,14 @@ export const QuizSession = ({
   };
 
   // Speech Recognition trigger
+  const recognitionRef = useRef(null);
+
   const handleToggleSpeech = () => {
     if (isRecording) {
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
+      }
       setIsRecording(false);
       return;
     }
@@ -177,7 +183,7 @@ export const QuizSession = ({
     setSpokenTranscript('');
     setIsRecording(true);
 
-    startSpeechRecognition(
+    recognitionRef.current = startSpeechRecognition(
       currentLang.speechCode,
       (transcript) => {
         setSpokenTranscript(transcript);
@@ -185,7 +191,7 @@ export const QuizSession = ({
         setSpeakingAccuracy(acc);
       },
       (error) => {
-        setSpeechError(error);
+        setSpeechError(typeof error === 'object' ? error.message : error);
         setIsRecording(false);
       },
       () => {
