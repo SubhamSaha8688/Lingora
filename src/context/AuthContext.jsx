@@ -423,7 +423,7 @@ export function AuthProvider({ children }) {
       const res = await fetch('/api/auth/google', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyData)
+        body: JSON.stringify({ ...bodyData, action: 'google' })
       });
 
       const data = await res.json();

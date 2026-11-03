@@ -16,16 +16,22 @@ export default async function handler(req, res) {
   await connectDB();
 
   const url = req.url || '';
+  const action = req.body?.action || req.query?.action || '';
 
-  if (url.includes('register') || req.body?.action === 'register') {
+  if (url.includes('register') || action === 'register') {
     return register(req, res);
   }
 
-  if (url.includes('google') || req.body?.action === 'google') {
+  if (
+    url.includes('google') ||
+    action === 'google' ||
+    Boolean(req.body?.credential) ||
+    Boolean(req.body?.googleId)
+  ) {
     return googleAuth(req, res);
   }
 
-  if (url.includes('login') || req.body?.action === 'login') {
+  if (url.includes('login') || action === 'login') {
     return login(req, res);
   }
 
