@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
+// Build version: 2026.11.03.admin-fix
 export default defineConfig({
   plugins: [
     react(),
