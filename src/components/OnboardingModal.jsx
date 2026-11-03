@@ -12,6 +12,7 @@ import {
   Brain,
   BookOpen,
   Sparkles,
+  X,
 } from 'lucide-react';
 
 export const OnboardingModal = ({ isOpen, onClose }) => {
@@ -29,7 +30,17 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
   const currentLangMeta =
     SUPPORTED_LANGUAGES.find((l) => l.id === selectedLang) || SUPPORTED_LANGUAGES[0];
 
+  const handleDismiss = () => {
+    try {
+      localStorage.setItem('lingora_device_onboarding_done', 'true');
+    } catch (_) {}
+    onClose();
+  };
+
   const handleFinish = async () => {
+    try {
+      localStorage.setItem('lingora_device_onboarding_done', 'true');
+    } catch (_) {}
     const initialLevel = currentLangMeta.availableLevels[0];
     await completeOnboarding({
       targetLanguage: selectedLang,
@@ -44,8 +55,18 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative max-h-[92vh] overflow-y-auto animate-in zoom-in-95 duration-150">
+        {/* Close / Dismiss Button */}
+        <button
+          type="button"
+          onClick={handleDismiss}
+          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer"
+          title="Dismiss onboarding"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
         {/* Step Progress Bar */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 pr-8">
           <span className="text-xs font-black uppercase tracking-wider text-[#1E3A8A]">
             Step {step} of 5
           </span>

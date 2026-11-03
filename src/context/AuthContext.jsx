@@ -89,13 +89,22 @@ export function AuthProvider({ children }) {
   });
 
   const [profile, setProfile] = useState(() => {
+    const isDeviceDone = typeof window !== 'undefined' && localStorage.getItem('lingora_device_onboarding_done') === 'true';
     const saved = localStorage.getItem('lingora_profile_v2');
     if (saved) {
       try {
-        return { ...DEFAULT_GUEST_PROFILE, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        return {
+          ...DEFAULT_GUEST_PROFILE,
+          ...parsed,
+          hasCompletedOnboarding: parsed.hasCompletedOnboarding || isDeviceDone,
+        };
       } catch (_) {}
     }
-    return DEFAULT_GUEST_PROFILE;
+    return {
+      ...DEFAULT_GUEST_PROFILE,
+      hasCompletedOnboarding: isDeviceDone,
+    };
   });
 
   const [token, setToken] = useState(() => localStorage.getItem('lingora_token') || null);
@@ -493,7 +502,13 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('lingora_profile_v2');
     setToken(null);
     setUser(null);
-    setProfile(DEFAULT_GUEST_PROFILE);
+    const isDeviceDone =
+      typeof window !== 'undefined' &&
+      localStorage.getItem('lingora_device_onboarding_done') === 'true';
+    setProfile({
+      ...DEFAULT_GUEST_PROFILE,
+      hasCompletedOnboarding: isDeviceDone,
+    });
   };
 
   const saveCustomProfile = async (updates) => {
@@ -591,6 +606,9 @@ export function AuthProvider({ children }) {
   };
 
   const completeOnboarding = async (config) => {
+    try {
+      localStorage.setItem('lingora_device_onboarding_done', 'true');
+    } catch (_) {}
     await saveCustomProfile({
       targetLanguage: config.targetLanguage,
       currentLevel: config.level,

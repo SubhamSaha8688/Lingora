@@ -54,9 +54,12 @@ function AppContent() {
     }
   };
 
-  // Trigger onboarding if not completed yet
+  // Trigger onboarding only once per device/PC and only if not completed in profile
   useEffect(() => {
-    if (!loading && !profile.hasCompletedOnboarding && activeTab !== 'admin') {
+    const isDeviceDone =
+      typeof window !== 'undefined' &&
+      localStorage.getItem('lingora_device_onboarding_done') === 'true';
+    if (!loading && !isDeviceDone && !profile.hasCompletedOnboarding && activeTab !== 'admin') {
       setOnboardingOpen(true);
     }
   }, [loading, profile.hasCompletedOnboarding, activeTab]);
