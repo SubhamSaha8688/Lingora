@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCurriculum } from '../context/CurriculumContext.jsx';
 import { FlagIcon } from './FlagIcon.jsx';
@@ -6,6 +6,7 @@ import {
   Shield,
   Plus,
   BookOpen,
+  User,
   Users,
   CreditCard,
   CheckCircle2,
