@@ -47,13 +47,11 @@ export async function getDiagnosticInfo() {
   }
 
   const testCandidates = [
-    process.env.GEMINI_MODEL?.trim(),
-    'gemini-2.5-flash',
-    'gemini-2.5-flash-lite',
-    'gemini-2.0-flash',
-    'gemini-2.0-flash-lite',
     'gemini-3-flash-preview',
-    'gemini-1.5-flash',
+    'gemini-3.8-flash',
+    'gemini-3.5-flash-lite',
+    'gemini-flash-latest',
+    process.env.GEMINI_MODEL?.trim(),
   ].filter(Boolean);
 
   for (const m of testCandidates) {
@@ -169,13 +167,11 @@ Keep the tone warm, patient, inspiring, and encouraging. Never shame mistakes; c
     });
 
     const candidateModels = [
-      process.env.GEMINI_MODEL?.trim(),
-      'gemini-2.5-flash',
-      'gemini-2.5-flash-lite',
-      'gemini-2.0-flash',
-      'gemini-2.0-flash-lite',
       'gemini-3-flash-preview',
-      'gemini-1.5-flash',
+      'gemini-3.8-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-flash-latest',
+      process.env.GEMINI_MODEL?.trim(),
     ].filter(Boolean);
 
     let lastError = null;
