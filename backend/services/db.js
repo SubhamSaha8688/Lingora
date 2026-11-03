@@ -3,35 +3,47 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let isConnected = false;
+const DEFAULT_MONGODB_URI =
+  'mongodb+srv://lingora_admin:lingora_admin%40monarch@cluster0.6zii5do.mongodb.net/lingora?retryWrites=true&w=majority';
+
+// Global cache for serverless environments (Vercel) to reuse open connection
+let cached = global._mongooseCache;
+if (!cached) {
+  cached = global._mongooseCache = { conn: null, promise: null };
+}
 
 export async function connectDB() {
-  if (isConnected) return true;
+  if (cached.conn && mongoose.connection.readyState === 1) {
+    return true;
+  }
 
-  const mongoUri = process.env.MONGODB_URI?.trim();
+  const mongoUri = process.env.MONGODB_URI?.trim() || DEFAULT_MONGODB_URI;
 
-  if (!mongoUri || mongoUri === 'your_mongodb_atlas_uri_here') {
-    console.warn(
-      '⚠️ [MongoDB Atlas] MONGODB_URI not configured in .env. Running with fast in-memory user sessions. Add your MongoDB Atlas connection string to .env to persist to MongoDB Atlas.'
-    );
-    return false;
+  if (!cached.promise) {
+    cached.promise = mongoose
+      .connect(mongoUri, {
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
+      })
+      .then((m) => {
+        console.log(`✅ [MongoDB Atlas] Connected to database: ${m.connection.host}`);
+        return m;
+      })
+      .catch((err) => {
+        cached.promise = null;
+        console.error('❌ [MongoDB Atlas] Connection error:', err.message);
+        throw err;
+      });
   }
 
   try {
-    const conn = await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-    isConnected = true;
-    console.log(`✅ [MongoDB Atlas] Connected to database: ${conn.connection.host}`);
+    cached.conn = await cached.promise;
     return true;
-  } catch (error) {
-    console.error('❌ [MongoDB Atlas] Connection failed:', error.message);
-    console.warn('⚠️ Falling back to local session store. Please verify your MONGODB_URI.');
+  } catch (_) {
     return false;
   }
 }
 
 export function isDbConnected() {
-  return isConnected && mongoose.connection.readyState === 1;
+  return mongoose.connection.readyState === 1;
 }
